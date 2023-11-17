@@ -1,0 +1,47 @@
+\documentclass{standalone}
+% PACKAGES 
+\usepackage{varwidth}
+%\usepackage{algorithm}  % algorithmics environment http://ctan.org/pkg/algorithms
+%\usepackage{algpseudocode}
+\usepackage{amssymb}
+\usepackage{amsmath}	%for \text{} in formular
+\usepackage[lined,linesnumbered]{algorithm2e} % algorithm environment http://ctan.org/pkg/algorithm2e
+\usepackage{pgf}					
+\usepackage{tikz}					% tikz graphics
+\usetikzlibrary{arrows,automata}
+\usepackage{caption}
+
+% COMMANDS:
+\newcommand\XOR{\mathbin{\char`\^}} % for ^ in formular
+\renewcommand{\thealgocf}{}	% avoid printing the number of the algorithm in the caption
+%\renewcommand{\thealgorithm}{}
+
+% DOCUMENT
+\begin{document}
+\begin{varwidth}{\linewidth}
+\par\noindent
+
+% ALGORITHM
+\begin{algorithm}[H]
+
+\SetKwInOut{Input}{input}
+\SetKwInOut{Output}{output}
+
+\Input{A point $P=(x_1,y_1)$, where $P \in E(\mathbb{F}_{2^m})$.}
+\Output{A point $(x_3,y_3) \in E(\mathbb{F}_{2^m})$, representing the sum of the input points.}
+
+\BlankLine
+
+\If{$P = \infty$ }{
+    \Return $\infty$
+}
+$s \leftarrow$ $x_1 + (y_1 + x_1)$ \\
+$x_3 \leftarrow$ $s^2 + s + a$ \\
+$y_3 \leftarrow$ $x_1^2 + (s + 1)*x_3$ \\
+\Return $(x_3,y_3)$
+\caption{EC point doubling over $\mathbb{F}_{2^m}$}\label{alg:pointdbl}
+\end{algorithm}
+
+
+\end{varwidth}
+\end{document}

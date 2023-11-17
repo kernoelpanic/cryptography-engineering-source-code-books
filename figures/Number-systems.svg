@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="400" version="1.1" xmlns="http://www.w3.org/2000/svg">
+	<g fill="none" stroke="#000" stroke-width="2">
+		<ellipse cx="172" cy="200" rx="96" ry="48"/>
+		<ellipse cx="226" cy="200" rx="170" ry="85"/>
+		<ellipse cx="400" cy="200" rx="384" ry="192"/>
+		<ellipse cx="302" cy="200" rx="266" ry="133"/>
+	</g>
+	<text x="110" y="226" font-size="66px">ℕ<tspan x="300">ℤ</tspan><tspan x="450">ℚ</tspan><tspan x="650">ℝ</tspan></text>
+</svg>

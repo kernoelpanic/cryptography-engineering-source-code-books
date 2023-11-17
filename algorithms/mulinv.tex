@@ -1,0 +1,66 @@
+\documentclass{standalone}
+% PACKAGES 
+\usepackage{varwidth}
+%\usepackage{algorithm}  % algorithmics environment http://ctan.org/pkg/algorithms
+%\usepackage{algpseudocode}
+\usepackage{amssymb}
+\usepackage{amsmath}	%for \text{} in formular
+\usepackage[lined,linesnumbered]{algorithm2e} % algorithm environment http://ctan.org/pkg/algorithm2e
+\usepackage{pgf}					
+\usepackage{tikz}					% tikz graphics
+\usetikzlibrary{arrows,automata}
+\usepackage{caption}
+
+% COMMANDS:
+\newcommand\XOR{\mathbin{\char`\^}} % for ^ in formular
+\renewcommand{\thealgocf}{}	% avoid printing the number of the algorithm in the caption
+%\renewcommand{\thealgorithm}{}
+
+% DOCUMENT
+\begin{document}
+\begin{varwidth}{\linewidth}
+\par\noindent
+
+% ALGORITHM
+\begin{algorithm}[H]
+
+\SetKwData{Left}{left}
+\SetKwData{This}{this}
+\SetKwData{Up}{up}
+\SetKwFunction{Union}{Union}
+\SetKwFunction{FindCompress}{FindCompress}
+\SetKwInOut{Input}{input}
+\SetKwInOut{Output}{output}
+
+\Input{A irreducible polynomial $f(x)$ of degree $m$, and a element $a(x)=(x_1,y_1)$ in the field $\mathbb{F}_{2^m}$, $a(x) \in \mathbb{F}_{2^m}$.}
+\Output{The multiplicative inverse $u(x)=a^{-1}(x) \in \mathbb{F}_{2^m}$ of $a(x)$.}
+
+\BlankLine
+
+$s(x) \leftarrow$ $f(x)$ \\
+$r(x) \leftarrow$ $a(x)$ \\
+$v(x) \leftarrow$ $0$ \\
+$u(x) \leftarrow$ $1$ \\
+
+\While{$deg(r(x)) \neq 0$}{
+	\emph{The deg() function returns the degree of the polynomial} \\
+	$\delta \leftarrow deg(s(x)) - deg(r(x))$ \\
+	\If{$\delta < 0$}{ 
+		 $tmp \leftarrow$ $s(x)$ \\
+		 $s(x) \leftarrow$ $r(x)$ \\
+		 $r(x) \leftarrow$ $tmp$ \\
+		 $tmp \leftarrow$ $v(x)$ \\
+		 $v(x) \leftarrow$ $u(x)$ \\
+		 $u(x) \leftarrow$ $tmp$ \\
+		 $\delta \leftarrow$ $-\delta$ \\
+	}
+	$s(x) \leftarrow$ $s(x)-(x^\delta * r(x))$ \\
+	$v(x) \leftarrow$ $v(x)-(x^\delta * u(x))$ \\
+}
+
+\Return $u(x)$
+%\caption{Multiplicative inverse over $\mathbb{F}_{2^m}$}\label{alg:mulinv}
+\end{algorithm}
+
+\end{varwidth}
+\end{document}

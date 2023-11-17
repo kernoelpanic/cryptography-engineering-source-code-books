@@ -1,0 +1,60 @@
+\documentclass{standalone}
+% PACKAGES 
+\usepackage{varwidth}
+%\usepackage{algorithm}  % algorithmics environment http://ctan.org/pkg/algorithms
+%\usepackage{algpseudocode}
+\usepackage{amssymb}
+\usepackage{amsmath}	%for \text{} in formular
+\usepackage[lined,linesnumbered]{algorithm2e} % algorithm environment http://ctan.org/pkg/algorithm2e
+\usepackage{pgf}					
+\usepackage{tikz}					% tikz graphics
+\usetikzlibrary{arrows,automata}
+\usepackage{caption}
+
+% COMMANDS:
+\newcommand\XOR{\mathbin{\char`\^}} % for ^ in formular
+\renewcommand{\thealgocf}{}	% avoid printing the number of the algorithm in the caption
+%\renewcommand{\thealgorithm}{}
+
+% DOCUMENT
+\begin{document}
+\begin{varwidth}{\linewidth}
+\par\noindent
+
+% ALGORITHM
+\begin{algorithm}[H]
+
+\SetKwInOut{Input}{input}
+\SetKwInOut{Output}{output}
+
+\Input{Two points $P1=(x_1,y_1)$,$P2=(x_2,y_2) \in E(\mathbb{F}_{2^m})$.}
+\Output{A Point $(x_3,y_3) \in E(\mathbb{F}_{2^m})$, representing the sum of the input points.}
+
+\BlankLine
+
+\If{$P1 = \infty$ }{
+    \If{$P2 = \infty$}{ \Return $\infty$ }
+    \Return $P2$
+}
+\If{$P2 = \infty$ }{
+    \If{$P1 = \infty$}{ \Return $\infty$ }
+    \Return $P1$
+}
+\If{$x_1 = x_2 \textbf{ and } y_2 = x_1 + y_1$ }{
+    \emph{Check if the points are reflections of one another i.e. $P2 = -P1$ and return the point at infinity if so.} \\
+    \Return $\infty$
+}
+\If{$x_1 = x_2 \textbf{ and } y_1 = y_2$}{
+    \emph{Check if the point should be added to itself and use point doubling algorithm instead.} \\
+    \Return $\textbf{call } pointdbl(P1)$
+}
+$s \leftarrow$ $(y_1 + y_2)/(x_1 + x_2)$ \\
+$s \leftarrow$ $(y_1 + y_2)/(x_1 + x_2)$ \\
+$x_3 \leftarrow$ $s^2 + s + x_1 + x_2 + a$ \\
+$y_3 \leftarrow$ $s*(x_1 + x_3) + x_3 + y_1$ \\
+\Return $(x_3,y_3)$
+\caption{EC point addition over $\mathbb{F}_{2^m}$}\label{alg:pointadd}
+\end{algorithm}
+
+\end{varwidth}
+\end{document}

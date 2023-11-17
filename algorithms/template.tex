@@ -1,0 +1,54 @@
+\documentclass{standalone}
+% PACKAGES 
+\usepackage{varwidth}
+%\usepackage{algorithm}  % algorithmics environment http://ctan.org/pkg/algorithms
+%\usepackage{algpseudocode}
+\usepackage{amssymb}
+\usepackage{amsmath}	%for \text{} in formular
+\usepackage[lined,linesnumbered]{algorithm2e} % algorithm environment http://ctan.org/pkg/algorithm2e
+\usepackage{pgf}					
+\usepackage{tikz}					% tikz graphics
+\usetikzlibrary{arrows,automata}
+\usepackage{caption}
+
+% COMMANDS:
+\newcommand\XOR{\mathbin{\char`\^}} % for ^ in formular
+\renewcommand{\thealgocf}{}	% avoid printing the number of the algorithm in the caption
+%\renewcommand{\thealgorithm}{}
+
+% DOCUMENT
+\begin{document}
+\begin{varwidth}{\linewidth}
+\par\noindent
+
+% ALGORITHM
+\begin{algorithm}[H]
+
+%\SetKwData{Up}{up}
+\SetKwInOut{Input}{input}
+\SetKwInOut{Output}{output}
+
+\Input{A point $G$ on an elliptic curve and a scalar value $k$ (where $k=k_{t-1},...,k_1,k_0$ is the binary representation of $k$ starting with the most significant bit at $k_{t-1}$). }
+\Output{The product $Q=kG$}
+
+\BlankLine
+
+\emph{First initialize $Q$ with the point at infinity as ''Null'' value}
+
+$Q \leftarrow$ $\infty$
+
+\For{$i \leftarrow 0$ \KwTo $t-1$} {
+	\If{$k_i = 1$}{ 
+		$Q \leftarrow Q + G$
+	}
+	$G \leftarrow 2G$
+}
+\Return $Q$
+
+\BlankLine
+
+\caption{\textbf{Binary Multiplication}, right-to-left binary method for point multiplication}\label{alg:binarymul}
+\end{algorithm}
+
+\end{varwidth}
+\end{document}
