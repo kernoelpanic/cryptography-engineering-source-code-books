@@ -3,8 +3,11 @@
 # https://asecuritysite.com/sage/sage_04
 
 import hashlib
+import secrets 
 
-# Secp256k1 https://www.secg.org/sec2-v2.pdf
+# Secp256k1 
+# As specified in https://www.secg.org/sec2-v2.pdf
+# define curve to use (beware of global parameters!)
 p  = 2**256-2**32-2**9 -2**8 - 2**7 - 2**6 - 2**4 - 1
 Fp = FiniteField(p)
 a  = 0
@@ -16,11 +19,13 @@ n  = 115792089237316195423570985008687907852837564279074904382605163141518161494
 h  = 1
 Fn = FiniteField(n)
 
-def ecdsa_hashtoint(msg):	
+def ecdsa_hashtoint(msg):
+  """ Hash value to SHA256 sum intepreted as integer """
   return Integer('0x' + hashlib.sha256(msg.encode()).hexdigest())
 
 def ecdsa_keygen(verbose=False):
-  d = randint(1, n - 1)
+  """ generate random private key and compute ECDSA public key """
+  d = secrets.randbelow(int(n))
   Q = d * G
   if verbose: print(f"d   = {hex(d)}\nQ_x = {hex(Q.xy()[0])}\nQ_y = {hex(Q.xy()[1])}")
   return (Q, d)
@@ -33,7 +38,7 @@ def ecdsa_sign(d, m, nonce=None, verbose=False):
       if nonce:
         k = nonce
       else:
-        k = randint(1, n - 1)
+        k = secrets.randbelow(int(n))
       R = k * G
       (x1, y1) = R.xy()
       r = Fn(x1)
