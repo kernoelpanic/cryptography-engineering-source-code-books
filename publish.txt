@@ -1,0 +1,19 @@
+# Files to publish for html slides
+
+# images
+./img
+./figures
+./algorithms/binarymultiplication.png
+
+# audio video
+./audio
+./video
+
+# reveal.js
+./reveal.js
+
+# html slides
+./index.html
+./Number_Theory_I.slides.html
+./RSA.slides.html
+./ECC.slides.html
