@@ -5,7 +5,7 @@
 <meta content="chrome=1" http-equiv="X-UA-Compatible"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<title>index slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
+<title>ECC slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
   import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
@@ -7434,32 +7434,2081 @@ main {
 <main>
 <div class="reveal">
 <div class="slides"><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=126fdf3f-237e-4dbb-bee9-183d03661c6f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=88e85233-f554-40ce-8ab3-3173bf367ec3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Cryptography-Engineering-Source-Code-Book"><strong>C</strong>ryptography <strong>E</strong>ngineering <strong>S</strong>ource <strong>C</strong>ode <strong>B</strong>ook<a class="anchor-link" href="#Cryptography-Engineering-Source-Code-Book">¶</a></h1><h2 id="Asymmetric-Cryptography">Asymmetric Cryptography<a class="anchor-link" href="#Asymmetric-Cryptography">¶</a></h2><ul>
-<li>Number theory basics (<a href="./Number_Theory_I.ipynb">notebook</a>, <a href="./Number_Theory_I.slides.html">slides</a>)<ul>
-<li>Modulo arithmetic (<a href="./Number_Theory_I.ipynb#mod">notebook</a>, <a href="./Number_Theory_I.slides.html#mod">slides</a>)</li>
-<li>Euler's  totient function (<a href="./Number_Theory_I.ipynb#phi_n">notebook</a>, <a href="./Number_Theory_I.slides.html#phi_n">slides</a>)</li>
-<li>Definition group (<a href="./Number_Theory_I.ipynb#group">notebook</a>, <a href="./Number_Theory_I.slides.html#group">slides</a>)</li>
-<li>Definition finite field (<a href="./Number_Theory_I.ipynb#gf">notebook</a>, <a href="./Number_Theory_I.slides.html#gf">slides</a>)</li>
+<h1 id="ECC">ECC<a class="anchor-link" href="#ECC">¶</a></h1><hr/>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b4730be2-0a1f-405e-b506-0d83dcab96c0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>References ECC:</strong></p>
+<ul>
+<li>[<a href="https://link.springer.com/book/10.1007/b97644">GECC</a>] Guide to Elliptic Curve Cryptography, Darrel Hankerson, Alfred Menezes, and Scott Vanstone. 2004.</li>
+<li>[<a href="https://www.secg.org/sec1-v2.pdf">SEC1v2</a>] SEC 1: Elliptic Curve Cryptography (Version 2.0), <a href="https://en.wikipedia.org/wiki/SECG">Standards for Efficient Cryptography Group (SECG)</a> founded by Certicom</li>
+<li>[<a href="http://www.secg.org/sec2-v2.pdf">SEC2v2</a>] SEC 2: Recommended Elliptic Curve Domain Parameters (Version 2.0)</li>
+<li><a href="https://safecurves.cr.yp.to">https://safecurves.cr.yp.to</a></li>
+<li><a href="https://tools.ietf.org/html/rfc8032">EdDSA Ed25519</a><ul>
+<li><a href="https://ed25519.cr.yp.to/">https://ed25519.cr.yp.to/</a></li>
 </ul>
 </li>
-<li>The RSA cryptosystem as an example of asymmetric cryptography (<a href="./RSA.ipynb">notebook</a>, <a href="./RSA.slides.html">slides</a>)<ul>
-<li>textbook RSA security issues (<a href="./RSA.ipynb#raw">notebook</a>, <a href="./RSA.slides.html#raw">slides</a>)</li>
+<li><a href="https://datatracker.ietf.org/doc/rfc7748/">DH Curve25519</a></li>
+<li><a href="http://www.ecc-brainpool.org/download/Domain-parameters.pdf">Brainpool curves</a> (non-NIST)</li>
+<li>NIST curves specified in <a href="https://csrc.nist.gov/pubs/fips/186-5/final">FIPS 186-5</a> and  <a href="https://csrc.nist.gov/pubs/sp/800/186/final">SP 800-186</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=958ff89d-2621-4a52-b01c-2721062c571c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Further reading:</strong></p>
+<ul>
+<li>[<a href="https://toc.cryptobook.us/">GCAC</a>] A Graduate Course in Applied Cryptography, Dan Boneh and Victor Shoup</li>
+<li>[<a href="https://shoup.net/ntb/">CINTA</a>] A Computational Introduction to Number Theory and Algebra, Victor Shoup</li>
+<li>[<a href="https://cacr.uwaterloo.ca/hac/">HAC</a>] Handbook of Applied Cryptography, Alfred J. Menezes, Paul C. van Oorschot and Scott A. Vanstone</li>
+<li>[<a href="https://www.cs.umd.edu/~jkatz/imc.html">ITMC</a>] Introduction to Modern Cryptography, Jonathan Katz and Yehuda Lindell (3rd Edition)</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9c5db3b2-6fc5-4280-a034-882932ba0089">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Dependencies:</strong></p>
+<p>This notebook uses <a href="https://www.sagemath.org/">sage math</a> as kernel</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=34023264-6236-4bf8-87f2-92b705393408">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sage.misc.banner</span> <span class="c1"># sage math version info </span>
+<span class="n">rchars</span> <span class="o">=</span> <span class="s2">"┘─│┐┌└"</span>
+<span class="n">smallbanner</span> <span class="o">=</span> <span class="n">sage</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">banner</span><span class="o">.</span><span class="n">banner_text</span><span class="p">(</span><span class="n">full</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">rchars</span><span class="p">:</span>
+    <span class="n">smallbanner</span> <span class="o">=</span> <span class="n">smallbanner</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="s2">""</span><span class="p">)</span> <span class="c1"># remove ascii art box</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">smallbanner</span><span class="p">)</span>
+<span class="c1">#banner() # full banner with box</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>
+ SageMath version 9.5, Release Date: 2022-01-30                     
+ Using Python 3.10.6. Type "help()" for help.                       
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f8bf18d5-1a18-4249-84cd-fd373f989255">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="ECC---Elliptic-Curve-Cryptography">ECC - Elliptic Curve Cryptography<a class="anchor-link" href="#ECC---Elliptic-Curve-Cryptography">¶</a></h2><ul>
+<li>RSA relies on the hardness of <em>integer factorization</em></li>
+<li>Security of Diffie-Hellman relies on hardness of <em>discrete logarithm problem</em></li>
+<li>ECC also relies on discrete logarithm problem, but over the algebraic structure of <em>elliptic curves over finite fields</em>. This makes the (same) problem harder.<ul>
+<li><strong>Elliptic Curve Discrete Logarithm Problem</strong> (ECDLP)</li>
 </ul>
 </li>
-<li>Elliptic Curve Cryptography (ECC) (<a href="./ECC.ipynb">notebook</a>, <a href="./ECC.slides.html">slides</a>)<ul>
-<li>Introduction to ECC</li>
-<li>Operations on ECC (<a href="./ECC.ipynb#ops">notebook</a>, <a href="./ECC.slides.html#ops">slides</a>)</li>
-<li>ECDSA (<a href="./ECC.ipynb#ecdsa">notebook</a>, <a href="./ECC.slides.html#ecdsa">slides</a>)<ul>
-<li>ECDSA nonce reuse attack (<a href="./ECC.ipynb#nonce">notebook</a>, <a href="./ECC.slides.html#nonce">slides</a>)</li>
+</ul>
+<p>Advantage:</p>
+<ul>
+<li>This allows for shorter key length for equivalent computational security<ul>
+<li>This means faster computation while retaining hardness against attacks</li>
 </ul>
 </li>
-<li>Important ECC standards (<a href="./ECC.ipynb#std">notebook</a>, <a href="./ECC.slides.html#std">slides</a>)</li>
+</ul>
+<p>Some example algorithms making use of ECC:</p>
+<ul>
+<li>Elliptic Curve Diffie-Hellman (ECDH)</li>
+<li>Elliptic Curve Digital Signature Algorithm (ECDSA)</li>
+<li>Edwars-curve Digital Signature Algorithm (EdDSA)</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dda0b3dd-49e4-4e16-9511-ec35472b003b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Key-sizes">Key sizes<a class="anchor-link" href="#Key-sizes">¶</a></h2><ul>
+<li><a href="https://www.keylength.com/en/compare/">Cryptographic key length recommendation</a></li>
+</ul>
+<p style="text-align:center">
+<img alt="key length" src="./figures/keylength.png" width="800"/>
+</p>
+<p style="text-align:center;font-size:10px">
+<a href="https://upload.wikimedia.org/wikipedia/commons/1/17/Number-systems.svg">(image source)</a>
+</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1262c7d9-a776-4de9-a3c2-b9fb70ad185b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Elliptic-curves-over-finite-fields">Elliptic curves over finite fields<a class="anchor-link" href="#Elliptic-curves-over-finite-fields">¶</a></h2><p>In ECC elliptic curves are defined <strong>over some finite field</strong>, i.e., the $x$ and $y$ coordinates of points on the elliptic curve have to be elements of the underlying finite field, i.e., $x,y \in \mathbb{F}$.</p>
+<p>We denote the underlying finte filed with $\mathbb{F}$ to indicate that it is a finte field. In most cases finite field is the set of non-negative integers modulo a prime number $p$, i.e., $\mathbb{Z}_p$ where $ p \in \textrm{Primes}$. We denote this finite field with $\mathbb{F}_p$.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4e9471f5-209f-466f-b51c-a9bde9fccc8e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Elliptic-curves-representations">Elliptic curves representations<a class="anchor-link" href="#Elliptic-curves-representations">¶</a></h2><p>In ECC there are several different ways to express elliptic curves such as <strong>Weierstrass</strong>, <strong>Montgomery</strong>, and <strong>(twisted) Edwards</strong> representations. Different representations are used for reasons of <em>efficiency</em> and/or implementation-level <em>security</em>, such as, better resistence to side-channel attacks.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=46f71c09-185a-4ca6-86af-ded14d610688">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Weierstrass-represetation">Weierstrass represetation<a class="anchor-link" href="#Weierstrass-represetation">¶</a></h2><p>An elliptic curve $E$ in (long) Weierstrass form is defined by the parameters $a_1,a_2,a_3,a_4,a_5 \in \mathbb{F}_p$ [<a href="https://link.springer.com/book/10.1007/b97644">GECC</a>]:
+$$
+  y^2 + a_1xy + a_3y = x^3 + a_2x^2 + a_4x + a_6
+$$</p>
+<p>Together with a special <em>point at infinity</em> $\mathcal{O}=\infty$. The set of points on $E$ over finite field $\mathbb{F}_p$ is thus defined as:
+$$
+  E(\mathbb{F}_p) = \{(x,y) \in \mathbb{F}_p, y^2 + a_1xy + a_3y - x^3 - a_2x^2 - a_4x - a_6=0\} \cup \{ \mathcal{O} \}
+$$</p>
+<p>Every elliptic curve, with a characteristic ($p$) of the underlying finite field not equal to $ 2 $ or $ 3 $, can be transformed into Weierstrass form [<a href="https://www.cs.umd.edu/~jkatz/imc.html">ITMC</a>].</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f29c4b76-3458-4111-b12d-a828beb478f5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Simplified-(short)-Weierstrass-representation">Simplified (short) Weierstrass representation<a class="anchor-link" href="#Simplified-(short)-Weierstrass-representation">¶</a></h3><p>The simplified, or short, Weierstrass form is a simplified representation of the long Weierstrass form which is commonly used instead of the long version as they can be transformed into each other [<a href="https://link.springer.com/book/10.1007/b97644">GECC</a>].</p>
+<p>The simplified Weierstrass representation is defined by the parameters $a,b \in \mathbb{F}_p$:
+$$
+    y^2 = x^3 + ax + b 
+$$
+Moreover, $a,b \in \mathbb{F}_p$ must satisfy $4a^3 + 27b^2 \not \equiv 0 \pmod p$.
+This should ensure that the equation $ x^3 + ax + b = 0 $ has no repeated roots ("zeros")[<a href="https://www.cs.umd.edu/~jkatz/imc.html">ITMC</a>][<a href="https://www.secg.org/sec1-v2.pdf">SEC1v2</a>].</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0fc5d621-1af0-4574-ac84-70b14eef83ea">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Elliptic-curves-over-$%5Cmathbb%7BF%7D_p$">Elliptic curves over $\mathbb{F}_p$<a class="anchor-link" href="#Elliptic-curves-over-$%5Cmathbb%7BF%7D_p$">¶</a></h2><p>Summing up, in ECC we define elliptic curves $E(\mathbb{F}_p)$ over $\mathbb{F}_p$ in simplified Weierstrass form as follows:</p>
+<ul>
+<li>Let $ \mathbb{F}_p $ be a prime finite field where $ p \in \textrm{Primes} $</li>
+<li>The parameters $a,b \in \mathbb{F}_p $</li>
+<li>Let $a,b \in \mathbb{F}_p$ satisfy $4a^3 + 27b^2 \not \equiv 0 \pmod p$</li>
+<li>The elliptic curve is set of solutions, i.e., points $ P=(x,y)$ on the curve, for all pairs $x,y \in \mathbb{F}_p$ to the defining equation:
+$$
+\begin{align*}
+E(\mathbb{F}_p): y^2 \equiv x^3 + ax + b \pmod p \\
+\end{align*}
+$$</li>
+<li>Plus the point at infinity $\infty$ or $\mathcal{O} \in E(\mathbb{F}_p)$, s.t., $P + \mathcal{O} = \mathcal{O} + P = P $</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=36892397-efe8-40fb-97b8-c2d6b36ec34f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span><span class="o">=</span><span class="mi">103</span><span class="p">;</span> <span class="k">assert</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">Primes</span><span class="p">();</span> <span class="n">FF</span><span class="o">=</span><span class="n">FiniteField</span><span class="p">(</span><span class="n">p</span><span class="p">);</span> <span class="c1"># define finite field </span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0797bf99-a18a-47da-8e5f-4f61091a7950">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">a1</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">a2</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">a3</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">a4</span><span class="o">=</span><span class="n">a</span><span class="p">;</span> <span class="n">a5</span><span class="o">=</span><span class="n">b</span><span class="p">;</span> <span class="c1"># define as long Weierstrass</span>
+<span class="n">EC</span><span class="o">=</span><span class="n">EllipticCurve</span><span class="p">(</span><span class="n">FF</span><span class="p">,[</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">a3</span><span class="p">,</span><span class="n">a4</span><span class="p">,</span><span class="n">a5</span><span class="p">]);</span> <span class="n">EC</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>Elliptic Curve defined by y^2 = x^3 + 102*x + 1 over Finite Field of size 103</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5b8a0cec-f49b-4817-831c-add5d0935127">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Elliptic-curves-over-$%5Cmathbb%7BR%7D$">Elliptic curves over $\mathbb{R}$<a class="anchor-link" href="#Elliptic-curves-over-$%5Cmathbb%7BR%7D$">¶</a></h2><p>The following illustration is often used to depict elliptic curves, but elliptic curves in cryptography are used over finite fields not the real numbers! Nevertheless, such representations are useful to explain the basic operations in ECC.</p>
+<ul>
+<li>Simplified Weierstrass equation over the real numbers $\mathbb{R}$ with $a = -1$ and $b = 1$:
+$$
+y^2 = x^3 + ax + b 
+$$</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c4e8901b-522a-45cf-918e-75433e6ec1fd">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p style="text-align:center">
+<img alt="EC over R" src="./figures/ecc_over_R.png" width="350"/>
+</p>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3057730a-1ac2-4e9e-b5df-4cfad05fdc07">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Elliptic-curves-over-$%5Cmathbb%7BF%7D_p$">Elliptic curves over $\mathbb{F}_p$<a class="anchor-link" href="#Elliptic-curves-over-$%5Cmathbb%7BF%7D_p$">¶</a></h2><ul>
+<li>Same equation over the finite field $\mathbb{F}_{p}$, i.e., $x,y \in \mathbb{F}_p$ with $a = -1$ and $b = 1$.
+$$
+y^2 \equiv x^3 + ax + b \pmod p
+$$</li>
+<li>Note that "curves" over finite fields are no smooth curves, but they are still <em>symmetric</em> along the $ x $ axis (because of $y^2$)<ul>
+<li>Therefore, up to two solution for each $ x $ exist, i.e., $y$ and $-y$</li>
+<li>Therefore, for each point $P=f(x,y)$ a <em>symmetric inverse</em> $-P=f(x,-y)$ is defined</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=18cd3173-d0ee-4d0f-9663-160f3b5ed709">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p style="text-align:center">
+<img alt="EC over F" src="./figures/ecc_over_F.png" width="350"/>
+</p>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ce7070ee-7a8f-4366-b71d-e26ce9338f9d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Compute-the-points-on-an-elliptic-curve">Compute the points on an elliptic curve<a class="anchor-link" href="#Compute-the-points-on-an-elliptic-curve">¶</a></h3><p>The following is an example of how to compute all points on a small elliptic curve over $\mathbb{F}_p$, where $p = 103$</p>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=344ddffe-de4d-4908-991f-ab28e807eb09">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span><span class="o">=</span><span class="mi">103</span><span class="p">;</span> <span class="k">assert</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">Primes</span><span class="p">();</span> <span class="n">FF</span><span class="o">=</span><span class="n">FiniteField</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="n">a1</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">a2</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">a3</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">a4</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span> <span class="n">a5</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">EC</span><span class="o">=</span><span class="n">EllipticCurve</span><span class="p">(</span><span class="n">FF</span><span class="p">,[</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">a3</span><span class="p">,</span><span class="n">a4</span><span class="p">,</span><span class="n">a5</span><span class="p">]);</span> <span class="n">EC</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>Elliptic Curve defined by y^2 = x^3 + 102*x + 1 over Finite Field of size 103</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b675b0ea-b719-4a7f-8ef1-806412e8b744">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">points</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>112</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=274b3fbe-d790-4671-999e-2b3a43ea8652">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># naively compute all points on elliptic curve manually in python (https://stackoverflow.com/questions/76143329/how-to-get-all-the-solution-points-over-a-finite-field-of-an-elliptical-curve)</span>
+<span class="n">ec_points</span> <span class="o">=</span> <span class="nb">set</span><span class="p">();</span> <span class="n">p</span><span class="o">=</span><span class="mi">103</span><span class="p">;</span> <span class="k">assert</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">Primes</span><span class="p">();</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">p</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">%</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
+            <span class="n">ec_points</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">ec_points</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>111</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9632ccae-06e6-4224-985d-143d90089116">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Question:</strong> Which point is missing?</p>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=86d80912-fd7d-4fe8-b7a3-4cf3cda42b0f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">ec_diff</span> <span class="o">=</span> <span class="nb">list</span><span class="p">();</span> <span class="n">ec_match</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span> <span class="c1"># naively match points  </span>
+<span class="k">for</span> <span class="n">Q</span> <span class="ow">in</span> <span class="n">EC</span><span class="o">.</span><span class="n">points</span><span class="p">():</span>
+    <span class="n">match</span><span class="o">=</span><span class="kc">False</span>
+    <span class="k">for</span> <span class="n">P</span> <span class="ow">in</span> <span class="n">ec_points</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">Q</span><span class="o">.</span><span class="n">is_zero</span><span class="p">()</span> <span class="ow">and</span> <span class="n">Q</span><span class="o">.</span><span class="n">xy</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">Q</span><span class="o">.</span><span class="n">xy</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">P</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">ec_match</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"P"</span><span class="p">:</span><span class="n">P</span><span class="p">,</span><span class="s2">"Q"</span><span class="p">:</span><span class="n">Q</span><span class="p">})</span>
+            <span class="n">match</span><span class="o">=</span><span class="kc">True</span>
+            <span class="k">break</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+        <span class="n">ec_diff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ba59e153-0a2d-436c-bfaa-576127b608cc">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">ec_match</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>111</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7003e7e3-0e7d-47ab-a853-7388e70a4aff">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">ec_diff</span> <span class="c1"># Point at infinity </span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>[(0 : 1 : 0)]</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0cea680b-08c3-4d8e-9b73-719f281f78a2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">ec_diff</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">is_zero</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>True</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f3091e49-6071-4a43-98ec-365803288439">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Number-of-points-on-elliptic-curves-over-$%5Cmathbb%7BF%7D_p$">Number of points on elliptic curves over $\mathbb{F}_p$<a class="anchor-link" href="#Number-of-points-on-elliptic-curves-over-$%5Cmathbb%7BF%7D_p$">¶</a></h3><p>The number of points $E(\mathbb{F}_p)$ on the elliptic curve $E$ over $\mathbb{F}_p$ is denoted by $\# E(\mathbb{F}_p)$ and is called the <em>order</em> of the curve. This number is somewhat close to the prime $ p $ and can be approximated by the Hasse Theorem:
+$$
+p + 1 - 2 \sqrt{p} \leq \# E(\mathbb{F}_p) \leq p + 1 + 2 \sqrt{p}
+$$</p>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8c0bdce2-9fa4-4cc2-a873-370f1f925779">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span><span class="o">=</span><span class="mi">103</span><span class="p">;</span> <span class="k">assert</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">Primes</span><span class="p">();</span> <span class="n">FF</span><span class="o">=</span><span class="n">FiniteField</span><span class="p">(</span><span class="n">p</span><span class="p">);</span> <span class="n">FF</span><span class="o">.</span><span class="n">order</span><span class="p">()</span>  <span class="c1"># order of the underlying FF</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>103</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e73111ee-ffb1-46ca-9d74-99053e973764">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">EC</span><span class="o">=</span><span class="n">EllipticCurve</span><span class="p">(</span><span class="n">FF</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span> <span class="n">EC</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>Elliptic Curve defined by y^2 = x^3 + 102*x + 1 over Finite Field of size 103</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5f2bb707-f659-4865-90e9-0ab9630f50d2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">EC</span><span class="o">.</span><span class="n">order</span><span class="p">()</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">points</span><span class="p">());</span> <span class="n">EC</span><span class="o">.</span><span class="n">order</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>112</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5ac87bcd-9f58-41ee-9603-69e44199ebf7">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">sqrt</span><span class="p">())</span> <span class="o">&lt;=</span> <span class="n">EC</span><span class="o">.</span><span class="n">order</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">sqrt</span><span class="p">())</span> <span class="c1"># Hasse Theorem</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=58e544a3-8920-4213-9dd3-ad5477af3065">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Generators-for-elliptic-curves">Generators for elliptic curves<a class="anchor-link" href="#Generators-for-elliptic-curves">¶</a></h3><p>A generator $G$ of an elliptic curve has the same order as the curve and hence can <em>generate</em> all points on the curve:
+$$
+\{G,G\cdot 1,G \cdot 2,\dots,G \cdot \#E(\mathbb{F}_p)\}
+$$</p>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=848458a1-ca04-4500-9e9d-7f50ec15d9ae">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">EC</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="n">G</span><span class="o">.</span><span class="n">xy</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>(2, 78)</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=daf5c4c9-8287-43a1-95ac-4e53aa8e2192">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">G</span> <span class="c1"># (x :  y : 0 iff point at infinity, 1 otherwise)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>(2 : 78 : 1)</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f991d718-fb75-4d93-b7ea-bc9a3b52c541">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">G</span><span class="o">.</span><span class="n">order</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>112</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3b4ee6b9-bc36-4cf9-b111-53561e817a8b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">EC</span><span class="o">.</span><span class="n">order</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>112</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=80487b54-f95e-4665-a427-6bb866ee45a8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">G</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span><span class="n">G</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span><span class="n">G</span><span class="o">*</span><span class="mi">111</span><span class="p">,</span><span class="n">G</span><span class="o">*</span><span class="mi">112</span><span class="p">,</span><span class="n">G</span><span class="o">*</span><span class="mi">113</span><span class="p">)</span> <span class="c1"># last point is the starting point G again</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>(4 : 79 : 1) (20 : 16 : 1) (2 : 25 : 1) (0 : 1 : 0) (2 : 78 : 1)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=54badaf7-4265-46cc-9015-56cd66b15871">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"point at infinity = </span><span class="si">{</span><span class="n">G</span><span class="o">*</span><span class="mi">112</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>point at infinity = (0 : 1 : 0)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=bff86df3-3e9f-40ac-a94d-0e0b6a8ae96f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">G</span><span class="o">*</span><span class="mi">112</span><span class="p">)</span><span class="o">.</span><span class="n">is_zero</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>True</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=912518de-6369-4840-a96f-b4f4c9deb20b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="ECC-operations">ECC operations<a class="anchor-link" href="#ECC-operations">¶</a></h2><p><a id="ops"></a>
+The following are some illustrations of basic elliptic curve operations on a <em>Weierstrass</em> curve, either over the real numbers $\mathbb{R}$, or the finite field $\mathbb{F}_{103}$:
+$$
+\begin{align*}
+y^2 &amp;= x^3 + ax + b \\
+a &amp;= -1 \\
+b &amp;= 1 
+\end{align*}
+$$</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d38c802c-0546-42d7-b923-de1b4c762dfe">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Inverse-of-a-point">Inverse of a point<a class="anchor-link" href="#Inverse-of-a-point">¶</a></h3><p>$$ 
+\begin{align*}
+P1 &amp;= (x,y) = (1,1) \\
+P2 &amp;= -P1 = (x,-y) = (1,-1) \\
+\end{align*}
+$$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9730b1fc-4646-49dc-9282-ccf2d41c7918">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p style="text-align:center">
+<img alt="EC inverse over R" src="./figures/ecc_inverse_over_R.png"/>
+</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8ed01bb7-b578-4532-9f14-b52dad77bad0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Point-addition">Point addition<a class="anchor-link" href="#Point-addition">¶</a></h3><p>$$ 
+\begin{align*}
+P1 + P2 = Q
+\end{align*}
+$$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=575a5b51-8c7d-44f4-8e0c-9a8c7bdc0348">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p style="text-align:center">
+<img alt="EC inverse over R" src="./figures/ecc_add_over_R.png"/>
+</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c150edb9-e516-402b-9601-673ff78f85e3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Point-addition-over-$%5Cmathbb%7BF%7D_p$">Point addition over $\mathbb{F}_p$<a class="anchor-link" href="#Point-addition-over-$%5Cmathbb%7BF%7D_p$">¶</a></h3><p>This time we use $\mathbb{F}_{103}$ as underlying finite field:
+$$ 
+\begin{align*}
+P1 + P2 = Q
+\end{align*}
+$$</p>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c00b0312-f125-4f3b-a8f7-cc78bb43dd3e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p style="text-align:center">
+<img alt="EC inverse over R" src="./figures/ecc_add_over_F.png"/>
+</p>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e6a80f37-cec0-47d1-8a51-30a8995703d4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Point-doubling">Point doubling<a class="anchor-link" href="#Point-doubling">¶</a></h3><p>This operation refers to the addition of one point to itself, hence the name point doubling.
+$$
+P+P=2P=Q
+$$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a1c6ec28-a3ca-44f5-8c64-aa5b03f54f83">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p style="text-align:center">
+<img alt="EC inverse over R" src="./figures/ecc_dbl_over_R.png"/>
+</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=77ac5835-8d87-46ea-9b01-f27d11776a09">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Point-doubling---Point-at-infinity">Point doubling - Point at infinity<a class="anchor-link" href="#Point-doubling---Point-at-infinity">¶</a></h3><p>In the visual example of point doubling the solution is the point at infinity $\mathcal{O}$. All vertical lines (e.g., additions) would also result in the point at infinity.
+$$
+P+P=2P=\infty=\mathcal{O}
+$$</p>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=06b80a61-88c7-4c01-9bf4-c424c2857f1a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p style="text-align:center">
+<img alt="EC double to point at infinity over R" src="./figures/ecc_dbl_infty_over_R.png"/>
+</p>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fe5cdba9-45ea-401d-b179-86e8f4d489e0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Point-multiplication">Point multiplication<a class="anchor-link" href="#Point-multiplication">¶</a></h3><p>Point multiplication is an important operation in ECC.
+A simple algorithm for point multiplication is the binary method also called right-to-left binary method.
+Let $G=(x,y)$ be a point on an elliptic curve over $\mathbb{F}$, then point multiplication can be expressed as calculation of the following form:</p>
+<p>$$
+    Q=kG=\overbrace{G+G+G+...+G}^{\text{k times G}}
+$$</p>
+<p>This chain of additions can be broken up into several multiplications and additions.
+For example if $k=17$ the chain of $G+G+G+...+G$ can be expressed as $(2\cdot (2\cdot (2\cdot (2\cdot G))))+G = 17\cdot G$.
+This reduces the $17$ additions to $4$ multiplications and one addition operation.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5e9699c3-823a-4505-8e24-910b07c60c04">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Algorithm for <em>point multiplication</em> from [<a href="https://link.springer.com/book/10.1007/b97644">GECC</a>]</p>
+<p><img alt="binarymultiplication" src="./algorithms/binarymultiplication.png"/></p>
+<p>As this algorithm demonstrates, the operations needed for point multiplication are <em>point addition</em> and <em>point doubling</em>.
+In ECC these two types of calculations have to be performed on elliptic curves that are defined over the finite field $\mathbb{F}_p$.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=151d0e36-cdba-40aa-af50-e26930ad3a27">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="ECC---domain-parameters">ECC - domain parameters<a class="anchor-link" href="#ECC---domain-parameters">¶</a></h2><p>In case of ECC over prime fields ($\mathbb{F}_p$), where $p \in \textrm{Prime}$, the following <em>domain parameters</em> have to be defined:</p>
+<ul>
+<li>$p$: The prime defining the field $\mathbb{F}_p$, under which the curve operates. All point operations $(+,\cdot)$ are taken modulo $p$</li>
+<li>$a,b$: Two integers which are the coefficients defining the curve $E$</li>
+<li>$G$: The generator- or base-point used as a starting point for multiplications</li>
+<li>$n$: The order of $G$, which is the number of distinct points on the curve which can be computed by multiplying $G$ with a scalar value. Ideally this number is equal to t he number of points on the elliptic curve over $\mathbb{F}_p$, which is denotd by $\#E(\mathbb{F}_p)$</li>
+<li>$h$: The cofactor, i.e., number of points on the elliptic curve divided by $n$</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2594e3e0-2d42-4285-9dfd-2c875294a792">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Example:-Secp256k1">Example: Secp256k1<a class="anchor-link" href="#Example:-Secp256k1">¶</a></h3><p>This is an example instanciation of curve <em>secp256k1</em> specified in [<a href="http://www.secg.org/sec2-v2.pdf">SEC2v2</a>] and allowed in <a href="https://csrc.nist.gov/pubs/sp/800/186/final">[SP 800-186]</a> for blockchain-related applications.
+The curve has the following short Weierstrass form:
+$$
+    y^2 \equiv x^3 + 7 \pmod p 
+$$</p>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8ec6a3bf-f712-48db-847e-d04e6df30212">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [71]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Secp256k1 from https://www.secg.org/sec2-v2.pdf</span>
+<span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">256</span> <span class="o">-</span> <span class="mi">2</span><span class="o">**</span><span class="mi">32</span> <span class="o">-</span> <span class="mi">2</span><span class="o">**</span><span class="mi">9</span> <span class="o">-</span> <span class="mi">2</span><span class="o">**</span><span class="mi">8</span> <span class="o">-</span> <span class="mi">2</span><span class="o">**</span><span class="mi">7</span> <span class="o">-</span> <span class="mi">2</span><span class="o">**</span><span class="mi">6</span> <span class="o">-</span> <span class="mi">2</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">b</span><span class="o">=</span><span class="mi">7</span>
+<span class="n">x_G</span><span class="o">=</span><span class="mh">0x79BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798</span>
+<span class="n">y_G</span><span class="o">=</span><span class="mh">0x483ADA7726A3C4655DA4FBFC0E1108A8FD17B448A68554199C47D08FFB10D4B8</span>
+<span class="n">n</span><span class="o">=</span><span class="mh">0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141</span>
+<span class="n">h</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">FF</span> <span class="o">=</span> <span class="n">FiniteField</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="n">EC</span> <span class="o">=</span> <span class="n">EllipticCurve</span><span class="p">(</span><span class="n">FF</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]);</span> <span class="n">EC</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">EC</span><span class="o">.</span><span class="n">point</span><span class="p">((</span><span class="n">x_G</span><span class="p">,</span><span class="n">y_G</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fbc8a546-576e-4645-a492-e339a8197d3c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Sanity-checking-of-the-curve">Sanity checking of the curve<a class="anchor-link" href="#Sanity-checking-of-the-curve">¶</a></h4><p>The <em>trace</em> of an ellipcit curve over a finite field is defined as $ t = p + 1 - | E(\mathbb{F}_o) |$ [<a href="https://www.cs.umd.edu/~jkatz/imc.html">ITMC</a>]. Since the order of a curve can be computed efficiently this can be a first sanity check if everything has been defined correctly.</p>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=a88de031-4ec6-487b-867b-3455367cd785">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [72]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">t</span><span class="o">=</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span> <span class="o">-</span> <span class="n">EC</span><span class="o">.</span><span class="n">order</span><span class="p">();</span> <span class="n">t</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[72]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>432420386565659656852420866390673177327</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=92bacd08-043f-4e62-b741-10352bdb9dec">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [73]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">EC</span><span class="o">.</span><span class="n">trace_of_frobenius</span><span class="p">()</span> <span class="c1"># also available as function in sage</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[73]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>432420386565659656852420866390673177327</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8474c0ef-2de8-4c75-90d5-ebc306a50830">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [74]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">EC</span><span class="o">.</span><span class="n">order</span><span class="p">()</span> <span class="o">==</span> <span class="n">G</span><span class="o">.</span><span class="n">order</span><span class="p">()</span> <span class="o">==</span> <span class="n">n</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[74]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>True</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=555aa949-d7a3-457c-b9b2-13de0cbac2a0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="ECDSA">ECDSA<a class="anchor-link" href="#ECDSA">¶</a></h2><p><a id="ecdsa"></a></p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3bc4189d-6de8-4098-9862-d2766385837e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="ECDSA---Signature-creation">ECDSA - Signature creation<a class="anchor-link" href="#ECDSA---Signature-creation">¶</a></h3><p>Given a curve $(p,a,b,G,n)$, and a secret key $d_A$ (a scalar value):</p>
+<ul>
+<li>Compute the public key $Q_A = d_A \cdot G$</li>
+<li>Compute hash of the data/message to be signed $ e = hash(m)$</li>
+<li>Compute the first part of the signature, ephemeral key pair $(k,R)$:<ul>
+<li>Generate a <em>random nonce</em> k such that $0 &lt; k &lt; n$</li>
+<li>Calculate point
+$$
+    R = k \cdot G = \binom{r_x}{r_y}
+$$</li>
+<li>Generate $r = r_x \pmod n$, where $ r \not = 0 $</li>
+</ul>
+</li>
+<li>Generate the rest of the signature:
+$$
+      s = \frac{e+d_A \cdot r}{k} \pmod n = k^{-1}\cdot(e+d_A \cdot r) \pmod n  
+  $$</li>
+<li>Publish the signature $\textbf{(r,s)}$ together with the public key $Q_A$</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3af8eec2-a72f-434d-81c0-a7d788755325">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="ECDSA---Signature-verification">ECDSA - Signature verification<a class="anchor-link" href="#ECDSA---Signature-verification">¶</a></h3><p>Given a curve $(p,a,b,G,n)$, a public key $Q_A$ together with a signature $(r,s)$.
+The signature $(r,s)$ over $ m $ is valid iff:</p>
+<ul>
+<li>The signature values are plausible, i.e., $0 &lt; r &lt; n$ and $0 &lt; s &lt; n$</li>
+<li>(Re-)compute the hash of the data/message $e = hash(m)$</li>
+<li>Invert $s$ modulo $n$, i.e., $w = s^{-1} \pmod n$<ul>
+<li>Since $n$ is known and especially since $n \in \textrm{Primes}$, finding the multiplicate inverse $s^{-1}$ is efficient.</li>
+<li>Note: $s^{-1}$ can also be written as $1/s$</li>
+</ul>
+</li>
+<li>Calculate $u_1 = e\cdot w \pmod n$, and $u_2 = r\cdot w \pmod n$</li>
+<li>Derive point $P$:
+$$
+  P = \binom{p_x}{p_y} = u_1\cdot G + u_2 \cdot Q_A
+$$</li>
+<li>If $p_x = r \pmod n $, the signature is valid</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=40f6f97e-7c9a-4080-9f88-d4b8915db368">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="ECDSA---Signature-verification">ECDSA - Signature verification<a class="anchor-link" href="#ECDSA---Signature-verification">¶</a></h3><p>Given a curve $(p,a,b,G,n)$, a public key $Q_A$ together with a signature $(r,s)$.
+The signature checking algorithm for $(r,s)$ over $m$ is correct because:
+$$
+\begin{align*}
+P  &amp;= u_1 \cdot G + u_2 \cdot Q_A \\
+u_1 &amp;= e \cdot w \text{ and } \\
+u_2 &amp;= r \cdot w \\
+P  &amp;= e \cdot w \cdot G + r \cdot w \cdot Q_A \\
+P  &amp;= e \cdot w \cdot G + r \cdot w \cdot d_A \cdot G \\
+P  &amp;= (e \cdot w + r \cdot w \cdot d_A) \cdot G \\
+P  &amp;= w \cdot (e + r \cdot d_A) \cdot G \\
+w  &amp;= s^{-1} = \left(\frac{e+d_A\cdot r}{k}\right)^{-1} = \frac{k}{e + d_A \cdot r} \pmod n \\
+P  &amp;= \frac{k}{e + d_A \cdot r}\cdot (e + d_A \cdot r) \cdot G = k \cdot G 
+\end{align*}
+$$</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=83e45877-9db1-4742-95df-f43c56e801d2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="ECDSA---Nonce-reuse">ECDSA - Nonce reuse<a class="anchor-link" href="#ECDSA---Nonce-reuse">¶</a></h3><p>Do not reuse nonces in ECDSA!</p>
+<ul>
+<li><strong>n-on-ce</strong> = <strong>n</strong>umber <strong>on</strong>ly use on<strong>ce</strong></li>
+<li>Either derive from secure RNG or deterministically<ul>
+<li><a href="http://tools.ietf.org/html/rfc6979">http://tools.ietf.org/html/rfc6979</a></li>
+<li>In <a href="https://datatracker.ietf.org/doc/html/rfc8032#section-8.2">EdDSA</a> deterministic nonces are the default</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a0b6ed5b-c30f-400c-98ac-27141a4f74e4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="ECDSA---Nonce-reuse">ECDSA - Nonce reuse<a class="anchor-link" href="#ECDSA---Nonce-reuse">¶</a></h3><p><strong>Example:</strong> Sony PS3 ECDSA nonce reuse vulnerability</p>
+<ul>
+<li>PS3 used code signing to only allow code from trusted sources to be executed</li>
+<li>Nonce was reused</li>
+<li>Secret key was recovered</li>
+<li>After fail0verflow presented the attack at <a href="https://events.ccc.de/congress/2010/Fahrplan/events/4087.en.html">27c3</a> George Hotz (geohot) released the private key of the PS3 together with a "Hello  world program" for the PS3</li>
+<li><a href="https://en.wikipedia.org/wiki/PlayStation_3_homebrew">Lawsuits followed</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sony_Computer_Entertainment_America,_Inc._v._Hotz">Now the case is settled</a></li>
+</ul>
+<p style="text-align:center">
+<img alt="PS3 key" src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Free-speech-flag-ps3.svg" width="128"/>
+</p>
+<p style="text-align:center;font-size:10px">
+<a href="https://upload.wikimedia.org/wikipedia/commons/7/7d/Free-speech-flag-ps3.svg">PS3 code signing private key encoded as image (image source)</a>
+</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=34d5d25e-16b4-4469-a3fb-b13908be194f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p style="text-align:center">
+<img alt="PS3 meme" src="./img/nonce.png" width="600"/>
+</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=28ad1001-09ce-49e9-81d1-ef039bf376f0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="ECDSA---Nonce-reuse">ECDSA - Nonce reuse<a class="anchor-link" href="#ECDSA---Nonce-reuse">¶</a></h3><p><a id="nonce"></a>
+Given a curve $(p,a,b,G,n)$, a public key $Q_A$ together with:</p>
+<ul>
+<li>a signature $(r,s_1)$ and a message $m_1$</li>
+<li>a signature $(r,s_2)$ and a message $m_2$</li>
+</ul>
+<p>It can be observed that both signatures used the same value $r$ and hence the same random value $k$.
+This can be used to reconstruct the private key $d_A$</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1b90e6d5-439f-49ec-b00f-004a97301066">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="ECDSA---Nonce-reuse">ECDSA - Nonce reuse<a class="anchor-link" href="#ECDSA---Nonce-reuse">¶</a></h3><p>The only unknown variables in the this two equations $(1)$ and $(2)$ are $k$ and $d_A$.
+To solve for $d_A$ first rearrange the equations to $(3)$ and $(4)$ and replace $k$ in $(5)$.</p>
+<p>$$
+\begin{align}
+s_1 &amp;= \frac{e_1+d_A \cdot r}{k} \pmod n \\
+s_2 &amp;= \frac{e_2+d_A \cdot r}{k} \pmod n \\
+k &amp;= \frac{e_1+d_A \cdot r}{s_1} \pmod n \\
+k &amp;= \frac{e_2+d_A \cdot r}{s_2} \pmod n \\
+\frac{e_1+d_A \cdot r}{s_1} &amp;= \frac{e_2+d_A \cdot r}{s_2} \pmod n
+\end{align}
+$$</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cef2a885-58df-4b98-9c2d-e2564d06af09">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Then solve for $d_A$:
+$$
+\begin{align*}
+\frac{e_1+d_A \cdot r}{s_1} &amp;= \frac{e_2+d_A \cdot r}{s_2} &amp;\pmod n \\
+s_2 \cdot (e_1+d_A \cdot r) &amp;= s_1 \cdot (e_2+d_A \cdot r) &amp;\pmod n \\
+s_2 \cdot e_1 + s_2 \cdot d_A \cdot r &amp;= s_1 \cdot e_2 + s_1 \cdot d_A \cdot r &amp;\pmod n \\
+s_2 \cdot e_1 - s_1 \cdot e_2  &amp;= s_1 \cdot d_A \cdot r - s_2 \cdot d_A \cdot r &amp;\pmod n \\
+s_2 \cdot e_1 - s_1 \cdot e_2  &amp;= d_A \cdot r \cdot ( s_1 - s_2 ) &amp;\pmod n \\
+\frac{s_2 \cdot e_1 - s_1 \cdot e_2}{r \cdot ( s_1 - s_2 )} &amp;= d_A   &amp;\pmod n \\
+\end{align*}
+$$</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cdfe7ac3-7736-4427-9736-924bfeee6ec3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="ECDSA---Nonce-reuse">ECDSA - Nonce reuse<a class="anchor-link" href="#ECDSA---Nonce-reuse">¶</a></h3><p><strong>Example:</strong> Bitcoin online web wallet <em>Counterwallet.io</em> (2014)</p>
+<ul>
+<li>Used the same nonce for multiple signatures</li>
+<li>Multiple users transferred coins with the same $ r $ value [<a href="https://bitcointalk.org/index.php?topic=581411.0">1</a>,<a href="https://bitcointalk.org/index.php?topic=395761.msg6354587#msg6354587">2</a>].</li>
+</ul>
+<p style="text-align:center">
+<img alt="PS3 key" src="./img/nonce_bitcoin.png" width="765"/>
+</p>
+<p style="text-align:center;font-size:10px">
+<a href="https://bitcointalk.org/index.php?topic=581411.0">(image source)</a>
+</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7cbb381c-facc-4f5b-bff3-a338bf6028c1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="ECDSA---Example-usage-with-secp256k1">ECDSA - Example usage with secp256k1<a class="anchor-link" href="#ECDSA---Example-usage-with-secp256k1">¶</a></h3><p>The following is an example of ECDSA using curve <em>secp256k1</em>.</p>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5acd0f50-b5f8-4a2a-ba47-1e1be2abeac8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ecdsa_hashtoint</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>	
+  <span class="k">return</span> <span class="n">Integer</span><span class="p">(</span><span class="s1">'0x'</span> <span class="o">+</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ad5358a2-f232-419f-a5c8-9b286d65b342">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [76]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">message_hash</span> <span class="o">=</span> <span class="n">ecdsa_hashtoint</span><span class="p">(</span><span class="s2">"some string"</span><span class="p">);</span> <span class="nb">hex</span><span class="p">(</span><span class="n">message_hash</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[76]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>'0x61d034473102d7dac305902770471fd50f4c5b26f6831a56dd90b5184b3c30fc'</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=12fb1357-9eaa-45ca-afdc-20822a798695">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ecdsa_keygen</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+  <span class="n">d</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="n">Q</span> <span class="o">=</span> <span class="n">d</span> <span class="o">*</span> <span class="n">G</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=18a87959-7aa7-44f9-b413-a7354a88d557">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [77]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">Q_A</span><span class="p">,</span><span class="n">d_A</span><span class="p">)</span> <span class="o">=</span> <span class="n">ecdsa_keygen</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># generate keypair </span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>d   = 0x7e3bf9f5d09b6e86a037df69e7fb593c4ee94c194197f16d53c2ee23ac471daf
+Q_x = 0xc269084d3ff5feb30401c4031fda55bc982c9199f6f6998972c81992b39b6d65
+Q_y = 0x50b4d9cafef111b9a0015096297324ef81aaed94ea4e0a72000ab030f56bd08f
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dbaeea7e-b617-4e3c-b54d-62cd0b6492bf">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ecdsa_sign</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">nonce</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+  <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">while</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">while</span> <span class="n">r</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">nonce</span><span class="p">:</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">nonce</span> <span class="c1"># for simulating nonce reuse attack!</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+      <span class="n">R</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">G</span>
+      <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">xy</span><span class="p">()</span>
+      <span class="n">r</span> <span class="o">=</span> <span class="n">Fn</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">Fn</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="c1"># assume hashed message</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">Fn</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">Fn</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="o">+</span> <span class="n">Fn</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">*</span> <span class="n">Fn</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7a5f0b5e-20af-4a1a-b2c0-0524fd08b71a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [78]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">s</span><span class="p">)</span> <span class="o">=</span> <span class="n">ecdsa_sign</span><span class="p">(</span><span class="n">d_A</span><span class="p">,</span><span class="n">message_hash</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>k   = 0x6b00d8962b94d36fd96555dfafff42cd637c02fa68b2d371db552e706f6c7240
+G_x = 0x79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
+G_y = 0x483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8
+e   = 0x61d034473102d7dac305902770471fd50f4c5b26f6831a56dd90b5184b3c30fc
+r   = 0xb50ba41c0258d6fdac49b08c7fd8bf77a7eb854fd7bdbedae62939fe5df8d924
+s   = 0xd05fefa33c2be5d1b6427b80bbcb78738ed546b0fccfd48121409d432b5d6139
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=51879f44-a0fb-4ead-8397-42338b784ccf">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ecdsa_verify</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+  <span class="n">e</span> <span class="o">=</span> <span class="n">Fn</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="c1"># assume hashed message</span>
+  <span class="n">w</span> <span class="o">=</span> <span class="n">Fn</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">u1</span> <span class="o">=</span> <span class="p">(</span><span class="n">e</span> <span class="o">*</span> <span class="n">w</span><span class="p">)</span>
+  <span class="n">u2</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">w</span><span class="p">)</span>
+  <span class="n">P1</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">u1</span><span class="p">)</span> <span class="o">*</span> <span class="n">G</span>
+  <span class="n">P2</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">u2</span><span class="p">)</span> <span class="o">*</span> <span class="n">Q</span>
+  <span class="n">P</span> <span class="o">=</span> <span class="n">P1</span> <span class="o">+</span> <span class="n">P2</span>
+  <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">xy</span><span class="p">()</span>
+  <span class="n">p_x</span> <span class="o">=</span> <span class="n">Fn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">p_x</span> <span class="o">==</span> <span class="n">r</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=577c1adf-9391-4e6b-8085-16aa32d16f15">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [79]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="kc">True</span> <span class="o">==</span> <span class="n">ecdsa_verify</span><span class="p">(</span><span class="n">Q_A</span><span class="p">,</span> <span class="n">message_hash</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>w   = 0x2509069ad4cdc56a6164d1807adc840d469d0193611a958a7a89c7b3635794b6
+e   = 0x61d034473102d7dac305902770471fd50f4c5b26f6831a56dd90b5184b3c30fc
+u1  = 0x4b2ebeefe067b496b28f28a716188aa2b0e6c9197d194251230974e1e8850e10
+u2  = 0x7c01cbf1288505c674dd1fad356bad1f87ebd5c83c6328cd6a2f346aa87f26a5
+r   = 0xb50ba41c0258d6fdac49b08c7fd8bf77a7eb854fd7bdbedae62939fe5df8d924
+p_x = 0xb50ba41c0258d6fdac49b08c7fd8bf77a7eb854fd7bdbedae62939fe5df8d924
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9db08da8-fe06-4be2-b19b-05120508d8f4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [80]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">message_hash</span> <span class="o">=</span> <span class="n">ecdsa_hashtoint</span><span class="p">(</span><span class="s2">"other message"</span><span class="p">)</span>
+<span class="k">assert</span> <span class="kc">False</span> <span class="o">==</span> <span class="n">ecdsa_verify</span><span class="p">(</span><span class="n">Q_A</span><span class="p">,</span> <span class="n">message_hash</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7c828c9c-8ca5-4a63-8ce7-140fa5529256">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="ECDSA---Nonce-reuse-using-secp256k1">ECDSA - Nonce reuse using secp256k1<a class="anchor-link" href="#ECDSA---Nonce-reuse-using-secp256k1">¶</a></h4>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=cf3ad6c6-0608-4513-98ef-fd4816f44b0d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [81]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">e1</span> <span class="o">=</span> <span class="n">ecdsa_hashtoint</span><span class="p">(</span><span class="s2">"some string"</span><span class="p">)</span>
+<span class="n">same_nonce</span> <span class="o">=</span> <span class="mi">18028843120798948533673493337980837983774482433016311482792706326465477485859</span>
+<span class="p">(</span><span class="n">r1</span><span class="p">,</span><span class="n">s1</span><span class="p">)</span> <span class="o">=</span> <span class="n">ecdsa_sign</span><span class="p">(</span><span class="n">d_A</span><span class="p">,</span> <span class="n">e1</span><span class="p">,</span> <span class="n">nonce</span><span class="o">=</span><span class="n">same_nonce</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"r1 = </span><span class="si">{</span><span class="nb">hex</span><span class="p">(</span><span class="n">r1</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">s1 = </span><span class="si">{</span><span class="nb">hex</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>r1 = 0x8362f4339944b91019606dd91522abc23d653a28cc899437f5109a1d1ceb4641
+s1 = 0x1f250964047d13a32f6713f86d74a7e8c3913d6dd63b6512f3563382ded9b5a6
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7f403b5f-cc87-4e51-b81b-ce189411e2b8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [82]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">e2</span> <span class="o">=</span> <span class="n">ecdsa_hashtoint</span><span class="p">(</span><span class="s2">"some other string"</span><span class="p">)</span>
+<span class="n">same_nonce</span> <span class="o">=</span> <span class="mi">18028843120798948533673493337980837983774482433016311482792706326465477485859</span>
+<span class="p">(</span><span class="n">r2</span><span class="p">,</span><span class="n">s2</span><span class="p">)</span> <span class="o">=</span> <span class="n">ecdsa_sign</span><span class="p">(</span><span class="n">d_A</span><span class="p">,</span> <span class="n">e2</span><span class="p">,</span> <span class="n">nonce</span><span class="o">=</span><span class="n">same_nonce</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"r2 = </span><span class="si">{</span><span class="nb">hex</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">s2 = </span><span class="si">{</span><span class="nb">hex</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>r2 = 0x8362f4339944b91019606dd91522abc23d653a28cc899437f5109a1d1ceb4641
+s2 = 0x8bd5c45c49329c7fc62358e38341b6ec20630bca39c3870b05d4ab299a3e983f
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a2bd2d63-eb8b-485a-b8ec-ce5ab5d896fb">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [83]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">r1</span> <span class="o">==</span> <span class="n">r2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8e6213e3-0354-4fe3-a61f-c8112a6e9946">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>ECDSA nonce reuse calculation:
+$$
+\frac{s_2 \cdot e_1 - s_1 \cdot e_2}{r \cdot ( s_1 - s_2 )} = d_A
+$$</p>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=73a042c9-3aaf-472a-b1bd-f9e148e052cc">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [84]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">d_recovered</span> <span class="o">=</span> <span class="p">(</span><span class="n">s2</span> <span class="o">*</span> <span class="n">e1</span> <span class="o">-</span> <span class="n">s1</span> <span class="o">*</span> <span class="n">e2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">r1</span> <span class="o">*</span> <span class="p">(</span><span class="n">s1</span> <span class="o">-</span> <span class="n">s2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0ad1709c-96f7-40d4-9b87-a37a82c7097b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [85]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">d_A</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[85]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>57097388060309671489675212409207729887264800208367214144041072504577546722735</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=66d4d436-a37e-45d1-bc4b-bf89afafc3ad">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [86]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">d_recovered</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[86]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>57097388060309671489675212409207729887264800208367214144041072504577546722735</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3c6a10c8-1efb-4ee3-ae22-180fa1c36930">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [87]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">d_A</span> <span class="o">==</span> <span class="n">d_recovered</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=509f5602-319c-408d-a9a7-5c2eecba7eac">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Montgomery-representation">Montgomery representation<a class="anchor-link" href="#Montgomery-representation">¶</a></h2><p>The montgomery representation involves elliptic curve equations ($E$) of the following form:
+$$
+   By^2 = x^3 + Ax^2 + x \pmod p
+$$
+Here $B\neq 0 \pmod p$ and $ A \neq \pm 2 \pmod p $. Given this elliptic curve equation, we again denote $E(\mathbb{Z}_p)$ the set of points with coordinates $x,y \in \mathbb{Z}_p$ satisfying the equation $E$, together with a point at infinity $\mathcal{O}$.</p>
+<p>Not every curve can be expressed in Montgomery representation (the order of any elliptic curve group written in Montgomery form is a multiple of $ 4 $ [<a href="https://www.cs.umd.edu/~jkatz/imc.html">ITMC</a>]).</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3c4e487a-0cca-484f-9ae5-5840da57afb8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Montgomery-curves-over-$%5Cmathbb%7BR%7D$">Montgomery curves over $\mathbb{R}$<a class="anchor-link" href="#Montgomery-curves-over-$%5Cmathbb%7BR%7D$">¶</a></h2><p>The following is the <em>Montgomery curve</em> used for Curve25519 over the real numbers $\mathbb{R}$
+$$
+y^2 = x^3 +  486662 x^2 + x 
+$$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a9805461-08f4-4e97-8314-bce1a4ccb7a5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p style="text-align:center">
+<img alt="EC inverse over R" src="./figures/ecc_montgomery_over_R.png"/>
+</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3f808ae2-ba3e-4fcd-9b7b-7ab5915a918b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Example:-Curve25519">Example: Curve25519<a class="anchor-link" href="#Example:-Curve25519">¶</a></h3><p>Specified in <a href="https://datatracker.ietf.org/doc/rfc7748/">RFC 7748</a>
+$$
+y^2 = x^3 +  486662 x^2 + x \pmod p
+$$
+This curve is birationally equivalent to a twisted Edwards curve $ -x^2 + y^2 = 1 + dx^2y^2 $, called <em>edwards25519</em>, where $ d = 370957059348\cdots 33085940283555 $ and $ p = 2^{255} - 19$</p>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ed646d9f-cb81-4ab5-8668-30e206b6a20b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [90]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">Curve25519</span> <span class="o">=</span> <span class="n">EllipticCurve</span><span class="p">(</span><span class="n">GF</span><span class="p">(</span><span class="mi">2</span><span class="o">^</span><span class="mi">255</span><span class="o">-</span><span class="mi">19</span><span class="p">),[</span><span class="mi">0</span><span class="p">,</span><span class="mi">486662</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">Curve25519</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[90]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>Elliptic Curve defined by y^2 = x^3 + 486662*x^2 + x over Finite Field of size 57896044618658097711785492504343953926634992332820282019728792003956564819949</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f120fa0a-ba16-4052-8b8a-dba120fd9131">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [91]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">Curve25519</span><span class="o">.</span><span class="n">trace_of_frobenius</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[91]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>-221938542218978828286815502327069187962</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6d8f4b0c-2231-4f61-ae47-64f93efcfab8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Twisted-Edwards-representation">Twisted Edwards representation<a class="anchor-link" href="#Twisted-Edwards-representation">¶</a></h2><p>The twisted Edwards representation involves elliptic curve equations ($E$) of the following form:
+$$
+   ax^2 + y^2 = 1 + dx^2y^2 \pmod p 
+$$
+Here $a,d \neq 0 \pmod p$ and $ a ¸\neq d \pmod p$. The special case where $ a = 1 $ is called the <em>Edwards representation</em> (without the "<em>twisted</em>"). Given this elliptic curve equation, we again denote $E(\mathbb{Z}_p)$ the set of points with coordinates $x,y \in \mathbb{Z}_p$ satisfying the equation $E$, but this representation does not require a special point at infinity since the point $(0,1)$ on the curve is the identity element.</p>
+<p>The twisted Edwards representation can express the same set of elliptic curves as the Montgomery representation [<a href="https://www.cs.umd.edu/~jkatz/imc.html">ITMC</a>]).</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=38462487-9966-49b0-9f4e-1e4cf30a27d2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Example:-Ed25519/Edwards25519">Example: Ed25519/Edwards25519<a class="anchor-link" href="#Example:-Ed25519/Edwards25519">¶</a></h3><p>Specified in EdDSA <a href="https://datatracker.ietf.org/doc/html/rfc8032#page-13">RFC 8032</a> (used by age) and also allowed by NIST <a href="https://csrc.nist.gov/pubs/fips/186-5/final">FIPS 186-5</a> as <a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-186.pdf">Edwards25519</a>.</p>
+<p>$$
+-x^2 + y^2 = 1 + dx^2 + y^2 \pmod p
+$$</p>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=28fcb332-7afc-4242-ae34-128580f279f1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [93]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mh">0x7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffed</span>
+<span class="n">FFp</span> <span class="o">=</span> <span class="n">GF</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4d996bbd-842d-4439-b4a7-d97a5eaae4f4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [95]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">FFp</span><span class="p">(</span><span class="mh">0x52036cee2b6ffe738cc740797779e89800700a4d4141d8ab75eb4dca135978a3</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">FFp</span><span class="p">(</span><span class="mh">0x7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffec</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9ff3e430-3974-4c89-b453-8649fc129e6e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Since sage does not directly support TwistedEdwards curves, the curve has to be converted
+(<a href="https://neuromancer.sk/std/other/Ed25519">cf.</a>)</p>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2615a6a8-5bd5-41fb-9c7d-b82c90f9d373">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [99]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># This curve is a Weierstrass curve (SAGE does not support TwistedEdwards curves) birationally equivalent to the intended curve.</span>
+<span class="c1"># You can use the to_weierstrass and to_twistededwards functions to convert the points.</span>
+<span class="n">EC</span> <span class="o">=</span> <span class="n">EllipticCurve</span><span class="p">(</span><span class="n">FFp</span><span class="p">,</span> <span class="p">(</span><span class="n">FFp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">48</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">14</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">d</span> <span class="o">+</span> <span class="n">d</span><span class="o">^</span><span class="mi">2</span><span class="p">),</span> <span class="n">FFp</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">864</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">d</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">34</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">d</span> <span class="o">-</span> <span class="n">d</span><span class="o">^</span><span class="mi">2</span><span class="p">)))</span>
+
+<span class="k">def</span> <span class="nf">to_weierstrass</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+	<span class="k">return</span> <span class="p">((</span><span class="mi">5</span><span class="o">*</span><span class="n">a</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">y</span> <span class="o">-</span> <span class="mi">5</span><span class="o">*</span><span class="n">d</span><span class="o">*</span><span class="n">y</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">12</span> <span class="o">-</span> <span class="mi">12</span><span class="o">*</span><span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">y</span> <span class="o">-</span> <span class="n">d</span><span class="o">*</span><span class="n">y</span> <span class="o">-</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">to_twistededwards</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+	<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">a</span> <span class="o">-</span> <span class="mi">12</span><span class="o">*</span><span class="n">u</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="o">*</span><span class="n">u</span> <span class="o">-</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
+	<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">y</span> <span class="o">-</span> <span class="n">d</span><span class="o">*</span><span class="n">y</span> <span class="o">-</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">v</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">v</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+	<span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    
+<span class="n">G</span> <span class="o">=</span> <span class="n">EC</span><span class="p">(</span><span class="o">*</span><span class="n">to_weierstrass</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">FFp</span><span class="p">(</span><span class="mh">0x216936D3CD6E53FEC0A4E231FDD6DC5C692CC7609525A7B2C9562D608F25D51A</span><span class="p">),</span> <span class="n">FFp</span><span class="p">(</span><span class="mh">0x6666666666666666666666666666666666666666666666666666666666666658</span><span class="p">)))</span>
+<span class="n">EC</span><span class="o">.</span><span class="n">set_order</span><span class="p">(</span><span class="mh">0x1000000000000000000000000000000014def9dea2f79cd65812631a5cf5d3ed</span> <span class="o">*</span> <span class="mh">0x08</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9f3c0ab8-aa8e-4776-87ed-27967d21fa80">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [100]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">EC</span><span class="o">.</span><span class="n">trace_of_frobenius</span><span class="p">()</span> <span class="o">==</span> <span class="o">-</span><span class="mi">221938542218978828286815502327069187962</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1c1310f7-6902-4671-90d2-441d3c31638d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="ECC-standards">ECC standards<a class="anchor-link" href="#ECC-standards">¶</a></h2><p><a id="std"></a>
+There are multiple standards which standardized elliptic curves with their paramters to be used for ECC, e.g.,</p>
+<ul>
+<li>NIST <a href="https://csrc.nist.gov/pubs/fips/186-5/final">[FIPS 186-5]</a> (last update 2023)</li>
+<li>SEC 2 [<a href="http://www.secg.org/sec2-v2.pdf">SEC2v2</a>] (last update 2010)</li>
+<li>Brainpool [<a href="https://datatracker.ietf.org/doc/rfc5639/">RFC 5639</a>] (last update 2010)</li>
+<li>...</li>
+</ul>
+<p>A good (but old) overview of standards and for choosing the right curves for ECC can be found on <a href="https://safecurves.cr.yp.to/index.html">SafeCurves</a>.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=65dc3b0f-2bda-4747-a594-9895d3e4a119">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="NIST-curves">NIST curves<a class="anchor-link" href="#NIST-curves">¶</a></h3><p>NIST standardized different elliptic curves (<em>Edwards</em>, <em>Weierstrass</em>, <em>Montgomery</em>, and <em>Koblitz</em> curves).
+In its current version the recommended curves are defined over <em>prime fields</em>, i.e., $\mathbb{F}_p$ also written as $\mathrm{GF}(p)$ <a href="https://csrc.nist.gov/pubs/fips/186-5/final">[FIPS 186-5]</a>, <a href="https://csrc.nist.gov/pubs/sp/800/186/final">[SP 800-186]</a>.</p>
+<ul>
+<li>With Feb. 2023 curves over <em>binary fields</em> ($\mathbb{F}_{2^m}$) have been depricated<blockquote>
+<p>Due to their limited adoption, elliptic curves over binary fields are deprecated</p>
+</blockquote>
+</li>
+<li>With Feb. 2023 <em>Montgomery</em> curve Curve25519 (for ECDH) as well as <em>twisted Edwards</em> curve Edwards25519 (for EdDSA) are included in <a href="https://csrc.nist.gov/pubs/fips/186-5/final">[FIPS 186-5]</a>. [cf. <a href="https://www.rfc-editor.org/info/rfc7748">RFC 7748</a>, <a href="https://datatracker.ietf.org/doc/html/rfc8032">RFC 8032</a>]<ul>
+<li>The differences between NIST and IETF specifications have been analyzed here [<a href="https://eprint.iacr.org/2020/1244.pdf">Taming the many EdDSAs</a>,<a href="https://eprint.iacr.org/2020/823">The Provable Security of Ed25519: Theory and Practice</a>] and test vectors are available <a href="https://github.com/novifinancial/ed25519-speccheck">here</a>.</li>
 </ul>
 </li>
 </ul>
