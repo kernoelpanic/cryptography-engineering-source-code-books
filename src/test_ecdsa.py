@@ -1,12 +1,33 @@
-""" pytest script for ecdsa.sage 
+""" pytest script for ecdsa.sage
 
 This script imports all from sagemath
 and loads ecdsa.sage to test it using pytest
 
 $ python3 -m pytest test_ecdsa.p
 """
-
+import pytest
 from sage.all import *
+
+def read_test_cases_from_txt(file_path):
+    test_cases = []
+    current_test_case = {}
+
+    with open(file_path, 'r') as file:
+        for line in file:
+            line = line.strip()
+            if line.startswith("k ="):
+                current_test_case['k'] = int(line.split('=')[1].strip(),10)
+            elif line.startswith("x ="):
+                current_test_case['x'] = int(line.split('=')[1].strip(),16)
+            elif line.startswith("y ="):
+                current_test_case['y'] = int(line.split('=')[1].strip(),16)
+                test_cases.append((
+                    current_test_case['k'],
+                    current_test_case['x'],
+                    current_test_case['y']
+                ))
+                current_test_case = {}  # Reset for the next test case
+    return test_cases
 
 load("./ecdsa.sage")
 
@@ -15,7 +36,7 @@ def test_sagemath_import():
     assert len(GF(5).list()) == 5,"Sage math import did not work properly"
 
 def test_ecdsa_sign_and_verify():
-    # test sign and verify 
+    # test sign and verify
     (Q_A,d_A) = ecdsa_keygen(verbose=False)
     message_hash = ecdsa_hashtoint("some string")
     (r,s) = ecdsa_sign(d_A,message_hash,verbose=False)
@@ -47,13 +68,14 @@ def test_ecdsa_verify():
 def test_secp256k1_trace():
     assert p+1 - E.order() == E.trace_of_frobenius() == 432420386565659656852420866390673177327,"Wrong trace for secp256k1"
 
-def test_secp256k1_mul():
-    k = 2
-    x = 0xC6047F9441ED7D6D3045406E95C07CD85C778E4B8CEF3CA7ABAC09B95C709EE5
-    y = 0x1AE168FEA63DC339A3C58419466CEAEEF7F632653266D0E1236431A950CFE52A
-    
+@pytest.mark.parametrize("k, x, y", read_test_cases_from_txt("./test_cases_secp256k1.txt"))
+def test_secp256k1_mul(k, x, y):
+    #k = 2
+    #x = 0xC6047F9441ED7D6D3045406E95C07CD85C778E4B8CEF3CA7ABAC09B95C709EE5
+    #y = 0x1AE168FEA63DC339A3C58419466CEAEEF7F632653266D0E1236431A950CFE52A
+
     P = k*G
     (P_x,P_y)=P.xy()
     assert x == P_x and y == P_y,"k*G does not match expected (x,y)"
-    
+
 
