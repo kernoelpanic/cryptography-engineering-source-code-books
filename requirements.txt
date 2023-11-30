@@ -1,25 +1,31 @@
 ## required python packages ##
 
-# python cryptography lib
+# the go-to python cryptography lib
 cryptography
 
-# depricated python cryptography
+# depricated python cryptography lib
 pycrypto
+
+# other python cryptography libs
+pycryptodome
 py-ecc
 
-# wrapper for libsecp256k1
+# python wrapper for libsecp256k1
 secp256k1
 
+# testing 
 pytest
+
+# useful libs 
 sympy
 scipy
 matplotlib
 ipython
 
-# the old package
+# the old jupyter package
 jupyter
 
-# the new package:
+# the new jupyter package
 jupyterlab
 # with the old package 
 # the jupyter-nbconvert command 
