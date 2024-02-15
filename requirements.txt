@@ -4,14 +4,29 @@
 cryptography
 
 # depricated python cryptography lib
-pycrypto
+#pycrypto
 
 # other python cryptography libs
 pycryptodome
-py-ecc
+#py-ecc
+ecdsa
+#hmac
+#hashlib
 
 # python wrapper for libsecp256k1
 secp256k1
+
+# common bip44 implementation
+hdwallet
+
+# bip39 reference implementation
+mnemonic
+
+# ecoding
+base58
+
+# RIPEMD160 since no longer part of openssl
+ripemd-hash
 
 # testing 
 pytest

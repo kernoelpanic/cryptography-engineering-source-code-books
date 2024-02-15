@@ -48,3 +48,15 @@ jupyter nbconvert \
 			#ppt.ipynb
 
 jupyter nbconvert --to html index.ipynb
+
+if [ -d "./solutions" ]; then
+	jupyter nbconvert \
+      --to slides  \
+      `#--nbformat=2` \
+      --template reveal \
+      --reveal-prefix=./reveal.js \
+      --SlidesExporter.reveal_number='c' \
+      --SlidesExporter.reveal_scroll=True \
+      --SlidesExporter.reveal_theme=simple \
+      solutions/*.ipynb
+fi
