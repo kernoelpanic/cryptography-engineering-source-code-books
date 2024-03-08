@@ -1,5 +1,6 @@
 .ipynb_checkpoints*
 .venv*
+.Trash*
 /video
 /audio
 /reveal.js
