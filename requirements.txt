@@ -14,7 +14,7 @@ pycryptodome
 ecdsa
 
 # Hashing
-pysha3
+safe-pysha3
 #hashlib
 #hmac
 
@@ -28,7 +28,8 @@ hdwallet
 mnemonic
 
 # ecoding
-base58
+base58 # bitcoin addresses 
+bech32 # bitcoin addresses
 
 # RIPEMD160 since no longer part of openssl
 ripemd-hash
