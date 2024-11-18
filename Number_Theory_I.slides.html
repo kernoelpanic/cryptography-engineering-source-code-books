@@ -6,7 +6,7 @@
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
 <title>Number_Theory_I slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
 <!-- General and theme style sheets -->
@@ -7503,7 +7503,7 @@ main {
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>
  SageMath version 9.5, Release Date: 2022-01-30                     
- Using Python 3.10.6. Type "help()" for help.                       
+ Using Python 3.10.12. Type "help()" for help.                      
 
 </pre>
 </div>
@@ -7524,7 +7524,7 @@ main {
 <p style="text-align:center;font-size:10px">
 <a href="https://upload.wikimedia.org/wikipedia/commons/1/17/Number-systems.svg">(image source)</a>
 </p>
-<p>For cryptographic applications only (subsets) of the integers are important</p>
+<p>For cryptographic applications only (subsets of) the integers are important</p>
 </div>
 </div>
 </div>
@@ -7547,70 +7547,7 @@ $$</li>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=17af0fd2-56e2-47ac-b624-cfd5e7b2f0fb">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Integers-in-sage">Integers in sage<a class="anchor-link" href="#Integers-in-sage">¶</a></h3>
-</div>
-</div>
-</div>
-</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=9c805c86-795f-4c48-ae32-0b4e9e325163">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">Z</span> <span class="o">=</span> <span class="n">Integers</span><span class="p">();</span> <span class="n">Z</span> <span class="c1"># explicitly defined integers in sage</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>Integer Ring</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=779789c5-61c5-4499-9eb2-b7fc630ad365">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="o">-</span><span class="mi">1</span> <span class="ow">in</span> <span class="n">Z</span> <span class="ow">and</span> <span class="mi">0</span> <span class="ow">in</span> <span class="n">Z</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>True</pre>
-</div>
-</div>
-</div>
-</div>
-</div></div></section></section><section><section>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=db4b079c-103e-4e3d-b2e3-9bb8f87b8243">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7620,9 +7557,9 @@ $$</li>
 <h2 id="Natural-Numbers">Natural Numbers<a class="anchor-link" href="#Natural-Numbers">¶</a></h2><p>Also referred to as <em>non-negative integers</em> or <em>positive integers</em> if without $ 0 $. Possible notations:</p>
 <ul>
 <li>non-negative integers including zero: $$ \mathbb{N} = \mathbb{N}_0 = \{0,1,2,3,\dots\} $$</li>
-<li>positive integers: $$ \mathbb{N} = \mathbb{N}_1 = \mathbb{N}^* = \{1,2,3,\dots\} $$</li>
+<li><strong>positive integers</strong>: $$ \mathbb{N} = \mathbb{N}_1 = \mathbb{N}^* = \{1,2,3,\dots\} $$</li>
 </ul>
-<p>Every positive integer is either <strong>composite</strong>, <strong>prime</strong>, or the <strong>unit</strong> $ 1 $.</p>
+<p>Every <em>positive integer</em> is either <strong>composite</strong>, <strong>prime</strong>, or the <strong>unit</strong> $ 1 $</p>
 </div>
 </div>
 </div>
@@ -7642,7 +7579,7 @@ $$</li>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="n">NonNegativeIntegers</span><span class="p">();</span> <span class="n">N</span>  <span class="c1"># Includes 0</span>
@@ -7656,7 +7593,7 @@ $$</li>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>Non negative integers</pre>
 </div>
@@ -7668,7 +7605,7 @@ $$</li>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">-</span><span class="mi">1</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">N</span> <span class="ow">and</span> <span class="mi">0</span> <span class="ow">in</span> <span class="n">N</span>
@@ -7682,7 +7619,7 @@ $$</li>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>True</pre>
 </div>
@@ -7694,10 +7631,10 @@ $$</li>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">N_1</span> <span class="o">=</span> <span class="n">NN</span> <span class="o">=</span> <span class="n">PositiveIntegers</span><span class="p">();</span> <span class="n">N_1</span>  <span class="c1"># Excludes 0</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">N_1</span> <span class="o">=</span> <span class="n">PositiveIntegers</span><span class="p">();</span> <span class="n">N_1</span>  <span class="c1"># Excludes 0</span>
 </pre></div>
 </div>
 </div>
@@ -7708,7 +7645,7 @@ $$</li>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[28]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>Positive integers</pre>
 </div>
@@ -7720,10 +7657,10 @@ $$</li>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="o">-</span><span class="mi">1</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">N_1</span> <span class="ow">and</span> <span class="mi">0</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">N</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">-</span><span class="mi">1</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">N_1</span> <span class="ow">and</span> <span class="mi">0</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">N_1</span>
 </pre></div>
 </div>
 </div>
@@ -7734,61 +7671,9 @@ $$</li>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>False</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=015740a8-35cf-4f0f-ab69-173718659d13">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [50]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">b</span> <span class="o">%</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[50]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>True</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=afa85656-4649-4bc8-9aad-ab9b54af9905">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [48]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">b</span> <span class="o">%</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[48]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>False</pre>
 </div>
 </div>
 </div>
@@ -7843,7 +7728,7 @@ A natural number greater than $ 1 $ that is not prime is called <strong>composit
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [55]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">P</span> <span class="o">=</span> <span class="n">Primes</span><span class="p">();</span> <span class="n">P</span> <span class="c1"># define set of all primes in sage</span>
@@ -7857,7 +7742,7 @@ A natural number greater than $ 1 $ that is not prime is called <strong>composit
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[55]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>Set of all prime numbers: 2, 3, 5, 7, ...</pre>
 </div>
@@ -8010,67 +7895,29 @@ Usually they never report a prime as a composite number, but it is possible that
 </div>
 </div>
 </div>
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=bd0591aa-d473-474e-84bd-ef5423de59ef">
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fdd8e347-fede-40db-9c5b-100ccd8bde77">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="mi">10</span> <span class="ow">in</span> <span class="n">P</span> <span class="c1"># check if number is prime in sage</span>
-</pre></div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>10 in P</p>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>False</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=82798322-8747-4048-b2da-3ff611e05c88">
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0b90b4f4-d720-41ba-adef-87f3543f7660">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [121]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">a</span><span class="p">)[</span><span class="mi">2</span><span class="p">:])</span>
-<span class="nb">len</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">a</span><span class="p">)[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">==</span> <span class="n">n</span>
-</pre></div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Primality-testing">Primality testing<a class="anchor-link" href="#Primality-testing">¶</a></h3>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>1100100
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[121]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>True</pre>
-</div>
-</div>
-</div>
-</div>
-</div></div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bd353fdd-554f-40ca-93b3-f9f135d4aad0">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bd353fdd-554f-40ca-93b3-f9f135d4aad0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8081,22 +7928,6 @@ Usually they never report a prime as a composite number, but it is possible that
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">isPrime_sage</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">""" wrapper function for primality tests in sage """</span>
     <span class="k">return</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">Primes</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8811908f-c7b8-4986-b9ca-4efeb40f2cf2">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">isPrime_sage_probabilistic</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">""" wrapper function for probabilistic primality tests in sage """</span>
-    <span class="k">return</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">Primes</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8137,12 +7968,23 @@ Usually they never report a prime as a composite number, but it is possible that
 </div>
 </div>
 </div>
-</div></div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=2b12db08-5e98-42a4-b1e1-320f758cb5c0">
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5af1b81c-5b4a-4527-8aa2-5f7594e24422">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Primality-testing">Primality testing<a class="anchor-link" href="#Primality-testing">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=2b12db08-5e98-42a4-b1e1-320f758cb5c0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> isPrime_trial_division(random_number)
@@ -8158,25 +8000,25 @@ Usually they never report a prime as a composite number, but it is possible that
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>CPU times: user 5.61 ms, sys: 195 µs, total: 5.8 ms
-Wall time: 5.76 ms
+<pre>CPU times: user 640 ms, sys: 0 ns, total: 640 ms
+Wall time: 638 ms
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(False, [5, 5, 61, 269, 4787])</pre>
+<pre>(False, [2, 2, 2, 13, 19, 1525217])</pre>
 </div>
 </div>
 </div>
 </div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d7d97378-cb79-4bbd-9c41-260432729783">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d7d97378-cb79-4bbd-9c41-260432729783">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> isPrime_sage(random_number)
@@ -8192,47 +8034,13 @@ Wall time: 5.76 ms
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>CPU times: user 52 µs, sys: 6 µs, total: 58 µs
-Wall time: 63.4 µs
+<pre>CPU times: user 80 µs, sys: 6 µs, total: 86 µs
+Wall time: 93 µs
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>False</pre>
-</div>
-</div>
-</div>
-</div>
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8550654a-da7d-46d4-b60b-ac163438db0d">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> isPrime_sage_BailiePSW(random_number)
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>CPU times: user 32 µs, sys: 4 µs, total: 36 µs
-Wall time: 42.2 µs
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[35]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>False</pre>
 </div>
@@ -8244,7 +8052,7 @@ Wall time: 42.2 µs
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> isPrime_python_gmpy2(random_number)
@@ -8260,16 +8068,27 @@ Wall time: 42.2 µs
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>CPU times: user 14 µs, sys: 1e+03 ns, total: 15 µs
-Wall time: 20.3 µs
+<pre>CPU times: user 12 µs, sys: 1 µs, total: 13 µs
+Wall time: 18.1 µs
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[38]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>False</pre>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ce3c8546-f171-440c-b580-58db96028259">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Note that, testing if a given positive integer is prime is resonably fast</p>
 </div>
 </div>
 </div>
@@ -8280,7 +8099,7 @@ Wall time: 20.3 µs
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Factorization">Factorization<a class="anchor-link" href="#Factorization">¶</a></h3><p>Factorization is thought to be a computationally difficult problem, whereas primality testing is comparatively easy.</p>
+<h3 id="Factorization">Factorization<a class="anchor-link" href="#Factorization">¶</a></h3><p>Factorization is thought to be a <em>computationally difficult</em> problem, whereas primality testing is comparatively easy.</p>
 <ul>
 <li><strong>Fundamental theorem of arithmetic:</strong> every natural number greater than $ 1 $ is either a <em>prime</em> itself or can be <em>factorized</em> as a product of primes that is unique up to their order (ie., the order is not relevant)</li>
 </ul>
@@ -8359,7 +8178,7 @@ Wall time: 20.3 µs
 <div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> qsieve(next_prime(2^80)*next_prime(2^81)) # factor the product
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> qsieve(next_prime(2^80) * next_prime(2^81)) # factor the product
 </pre></div>
 </div>
 </div>
@@ -8401,7 +8220,7 @@ Wall time: 643 ms
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [48]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="mi">6</span><span class="o">*</span><span class="mi">3</span> <span class="o">%</span> <span class="mi">15</span> <span class="c1"># modulo operation in python</span>
@@ -8415,7 +8234,7 @@ Wall time: 643 ms
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[48]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>3</pre>
 </div>
@@ -8427,7 +8246,7 @@ Wall time: 643 ms
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [49]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [41]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">mod</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span> <span class="c1"># modulo function in sage</span>
@@ -8441,7 +8260,7 @@ Wall time: 643 ms
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[49]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[41]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>3</pre>
 </div>
@@ -8464,7 +8283,7 @@ Wall time: 643 ms
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [51]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [42]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="mi">2</span><span class="o">**</span><span class="mi">4</span>
@@ -8478,7 +8297,7 @@ Wall time: 643 ms
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[51]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[42]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>16</pre>
 </div>
@@ -8490,7 +8309,7 @@ Wall time: 643 ms
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [52]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [43]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># python build in</span>
@@ -8505,7 +8324,7 @@ Wall time: 643 ms
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[52]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[43]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>1</pre>
 </div>
@@ -8545,7 +8364,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [46]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Zn</span> <span class="o">=</span> <span class="n">IntegerModRing</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span> <span class="n">Zn</span>
@@ -8559,7 +8378,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[35]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[46]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>Ring of integers modulo 15</pre>
 </div>
@@ -8571,7 +8390,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [47]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Zn</span><span class="o">.</span><span class="n">list</span><span class="p">()</span> <span class="c1"># list all elements</span>
@@ -8585,7 +8404,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[36]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[47]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]</pre>
 </div>
@@ -8597,7 +8416,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [48]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Zn</span><span class="o">.</span><span class="n">order</span><span class="p">()</span> <span class="c1"># number of elements </span>
@@ -8611,22 +8430,33 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[37]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[48]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>15</pre>
 </div>
 </div>
 </div>
 </div>
-</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=1014a071-3eb4-4484-83f5-0b0347adfc78">
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d2a80491-2473-487d-93cb-17f24c5e00cf">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Integers-modulo-$n$">Integers modulo $n$<a class="anchor-link" href="#Integers-modulo-$n$">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=1014a071-3eb4-4484-83f5-0b0347adfc78">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [49]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">Zn</span><span class="o">.</span><span class="n">list</span><span class="p">()</span> <span class="c1"># lis all elements</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">Zn</span><span class="o">.</span><span class="n">list</span><span class="p">()</span> <span class="c1"># list all elements where n=15</span>
 </pre></div>
 </div>
 </div>
@@ -8637,7 +8467,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[38]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[49]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]</pre>
 </div>
@@ -8649,7 +8479,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [39]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [50]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="mi">6</span><span class="o">*</span><span class="mi">3</span> <span class="c1"># result in the set of integers</span>
@@ -8663,7 +8493,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[50]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>18</pre>
 </div>
@@ -8675,7 +8505,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [51]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Zn</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># result in the set of integers mod n</span>
@@ -8689,7 +8519,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[51]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>3</pre>
 </div>
@@ -8701,7 +8531,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [41]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [52]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Zn</span><span class="o">.</span><span class="n">random_element</span><span class="p">()</span>
@@ -8715,7 +8545,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[41]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[52]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>11</pre>
 </div>
@@ -8729,7 +8559,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Greatest-common-divisor-(GCD)">Greatest common divisor (GCD)<a class="anchor-link" href="#Greatest-common-divisor-(GCD)">¶</a></h3><p>$$
+<h2 id="Greatest-common-divisor-(GCD)">Greatest common divisor (GCD)<a class="anchor-link" href="#Greatest-common-divisor-(GCD)">¶</a></h2><p>$$
 \begin{align*}
 \frac{divident}{divisor} &amp;= quotient \\
 \; \\
@@ -8851,9 +8681,9 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Euclidean-algorithm">Euclidean algorithm<a class="anchor-link" href="#Euclidean-algorithm">¶</a></h3><p>The Euclidean algorithm is an efficient method for computing the greatest common divisor (GCD) of two numbers.</p>
+<h3 id="Euclidean-algorithm">Euclidean algorithm<a class="anchor-link" href="#Euclidean-algorithm">¶</a></h3><p>The Euclidean algorithm is an efficient method for computing the <em>greatest common divisor</em> (GCD) of two numbers.</p>
 <p>The basic principle is that replacing the larger of the two numbers by its difference with the smaller number does not change the greatest common divisor. This process is reapeated until the remainder is $ 0 $. The last non-zero difference is the gcd.</p>
-<p>The following is a visual example of computing the gcd of $ 49 $ and $ 21 $, which is $ 7 $.</p>
+<p>The following is a visual example of computing the gcd of $ 49 $ (black) and $ 21 $ (red), which is $ 7 $.</p>
 <p style="text-align:center">
 <img alt="Euclidean algorithm" src="./figures/euclid.png" width="150"/>
 </p>
@@ -8870,7 +8700,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Animation of computing the Euclidean algorihm for $gcd(62,36) = 2$:</p>
+<h3 id="Euclidean-algorithm-animation">Euclidean algorithm animation<a class="anchor-link" href="#Euclidean-algorithm-animation">¶</a></h3><p>Animation of computing the Euclidean algorihm for $gcd(62,36) = 2$:</p>
 <p style="text-align:center;font-size:10px">
 <video controls="" src="https://upload.wikimedia.org/wikipedia/commons/transcoded/5/5f/The_Great_Common_Divisor_of_62_and_36_is_2.ogv/The_Great_Common_Divisor_of_62_and_36_is_2.ogv.720p.vp9.webm" width="480"></video>
 </p>
@@ -8880,12 +8710,23 @@ $$</p>
 </div>
 </div>
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c3e7e86b-c2fb-4d6c-ae04-5fb771b26f17">
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0af6c252-6561-495f-9dc0-bfb901336af3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Euclidean-algorithm-example">Euclidean algorithm example<a class="anchor-link" href="#Euclidean-algorithm-example">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c3e7e86b-c2fb-4d6c-ae04-5fb771b26f17">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [58]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [53]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">euclide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
@@ -8901,46 +8742,7 @@ $$</p>
 </div>
 </div>
 </div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=51a5a8ae-c561-4308-81e8-993dd92baa51">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [59]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">euclide</span><span class="p">(</span><span class="mi">62</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>a =  62  b =  36
-a =  36  b =  26
-a =  26  b =  10
-a =  10  b =   6
-a =   6  b =   4
-a =   4  b =   2
-a =   2  b =   0
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[59]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>2</pre>
-</div>
-</div>
-</div>
-</div>
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c516e816-e143-4b02-85b1-ae5c60a22544">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c516e816-e143-4b02-85b1-ae5c60a22544">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8982,7 +8784,7 @@ a =   3  b =   0
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Relatively-prime-(coprime)">Relatively prime (coprime)<a class="anchor-link" href="#Relatively-prime-(coprime)">¶</a></h3><p>If $gcd(a,b)=1$ then $a$ and $b$ are called <strong>relatively prime</strong> or <strong>coprime</strong>.</p>
+<h2 id="Relatively-prime-(coprime)">Relatively prime (coprime)<a class="anchor-link" href="#Relatively-prime-(coprime)">¶</a></h2><p>If $gcd(a,b)=1$ then $a$ and $b$ are called <strong>relatively prime</strong> or <strong>coprime</strong>.</p>
 <p>Neither $ a $ or $ b $ has to be prime in order for them to be <em>relatively prime</em> to each other.
 One example would be $ 8 $ and $ 9 $.</p>
 </div>
@@ -9019,7 +8821,7 @@ One example would be $ 8 $ and $ 9 $.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [70]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [56]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="mi">8</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">P</span> <span class="ow">and</span> <span class="mi">9</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">P</span>
@@ -9033,7 +8835,7 @@ One example would be $ 8 $ and $ 9 $.</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[70]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[56]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>True</pre>
 </div>
@@ -9041,6 +8843,17 @@ One example would be $ 8 $ and $ 9 $.</p>
 </div>
 </div>
 </div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a9783025-fe2f-4abd-8f69-f70ed58a0966">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Relatively-prime-(coprime)">Relatively prime (coprime)<a class="anchor-link" href="#Relatively-prime-(coprime)">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=727b7307-4f71-4b0c-89af-4fdf835f2031">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -9113,10 +8926,10 @@ One example would be $ 8 $ and $ 9 $.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [73]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [59]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="mi">5</span> <span class="ow">in</span> <span class="n">P</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="mi">10</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">P</span> <span class="ow">and</span> <span class="mi">9</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">P</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="mi">5</span> <span class="ow">in</span> <span class="n">P</span> <span class="ow">and</span> <span class="mi">10</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">P</span>
 </pre></div>
 </div>
 </div>
@@ -9127,7 +8940,7 @@ One example would be $ 8 $ and $ 9 $.</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[73]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[59]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>True</pre>
 </div>
@@ -9164,7 +8977,7 @@ One example would be $ 8 $ and $ 9 $.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [74]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># example:</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># example 5 and 3 </span>
 <span class="k">assert</span> <span class="mi">5</span> <span class="ow">in</span> <span class="n">P</span> <span class="ow">and</span> <span class="mi">3</span> <span class="ow">in</span> <span class="n">P</span>
 <span class="n">gcd</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
@@ -9191,15 +9004,26 @@ One example would be $ 8 $ and $ 9 $.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Some-important-properties-of-coprime-numbers">Some important properties of coprime numbers<a class="anchor-link" href="#Some-important-properties-of-coprime-numbers">¶</a></h4><ul>
+<h3 id="Some-important-properties-of-coprime-numbers">Some important properties of coprime numbers<a class="anchor-link" href="#Some-important-properties-of-coprime-numbers">¶</a></h3><p>If $\gcd(a,b) = 1 $ then:</p>
+<ul>
 <li>No prime number divides both $ a $ and $ b $</li>
-<li>There exist integers $ x,y $ such that $ ax + by = gcd(a,b) = 1 $ (<em>Bézout's identity</em>)<ul>
+<li>There exist integers $ x,y $ such that $ ax + by = gcd(a,b) = 1 $ (<em>Bézout's identity</em> is one in this case)<ul>
 <li>The integer $ a $ has a multiplicative inverse ($x$) modulo $ b $</li>
 <li>The integer $ b $ has a multiplicative inverse ($y$) modulo $ a $</li>
 </ul>
 </li>
-<li>...</li>
 </ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a9e5f17f-3ed6-4a2b-98b7-038c3e710a9c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<hr/>
 </div>
 </div>
 </div>
@@ -9210,52 +9034,31 @@ One example would be $ 8 $ and $ 9 $.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Integers-modulo-$n$-coprime-to-$n$">Integers modulo $n$ coprime to $n$<a class="anchor-link" href="#Integers-modulo-$n$-coprime-to-$n$">¶</a></h2><p>The set of integers modulo $n$ that are <em>coprime (relatively prime)</em> to $n$</p>
-<p>$$
-\mathbb{Z}^*_n = \{ x \in \mathbb{Z}_n : \gcd(x,n)=1 \}
-$$</p>
-<p>To construct this set (which forms a <em>group</em>), all elements in $ \mathbb{Z}_n $ that are not invertible have to be eliminated.</p>
-<p>An element $ x \in \mathbb{Z}_n $ is invertible iff $ \gcd(x,n) = 1 $ i.e., there exists an element $ x^{-1} $ s.t., $ x \cdot x^{-1} = 1 \pmod{n} $.
-This value $x^{-1}$ is called the <strong>modular multiplicative inverse</strong> of $ x $.</p>
+<h2 id="Modular-multiplicative-inverses">Modular multiplicative inverses<a class="anchor-link" href="#Modular-multiplicative-inverses">¶</a></h2><p>An element $ x \in \mathbb{Z}_n $ is invertible iff $ \gcd(x,n) = 1 $ i.e., there exists an element $ x^{-1} $ s.t., $ x \cdot x^{-1} = 1 \pmod{n} $.</p>
+<p>This value $x^{-1}$ is called the <strong>modular multiplicative inverse</strong> of $ x $.</p>
 <p><strong>Examples:</strong></p>
 <ul>
 <li>In $ \mathbb{Q} $ the inverse of $ 3 $ would be $ 1/3 $ since $ 3 \cdot 1/3 = 1 $.</li>
 <li>In $ \mathbb{Z}_n $ the inverse of $ 2 $ would be $ \frac{n+1}{2} $ since $ 2 \cdot \frac{n+1}{2} = n + 1 = 1 \pmod{n} $</li>
-<li>If $n=15$ then $ \mathbb{Z}^*_n = \{ 1,2,4,7,8,11,13,14 \} $.</li>
 </ul>
-<p>For small $n$, this can be computed by iterating through the elements of $\mathbb{Z}_n$ and check if $\gcd(element,n) = 1 $. This is computationally inveasable for large $n$.</p>
 </div>
 </div>
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=23080cb1-4b45-440e-a944-9d14f81b7e11">
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=44bd8bca-5c9b-4cf2-805e-c43cff8179c0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [78]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">15</span>
-<span class="n">invertable_elememnts_Zn</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">gcd</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">invertable_elememnts_Zn</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">invertable_elememnts_Zn</span><span class="si">}</span><span class="s2"> len=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">invertable_elememnts_Zn</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[1, 2, 4, 7, 8, 11, 13, 14] len=8
-</pre>
-</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="A-set-where-very-element-has-an-inverse">A set where very element has an inverse<a class="anchor-link" href="#A-set-where-very-element-has-an-inverse">¶</a></h3><p>The set of integers modulo $n$ that are <em>coprime (relatively prime)</em> to $n$ is defined as:</p>
+<p>$$
+\mathbb{Z}^*_n = \{ x \in \mathbb{Z}_n : \gcd(x,n)=1 \}
+$$</p>
+<p>To construct this set (which forms a <em>group</em>, see <a href="./Number_Theory_I.ipynb#group">definition of a group</a>), all elements in $ \mathbb{Z}_n $ that are not invertible have to be eliminated.</p>
+<p><strong>Examples:</strong></p>
+<p>If $n=15$ then $ \mathbb{Z}^*_n = \{ 1,2,4,7,8,11,13,14 \} $</p>
+<p>For small $n$, this can be computed by iterating through the elements of $\mathbb{Z}_n$ and check if $\gcd(element,n) = 1 $. This is computationally inveasable for large $n$.</p>
 </div>
 </div>
 </div>
@@ -9759,7 +9562,7 @@ Phi of n, when n is the product of two primes the dot is colored red
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Examples-for-groups">Examples for groups<a class="anchor-link" href="#Examples-for-groups">¶</a></h4><ul>
+<h3 id="Examples-for-groups">Examples for groups<a class="anchor-link" href="#Examples-for-groups">¶</a></h3><ul>
 <li>The set set of integers modulo $ n $, i.e., $ \mathbb{Z}_n $, where $ n &gt; 1 $,  is a <em>abelian group</em> under the operation of addition modulo $ n $, i.e., $ a + b := [ a + b \mod n ] $. This group can also be denoted as $\mathbb{Z}^+_n $. The order of this group is $ n $, with the elements $ \{ 0, ..., n - 1 \} $. The inverse of any element $ a $ is $ [(n-a) \mod n] $</li>
 </ul>
 </div>
@@ -10326,7 +10129,10 @@ require(
             history: true,
             transition: "slide",
             slideNumber: "c",
-            plugins: [RevealNotes]
+            plugins: [RevealNotes],
+            width: 960,
+			      height: 700,
+
         });
 
         var update = function(event){

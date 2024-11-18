@@ -6,7 +6,7 @@
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
 <title>ECC slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
 <!-- General and theme style sheets -->
@@ -7451,7 +7451,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>References ECC:</strong></p>
+<p><strong>References:</strong></p>
 <ul>
 <li>[<a href="https://link.springer.com/book/10.1007/b97644">GECC</a>] Guide to Elliptic Curve Cryptography, Darrel Hankerson, Alfred Menezes, and Scott Vanstone. 2004.</li>
 <li>[<a href="https://www.secg.org/sec1-v2.pdf">SEC1v2</a>] SEC 1: Elliptic Curve Cryptography (Version 2.0), <a href="https://en.wikipedia.org/wiki/SECG">Standards for Efficient Cryptography Group (SECG)</a> founded by Certicom</li>
@@ -7465,6 +7465,7 @@ main {
 <li><a href="http://www.ecc-brainpool.org/download/Domain-parameters.pdf">Brainpool curves</a> (non-NIST)</li>
 <li>NIST curves specified in <a href="https://csrc.nist.gov/pubs/fips/186-5/final">FIPS 186-5</a> and  <a href="https://csrc.nist.gov/pubs/sp/800/186/final">SP 800-186</a></li>
 <li><a href="https://www.hyperelliptic.org/">Hyperelliptic</a> calculation code snippets and implementation help</li>
+<li><a href="https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/">Elliptic Curve Cryptography: a gentle introduction</a></li>
 </ul>
 </div>
 </div>
@@ -10222,7 +10223,10 @@ require(
             history: true,
             transition: "slide",
             slideNumber: "c",
-            plugins: [RevealNotes]
+            plugins: [RevealNotes],
+            width: 960,
+			      height: 700,
+
         });
 
         var update = function(event){
