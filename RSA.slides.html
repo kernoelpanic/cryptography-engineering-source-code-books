@@ -7503,7 +7503,7 @@ main {
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>
  SageMath version 9.5, Release Date: 2022-01-30                     
- Using Python 3.10.6. Type "help()" for help.                       
+ Using Python 3.10.12. Type "help()" for help.                      
 
 </pre>
 </div>
@@ -7518,18 +7518,18 @@ main {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="RSA---Rivest-Shamir-Adelman">RSA - Rivest Shamir Adelman<a class="anchor-link" href="#RSA---Rivest-Shamir-Adelman">¶</a></h2><ul>
-<li><strong>R</strong>ivest <strong>S</strong>hamir <strong>A</strong>delman (RSA)<ul>
-<li>Adi Shamir, Ron Rivest, Leonard Adelman (all MIT at that time)<p style="text-align:center">
+<li><strong>R</strong>ivest <strong>S</strong>hamir <strong>A</strong>delman (RSA) - Adi Shamir, Ron Rivest, Leonard Adelman (all MIT at that time)</li>
+<li>Algorithm first published 1977 <a href="https://dspace.mit.edu/bitstream/handle/1721.1/148910/MIT-LCS-TM-082.pdf?sequence=1">"A Method for Obtaining Digital Signatures and Public-key Cryptosystems"</a> ($\approx$28 K citations)<ul>
+<li>since 1969 the British signals intelligence GCHQ knew about public-key cryptography (first RSA then DH like)</li>
+</ul>
+</li>
+<li>Key (modulus) length of $ 2048$ bits still considered secure [<a href="https://www.keylength.com/">ref</a>]<p style="text-align:center">
 <img alt="number systems" src="./img/RSA.jpg" width="600"/>
 </p>
 <p style="text-align:center;font-size:10px">
 <a href="https://en.wikipedia.org/wiki/Prime_number#/media/File:Primes-vs-composites.svg">(image source)</a>
 </p>
 </li>
-</ul>
-</li>
-<li>Algorithm first published 1977</li>
-<li>Key length of $&gt; 2048$ bits still considered secure [<a href="https://www.keylength.com/">ref</a>]</li>
 </ul>
 </div>
 </div>
@@ -7541,7 +7541,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Trapdoor-function">Trapdoor function<a class="anchor-link" href="#Trapdoor-function">¶</a></h2><p>A <em>trapdoor function</em> is a triple of efficient algorithms $(G,F,F^{-1})$ where:</p>
+<h2 id="Trapdoor-function">Trapdoor function<a class="anchor-link" href="#Trapdoor-function">¶</a></h2><p>A <em>trapdoor function</em> is a triple of efficient algorithms $\langle G,F,F^{-1} \rangle$ where:</p>
 <ul>
 <li>$G()$ is a key generation algorithm that outputs $(pk,sk)$</li>
 <li>$F(pk,\cdot)$ the $pk$ defines a mapping function $X \to Y$</li>
@@ -7599,21 +7599,6 @@ $$
 </div>
 </div>
 </div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b597b73b-4865-4672-8e1b-a1020935e1ef">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>To show that $F^{-1}(sk, F(pk,x)) = x $ we use the fact that there exists some $ k $ such that $ ed = k \cdot \varphi(n) + 1 $ since $ e \cdot d = 1 \pmod{\varphi(n)} $.</p>
-<p>If $x$ is <em>relatively prime</em> to $n$, i.e., $\gcd(x,n) = 1$, then $x^{\varphi(n)} \equiv 1 \pmod n$ by <em>Euler's theorem</em>.</p>
-<p>$$
-y^d = (x^e)^d = x^{ed} = x^{k\cdot \varphi(n)+1} = \left( x^{\varphi(n)}\right)^k \cdot x = (1)^k \cdot x = x \pmod n
-$$</p>
-</div>
-</div>
-</div>
 </div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a8ad2e3c-c699-4c86-a100-a3cdb0c4b073">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -7624,15 +7609,31 @@ $$</p>
 <h2 id="RSA---Security">RSA - Security<a class="anchor-link" href="#RSA---Security">¶</a></h2><ul>
 <li>Computing $\varphi(n)$ without knowing the factorization of $ n $ is the difficulty of computing $ d $</li>
 <li>This is refered to as the <em>RSA problem</em>, which can be solved by factoring $ n $ and computing $\varphi(n)$.</li>
-<li>Knowing $\varphi(n)$, the multiplicative inverse of $ e $ can be calculated efficiently:
+<li>Knowing $\varphi(n)$, the multiplicative inverse of $ e $ can be calculated efficiently e.g., with using the extended euclidean algorithm
 $$
 \begin{align*}
 \varphi(n) &amp;= (p-1)(q-1)\\
 e\cdot e^{-1} &amp;=1 \pmod{\varphi(n)}\\
-d&amp;:= e^{-1} 
+d&amp;:= e^{-1} \pmod{\varphi(n)} 
 \end{align*}
 $$</li>
 </ul>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f69f771e-84d0-44de-a5ef-5692ea08535c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [50]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># computing multiplicative inverse in python if phi(n) known</span>
+<span class="k">def</span> <span class="nf">modular_inverse</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">phi_n</span><span class="p">):</span> 
+    <span class="k">return</span> <span class="nb">pow</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">phi_n</span><span class="p">)</span> 
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -7649,43 +7650,46 @@ which have to be addressed when RSA should be used in a secure way.</p>
 </div>
 </div>
 </div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c0073f22-65af-4ab0-b15a-b3fb3d59bca7">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0d2f3aff-82f4-4cd8-9543-ae82a5a925e3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rsa_gen</span><span class="p">(</span><span class="n">bits</span><span class="o">=</span><span class="mi">2</span><span class="o">^</span><span class="mi">1024</span><span class="p">,</span><span class="n">_p</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">_q</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-	<span class="n">proof</span> <span class="o">=</span> <span class="p">(</span><span class="n">bits</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="o">^</span><span class="mi">1024</span><span class="p">)</span> <span class="c1"># turn off time consuming proof for large values </span>
-	<span class="k">if</span> <span class="n">_p</span> <span class="ow">and</span> <span class="n">_q</span> <span class="ow">and</span> <span class="n">_p</span> <span class="ow">in</span> <span class="n">Primes</span><span class="p">()</span> <span class="ow">and</span> <span class="n">_q</span> <span class="ow">in</span> <span class="n">Primes</span><span class="p">():</span>
-		<span class="n">p</span> <span class="o">=</span> <span class="n">_p</span>
-		<span class="n">q</span> <span class="o">=</span> <span class="n">_q</span>
-	<span class="k">else</span><span class="p">:</span>
-		<span class="n">p</span> <span class="o">=</span> <span class="n">random_prime</span><span class="p">(</span><span class="n">bits</span><span class="p">,</span> <span class="n">proof</span><span class="o">=</span><span class="n">proof</span><span class="p">)</span>
-		<span class="n">q</span> <span class="o">=</span> <span class="n">random_prime</span><span class="p">(</span><span class="n">bits</span><span class="p">,</span> <span class="n">proof</span><span class="o">=</span><span class="n">proof</span><span class="p">)</span>
-  <span class="k">if</span> <span class="n">p</span><span class="o">==</span><span class="n">q</span><span class="p">:</span> <span class="k">return</span> <span class="kc">None</span>	
-  <span class="n">n</span> <span class="o">=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">q</span>
-  <span class="n">phi_n</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-  <span class="k">if</span> <span class="ow">not</span> <span class="n">e</span><span class="p">:</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">e</span> <span class="o">=</span> <span class="n">ZZ</span><span class="o">.</span><span class="n">random_element</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">phi_n</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">gcd</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="n">phi_n</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="k">break</span>
-  <span class="n">d</span> <span class="o">=</span> <span class="n">inverse_mod</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="n">phi_n</span><span class="p">)</span>
-  <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"n = </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="se">\n</span><span class="s2">e = </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="se">\n</span><span class="s2">d = </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="se">\n</span><span class="s2">p = </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="se">\n</span><span class="s2">q = </span><span class="si">{</span><span class="n">q</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-  <span class="k">return</span> <span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">q</span>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [51]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">rsa_gen</span><span class="p">(</span><span class="n">bits</span><span class="o">=</span><span class="mi">2</span><span class="o">^</span><span class="mi">1024</span><span class="p">,</span><span class="n">_p</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">_q</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">proof</span> <span class="o">=</span> <span class="p">(</span><span class="n">bits</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="o">^</span><span class="mi">1024</span><span class="p">)</span> <span class="c1"># turn off time consuming proof for large values </span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">_p</span> <span class="ow">and</span> <span class="n">_q</span> <span class="p">)</span> <span class="ow">and</span> <span class="n">_p</span> <span class="ow">in</span> <span class="n">Primes</span><span class="p">()</span> <span class="ow">and</span> <span class="n">_q</span> <span class="ow">in</span> <span class="n">Primes</span><span class="p">():</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">_p</span>
+        <span class="n">q</span> <span class="o">=</span> <span class="n">_q</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">random_prime</span><span class="p">(</span><span class="n">bits</span><span class="p">,</span> <span class="n">proof</span><span class="o">=</span><span class="n">proof</span><span class="p">)</span>
+        <span class="n">q</span> <span class="o">=</span> <span class="n">random_prime</span><span class="p">(</span><span class="n">bits</span><span class="p">,</span> <span class="n">proof</span><span class="o">=</span><span class="n">proof</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">p</span><span class="o">==</span><span class="n">q</span><span class="p">:</span> <span class="k">return</span> <span class="kc">None</span>	
+    <span class="n">n</span> <span class="o">=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">q</span>
+    <span class="n">phi_n</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="n">ZZ</span><span class="o">.</span><span class="n">random_element</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">phi_n</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">gcd</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="n">phi_n</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="k">break</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">inverse_mod</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="n">phi_n</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"n = </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="se">\n</span><span class="s2">e = </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="se">\n</span><span class="s2">d = </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="se">\n</span><span class="s2">p = </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="se">\n</span><span class="s2">q = </span><span class="si">{</span><span class="n">q</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">q</span> 
 </pre></div>
 </div>
 </div>
 </div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=07afc457-8c11-4fd7-a579-2dac88bf998c">
+</div>
+</div></div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e3d3919a-6709-4c2e-9ab4-f778b555332d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rsa_enc</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">rsa_enc</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
 	<span class="k">return</span> <span class="nb">pow</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">rsa_dec</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
@@ -7694,33 +7698,36 @@ which have to be addressed when RSA should be used in a secure way.</p>
 </div>
 </div>
 </div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1bfe5954-0c2c-456d-8978-f4cc8f5ac593">
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b9f2179d-c822-4815-a39f-29bf4aa43052">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">str_to_num</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">str_to_num</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">""" Function to encode a string as number sequence of their 8 bit ASCII codes """</span>
-	<span class="n">s</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">floor</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">256</span><span class="p">)):</span>
-			<span class="nb">print</span><span class="p">(</span><span class="s2">"String larger than what can be handled in one rsa invocation"</span><span class="p">)</span>
-			<span class="k">return</span> <span class="kc">None</span>
-	<span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
-	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span>
-		<span class="n">num</span> <span class="o">+=</span> <span class="nb">ord</span><span class="p">(</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span><span class="o">*</span><span class="mi">256</span><span class="o">^</span><span class="n">i</span>  <span class="c1"># the ^i inverts </span>
-	<span class="k">return</span> <span class="n">num</span> 	
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">floor</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">256</span><span class="p">)):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"String larger than what can be handled in one rsa invocation"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span>
+        <span class="n">num</span> <span class="o">+=</span> <span class="nb">ord</span><span class="p">(</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span><span class="o">*</span><span class="mi">256</span><span class="o">^</span><span class="n">i</span>  <span class="c1"># the ^i inverts </span>
+    <span class="k">return</span> <span class="n">num</span> 	
 
 <span class="k">def</span> <span class="nf">num_to_str</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">""" Function to decode a number into 8 bit sequences of ASCII characters """</span>
-	<span class="n">num</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> 
-	<span class="n">v</span> <span class="o">=</span> <span class="p">[]</span> 
-	<span class="k">while</span> <span class="n">num</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span> 
-    	<span class="n">v</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">256</span> <span class="p">))</span> 
-		<span class="n">num</span> <span class="o">//=</span> <span class="mi">256</span> <span class="c1"># this replaces num by floor(num/256) </span>
-	<span class="k">return</span> <span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> 
+    <span class="n">v</span> <span class="o">=</span> <span class="p">[]</span> 
+    <span class="k">while</span> <span class="n">num</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span> 
+        <span class="n">v</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">256</span> <span class="p">))</span> 
+        <span class="n">num</span> <span class="o">//=</span> <span class="mi">256</span> <span class="c1"># this replaces num by floor(num/256) </span>
+    <span class="k">return</span> <span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -7740,105 +7747,7 @@ which have to be addressed when RSA should be used in a secure way.</p>
 </div>
 </div>
 </div>
-</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=795bca20-ab2d-41f2-99ff-4bd77fda30de">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">load</span><span class="p">(</span><span class="s1">'./src/rsa.sage'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5e0574fa-2ef0-4e98-a2ab-e4b49c6807b6">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="o">!</span>cat<span class="w"> </span>./src/rsa.sage
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>#!/usr/bin/sage
-#
-# Simple sage script for RSA 
-# 
-# See sources:
-# * https://www.math.ucdavis.edu/~anne/FQ2010/Number_Theory_RSA.html
-# * https://www.uam.es/otros/openmat/software/files/rsa.sage
-# * https://www.hyperelliptic.org/tanja/vortraege/facthacks-29C3.pdf
-
-def rsa_gen(bits=2^1024,_p=None,_q=None,e=None,verbose=False):
-	proof = (bits &lt;= 2^1024) # turn off time consuming proof for large values 
-	if _p and _q and _p in Primes() and _q in Primes():
-		p = _p
-		q = _q
-	else:
-		p = random_prime(bits, proof=proof)
-		q = random_prime(bits, proof=proof)
-	assert p!=q,"p and q must be distinct numbers!"
-	n = p * q
-	phi_n = (p-1) * (q-1)
-
-	if not e: 
-		while True:
-				e = ZZ.random_element(1,phi_n)
-				if gcd(e,phi_n) == 1: break
-
-	d = inverse_mod(e,phi_n)
-	
-	if verbose: print(f"n = {n}\ne = {e}\nd = {d}\np = {p}\nq = {q}")
-	return n,e,d,p,q 
-
-def rsa_enc(n,e,m):
-	return pow(m,e,n)
-
-def rsa_dec(n,d,c):
-	return pow(c,d,n)
-
-def str_to_num(s,n):
-	s = str(s)
-	if len(s) &gt; floor(log(n,256)):
-			print("String larger than what can be handled in one rsa invocation")
-			return None
-	
-	num = 0
-	for i in range(len(s)):
-		num += ord( s[i] )*256^i  # the ^i inverts 
-	return num 
-	#return sum( ord( s[i] )*256 ^i for i in range(len(s)) )	
-
-def num_to_str(num):
-	num = Integer(num) 
-	v = [] 
-	while num != 0: 
-			v.append(chr( num % 256 )) 
-			num //= 256 # this replaces num by floor(num/256) 
-	return ''.join(v)
-
-
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div></div></section></section><section><section>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=74a7f145-0fb3-4152-8209-567dc746c495">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7850,10 +7759,10 @@ def num_to_str(num):
 <li>Compute $\varphi(n) = (p-1)(q-1) = 10$</li>
 <li>Find some $e$ such that:<ul>
 <li>It is <em>relatively prime</em> to $\varphi(n)$, i.e., $\gcd(e,\varphi(n))=1$</li>
-<li>There is a $d$ such that $e\cdot d = 1 \pmod \varphi(n)$</li>
+<li>There is a $d$ such that $e\cdot d = 1 \pmod{\varphi(n)}$</li>
 </ul>
 </li>
-<li>For our example set $ e = 3 $ and $ d = 7 $, i.e., $ 3 \cdot 7 = 1 \pmod \varphi(n)$</li>
+<li>For our example set $ e = 3 $ and $ d = 7 $, i.e., $ 3 \cdot 7 = 1 \pmod{\varphi(n)}$</li>
 <li>Publish $ pk = (n,e) = (22,3) $ and store $ sk = (n,d) = (22,7) $</li>
 <li><strong>Encryption:</strong> of message $ m = 8 $<ul>
 <li>$ c = m^e \pmod n = 8^3 \pmod{22} = 512 \pmod{22} = 6 $</li>
@@ -7872,7 +7781,7 @@ def num_to_str(num):
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">rsa_gen</span><span class="p">(</span><span class="n">bits</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">_p</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">_q</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -7903,7 +7812,7 @@ q = 11
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [41]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">rsa_enc</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
@@ -7917,7 +7826,7 @@ q = 11
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[41]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>6</pre>
 </div>
@@ -7929,7 +7838,7 @@ q = 11
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [42]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">rsa_dec</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
@@ -7943,7 +7852,7 @@ q = 11
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[42]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>8</pre>
 </div>
@@ -7966,7 +7875,7 @@ q = 11
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [50]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">rsa_gen</span><span class="p">(</span><span class="n">bits</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">_p</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">_q</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># Alice </span>
@@ -7997,7 +7906,7 @@ q = 11
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [55]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">22</span><span class="p">;</span> <span class="n">e</span><span class="o">=</span><span class="mi">3</span> <span class="c1"># Attacker uses pk of Alice</span>
@@ -8011,7 +7920,7 @@ q = 11
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [56]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">factor</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1"># factors n into its prime factors</span>
@@ -8025,7 +7934,7 @@ q = 11
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[56]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>2 * 11</pre>
 </div>
@@ -8037,7 +7946,7 @@ q = 11
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [57]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">phi_n</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">11</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="n">phi_n</span> <span class="c1"># computes phi with known factors </span>
@@ -8051,7 +7960,7 @@ q = 11
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[57]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>10</pre>
 </div>
@@ -8063,7 +7972,7 @@ q = 11
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [58]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">d</span><span class="o">=</span><span class="n">inverse_mod</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="n">phi_n</span><span class="p">);</span><span class="n">d</span> <span class="c1"># compute secret key by inverting e </span>
@@ -8077,7 +7986,7 @@ q = 11
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[58]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>7</pre>
 </div>
@@ -8100,7 +8009,7 @@ q = 11
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [76]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">q</span> <span class="o">=</span> <span class="n">rsa_gen</span><span class="p">(</span><span class="n">bits</span><span class="o">=</span><span class="mi">2</span><span class="o">^</span><span class="mi">32</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 2 x 2**32 bit primes </span>
@@ -8116,11 +8025,11 @@ q = 11
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>n = 7726023075241080047
-e = 3129271511086424969
-d = 4895170541792722169
-p = 3344967287
-q = 2309745481
+<pre>n = 7402481760414978871
+e = 6135284656743248681
+d = 5889344396117775513
+p = 2765346593
+q = 2676873047
 </pre>
 </div>
 </div>
@@ -8131,7 +8040,7 @@ q = 2309745481
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [71]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> factor(n)
@@ -8147,15 +8056,15 @@ q = 2309745481
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>CPU times: user 885 µs, sys: 0 ns, total: 885 µs
-Wall time: 915 µs
+<pre>CPU times: user 1.35 ms, sys: 266 µs, total: 1.62 ms
+Wall time: 1.62 ms
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[71]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>667245871 * 811987919</pre>
+<pre>2676873047 * 2765346593</pre>
 </div>
 </div>
 </div>
@@ -8165,7 +8074,7 @@ Wall time: 915 µs
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [72]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> euler_phi(n)
@@ -8181,15 +8090,15 @@ Wall time: 915 µs
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>CPU times: user 7.41 ms, sys: 0 ns, total: 7.41 ms
-Wall time: 7.4 ms
+<pre>CPU times: user 2.24 ms, sys: 442 µs, total: 2.68 ms
+Wall time: 3.67 ms
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[72]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>541795584775398660</pre>
+<pre>7402481754972759232</pre>
 </div>
 </div>
 </div>
@@ -8210,7 +8119,7 @@ Wall time: 7.4 ms
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [73]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> factor(random_prime(2**32)*random_prime(2**32)) # 64 bit n
@@ -8226,15 +8135,15 @@ Wall time: 7.4 ms
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>CPU times: user 1.39 ms, sys: 175 µs, total: 1.57 ms
-Wall time: 1.42 ms
+<pre>CPU times: user 1.05 ms, sys: 207 µs, total: 1.26 ms
+Wall time: 1.3 ms
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[73]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>555933967 * 3233872093</pre>
+<pre>1096185667 * 3408928543</pre>
 </div>
 </div>
 </div>
@@ -8244,7 +8153,7 @@ Wall time: 1.42 ms
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [74]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> factor(random_prime(2**64)*random_prime(2**64)) # 128 bit n 
@@ -8260,15 +8169,15 @@ Wall time: 1.42 ms
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>CPU times: user 31.9 ms, sys: 0 ns, total: 31.9 ms
-Wall time: 31.5 ms
+<pre>CPU times: user 30 ms, sys: 285 µs, total: 30.2 ms
+Wall time: 30.1 ms
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[74]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>13391792971847536679 * 15730516463031225431</pre>
+<pre>2603931075277770449 * 6761297229444507661</pre>
 </div>
 </div>
 </div>
@@ -8278,7 +8187,7 @@ Wall time: 31.5 ms
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [75]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> factor(random_prime(2**96)*random_prime(2**96)) # 192 bit n
@@ -8294,15 +8203,15 @@ Wall time: 31.5 ms
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>CPU times: user 2.47 s, sys: 0 ns, total: 2.47 s
-Wall time: 2.43 s
+<pre>CPU times: user 2.34 s, sys: 4.44 ms, total: 2.35 s
+Wall time: 2.32 s
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[75]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[28]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>47419285361993254485888859339 * 55372916850435414411345734849</pre>
+<pre>24008636431434710713745214899 * 54432099488743045962899587171</pre>
 </div>
 </div>
 </div>
@@ -8312,10 +8221,10 @@ Wall time: 2.43 s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [77]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [52]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> factor(random_prime(2**96)*random_prime(2**96)) # 256 bit n
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> factor(random_prime(2**128)*random_prime(2**128)) # 256 bit n
 </pre></div>
 </div>
 </div>
@@ -8328,15 +8237,15 @@ Wall time: 2.43 s
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>CPU times: user 2.47 s, sys: 2.2 ms, total: 2.47 s
-Wall time: 2.45 s
+<pre>CPU times: user 3min 6s, sys: 1.05 s, total: 3min 7s
+Wall time: 3min 4s
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[77]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[52]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>22442486277199865063599153657 * 77948547969620138234416312829</pre>
+<pre>236593518623236086418014039105039289109 * 254117808712772563877085158843332102459</pre>
 </div>
 </div>
 </div>
@@ -8364,7 +8273,7 @@ Wall time: 2.45 s
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="$p$-and-$q$-must-be-approximately-the-same-size">$p$ and $q$ must be approximately the same size<a class="anchor-link" href="#$p$-and-$q$-must-be-approximately-the-same-size">¶</a></h3><p>If one prime factor is too small then factoring is easier <a href="https://en.wikipedia.org/wiki/Lenstra_elliptic_curve_factorization">cf.</a></p>
+<h3 id="$p$-and-$q$-must-be-approximately-the-same-size">$p$ and $q$ must be approximately the same size<a class="anchor-link" href="#$p$-and-$q$-must-be-approximately-the-same-size">¶</a></h3><p>If one prime factor is small then factoring is easier <a href="https://en.wikipedia.org/wiki/Lenstra_elliptic_curve_factorization">cf.</a></p>
 </div>
 </div>
 </div>
@@ -8373,7 +8282,7 @@ Wall time: 2.45 s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [78]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> factor(random_prime(2**1024)*random_prime(2**32))
@@ -8389,15 +8298,15 @@ Wall time: 2.45 s
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>CPU times: user 9.47 s, sys: 32.9 ms, total: 9.51 s
-Wall time: 9.51 s
+<pre>CPU times: user 6.76 s, sys: 17.4 ms, total: 6.77 s
+Wall time: 6.72 s
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[78]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>698567819 * 94692169340483632461114630164328963698879505170556566972045795393051833317801747401489930226118272217098274686134608761496913501709622812987818880419682606181187147160481334590216466952325163147397121582578615062622481469881353566201891954541233814301021239975979330964635810437129266455167917642618890216211</pre>
+<pre>2723519431 * 21983046417287773796180412283719780675776530754227844586343094301416162892780538224972896073733307100145410220940906045810591756277080278211068802051726468985140864567899163158808874645764241248922371346185009253002699413538268424645945248436461000566974448734725030893740097344829386540813975326641428678919</pre>
 </div>
 </div>
 </div>
@@ -8407,7 +8316,7 @@ Wall time: 9.51 s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [79]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> factor(random_prime(2**2048)*random_prime(2**32))
@@ -8423,15 +8332,15 @@ Wall time: 9.51 s
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>CPU times: user 44.3 s, sys: 114 ms, total: 44.4 s
-Wall time: 44.3 s
+<pre>CPU times: user 51 s, sys: 63.3 ms, total: 51.1 s
+Wall time: 50.9 s
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[79]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>1332360613 * 4327997323590140857125228350507204300016645189765317199650543153076737614908393372613197309658718570515179368036062403284687117286053738393636717962032986295052903594080327091986679599097411692972353834546689362563652960322673011449148921752638730702191811317064618933330504862220435379072711133459671011284417392743391218569475755646316614168584425798762801342998499152594150868004355420925694838836948714027350795197293310316013247105817242813473812325977809603048030131316237590865698050573208772907952628533625733100242575911188490427224562909402068006293688007472338307201187463769097084210135153611260657065503</pre>
+<pre>191055671 * 26104404363605316156687119569868704325729224130602090096059956367020884471442829282631643167244418941044826586676196616763190239932885047564911363831168647439130471107137598125726290464894939054198128947707799135510187559190745168921941096609602843822662534721675483587158404863483846156219346020889559501244976654854463698352831992607139320311264902996593192507315361718701940739609067921951414727881587151800506882077341029531308190944764002232994913856875122606443703942157368357500339742013383626180316817399664817553981658937551290105788412029775012250186539241128350989521849110986247342157214904620430205501523</pre>
 </div>
 </div>
 </div>
@@ -8452,7 +8361,7 @@ Wall time: 44.3 s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [84]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">bits</span><span class="o">=</span><span class="mi">32</span>
@@ -8467,7 +8376,7 @@ Wall time: 44.3 s
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[84]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[32]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>256</pre>
 </div>
@@ -8479,7 +8388,7 @@ Wall time: 44.3 s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [151]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> factor(random_prime(2**bits)*random_prime(2**bits)*random_prime(2**bits)\
@@ -8497,15 +8406,15 @@ Wall time: 44.3 s
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>CPU times: user 125 ms, sys: 0 ns, total: 125 ms
-Wall time: 125 ms
+<pre>CPU times: user 101 ms, sys: 6 µs, total: 101 ms
+Wall time: 100 ms
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[151]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>497551679 * 1213179103 * 1877973649 * 1910631941 * 2321971139 * 2447232373 * 2827747159 * 3397759657</pre>
+<pre>695964457 * 1268842459 * 1299995251 * 1769042687 * 2198083049 * 3011816009 * 3659848187 * 3854359099</pre>
 </div>
 </div>
 </div>
@@ -8559,7 +8468,7 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [153]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">q</span> <span class="o">=</span> <span class="n">rsa_gen</span><span class="p">(</span><span class="n">bits</span><span class="o">=</span><span class="mi">2</span><span class="o">^</span><span class="mi">1024</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="mi">65537</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -8573,7 +8482,7 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [154]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="n">str_to_num</span><span class="p">(</span><span class="s2">"error"</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
@@ -8587,7 +8496,7 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [166]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">rsa_enc</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">num</span><span class="p">);</span> <span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">]</span> <span class="o">+</span> <span class="s2">"..."</span> <span class="c1"># always the same c under (n,e) </span>
@@ -8601,9 +8510,9 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[166]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[36]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>'20498062452290032520263199700981021515763327797300...'</pre>
+<pre>'16437021152372803354106913952524123751969881361156...'</pre>
 </div>
 </div>
 </div>
@@ -8613,7 +8522,7 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [157]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">m_num</span> <span class="o">=</span> <span class="n">rsa_dec</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">c</span><span class="p">);</span> <span class="n">m</span> <span class="o">=</span> <span class="n">num_to_str</span><span class="p">(</span><span class="n">m_num</span><span class="p">);</span> <span class="n">m</span>
@@ -8627,7 +8536,7 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[157]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[37]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>'error'</pre>
 </div>
@@ -8650,7 +8559,7 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [97]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">rsa_gen</span><span class="p">(</span><span class="n">bits</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">1024</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="mi">65537</span><span class="p">)</span> 
@@ -8664,7 +8573,7 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [105]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [39]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">rsa_enc</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="mi">8</span><span class="p">);</span> <span class="n">c</span> <span class="c1"># small message from Bob e.g., sensor value</span>
@@ -8678,9 +8587,9 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[105]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>1056716605771145727559769161954840204128587371239515379942595789152543316784121164088665635483131910030299900595685860325614557281966260116383558106250725435028411023123877103580823382117213950343822479598350828479916249589260070857465202042192757762583437015436464055605391007835101234860329304643347260406263625493110394071177738976073779767574544425155221164924109498215613577950138038637451591657002337358499297536387999173284816654808324074343060419991573110704420008947996546490400306405245266626087160356272911298484365632701803460439732274243392099141490231384718628140937911973655622010371813614367092424130</pre>
+<pre>1025290013408837755255130605514510502048030802465163007701667270269652988206056848657038874610326405953470420614549112977624743020313347774663431186056792126711498148234994231057065448464738538484214653069946270845506281357195852516516817514139334810075748696492283823327600836582500958993787424215290226150922733755150933308828996466001555105470849925437344171815734899004752704884149679140256463488614061937960723678479271321352195080830923272282976011253718224980647274960757877077307401385299954404536746008547132054475330629642394983970078161865753146530091888012710099002347620625010676097479229110075352737521</pre>
 </div>
 </div>
 </div>
@@ -8690,7 +8599,7 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [112]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">rsa_dec</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">c</span><span class="p">);</span> <span class="n">m</span> <span class="c1"># Alice decrypts c</span>
@@ -8704,23 +8613,35 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[112]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>8</pre>
 </div>
 </div>
 </div>
 </div>
-</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=655a01a3-9e17-4e8b-9d75-00447fde63f7">
+</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=655a01a3-9e17-4e8b-9d75-00447fde63f7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [41]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">rsa_dec</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">c</span><span class="p">);</span> <span class="n">m</span> <span class="c1"># Alice decrypts c</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[41]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>8</pre>
 </div>
 </div>
 </div>
@@ -8730,7 +8651,7 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [113]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [42]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">c1</span> <span class="o">=</span> <span class="n">c</span><span class="o">*</span><span class="n">c</span> <span class="c1"># MitM attacker just multiplies the value with itself</span>
@@ -8744,7 +8665,7 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [114]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [43]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">rsa_dec</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">c1</span><span class="p">);</span> <span class="n">m</span> <span class="c1"># Alice decrypts c1</span>
@@ -8758,7 +8679,7 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[114]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[43]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>64</pre>
 </div>
@@ -8770,7 +8691,7 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [115]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [44]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="o">==</span><span class="mi">8</span><span class="o">*</span><span class="mi">8</span>
@@ -8784,7 +8705,7 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[115]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[44]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>True</pre>
 </div>
@@ -8796,7 +8717,7 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [116]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [45]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">c2</span> <span class="o">=</span> <span class="n">c</span><span class="o">*</span><span class="n">rsa_enc</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># MitM attacker can calc. factor using pk</span>
@@ -8810,7 +8731,7 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [118]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [46]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">rsa_dec</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">c2</span><span class="p">);</span> <span class="n">m</span> <span class="c1"># Alice decrypts c2</span>
@@ -8824,7 +8745,7 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[118]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[46]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>16</pre>
 </div>
@@ -8836,7 +8757,7 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [119]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [47]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="o">==</span><span class="mi">8</span><span class="o">*</span><span class="mi">2</span>
@@ -8850,7 +8771,7 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[119]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[47]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>True</pre>
 </div>
@@ -8874,7 +8795,7 @@ you can simply calculate the eth root ($\sqrt[e] m$) within the set of integers 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [142]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [54]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">rsa_gen</span><span class="p">(</span><span class="n">bits</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">1025</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -8890,11 +8811,11 @@ you can simply calculate the eth root ($\sqrt[e] m$) within the set of integers 
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>n = 8500974778571891654568169108350813086773181226084685198811763567613870576796014635662611012535852060657504599807897323587526362757688091920247045770863705693122457662275701214407780998450912357565868474451845853279269438909378650105783309351640250876518813690548272618560118743331225536195928310719944983487479818344323408684621336820511934820034825318904389528150822115716750759686759702116192793255612489467652357751539435286606342331206012996779893767524126783045550461189715440337728996968380780081639350950440063184668177636408491595273784510082971752467270394198509711161576690448379388132238164874993359392431
+<pre>n = 497971730645974838681029006423427090725241300976658155717199718178997529991216805349539209461719568284588626766068379735834784827635924398109119587602876134492806897458361917412365944288300721253065686740528877797207779333908248623416276518504678896281961268128247605399915028863192996181436725188084333013641175400011748085980356433723082998139135562738231881003774047339646397760097841585513005347271551447265927375487034217393976507465265775488315294590679783444073694637649897817795174779369990906390998526996772469253560755409656011473269414894989151853463968061623370966765198060616659094665859813934027360719
 e = 3
-d = 5667316519047927769712112738900542057848787484056456799207842378409247051197343090441740675023901373771669733205264882391684241838458727946831363847242470462081638441517134142938520665633941571710578982967897235519512959272919100070522206234426833917679209127032181745706745828887483690797285540479963322324855914224001600983983035729397342978409553542715384346460095575925353121620422491539892803695093779439222790988847404589131879820460729836011419183222398616424662713528532052169566942562551652330657529765597374116330772918320013541029555025061591560248820055806336555224714397726454936061202325429997644567467
-p = 131107063264776199982447054661823500747449688963641182107606598997673833547081243318053344941863276011392702569207860854669228922340092243253137829141116434503944424716929145599368154386742239130064842889584309103386775934806337520981428654673432167292849760360291070291435016339529010866333754849347735833071
-q = 64839945056231008664336171754096851673045315867671826353072152831047243709044721488300242771108544297425468699060467548239293678174825999509627163549412423904611966179988216484010428737811062455588213412459692906785242324122133762748023317817152244801190550128713808033070077519167973174100921880649156708161
+d = 331981153763983225787352670948951393816827533984438770478133145452665019994144536899692806307813045523059084510712253157223189885090616265406079725068584089661871264972241278274910629525533814168710457827019251864805186222605499082277517679003119264187974178752165070266610019242128664120957816792056222008903547224051466072365480391263099312925416950614740981087743491077965146743303531794955288325229901526576621085936577803351294223597358060055173624369876967183389795242532721516555301383740774871460940017259076910495893985775534832034787013332047086253037279063754321954802283656627092893641677976869636275931
+p = 284101770455481211181031431071301028608802116790453441192660568887666495681659797442765853033748044227523488309644820921864674349274246239890017212272286933868702331900503952528358909853657310280654041241250692639228662869337695574719140103529724584067161353249344119737076843506778958171560258768363892518307
+q = 1752793479067766251104415757133000142208020025666968179498241835032181963482746450314219825678654929877507436937346590502360822794982445515537645763577398800286669873346863014603312850101518318545547259857464464281056907408658188701948791367193938406746696216647768297484929068897061582643084080265680428517
 </pre>
 </div>
 </div>
@@ -8905,7 +8826,7 @@ q = 6483994505623100866433617175409685167304531586767182635307215283104724370904
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [143]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [58]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="n">str_to_num</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span><span class="n">n</span><span class="p">);</span> <span class="n">num</span><span class="p">;</span> <span class="nb">hex</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
@@ -8919,7 +8840,7 @@ q = 6483994505623100866433617175409685167304531586767182635307215283104724370904
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[143]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[58]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>'0x41'</pre>
 </div>
@@ -8931,10 +8852,10 @@ q = 6483994505623100866433617175409685167304531586767182635307215283104724370904
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [148]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [59]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">rsa_enc</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">65</span><span class="p">);</span> <span class="n">c</span> <span class="c1"># Bob encrypts message m=65 for Alice</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">rsa_enc</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mh">0x41</span><span class="p">);</span> <span class="n">c</span> <span class="c1"># Bob encrypts message m=65 for Alice</span>
 </pre></div>
 </div>
 </div>
@@ -8945,7 +8866,7 @@ q = 6483994505623100866433617175409685167304531586767182635307215283104724370904
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[148]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[59]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>274625</pre>
 </div>
@@ -8957,10 +8878,10 @@ q = 6483994505623100866433617175409685167304531586767182635307215283104724370904
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [149]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [60]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="mf">274625.</span><span class="n">nth_root</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># Attacker can compute plaintext </span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">hex</span><span class="p">(</span><span class="mf">274625.</span><span class="n">nth_root</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Attacker can compute plaintext </span>
 </pre></div>
 </div>
 </div>
@@ -8971,9 +8892,9 @@ q = 6483994505623100866433617175409685167304531586767182635307215283104724370904
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[149]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[60]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>65</pre>
+<pre>'0x41'</pre>
 </div>
 </div>
 </div>
@@ -8985,7 +8906,7 @@ q = 6483994505623100866433617175409685167304531586767182635307215283104724370904
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Other-RSA-gotchas">Other RSA gotchas<a class="anchor-link" href="#Other-RSA-gotchas">¶</a></h2><p>Over the years a lot of attacks against RSA have been <a href="https://crypto.stanford.edu/~dabo/papers/RSA-survey.pdf">studied</a>. This shows that getting it right is indeed hard, but still it has not been compleatly broken.</p>
+<h2 id="Other-RSA-gotchas">Other RSA gotchas<a class="anchor-link" href="#Other-RSA-gotchas">¶</a></h2><p>Over the years a lot of attacks against RSA have been <a href="https://crypto.stanford.edu/~dabo/papers/RSA-survey.pdf">studied</a>. This shows that getting it right in practise is non-trivial</p>
 <ul>
 <li><em>Coppersmith attack</em><ul>
 <li>Low encryption exponent $ e $ and small message $ m $</li>
@@ -9001,7 +8922,7 @@ q = 6483994505623100866433617175409685167304531586767182635307215283104724370904
 </ul>
 </li>
 <li><em>Meet in the middle attack</em><ul>
-<li>If small (e.g., 128 bi) non padded value is transferred that is the product of two (e.g., 64 bit) values</li>
+<li>If small (e.g., 128 bit) non padded value is transferred that is the product of two (e.g., 64 bit) values</li>
 </ul>
 </li>
 <li><em>Common factor attacks across multiple keys</em><ul>
@@ -9025,13 +8946,13 @@ q = 6483994505623100866433617175409685167304531586767182635307215283104724370904
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="RSA-but-how?">RSA but how?<a class="anchor-link" href="#RSA-but-how?">¶</a></h2><p>In general: If alternative are available better use them.
+<h2 id="RSA-but-how?">RSA but how?<a class="anchor-link" href="#RSA-but-how?">¶</a></h2><p>In general: If alternatives are available better use them.
 RSA is just a trapdoor permutation and should never be used directly as encryption system (textbook RSA).
-It has to be embedded/transformed before usage, e.g., OAEP, PKCS1v2.0, or ISO 18033-2.</p>
+It has to be embedded/transformed before usage, e.g., OAEP, PKCS1v2.0, or ISO 18033-2</p>
 <p>ISO 18033-2 standard roughly:</p>
 <ul>
 <li>$(E_s,D_s)$: Symmetric encryption/ decryption system which provides authenticated encryption</li>
-<li>$H(): \mathbb{N}_n \to K $: Secure hash function that maps elements of $\mathbb{Z}_n $ to secret keys from a symmetric encryption/decryption system.</li>
+<li>$H(): \mathbb{N}_n \to K $: Secure hash function that maps elements of $\mathbb{Z}_n $ to secret keys from a symmetric encryption/decryption system</li>
 <li>$G():$ Generate RSA parameter $pk = (n,e)$, $sk = (n,d)$</li>
 <li>$E(pk,m)$: choose random $x$ in $\mathbb{Z}_n$<ul>
 <li>$y \gets x^e \pmod{\mathbb{Z}_n}$, and $ k \gets H(x)$, also <em>padding</em> is applied</li>
