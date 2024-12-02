@@ -7453,9 +7453,23 @@ main {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>References:</strong></p>
 <ul>
-<li>[<a href="https://link.springer.com/book/10.1007/b97644">GECC</a>] Guide to Elliptic Curve Cryptography, Darrel Hankerson, Alfred Menezes, and Scott Vanstone. 2004.</li>
+<li><a href="https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/">Elliptic Curve Cryptography: a gentle introduction</a></li>
 <li>[<a href="https://www.secg.org/sec1-v2.pdf">SEC1v2</a>] SEC 1: Elliptic Curve Cryptography (Version 2.0), <a href="https://en.wikipedia.org/wiki/SECG">Standards for Efficient Cryptography Group (SECG)</a> founded by Certicom</li>
 <li>[<a href="http://www.secg.org/sec2-v2.pdf">SEC2v2</a>] SEC 2: Recommended Elliptic Curve Domain Parameters (Version 2.0)</li>
+<li>[<a href="https://link.springer.com/book/10.1007/b97644">GECC</a>] Guide to Elliptic Curve Cryptography, Darrel Hankerson, Alfred Menezes, and Scott Vanstone. 2004.</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4d719613-cb66-4820-b64c-264b89b05a2e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Curves:</strong></p>
+<ul>
 <li><a href="https://safecurves.cr.yp.to">https://safecurves.cr.yp.to</a></li>
 <li><a href="https://tools.ietf.org/html/rfc8032">EdDSA Ed25519</a><ul>
 <li><a href="https://ed25519.cr.yp.to/">https://ed25519.cr.yp.to/</a></li>
@@ -7465,7 +7479,6 @@ main {
 <li><a href="http://www.ecc-brainpool.org/download/Domain-parameters.pdf">Brainpool curves</a> (non-NIST)</li>
 <li>NIST curves specified in <a href="https://csrc.nist.gov/pubs/fips/186-5/final">FIPS 186-5</a> and  <a href="https://csrc.nist.gov/pubs/sp/800/186/final">SP 800-186</a></li>
 <li><a href="https://www.hyperelliptic.org/">Hyperelliptic</a> calculation code snippets and implementation help</li>
-<li><a href="https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/">Elliptic Curve Cryptography: a gentle introduction</a></li>
 </ul>
 </div>
 </div>
@@ -7544,7 +7557,7 @@ main {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="ECC---Elliptic-Curve-Cryptography">ECC - Elliptic Curve Cryptography<a class="anchor-link" href="#ECC---Elliptic-Curve-Cryptography">¶</a></h2><ul>
 <li>RSA relies on the hardness of <em>integer factorization</em></li>
-<li>Security of Diffie-Hellman relies on hardness of <em>discrete logarithm problem</em></li>
+<li>Diffie-Hellman relies on hardness of <em>discrete logarithm problem</em></li>
 <li>ECC also relies on discrete logarithm problem, but over the algebraic structure of <em>elliptic curves over finite fields</em>. This makes the (same) problem harder<ul>
 <li><strong>Elliptic Curve Discrete Logarithm Problem</strong> (ECDLP)</li>
 </ul>
@@ -7552,7 +7565,7 @@ main {
 </ul>
 <p>Advantage:</p>
 <ul>
-<li>This allows for shorter key length for equivalent computational security<ul>
+<li>Shorter key length without sacrificing high computational security<ul>
 <li>This means faster computation while retaining hardness against attacks</li>
 </ul>
 </li>
@@ -7592,8 +7605,8 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Elliptic-curves-over-finite-fields">Elliptic curves over finite fields<a class="anchor-link" href="#Elliptic-curves-over-finite-fields">¶</a></h2><p>In ECC elliptic curves are defined <strong>over some finite field</strong>, i.e., the $x$ and $y$ coordinates of points on the elliptic curve have to be elements of the underlying finite field, i.e., $x,y \in \mathbb{F}$.</p>
-<p>We denote the underlying finte filed with $\mathbb{F}$ to indicate that it is a finte field. In most cases finite field is the set of non-negative integers modulo a prime number $p$, i.e., $\mathbb{Z}_p$ where $ p \in \textrm{Primes}$. We denote this finite field with $\mathbb{F}_p$.</p>
+<h2 id="Elliptic-curves-over-finite-fields">Elliptic curves over finite fields<a class="anchor-link" href="#Elliptic-curves-over-finite-fields">¶</a></h2><p>In ECC elliptic curves are defined <strong>over some finite field</strong> $\mathbb{F}$, i.e., the $x$ and $y$ coordinates of points on the elliptic curve have to be elements of the underlying finite field, i.e., $x,y \in \mathbb{F}$.</p>
+<p>An example for a finite field is the set of non-negative integers modulo a prime number $p$, i.e., $\mathbb{Z}_p$ where $ p \in \textrm{Primes}$. We denote this finite field with $\mathbb{F}_p$</p>
 </div>
 </div>
 </div>
@@ -7615,13 +7628,24 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Weierstrass-represetation">Weierstrass represetation<a class="anchor-link" href="#Weierstrass-represetation">¶</a></h2><p>An elliptic curve $E$ in (long) Weierstrass form is defined by the parameters $a_1,a_2,a_3,a_4,a_5 \in \mathbb{F}_p$ [<a href="https://link.springer.com/book/10.1007/b97644">GECC</a>]:
+<h3 id="(Long)-Weierstrass-represetation">(Long) Weierstrass represetation<a class="anchor-link" href="#(Long)-Weierstrass-represetation">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4fd4b623-a82c-4bb0-88a8-eac266d509f5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>An elliptic curve $E$ in (long) Weierstrass form is defined by the parameters $a_1,a_2,a_3,a_4,a_5 \in \mathbb{F}_p$ [<a href="https://link.springer.com/book/10.1007/b97644">GECC</a>]:
 $$
-  y^2 + a_1xy + a_3y = x^3 + a_2x^2 + a_4x + a_6
+  y^2 + a_1xy + a_3y = x^3 + a_2x^2 + a_4x + a_5
 $$</p>
 <p>Together with a special <em>point at infinity</em> $\mathcal{O}=\infty$. The set of points on $E$ over finite field $\mathbb{F}_p$ is thus defined as:
 $$
-  E(\mathbb{F}_p) = \{(x,y) \in \mathbb{F}_p, y^2 + a_1xy + a_3y - x^3 - a_2x^2 - a_4x - a_6=0\} \cup \{ \mathcal{O} \}
+  E(\mathbb{F}_p) = \{(x,y) \in \mathbb{F}_p, y^2 + a_1xy + a_3y - x^3 - a_2x^2 - a_4x - a_5=0\} \cup \{ \mathcal{O} \}
 $$</p>
 <p>Every elliptic curve, with a characteristic ($p$) of the underlying finite field not equal to $ 2 $ or $ 3 $, can be transformed into Weierstrass form [<a href="https://www.cs.umd.edu/~jkatz/imc.html">ITMC</a>].</p>
 </div>
@@ -7634,40 +7658,57 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Simplified-(short)-Weierstrass-representation">Simplified (short) Weierstrass representation<a class="anchor-link" href="#Simplified-(short)-Weierstrass-representation">¶</a></h3><p>The simplified, or short, Weierstrass form is a simplified representation of the long Weierstrass form which is commonly used instead of the long version as they can be transformed into each other [<a href="https://link.springer.com/book/10.1007/b97644">GECC</a>].</p>
-<p>The simplified Weierstrass representation is defined by the parameters $a,b \in \mathbb{F}_p$:
-$$
-    y^2 = x^3 + ax + b 
-$$
-Moreover, $a,b \in \mathbb{F}_p$ must satisfy $4a^3 + 27b^2 \not \equiv 0 \pmod p$.
-This should ensure that the equation $ x^3 + ax + b = 0 $ has no repeated roots ("zeros")[<a href="https://www.cs.umd.edu/~jkatz/imc.html">ITMC</a>][<a href="https://www.secg.org/sec1-v2.pdf">SEC1v2</a>].</p>
+<h3 id="(Short)-Weierstrass-representation">(Short) Weierstrass representation<a class="anchor-link" href="#(Short)-Weierstrass-representation">¶</a></h3>
 </div>
 </div>
 </div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0fc5d621-1af0-4574-ac84-70b14eef83ea">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=58ecb97d-89c1-4bac-989c-97c90ad480cb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Elliptic-curves-over-$%5Cmathbb%7BF%7D_p$">Elliptic curves over $\mathbb{F}_p$<a class="anchor-link" href="#Elliptic-curves-over-$%5Cmathbb%7BF%7D_p$">¶</a></h2><p>Summing up, in ECC we define elliptic curves $E(\mathbb{F}_p)$ over $\mathbb{F}_p$ in simplified Weierstrass form as follows:</p>
-<ul>
-<li>Let $ \mathbb{F}_p $ be a prime finite field where $ p \in \textrm{Primes} $</li>
-<li>The parameters $a,b \in \mathbb{F}_p $</li>
-<li>Let $a,b \in \mathbb{F}_p$ satisfy $4a^3 + 27b^2 \not \equiv 0 \pmod p$</li>
-<li>The elliptic curve is set of solutions, i.e., points $ P=(x,y)$ on the curve, for all pairs $x,y \in \mathbb{F}_p$ to the defining equation:
+<p>The <em>simplified</em>, or <em>short</em>, Weierstrass form is a simplified representation of the long Weierstrass form which is commonly used instead of the long version as they can be transformed into each other [<a href="https://link.springer.com/book/10.1007/b97644">GECC</a>].</p>
+<p>The simplified Weierstrass representation is defined by the parameters $a,b \in \mathbb{F}_p$:
 $$
-\begin{align*}
-E(\mathbb{F}_p): y^2 \equiv x^3 + ax + b \pmod p \\
-\end{align*}
-$$</li>
-<li>Plus the point at infinity $\infty$ or $\mathcal{O} \in E(\mathbb{F}_p)$, s.t., $P + \mathcal{O} = \mathcal{O} + P = P $</li>
-</ul>
+    y^2 = x^3 + ax + b 
+$$
+Moreover, $a,b \in \mathbb{F}_p$ must satisfy $4a^3 + 27b^2 \not \equiv 0 \pmod p$.
+This should ensure that the curve is <strong>smooth</strong>, i.e., the equation $ x^3 + ax + b = 0 $ has no repeated roots [<a href="https://www.cs.umd.edu/~jkatz/imc.html">ITMC</a>][<a href="https://www.secg.org/sec1-v2.pdf">SEC1v2</a>].</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=36892397-efe8-40fb-97b8-c2d6b36ec34f">
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9e59de27-40cd-4d9c-adda-cfbdfb6c9ca2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Smooth-and-Singular-curves">Smooth and Singular curves<a class="anchor-link" href="#Smooth-and-Singular-curves">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9dfc0e1d-1dc8-47f2-b13b-bc3e001d211e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>A smooth curve has <em>no sharp points</em>, <em>self-intersections</em>, or <em>singularities</em>. More formally, it is a curve in which every point has a well-defined tangent line, and the curve is differentiable at all points. For cryptographic applications we want curves to be smooth!</p>
+<p><em>Singular curves</em> are <strong>not</strong> smooth. Singular points can take two forms:</p>
+<ol>
+<li><strong>A node</strong>: The curve intersects itself at a point. i.e., two distinct tangent lines intersect at the singular point.</li>
+<li><strong>A cusp</strong>: The curve bends sharply into itself, i.e., a single tangent line touches the curve with higher multiplicity.
+Singular elliptic curves are no longer elliptic curves in the strict mathematical sense, as they fail to satisfy the smoothness condition.</li>
+</ol>
+<p><strong>Example</strong>:</p>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e3cb1f7a-7f30-41f9-afe1-fbf96704f974">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7675,22 +7716,14 @@ $$</li>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span><span class="o">=</span><span class="mi">103</span><span class="p">;</span> <span class="k">assert</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">Primes</span><span class="p">();</span> <span class="n">FF</span><span class="o">=</span><span class="n">FiniteField</span><span class="p">(</span><span class="n">p</span><span class="p">);</span> <span class="c1"># define finite field </span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0797bf99-a18a-47da-8e5f-4f61091a7950">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">a1</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">a2</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">a3</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">a4</span><span class="o">=</span><span class="n">a</span><span class="p">;</span> <span class="n">a5</span><span class="o">=</span><span class="n">b</span><span class="p">;</span> <span class="c1"># define as long Weierstrass</span>
-<span class="n">EC</span><span class="o">=</span><span class="n">EllipticCurve</span><span class="p">(</span><span class="n">FF</span><span class="p">,[</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">a3</span><span class="p">,</span><span class="n">a4</span><span class="p">,</span><span class="n">a5</span><span class="p">]);</span> <span class="n">EC</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># y^2 = x^3 + a4x + a5</span>
+<span class="n">a1</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">a2</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">a3</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">a4</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">a5</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">EC</span> <span class="o">=</span> <span class="n">EllipticCurve</span><span class="p">(</span><span class="n">RR</span><span class="p">,[</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">a3</span><span class="p">,</span><span class="n">a4</span> <span class="p">,</span><span class="n">a5</span><span class="p">])</span> <span class="c1"># Weierstrass curve</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">EC</span><span class="p">,</span><span class="n">thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">ymin</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span><span class="n">ymax</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">ArithmeticError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"ArithmeticError: Sage EllipticCurve won't even allow defining a singular curve!"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7700,15 +7733,98 @@ $$</li>
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>Elliptic Curve defined by y^2 = x^3 + 102*x + 1 over Finite Field of size 103</pre>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>ArithmeticError: Sage EllipticCurve won't even allow defining a singular curve!
+</pre>
 </div>
 </div>
 </div>
 </div>
-</div></div></section></section><section><section>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=15092d03-3541-45f2-8004-945f15b4f667">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Singular-elliptic-cruve-$y%5E2-=-x%5E3$-with-a-cusp">Singular elliptic cruve $y^2 = x^3$ with a cusp<a class="anchor-link" href="#Singular-elliptic-cruve-$y%5E2-=-x%5E3$-with-a-cusp">¶</a></h4>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e02840ba-91c3-46a5-a9d1-ca77e3ce7e79">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">var</span><span class="p">(</span><span class="s1">'x y'</span><span class="p">);</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span> 
+<span class="n">func</span> <span class="o">=</span> <span class="n">y</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="mi">3</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># y^2 = x^3 # (a cusp) </span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">implicit_plot</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Singular elliptic curve $y^2 = x^3$ with cusp"</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
+<img alt="No description has been provided for this image" class="" src="data:image/png;base64,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
+"/>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c6e12479-95a2-4052-ace1-e1857d43fcbd">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Singular-elliptic-cruve-$y%5E2-=-x%5E3---3x-+2-$-with-a-node">Singular elliptic cruve $y^2 = x^3 - 3x +2 $ with a node<a class="anchor-link" href="#Singular-elliptic-cruve-$y%5E2-=-x%5E3---3x-+2-$-with-a-node">¶</a></h4>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=a09e83a4-eef9-4279-bdc3-56e3ccbf3ea0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">var</span><span class="p">(</span><span class="s1">'x y'</span><span class="p">);</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span> 
+<span class="n">func</span> <span class="o">=</span> <span class="n">y</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="mi">3</span> <span class="o">-</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># y^2 = x^3 - 3x +2 # (a node) </span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">implicit_plot</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Singular elliptic curve $y^2 = x^3 - 3x +2 $ with node"</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
+<img alt="No description has been provided for this image" class="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXYAAAGDCAYAAAA/ATvPAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjUuMSwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy/YYfK9AAAACXBIWXMAAA9hAAAPYQGoP6dpAABCr0lEQVR4nO3dd5xT1bbA8d8CYUBgBgXFiijYUKyIHbgqXBW7vmuniEhTwQLKFRQs2BEFFFQsYBe9WFFRUVRQwIodeHABEZA6oPTZ74+VvAzj1ExO9snJ+n4++ZwzM0nOSiZZ2dln77XFOYcxxpjoqOI7AGOMMallid0YYyLGErsxxkSMJXZjjIkYS+zGGBMxltiNMSZiLLEbY0zEWGI3xpiIscRujDERY4ndGGMixhK7McZETMYndhH5SESGZvOxi8aRqrh8Pr4wEZEdReQSEblIRO4XkW3SeOxtReQyETldREaLSMa/Z4NS3tdrmF7XQcUS+hdJ7E01SkTmi8gGEVksIu+KyNGxq5wDDPAZYwhV+Dkp4QVmz606AajrnHsOqAaclMZj7w80Bt4EmgE5aTx2ptnq9RqmBJ5uaWt5VMIr6JupA/C/QAPgRGB7AOfcCn+hVY6IVHfObUz1/abqOQnjcxvUc1Ya59wLhX7cCfg5jcf+UkTmAz2Bh5xz61JxvyLSGn0v1QJOBu5yzn2Vivsux7GPBI4D6gBHA4Odcx9X9n7D+Hr1xjkX2gtQF3BAq1Ku8xEwtMjPDwH3ACuAxcDAIrepAzwL/An8DlxTzP3MA3oXud03he+r8G3QN8enwCpgOdrCalxMrMOBIcAy4OMSHpMAfdEPsnXAt8B5JT3uEp6Doj8Pj13i8d0OSOzvT8We58KXRsXcTxXgBmA2sAGYD9xUyv+m1OtX4Dne6jkDugK/AVWK3PZ14OnyPodJvB7bAf/j8f0wAdgvRfe1HOgQ278OmJ2C+yzzuQG2Be4s9PN5wF/ArsVc9/TY67VK7OdDYq/NewtdZxTwfDHviWJf04WuV2qOKCaWMm+Dfpt6CFgKrEfzwRGF/l4LGAOsRfPOdcW8x1Lyug17V8za2OUsEanIV9AOaNI+En2SbhaRNoX+PgQ4FjgDaAMcDxxWyVhrxe73CPQbRQHwn2L6RDsAm2PH71rCfd0OdAK6AwcADwDPiEirSsQXP+6RwNXoh9nlsb/1AqYCjwE7xy4LirmPO9FEfRvQFLgIWFLKMSt6/bJijz9nLwP1gX/EryAi2wH/RD+wIcXPoYgcASxxzr0sIk2TuY8kj9tTROKvk81ot0wqtAbGFfq5dgru84ByXKcJcKOINIn9/C5QE/3fFjUZbYQdGvu5FfrhXvh/2Br9sC+qrNd0WTmiOGXd5h7g3Nj1DkMbNO+KyPaxv9+LvmbPBtrGYj+8yDFS8roNdVeMc26ziHRE/zndROQr9J/4gnPuu1Ju+p1zblBsf5aIXIkm24kiUgd94i9yzn0AICKdgEWVjPWVwj+LSGf0k7sp8H2hP812zvUt6X5EpBZwLXCCc25q7Nf/KyLHoUkt2a+sC4BrnDYLfhGRZmhyf8w5t1pENgJ/OecWF4qlcFx10DfLlc65p2O/noO2Sop7HBW6fhn+9pyJyDvoB8UHsV/9D9qS+iCZ51BEqqJvpubACOfcdBFpCDwJ9EdbhktFpHrsekVvvz3QB21xlWRdoddl/HZHA/sBLYB30O6R04Eusf/FJOAQETkTmBm7TqU552YW+vF09AO4vDFVxkw0ic+J/dwwtp1VTIyrReQbNAF+Gds+ANwSe33VAvZBW73F3fZvr+lCSswRpcReWl6phb4uOjrnJgCISBe04dhZRB4BOgPtnXMTY3/vACyM33kq3/uhTuygCVNE3kJb1UejXR59ReRy59xTJdysaNL/Hdgxtr8X2mc/rdAxVovIL5WJU0Qaoy3To9DWZLyl3pCtE/uMMu6qKVADfbEU/n114OtKhPh5LKnHTQWuE5Gqzrkt5bj9/uhXzQ/KumKS1y9Ncc/Zs8CjItLDObcBuBj9wN8Sa1FX9Dk8G3gBfZ3tCUxH35SLY2+yg0oL0Gn/br/yPyQQkTxgb+fckyKyFv2gPRE9Wbs+dr8/Aj/GbvJaRe6/HMdvAZyGPtYXyxtTZcReg1MK/epGtCuipP/LR0BrERmC/m/6o63i49Cu2iXOuWTOeZSWI5K5TWM0r3wW/6NzbpOITCNxArw6+r6L/31FkbyTsvd+6BM7gHNuPfpJOhG4VUQeBwah/WjF2VT0LkgkWin0u8KKtrQKivldtVLCfANtFXdBW/9V0IRevcj1/izlPigUZzu0H7mwDWXcNkgVPWlXnuuX9zku7jl7A32u2onIdPRNf23sb8k8h+/H4jkBuCz2u9YU0xpMoU3A87H9FsD42IfsBRW5ExHphX4YleRj59x/iv7SOTcNmCYi3YBPROQf5Y1JROqjrfzC/79jRKRwl84K59zgUuK+DO2rLvEbLPr8dwYORv8/P6It11bAdiT/Dba0HJHMbUrLK47Sv8nFpey9nxGJvRg/Amcleds56D+oBbE+NxHJBfZm6xfJH2i/HIWuU+ybR0TqoZ/KXZ1zn8R+d1yS8f2I/hMbuhSMFCjkqGJ+nlWotb4RqFrK7WehyfpE4PFyHK881y/3c1yUc26diLyKttSbAL86576M/bnCz6FzbpWIXABMds7FP0haod/CyhR7DVxPBbpinHN/FfpbG+DS2H3lOedWl+e4sft5sLzXjd3/UWjr/yjn3Fw0eT4CnOycK9zvXmJMzrllaNdT4fsd6JwbWM4YTgWqOuf6iEgNEdnJOTevmKvG+9l7ox9QTkQ+Rr8dbQeU9tjLek2n0uzY8Y4DngMQkWpo197Q2N83oe+7+bG/b4d2JcVfoyl774c6scfeLC8DT6Bfg9agT1Rfkvxa6pxbIyJPA/eKyAq0H3wQ2hoo/Gn7IdBRRN4AVqJv8JK6LFaiowyuEJHf0e6XuyoR333AA7ETr58CucAxwNpC/dUVtXvs6+wo9MTOVehZ+bh5wJEi0gg9Yb3V0DHn3HoRuRu4J9Z3+RmwA3CAc250MY+jPNevyHNcnGfRlvsBwDOFjp3sc7gL+gZERA4AtnHO/VqeQJxzy6l4V8wpaF/262jD4vtYvO2BYRW5rwrajH7wxluFe6FJ59t0xCQiLdHn+g0R2QlNdkvQ1+BWCvWzX4KeswFN9i+j3+4+KuVQ8yjymnbOFaTiMRQT55+xfvR4XpmP5qltgdHOubUiMjr29+Xo470DzTvx+0jZez/UiR39Z3yB9vPF+7AWoCdTS/yKVw7XAiPRIYn56Nns3dm6D/FO9AX/JrAanfhQbGvSOVcQa+09hHa//IKOPPkoyfgGoB84/WIxrAK+onKPeQw6+mAamjyHAY8W+vt9wNNoq6EmxT/W29CkcCv6xvwdfR5LUtb1y/0cl+BD9ANoX2KtpEKSeQ7HA3eJyEVo10MqvzEVZ6dYbP+MxXU1+nw9W9qNKss5NyP2IX+1iGxBW5mnOedmxb5pBhaTiMT/33WK/CmvlJtNQhsjH8XiXykiP6KvqZ9KuV1xr+l5ycRdTjei3Slj0cc3A/inc25l7O990NFHr6ON1Pv5++NOyXs/Po45q8XORv8GXFdc6zPTichHwDfOud6eQ8kYIvIh8IRz7pkyr2wAEJELnXPPl31NE7Swj2MPhIgcKiIXikhjETmMRGskpaMOTOYQkQNEZKGo49GhdC+UdTuTYEk9PMLeFROk69Gv8BvRMbLHx04Imey0DBiNnixsCpzqnNvsNyRjkmNdMcYYEzFZ2RVjjDFRZondGGMixhK7McZETKhPnooWTNgFHfNpjDHZqg6wyJXzpGioEzua1BeWeS1jjIm+3fh7DZlihT2xrwFYsGABubm5vmMxxpi0y8/PZ/fdd4cK9FyEPbEDkJuba4ndGGPKKdCTpyLSXUS+E5H82GVqrMiQMcaYgAQ9KmYhWhineezyIfBarHKeMcaYAATaFeOce6PIr24Ske5omc4fil5fdF3TwmubFq0AZ4wxgdq0CaqVtqROBkjbOHYRqRorbVuLQstDFdEPLd8av9iIGGNMWnXoACecANOn+44keYGfPBVdNHkqupbfWuDs2DqOxbkTGFLo5zpYcjfGpMnSpTBunLbaq6Zr7aUApGNUzC/AIejCs+cCT4tIq+KSe2xR4v9f26/Igq7GGBOoJ5/UpN6iBRx2mO9okhd4YnfObSS23BgwQ0SOQJe46hr0sY0xpry2bIFRo3S/Wze/sVSWj1oxwtYnSI0xxrt334W5c6FuXTj/fN/RVE6gLXYRGQxMQNcprYOuI9kaODnI4xpjTEWNGKHbyy6Dbbf1G0tlBd0V0wBd2HVndJTLd8DJzrmJAR/XGGPKbe5cmDBB9zO9GwaCH8feOcj7N8aYVBg1CpyDtm1h7719R1N5Vo/dGJPVNmyAJ57Q/e7d/caSKpbYjTFZbdw4+OMP2HVXOO0039GkhiV2Y0xWGz5ct926wTYZUe+2bKFM7CLSU0R+BKb5jsUYE11ffQWff661Ybp08R1N6oQysTvnRjjnmgItfMdijImuhx/W7XnnQYMGfmNJpVAmdmOMCdqqVfD887oflZOmcZbYjTFZ6ckn4a+/4MAD4bjjfEeTWpbYjTFZp6AgMdP0yishavUGLbEbY7LOe+/BnDmQlwcXX+w7mtSzxG6MyTrx1nrHjlC7ttdQAmGJ3RiTVebOhbfe0v0ePfzGEhRL7MaYrPLww1oXpk0b2Gcf39EEwxK7MSZr/PUXjB6t+1dd5TeWIIUysdvMU2NMEJ57DlauhD33hFNP9R1NcEKZ2G3mqTEm1ZxLnDTt0SOzF6suSygTuzHGpNrUqfDNN1Cjhq6SFGWW2I0xWeGhh3R74YWw/fZ+YwmaJXZjTOT99pvWXQfo1ctvLOlgid0YE3kjR8KWLdCyJRx8sO9ogmeJ3RgTaRs2wKOP6v6VV/qNJV0ssRtjIm3cOFi6VJe+O+ss39GkhyV2Y0xkOQdDh+p+t266UlI2sMRujImsL76AGTMgJwe6dvUdTfqEMrHbzFNjTCoUHuK4ww5+Y0kncc75jqFEIpILrF69ejW5ubm+wzHGZJDff4eGDWHzZl20+tBDfUeUnPz8fPLy8gDynHP55blNKFvsxhhTWaNGaVI/9tjMTerJssRujImc9evhkUd0P8pVHEtiid0YEzkvvKBDHHffHc4913c06WeJ3RgTKc4lTpr27AnbbOM3Hh8ssRtjIuWzz+Drr6FmTejSxXc0flhiN8ZESry1ftFF0a/iWBJL7MaYyJg3D155RfezoYpjSSyxG2MiY/hwKCiAk06CZs18R+OPJXZjTCSsXQuPP677vXt7DcW7UCZ2KylgjKmosWNh9Wpo0gROOcV3NH6FMrHbYtbGmIooKIAHH9T9q66CKqHMbOmT5Q/fGBMFEybAL79Abi506uQ7Gv8ssRtjMt4DD+j2iiugTh2/sYSBJXZjTEabORM++ACqVs2epe/KYondGJPR4hOSzj4b9tjDbyxhEWhiF5F+IjJdRNaIyFIRGS8i+wZ5TGNM9liyREfDQHZPSCoq6BZ7K2AEcBTQBtgGeE9EagV8XGNMFnjkEdiwAVq00LrrRgVa98w5d3Lhn0WkE7AUOByYHOSxTXo5B+vWQX4+bNmiv6tVC2rXzs7qeiZ469fDww/r/nXXgYjfeMIk3W+5vNh2RXF/FJEcIKfQr+z8dggtWKAV9KZPhx9+gNmzYeFCbTkVZ8cdYbfdYN99oWlTOPxwbWHVq5feuE20PPcc/PGHLn93zjm+owmXtCV2ERFgCPCpc+77Eq7WD7glXTGZ8nFO14x8/nl46y34+eeSryuioxOcS7Tcly7Vy1dfbX3dAw+ENm3g1FOhVSuoVi24x2CixTkYOlT3r7zSvhUWlbbFrEVkBNAOOM45t7CE6xTXYl9oi1n7sWYNPP00jBixdTKvUgUOO0xb3YceqlO499gD6tfXrhcRfeNt3AirVumiwv/9r97HzJkwbRrMmrX1serWhbPOgvbtNcln+8xBU7p334WTT9buvgULYLvtfEcUnGQWs05LYheRYcBZQEvn3NwK3C4XWG2JPb3WrNHp2fffr4kZdNGCM86A887Tynl161buGMuWwYcfwnvvwRtvaIs+rlEj6NYNLrsMdtihcscx0dS2LUycqCNh4i33qApdYo91vwwDzgZaO+dmlXGTore3xJ5GBQVaHe+mmzTxAuyzj9be6NAhuBl9W7Zon/2zz8KLL2ohJ4CcHD3u9dfD3nsHc2yTeWbOhIMO0m91s2fDnnv6jihYyST2oL/wjgAuAS4C1ojITrFLzYCPayroxx/hmGOga1dN6vvso33qP/2kfZhBTtOuWhVatoRRo2DRInjiCWjeXE/GPvoo7LefdtEU7b4x2SneQj/nnOgn9WQF3WIv6c47OeeeKsftrcUesIICnbl3442aSOvUgVtv9X9Cyjn45BO45x49YQv6AXD55TBwIOy0k7/YjD+LF+v5nI0b9VveMcf4jih4oWuxO+ekhMtTQR7XlE9+vrZ6rrlGk/opp+gJzt69/Y8yENFW/JtvwowZ0K6ddtmMGqUna++6q+ThlSa6hg3TpH7UUXD00b6jCS8be5ClZs2CI4+E116D6tV15Mtbb8Euu/iO7O8OP1wT/OTJGvOff0K/fjpccuJE39GZdPnzT51pCtC3r01IKo0l9iz05Zc6/frnn2HXXbXLo0eP8L9Rjj8epk6FMWO0K2b2bB0dcemliZO9JrqeegpWrtRvbGec4TuacLPEnmUmTYLWrXXG3mGHaTdHiwxap0pEE/kvv8DVV+vPzzwDBxwAr77qOzoTlC1bEidNe/fW8y2mZKFM7LbmaTAmT9a+6rVr4YQTNMln6knI3Fwdaz91qpYpWLoUzj1Xh0fml+v0kskk48frN7TtttP/sSldKBO7rXmael98oUl93TqdsffWW5ocM92RR2qpgn79dFzzmDFwyCGa8E00OAf33qv7PXvq7GZTulAmdpNas2dv3VJ/9VWoUcN3VKmTkwODB8PHH+us1blzdUTN/fdrUjCZ7bPPtGGSk2MrJJWXJfaIW75ci2wtX66Tfl5/XcsDRNFxx8E338AFF8DmzTpj9ayzEmURTGa6/37dXnopNGjgN5ZMYYk9wjZvhn/9S4c2NmyoNVlqRXyJk7w8Lec6cqQO43z9dTjiCC0vbDLPr7/qkFyAa6/1G0smscQeYbfcooW2atXSPvVMPVFaUSJaGuGzz/QDbfZsndASTxAmc9x7r3annX467L+/72gyhyX2iHr7be13Bhg9WifzZJvmzXXM/j/+oecXzjoL7rzT+t0zxe+/68lwgBtu8BtLprHEHkGLFyeGhF15JZx/vt94fKpfX2t3x0+6/fvf0LmzTks34TZ8uP6fjjnG1jOtKEvsEeMcXHGFzsQ86CC47z7fEflXrZrWGBkxQodEPvmkDvmMlwc24bN2baJ8wPXX+40lE1lij5ixY/UkabVqOiMzJ6fs22SLHj30XEPt2jo5q2VLLRNswuexx7R8wN57W/mAZFhij5AlS3RFGYBBg6BZM7/xhNHJJ+sM3AYN4LvvtELgr7/6jsoUtnFjYohj375WPiAZoUzsVlIgOX376pjtQw+FPn18RxNehx6qM1P32Qfmz9fiYt984zsqE/f88/Dbb7Dzzjp23VRcKBO7lRSouE8+0REEIto36bueetjtuac+Z4ceqnVmWrWCKVN8R2WcS5wX6tXLuhKTFcrEbipmyxZdlxSgSxetn2LKtuOO2td+/PFaOKxtW/joI99RZbcJE+D77/U8SNeuvqPJXJbYI2DsWPj2W6hbF+64w3c0mSUvD955B046SRdyOOUUW7zDp/jci27d9PVskmOJPcOtWwcDBuj+TTfpuG1TMdtuqyOJ2rWD9et1FIYl9/T79FOdLVy9upUPqCxL7BluxAhYuBB2390q31VGjRpa9fL00xPJ/f33fUeVXe6+W7cdOuiJU5M8S+wZbM0aXdQZYODAaJXi9aF6dRg3buvkPnmy76iyw08/6bq2IjYhKRUssWewkSO1HO/ee0P79r6jiYbq1eHll7Wvfd067Z75/HPfUUVfvG/9zDN1GKqpHEvsGWr9ehgyRPf79bPhjamUkwOvvAInnqhT2085RSczmWDMnatj10HPE5nKs8SeoZ56Sot97b47XHKJ72iip2ZNLfN77LE66attW61rb1Lvvvt0yG7btlqR01ReKBO7zTwt3ZYtiUkc11+vdWFM6tWqpf2+hxyi5RratrXaMqn2xx/wxBO6f+ONfmOJklAmdpt5Wro334Q5c3TF9s6dfUcTbXXr6jj3Jk1g3jz45z+1OJVJjaFDtVuxeXNo3dp3NNERysRuSjd8uG67dIn+Undh0KABvPeeDsH7/ns9wbd+ve+oMt+qVVpOGbROvojXcCLFEnuG+eUXHV8tAt27+44me+y5p7bcc3O1xswll2iXmEneiBE6ZPfAA/XD0qSOJfYMM3Kkbtu1g0aNvIaSdQ46CMaP1yGRr7xi460rY906ePBB3e/XTxdAMaljT2cGWb8enn5a96217sc//pH4HwwdCg895DWcjDV6tJ44bdQI/vUv39FEjyX2DDJ+vJ64a9hQT+IZPy64IDHjt3dvrTNjym/DhkT5gD59bA5GECyxZ5D4iu3t29uqMr717atryzoHF15oC3VUxJgxWt9ol11sVFdQLLFniCVLdGQGWPmAMBDR0Unxcr+nnQa//+47qvDbvHnr1rotpBEMS+wZ4qWXdBRGixZaG8b4V62a1pXZbz9dyu2ss/SkoCnZuHE6B6NePR2ua4IRysRuM0//7rnndHvRRX7jMFurW1f72LffHqZN064F53xHFU4FBXD77bp/9dU2ByNI4kL8KhSRXGD16tWryc3N9R2ON/Pm6ThqkcQivyZcPvoI2rRJdDX07es7ovB55RU47zxdtWrePFshqbzy8/PJy8sDyHPO5ZfnNqFssZutvfKKblu1sqQeVq1bJ8Zl33ijrt1pEpzburVuST1YltgzwPjxuj3nHK9hmDJ0754YKXPRRTB7tu+IwuOdd3TkUK1a0KuX72iizxJ7yP3xB0yZovs27TrcRHTC0tFHax2Us87Seu7Zzjm49Vbd79pVT5yaYFliD7kJE/Sk0yGH6MQkE27xRTp23hl++MFOpoIuDP7557p0o5VhSA9L7CEXn9V4+ul+4zDlt/POOqyvWjUdpvrAA74j8sc5GDRI97t1s3NE6RJoYheRliLyhogsEhEnImcFebyo2bQpMSmpXTu/sZiKOeaYRELv21crQmajyZO1KzEnx0YKpVPQLfZawLfAlQEfJ5KmTIH8fNhhBzjiCN/RmIrq0UNPom7ZooWuFi/2HVH63Xabbjt1stZ6OgWa2J1zE5xz/Z1zrwZ5nKiaOFG3bdtaWdNMJAKPPqr1xhcvTiT5bDF5MnzwgXZJ3XCD72iyS6jShYjkiEhu/ALU8R2TTx98oNsTT/Qbh0lerVpadqBWLZg0CW6+2XdE6RPvW+/c2dYOSLdQJXagH7C60GWh33D8WbMGpk/X/RNO8BuLqZz99oPHH9f9O+9MnDeJsilT4MMPtbXer5/vaLJP2BL7nUBeoctufsPx57PP9Gv7nnvCHnv4jsZU1gUX6KgQ5+DSS2HRIt8RBSvet96hgw3T9SFUid05t8E5lx+/AGt8x+TLxx/rtlUrv3GY1BkyRJfXW7o02mumTpmiM0232UbLK5j0C1ViNwnx4XEtW/qNw6ROzZpb97ffcYfviIJxyy267dgRGjf2GkrWCnoce20ROUREDon9as/Yz/blrBTr1yf6148/3m8sJrX22QceeUT3Bw2CTz/1G0+qTZkC77+vrfWbbvIdTfYKusXeHPg6dgEYEtu/NeDjZrSvvoKNG6FBA2vxRNGll2pXTEGBDoFcscJ3RKkT71vv2NFGwvgU9Dj2j5xzUsylY5DHzXTxol9HH61joU30PPwwNGkCCxYkTqpmuk8/tb71sLA+9hCaFls36sgj/cZhglOnDjz/vCbBl1+GJ5/0HVHlDRig28sus2+avlliD6EZM3TbvLnfOEywmjdPlLO96iqYNctvPJXx8ce6ilT16tC/v+9ojCX2kFm5EubO1f3DD/cbiwle3766+tJff2nf++bNviNKTrxvvXNn2H13v7GYkCb2bF7M+uvYaeY994TttvMbiwle1arw9NO6DugXXySWj8skH3xgNWHCJpSJ3Tk3wjnXFGjhO5Z0++Yb3R56qNcwTBo1bJgYAnn77booRaZwLtH10q2bzZIOi1Am9mwWT+wHH+w1DJNmF16YqP546aXaNZMJ3nlHP4hq1oR//9t3NCbOEnvIzJypW0vs2WfECNh1V10EOxMWpSi8lmmPHrDTTn7jMQmW2ENk82b46Sfdb9bMbywm/erWhSee0P0RI+Ddd72GU6bXX0+01m0t03CxxB4ic+bAhg2w7bY2ay9btW2rQx8BLr8cVq/2G09JtmxJ9K337m2t9bCxxB4iP/yg2/33txWTstmdd+oEn4ULoVcv39EU76WX4Pvv9VtGnz6+ozFFWfoIkXg3TNOmfuMwftWqpUMgRXT7+uu+I9rali2JcevXXWfDcsPIEnuI/PKLbvfbz28cxr9jj9WkCXDFFeEqFDZmjDZC6tZNdBuZcLHEHiKzZ+t27739xmHC4bbb9EN+yRK49lrf0agNGxL11vv314lVJnxCmdizdeZpPLE3aeI3DhMONWroWqnxLpnXXvMdEYwapRUpd9sNevb0HY0pSSgTezbOPF27Fv74Q/f32stvLCY8jj02cXKyRw+/o2TWrYO77tL9/v31g8eEUygTezaKF/7afnv7emu2NnCgds8tWuR3vPgDD8Dvv2sJhE6d/MVhymaJPSTiid3Gr5uiatZMdMk8/jhMnJj+GJYvh7vv1v3Bg7U8rwkvS+whMX++bq2IkilOy5Zw5ZW6f/nl2nWXTnffDfn5WuriwgvTe2xTcZbYQyKe2BvaMt+mBIMH6ze6+fO1eyZdlizREgeg1Sdt8lz42b8oJBYs0K0tUmBKUrs2DB+u+w88AFOnpue4AwZotckjjoB27dJzTFM5lthD4rffdLvbbn7jMOHWrh1ccgkUFOjEpU2bgj3eTz/B6NG6P2SILa6eKSyxh8SiRbrddVe/cZjwGzoU6tfXWi333x/ssQYM0A+RM8+E444L9lgmdSyxh4BzOowMYOed/cZiwq9ePbjvPt0fNCi4RbC/+QZeeUVb6Zm4ZF82s8QeAmvXJlbMadDAbywmM7RvDyeeCOvXQ5cu2qpOJee0HC/A+efDgQem9v5NsEKZ2LOtpMDixbqtVUtPkBlTFhF49FGt3f/xx/Dcc6m9/zff1PutUSMx29RkjlAm9mwrKRAvJWCtdVMRe+2VWOzi+uth2bLU3G9BAdx0k+737m1zKzJRKBN7tokn9h128BuHyTzXXqv1+5csSV25gRdf1LV38/JsEY1MZYk9BJYv1229en7jMJknJ0fXSY1XgJw8uXL39+efiYW0r79eaxeZzGOJPQQssZvKOPJIHdMOuvDF5s3J39eQIbokX6NGiYU+TOaxxB4CK1fq1pYYM8m64w5d0ei77+Dee5O7jxUrEsMo77xTi4+ZzGSJPQTiib1uXa9hmAxWrx48+KDuDxyYqBZaEYMHa6GvZs3gX/9KaXgmzSyxh0B+vm6tDrupjEsv1bHtGzfCDTdU7LY//pj4YLjnHiv0lens3xcC8cSem+s3DpPZRLSPvEoVePllHYteXn36aN/8mWfCyScHF6NJD0vsIRCvrW2Tk0xlHXQQXHON7vfsqaNcyjJtGrz9NlStmuhjN5ktlIk922aext98tWr5jcNEw6BBOqlo/nw9CVqaLVsSi1JfcoktpB4VoUzs2TbzdN063W67rd84TDTUqqX12kH7zeOLuBRn9GiYMUPP75T1IWAyRygTe7aJJ3YbXmZS5ayz4KijtJuvfXst6lXU2rWJ0gG33mqVRaPEEnsIrF+v2xo1/MZhokNEC4PVrKnFvF555e/XeewxrS/TpAn06JH+GE1wLLGHwIYNus3J8RuHiZY990yUB+jbd+sZqTNnwo036v5118E226Q/PhMcS+whEF/erFo1v3GY6OnTRycvzZ2bWADbOU3mGzfqUnvxcgQmOiyxh4AldhOUWrV0bDto2YF33oEPPoCJE6F6dXjoIZuMFEVp+ZeKSA8RmSsi60XkSxE5Ph3HzRRbtui2alW/cZhoat8eunfX/X//Gzp10v3OnbWmu4mewBO7iJwPDAXuAA4FPgEmiEjDoI+dKeLLmlliN0G58UZtmX/9tVZvrFkTunXzHZUJSjpa7NcCo51zjzvnfnLO9QYWAN2LXlFEckQkN34B6qQhPu/iQ9FE/MZhoqthQ22hV6umfeo//6yzVE00BXouXESqA4cDRVdNfA84ppib9ANuCTImY7LVaafpCKz27TXRm+gKusVeH6gKLCny+yXATsVc/04gr9Blt0CjC5niJpEYkwrr18Nll8GYMXDccXDqqYkaRSZ60nU+vGjKkmJ+h3Nug3MuP34B1qQlOs/ioxLife3GpNqLL+pKXfFCcxMmwMiRfmMywQk6sS8DtvD31vmO/L0Vn7XiiT0+OsaYVJo9O1HxsV+/RE2YESMSs55NtASa2J1zG4EvgTZF/tQGmBLksTNJfPx6ZdaqNKY4zukCHCtX6tqo116r66LusgvMm5dYXMNESzq6YoYAl4vIZSKyv4g8ADQE7ItgTDyxxycqGZMqb78Nn3+uk5HGjdN6RLVq6WQlgAEDYPp0vzGa1As8sTvnXgR6AzcD3wAtgVOdc/8N+tiZonp13cZrxhiTCps2wfXX636vXrBboaEI7dvD2WfrdW691U98JjhpOXnqnHvYOdfIOZfjnDvcOTc5HcfNFPGqjpbYTSr176/j1evXT5TnjatSBe66S+dOvPkmTJ3qJ0YTDKsSEQLxxB6vy25MZc2eDfffr/ujRhW/UPo++0DHjrp/1VV28j5KLLGHQHzlJEvsJlX69NFE3a4dnHNOyde7805dRP3LL+Hhh9MXnwmWJfYQiCf28iw8bExZXnsNxo/XGut3FZ3zXUSDBonhj4MHW+MiKkKZ2LNtMev4ItY2E9BUVn5+opJjnz5w4IFl3+byy3Xx68WLYejQQMMzaRLKxJ5ti1nXiZU6W5MV82xNkO66C37/XZe769+/fLepXh1uv133b79dqz+azBbKxJ5t4ie28vP9xmEy288/JxbVuO++RBdfeVx8sdaQ+esvrdluMpsl9hCIJ/ZVq7yGYTJYQYEW+dqwAU4+Gc44o2K3F0l0wzzzDPz4Y8pDNGlkiT0EtttOtytX+o3DZK6xY3Usep068OijydX2P/xwnbTknLXaM50l9hDYfnvdrljhNw6TmVas0BOloP3qu++e/H3dfruu5PXaa/Duu6mJz6SfJfYQqF9ft8uX+43DZKY+feCPP6BpU+jdu3L31bSpTlYCuOEGKyWdqSyxh0A8sS9b5jcOk3k+/BCeeEK7XkaOTNQdqoz+/bVL59tvtXCYyTyW2ENghx10u8Qq1JsK2LgRrr5a97t3h+OPT8391qsH112n+/3763FMZrHEHgINGuh2xQor3WvK76674Icf9Bvfbbel9r6vvRZ23BFmzYJhw1J73yZ4oUzs2TbztF49PWHlHCxd6jsakwl+/DExqWjYsMQJ+FSpUydRauDOO23yXKYJZWLPtpmnVatq6wh0WrcxpSkogG7d9NvdaafB+ecHc5wOHbQC5PLl8MADwRzDBCOUiT0b7bKLbn/7zW8cJvyeeAI++URnlg4fntyY9fKoWjXRxXPffTryxmQGS+whseuuul20yG8cJtwWLND+b9CVj/bYI9jjnXceHHaYdsUMGBDssUzqWGIPifiyZQsW+I3DhNvVV2uSPfroyo9ZL48qVRLdMKNHw9y5wR/TVJ4l9pBo2FC38+f7jcOE17hxiTrro0ZpV0k6tGwJbdrA5s0waFB6jmkqxxJ7SMQT+39tiW9TjGXLoGdP3e/XD5o1S+/x4yNwxo7VIZYm3Cyxh0S8r9QSuylOr146FPaAA/6+MHU6tGihBcIKCqBv3/Qf31SMJfaQ2Gsv3S5caJOUzNbefhuee077u596CnJy/MRx993a/fP22/DFF35iMOVjiT0kGjSAmjW1RWStdhO3YoUuXQd6srR5c3+x7L03tG+v+zZCJtxCmdizbeYp6Fjkxo11f84cv7GY8LjmGl3qbt99U182IBkDBkC1ajBxIkya5DsaU5JQJvZsm3kaF0/ss2b5jcOEw5tvwpgx+qH/1FMVW+ouKHvuCVdcoft9+2oZDBM+oUzs2WrffXX7yy9+4zD+rViRSKDXXANHHeU3nsIGDIDatWHGDP3wMeFjiT1E9ttPtz/95DcO41/PntoFs99+iaGGYdGgQWLo5cCB1moPI0vsIdK0qW5tnHB2e/VVeOEFHYHy9NN6Uj1srr9eK0B+9ZXGa8LFEnuIxBP74sW2TF62WrwYunbV/Rtu0PHjYVS/vnYRgS58vXmz33jM1iyxh0idOomJSt9/7zcWk37O6dDGZcvg4IPh5pt9R1S6667TBP/rr/D8876jMYVZYg+Z+FTxmTP9xmHS78kn4a23dN3SZ57xNxGpvHJzE0vo3XabtdrDxBJ7yBx8sG6//dZvHCa95sxJrF96221w4IF+4ymvnj11BbBZs7SOjAkHS+whc8ghuv36a69hmDTavBkuuQT+/BNatUq0gjNBnTpw4426P3AgbNjgNRwTE8rEno0zT+MOPVS3M2dazZhsMXgwfP455OXphKR0leNNlZ49daGY+fO1O8n4F8rEnq0zT0GLgeXlwcaNNuwxG0ydqishAYwYkSjfnElq1tQRPKALX2/c6DceE9LEns1E4PDDdX/GDL+xmGDl58NFF8GWLXDhhbqfqS6/HHbeWVvto0f7jsZYYg+hI47Q7bSs64jKLj17wrx50KgRjBwZ3KLU6VCzpo5nB50pu26d33iynSX2EIrXBZk61W8cJjhjxuiQxipVdDRJbq7viCqvSxftSlq0CB57zHc02c0SewgdfbRuf/gBVq3yGooJwKxZiVorgwbBccf5jSdVcnISrfZ77rERMj5ZYg+hBg2gSROdiThliu9oTCpt2AAXXABr1+rQxn79fEeUWh076giZ336Dxx/3HU32CjSxi8hNIjJFRP4SkVVBHitqWrbU7eTJfuMwqdWnjxbOqlcPnn0284Y2liUnJ7Em6+DB1tfuS9At9urAy8AjAR8nco4/XreW2KPj1Vdh2DDdf/ppbdlG0WWXWV+7b4EmdufcLc65BwCrfFJBrVvrdvp0/dpuMtvcudC5s+736QPt2vmNJ0iF+9rvvdf62n0IVR+7iOSISG78AtTxHZMvjRpppcfNm+HTT31HYypj/Xo47zw9EX7UUXDHHb4jCl7HjrDLLrBwoc1G9SFUiR3oB6wudFnoNxy/TjxRtx984DcOUznXXZfoV3/pJV0MOupychInhgcPtlZ7ulU4sYvIQBFxZVyaJxnPnUBeoctuSd5PJJx0km7fe89vHCZ5zzwDDz+c2N99d7/xpNPll2urfcECm42absm02IcD+5dxSWqZCOfcBudcfvwCrEnmfqKiTRudjfjdd/qV1mSWmTMTC1IPGAAnn+w3nnSrUSPRar/3Xitql04VTuzOuWXOuZ/LuKwPIthsU78+HHmk7r/9tt9YTMWsWgXnnKPD/dq2hVtu8R2RH507w447aumEZ5/1HU32CHoce0MROQRoCFQVkUNil9pBHjdKTjtNt2++6TcOU34FBdC+PcyerSfAozhevbxq1tSFr0FryNgqS+kR9MnTW4GvgUFA7dj+10CyffBZ5/TTdTtxIvz1l99YTPnceiu88YaeQHz1Vf3mlc26d9fnYM4ca7WnS9Dj2Ds656SYy0dBHjdKmjXTVt/69ZrcTbi9/rrWfwEYNQoOO8xvPGFQu7aO3Qe46y79RmOCFbbhjqYIETjzTN3/z3/8xmJK98MPcPHFun/VVdChg994wqRbN6hbF37+2V7H6WCJPQOcc45uX3vNxgOH1YoV+gG8dq3OGr7/ft8RhUturn7Ygfa1O+c3nqizxJ4BjjtOxwOvWgXvvus7GlPUpk06s3TOHJ0x/PLL2TEJqaJ699ZumW++0UaKCU4oE3s2L2ZdnKpV4fzzdf/55/3GYrbmHFx9NUyapEnrtdfsZGlJtt8+0WofPNha7UESF+JnN1YvZvXq1avJjcISM5UwY4YumVezJixeHI0Vd6LgwQe1JSqiST0+iskUb+nSxGCA999PlM0wJcvPzycvLw8gLzZxs0yhbLGbvzv8cNh3X53w8uqrvqMxoHMLrrlG9+++25J6eey4o5YagOwohuaLJfYMIQKXXqr7Tz/tNxajRb0uuEC7E7p0SUzCMWXr00fPQUyaBJ995juaaLLEnkEuvVQT/Ecf6bqZxo/583VG8J9/aqG2ESP0/2LKp2FDLesLOkLGpJ4l9gzSsCGccorujxrlN5ZstXKl/g9+/10nj40bZyNgknHDDVClCrzzDnz7re9ooscSe4bp1k23Tz5p60mm2/r1Olb9xx91+Olbb4Ge0zIV1bgx/M//6P5dd/mNJYossWeYU0/VUQUrVsALL/iOJnts2aKzSj/5REckvfNOdtVWD0K8pO9LL1nXYqpZYs8wVasmWu3DhtlY4HRwTgtZvfoqVK8O48drN4ypnIMP1nMVBQU6rt2kjiX2DHT55Tqe/euvdWSBCVb//vDYY9on/Nxz8I9/+I4oOvr31+2zz9piMqkUysRuM09LV78+XHaZ7lv/ZLDuuSfRmnzkETj3XL/xRM2RR0LLllqW4YEHfEcTHTbzNEPNmwdNmmjf7/Tp0Nwq3KfcI49Ajx66f/fd0Lev33iiasIEPXdUqxb897+66LdJsJmnWaRRI7joIt23GXyp98QTiaT+739bUg/SySfDIYfovIAHH/QdTTRYYs9g/frpxJjx47W/3aTG2LGJae+9e9skmqCJwE036f7w4ZrgTeVYYs9g++8PF16o+/GhY6ZynnlGF8hwTkcfDRlis0rT4eyzdWz7ypUwerTvaDKfJfYMd+utsM02WqfdRshUzpgxugi1c3DFFVYqIJ2qVk3U27n/fj2ZapJniT3DNW4MXbvqft++tp5ksh59VOuXxJP6I4/o8EaTPh06aPXH+fNt3YHKspduBNx8M9SpozXbrfJjxT30kH44OqcnTC2p+1GzJlx7re7boteVYy/fCNhxR03uoMWVVq70G0+mcE67snr10p+vu05P3llS96d7dy3Z8NNPOgzSJMdewhHRqxc0bQp//KHD80zpCgp0kYxbbtGfBw6Ee++1PnXfcnMTXYt33+03lkxmiT0iqlXTk32gJX0//dRvPGG2YYOOJoqPmX7oIU3wltTDoVcvfT1/8glMneo7mswUysRuJQWS07o1dOqkXQwdO9p44OKsXKkTYl56SZPHs88mFlg24bDrronVwqxkRnKspEDErF4NBx6oBZV69Ei04g387/9Cu3bw8896svk//7HFlMPql190noZz2t++336+I/LHSgoY8vJ0EQ6Ahx+GN97wG09YfPYZHHWUJvVdd4XJky2ph9m++8IZZ+j+kCF+Y8lEltgj6KSTdCo86NjgefN8RuPf449rqd0//oDDDoNp07Q2iQm3+ISlMWNg8WK/sWQaS+wRdffdWhJ15Uo47zxd1i3bbNyo3VFduuhMxvPO05b6Lrv4jsyUx7HH6resDRv0BLcpP0vsEVW9up4grFcPvvxS67eH+HRKyi1YAK1a6WQjER2v/tJLWhrWZAYRnZcB2q24Zo3feDKJJfYIa9hQk9k22+gU7fgkpqh7+23tavn8c6hbV88zDBhgwxkz0RlnaH/76tVWHKwiLLFH3AknaB0U0PKzUR4ls369Tjpq104X+z78cP220q6d78hMsqpU0f8pwNChsHmz13AyhiX2LNCpU6K1fuWV0Wz5fPcdtGihb37QsemffQZ77eU1LJMC7dvDDjvo6krjxvmOJjNYYs8SAwcmWj5duiRa8Zlu0ya47TZdGnDmTK2b8+aberItJ8d3dCYVatbUBgnoGrTZdK4oWaFM7DbzNPVEtM51z576xujaVbtmMvlNMm2aJvSbb9YEf+aZ2nK3rpfo6dkTtt1WVwqzdQfKFsrE7pwb4ZxrCrTwHUuUiMCwYYllyAYM0CXgMm0o5PLlOozxqKM0kW+/vZYG+M9/oEED39GZINSrp2UyAB54wGsoGSGUid0ER0Rb6g89pCemnnhChwUuWOA7srJt2qTD3vbZR4cxOgeXXKKzSS+6yEa9RF3v3vo/fvNN/Z+bklliz1JXXaX1rrfbTrs0DjoIXnjBd1TFKyiAF1+EAw7Qr+QrVkCzZvqVfOxYPbFmom/vvRNlBu6/328sYWeJPYu1baurLh1xBKxapaVszz03PK33LVt0HP7BB8MFF8CsWZrER4yAr77SapYmu1iZgfKxxJ7l9tpLhwUOHKgLCr/6qlbSGzQI8stVRy71Vq/WrqJ99oHzz4fvv9fiZgMHwpw52r++zTZ+YjN+xcsMbNyo3XGmeFa21/y/mTM1acYX6dh+e+3X7NpVhxEGyTmYMgWeegqeew7++isRw1VXaRx16wYbg8kML72kH/jxse01a/qOKFjJlO0NLLGLSCNgAHACsBOwCHgGuMM5t7Gc92GJPc2cg5df1hWF4ieocnLgnHPg4ouhTRutQ5MKmzbpCjnjx+uIlsJVKJs21f70Dh2svovZ2ubN0LgxzJ+v8zG6dPEdUbDClthPBs4HngdmAwcCjwFjnXPXl/M+LLF7smWLnrAcOhSmT0/8PjdXyxSceKL2zR98MNSoUfb9Oad9ojNn6snaqVO10uLatYnr1K6tFRg7dYLjj7dRLqZkQ4bo4uP77gs//hjtBchDldiLPZhIH6C7c67Yid4ikgMUni9YB1hoid0f5zSxP/usJvolS7b+uwjsths0aqRjjfPytK8eNGmvXg2LFmnravXqv99//fq6VN3ZZ8M//2mtc1M++fmw++66feMNOO003xEFJxMS++3Ayc655iX8fSBwS9HfW2IPhy1bdDTKu+9qf/j06bBsWflvX6WKfoVu3lxrxbdqpcMso9zaMsHp0wfuu08Xlpk40Xc0wQl1YheRxsBXwHXOucdLuI612DOIc7B0qa4lunChzgjNz9cPANCuldxc2HlnXY6ucePyddsYUx7//a+O6ioo0BnIzZr5jigYyST2Cg8aK6lVXcQRzrkZhW6zC/AO8HJJSR3AObcB2FDodhUNz6SRiE7ht2n8xoc99tCT+uPGaZmBJ57wHVF4VLjFLiL1gfplXG2ec2597Pq7AJOAL4COzrmCChzLTp4aY0r0+edw9NE6UmvePP12GDXJtNgr3LvpnFvmnPu5jEs8qe8KfIR2wXSqSFI3xpiyHHWUJnabsLS1wE5bxVrqHwELgOuBHURkJxHZKahjGmOyT3ydgZEjM69SaVCCHI/QFmiCTlBaCPxe6GKMMSlx9tk69PGPP3RtXxNgYnfOPeWck+IuQR3TGJN9ttlGy06ATlwKcZWUtLERxMaYjNeli05u+/57eP9939H4Z4ndGJPx6taFyy7T/Yce8hpKKFhiN8ZEQnzB67fegtmz/cbiWygTuy1mbYypqH32gVNP1T72YcN8R+OX1WM3xkTGxIm6Mljt2lrmQuf1ZLa0TFAyxpiwOukkXRt37Vp4vMTiJdFnid0YExkiutoW6Nq48YJ02cYSuzEmUi66CLbbDubO1ROp2cgSuzEmUrbdNrFc3tChXkPxxhK7MSZyevbUlbwmTdJa7dnGErsxJnIaNoRzz9X9bJywZIndGBNJV1+t22ef1dW9sokldmNMJB1zDBx6qJbyHT3adzTpFcrEbjNPjTGVJZKo+jhiBGze7DeedAplYnfOjXDONQVa+I7FGJO5LrwQ6teH+fPhtdd8R5M+oUzsxhiTCjVqQNeuup9NJ1EtsRtjIq17dx36OHkyzJzpO5r0sMRujIm0XXfV5fMAhg/3G0u6WGI3xkRe/CTq2LGwcqXfWNLBErsxJvKOPx4OOgjWrcuOqo+W2I0xkScCvXrp/sMPR7/qoyV2Y0xWuPBCrfo4bx5MmOA7mmBZYjfGZIWaNaFzZ92P+knUUCZ2m3lqjAlC9+7aLfPuu/Drr76jCU4oE7vNPDXGBGGvvaBdO92Pcqs9lIndGGOCEh/6+PTTujZqFFliN8ZklZNOgr33hvx8eOYZ39EEwxK7MSarVKkCPXro/ogR4JzfeIJgid0Yk3U6dtS1Ub//Hj75xHc0qWeJ3RiTderWhUsv1f0oVn20xG6MyUo9e+p2/HhYtMhrKClnid0Yk5WaNYPjjtPyAo895jua1LLEbozJWvGTqI8+Cps2+Y0llSyxG2Oy1rnnwo47alfM+PG+o0mdUCZ2KylgjEmH6tXhiit0f8QIv7GkkrgQD+IUkVxg9erVq8nNzfUdjjEmghYuhEaNtK/9++/hgAN8R7S1/Px88vLyAPKcc/nluU0oW+zGGJMuu+0Gp5+u+yNH+o0lVSyxG2OyXvfuuh0zJhr1YyyxG2Oy3kknQZMmWj/mued8R1N5ltiNMVmvSpVEqz0K9WMCTewi8rqIzBeR9SLyu4iMFZFdgjymMcYko1MnXWXpu+9g6lTf0VRO0C32ScC/gH2Bc4HGwLiAj2mMMRW23XZwwQW6n+knUdM63FFEzgDGAznOuTLnedlwR2NMOk2bBkceCTk58NtvUK+e74hCPtxRRLYHLgamlJTURSRHRHLjF6BOuuIzxpgjjoDDDoONG2HSJN/RJC/wxC4id4vIn8ByoCFwZilX7wesLnRZGHR8xhgTJ6LdMHPnwnnn+Y4meRVO7CIyUERcGZfmhW5yL3Ao0BbYAowRESnh7u8E8gpddqtofMYYUxlHHAF77OE7isqpcB+7iNQH6pdxtXnOufXF3HY3YAFwjHOuzPPO1sdujMl2yfSxb1PRgzjnlgHLKnq7mHhLPSfJ2xtjjClDhRN7eYlIC6AF8CmwEtgLuBWYA2T4KFFjjAmvwBI7sA44BxgE1AJ+B94BLnDObajIHeXnl+vbhzHGRE4y+S/sZXt3xUbGGGMMwG7Oud/Kc8WwJ3YBdgHWFPlTHTTh71bM34ozDe0WSvf1ynvdijyeVB87iOsF8Xh8PW57raXu2EFcL1tea3WARa6cCTvIrphKiz2Iv31CFRotuaY8Z4lFpMDH9cp73Yo8nlQfO6DrxXdT9nh8PW57rdlrLV33WcZjqVB/TLZUdyzvolepvl5Fr+vr2EE87vLy+ZxnwuOx11rqRO21VqJQd8WUJD6+nQqM6wwzezzhFaXHAvZ4wiyVjyVTW+wb0NE2FRpdE2L2eMIrSo8F7PGEWcoeS0a22I0xxpQsU1vsxhhjSmCJ3RhjIsYSuzHGRIwldmOMiRhL7MYYEzGRSOwi8rqIzBeR9SLyu4iMFZFdfMdVUSLSSERGi8hcEVknInNEZJCIVPcdW7JE5CYRmSIif4nIKt/xVJSI9Ij9P9aLyJcicrzvmJIhIi1F5A0RWRRbDOcs3zElS0T6ich0EVkjIktFZLyI7Os7rmSJSHcR+U5E8mOXqSJySmXuMxKJHZgE/AvYFzgXaAyM8xpRcvZD/yddgQOAa4BuwGCfQVVSdeBl4BHfgVSUiJwPDAXuQFcB+wSYICINfcaVpFrAt8CVvgNJgVboTM6jgDZoaZT3RKSW16iStxC4EWgeu3wIvCYiByR7h5Ecxy4iZwDjgZySFs7OFCLSB+junNvLdyyVISIdgaHOubqeQyk3EfkC+Mo5173Q734Cxjvn+vmLrHJExAFnO+fG+44lFURkB2Ap0Mo5N9l3PKkgIiuAPs650cncPiot9v8nItsDFwNTMj2px+QBK3wHkW1i3V+HA+8V+dN7wDHpj8iUIi+2zfj3iYhUFZEL0G9YSS9IFJnELiJ3i8ifwHKgIXCm55AqTUQaA1cBI33HkoXqA1WBJUV+vwTYKf3hmOLESnsPAT51zn3vO55kiUgzEVmLlhMYiX6j+jHZ+wttYheRgbGTPKVdmhe6yb1oP2hbYAswRgrVwfQpicdC7OTvO8DLzrnH/URevGQeTwYr2lcpxfzO+DMcOAi40HcglfQLcAh63uAR4GkRaZrsnYW5Hvtw4IUyrjMvvlNoke1fY/2gC9AnKQzrq1boscSS+iQ09iuCCytpFXo8GWoZ2kAo2jrfkb+34o0HIjIMOANo6ZzL6JXWnHMbgdmxH2eIyBFAL3QgRYWFNrEXStTJiLfUc1IUTqVU5LGILgc4CfgS6OScKwgytmRU8n+TEZxzG0XkS3TUxX8K/akN8JqfqAz8f/fLMOBsoLVzbq7nkIIgVCJ/hTaxl5eItECXnPoUWAnsBdwKzCEcrfVyi7XUPwLmA9cDO8R7k5xzi/1FlrzY0MDt0fMeVUXkkNifZjvn1noLrHyGAGNFZAaJb08NycBzHiJSG2hS6Fd7xv4XK5xz8/1ElbQRwEXoebQ1IhL/VrXaObfOX1jJEZHBwAS0l6EOcAHQGjg56Tt1zmX0BWiGjvtcDqwH5qJ9VLv6ji2Jx9IR7b/928V3bJV4TE+V8Jha+46tnPH3QLuVNqDfolr6jinJx9G6hP/DU75jS+KxFPseATr6ji3JxzO60GtsKfA+0KYy9xnJcezGGJPNQjsqxhhjTHIssRtjTMRYYjfGmIixxG6MMRFjid0YYyLGErsxxkSMJXZjjIkYS+zGGBMxltiNMSZiLLEbY0zEWGI3xpiI+T+k7n8s7SloHgAAAABJRU5ErkJggg==
+"/>
+</div>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5b8a0cec-f49b-4817-831c-add5d0935127">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7725,7 +7841,25 @@ $$</li>
 </div>
 </div>
 </div>
-</div><div class="fragment">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e75d9166-ff40-4492-9fdb-8322cae27544">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">a1</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">a2</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">a3</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">a4</span><span class="o">=</span><span class="n">a</span><span class="p">;</span> <span class="n">a5</span><span class="o">=</span><span class="n">b</span><span class="p">;</span> <span class="c1"># define as long Weierstrass</span>
+<span class="n">EC</span> <span class="o">=</span> <span class="n">EllipticCurve</span><span class="p">(</span><span class="n">RR</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span> <span class="p">,</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># Weierstrass curve</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">EC</span><span class="p">,</span><span class="n">thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">ymin</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span><span class="n">ymax</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">SAVE_FIGURES</span><span class="p">:</span> <span class="n">p</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"./figures/ecc_over_R.png"</span><span class="p">)</span>
+<span class="c1">#p.show()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c4e8901b-522a-45cf-918e-75433e6ec1fd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7739,22 +7873,80 @@ $$</li>
 </div>
 </div>
 </div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0fc5d621-1af0-4574-ac84-70b14eef83ea">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Elliptic-curves-over-$%5Cmathbb%7BF%7D_p$">Elliptic curves over $\mathbb{F}_p$<a class="anchor-link" href="#Elliptic-curves-over-$%5Cmathbb%7BF%7D_p$">¶</a></h2><p>In ECC we define elliptic curves $E(\mathbb{F}_p)$ over $\mathbb{F}_p$ in simplified Weierstrass form as follows:</p>
+<ul>
+<li>Let $ \mathbb{F}_p $ be a prime finite field where $ p \in \textrm{Primes} $</li>
+<li>The parameters $a,b \in \mathbb{F}_p $</li>
+<li>Let $a,b \in \mathbb{F}_p$ satisfy $4a^3 + 27b^2 \not \equiv 0 \pmod p$</li>
+<li>The elliptic curve is set of solutions, i.e., points $ P=(x,y)$ on the curve, for all pairs $x,y \in \mathbb{F}_p$ to the defining equation:
+$$
+\begin{align*}
+E(\mathbb{F}_p): y^2 \equiv x^3 + ax + b \pmod p \\
+\end{align*}
+$$</li>
+<li>Plus the point at infinity $\infty$ or $\mathcal{O} \in E(\mathbb{F}_p)$, s.t., $P + \mathcal{O} = \mathcal{O} + P = P $</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=36892397-efe8-40fb-97b8-c2d6b36ec34f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span><span class="o">=</span><span class="mi">103</span><span class="p">;</span> <span class="k">assert</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">Primes</span><span class="p">();</span> <span class="n">FF</span><span class="o">=</span><span class="n">FiniteField</span><span class="p">(</span><span class="n">p</span><span class="p">);</span> <span class="c1"># define finite field </span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0797bf99-a18a-47da-8e5f-4f61091a7950">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">a1</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">a2</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">a3</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">a4</span><span class="o">=</span><span class="n">a</span><span class="p">;</span> <span class="n">a5</span><span class="o">=</span><span class="n">b</span><span class="p">;</span> <span class="c1"># define as long Weierstrass</span>
+<span class="n">EC</span><span class="o">=</span><span class="n">EllipticCurve</span><span class="p">(</span><span class="n">FF</span><span class="p">,[</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">a3</span><span class="p">,</span><span class="n">a4</span><span class="p">,</span><span class="n">a5</span><span class="p">]);</span> <span class="n">EC</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>Elliptic Curve defined by y^2 = x^3 + 102*x + 1 over Finite Field of size 103</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3057730a-1ac2-4e9e-b5df-4cfad05fdc07">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Elliptic-curves-over-$%5Cmathbb%7BF%7D_p$">Elliptic curves over $\mathbb{F}_p$<a class="anchor-link" href="#Elliptic-curves-over-$%5Cmathbb%7BF%7D_p$">¶</a></h2><ul>
-<li>Same equation over the finite field $\mathbb{F}_{p}$, i.e., $x,y \in \mathbb{F}_p$ with $a = -1$ and $b = 1$.
-$$
-y^2 \equiv x^3 + ax + b \pmod p
-$$</li>
-<li>Note that "curves" over finite fields are no smooth curves, but they are still <em>symmetric</em> along the $ x $ axis (because of $y^2$)<ul>
+<h3 id="Elliptic-curves-over-$%5Cmathbb%7BF%7D_p$">Elliptic curves over $\mathbb{F}_p$<a class="anchor-link" href="#Elliptic-curves-over-$%5Cmathbb%7BF%7D_p$">¶</a></h3><p>Note that elliptic curves over finite fields are no really "curves", but they are still <em>symmetric</em> along the $ x $ axis (because of $y^2$)</p>
+<ul>
 <li>Therefore, up to two solution for each $ x $ exist, i.e., $y$ and $-y$</li>
 <li>Therefore, for each point $P=f(x,y)$ a <em>symmetric inverse</em> $-P=f(x,-y)$ is defined</li>
-</ul>
-</li>
 </ul>
 </div>
 </div>
@@ -7779,7 +7971,7 @@ $$</li>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Compute-the-points-on-an-elliptic-curve">Compute the points on an elliptic curve<a class="anchor-link" href="#Compute-the-points-on-an-elliptic-curve">¶</a></h3><p>The following is an example of how to compute all points on a small elliptic curve over $\mathbb{F}_p$, where $p = 103$</p>
+<h3 id="Example:-Compute-the-points-on-an-elliptic-curve">Example: Compute the points on an elliptic curve<a class="anchor-link" href="#Example:-Compute-the-points-on-an-elliptic-curve">¶</a></h3><p>The following is an example of how to compute all points on a small elliptic curve over $\mathbb{F}_p$, where $p = 103$</p>
 </div>
 </div>
 </div>
@@ -7788,7 +7980,7 @@ $$</li>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span><span class="o">=</span><span class="mi">103</span><span class="p">;</span> <span class="k">assert</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">Primes</span><span class="p">();</span> <span class="n">FF</span><span class="o">=</span><span class="n">FiniteField</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
@@ -7803,7 +7995,7 @@ $$</li>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>Elliptic Curve defined by y^2 = x^3 + 102*x + 1 over Finite Field of size 103</pre>
 </div>
@@ -7815,10 +8007,10 @@ $$</li>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">points</span><span class="p">())</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">points</span><span class="p">())</span> <span class="c1"># use built in sage math function</span>
 </pre></div>
 </div>
 </div>
@@ -7829,7 +8021,7 @@ $$</li>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>112</pre>
 </div>
@@ -7841,10 +8033,10 @@ $$</li>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># naively compute all points on elliptic curve manually in python (https://stackoverflow.com/questions/76143329/how-to-get-all-the-solution-points-over-a-finite-field-of-an-elliptical-curve)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># naively compute all points on elliptic curve manually in python (cf. https://stackoverflow.com/questions/76143329/how-to-get-all-the-solution-points-over-a-finite-field-of-an-elliptical-curve)</span>
 <span class="n">ec_points</span> <span class="o">=</span> <span class="nb">set</span><span class="p">();</span> <span class="n">p</span><span class="o">=</span><span class="mi">103</span><span class="p">;</span> <span class="k">assert</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">Primes</span><span class="p">();</span>
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">p</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">p</span><span class="p">):</span>
@@ -7861,7 +8053,7 @@ $$</li>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>111</pre>
 </div>
@@ -7884,7 +8076,7 @@ $$</li>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">ec_diff</span> <span class="o">=</span> <span class="nb">list</span><span class="p">();</span> <span class="n">ec_match</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span> <span class="c1"># naively match points  </span>
@@ -7907,7 +8099,7 @@ $$</li>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">ec_match</span><span class="p">)</span>
@@ -7921,7 +8113,7 @@ $$</li>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>111</pre>
 </div>
@@ -7933,7 +8125,7 @@ $$</li>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [107]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">ec_diff</span> <span class="c1"># Point at infinity if ( x : y : 0 ) and 1 otherwise</span>
@@ -7947,7 +8139,7 @@ $$</li>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[107]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>[(0 : 1 : 0)]</pre>
 </div>
@@ -7959,10 +8151,10 @@ $$</li>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">ec_diff</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">is_zero</span><span class="p">()</span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">ec_diff</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">is_zero</span><span class="p">()</span> <span class="c1"># check if point at infinity</span>
 </pre></div>
 </div>
 </div>
@@ -7973,7 +8165,7 @@ $$</li>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>True</pre>
 </div>
@@ -7987,7 +8179,7 @@ $$</li>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Number-of-points-on-elliptic-curves-over-$%5Cmathbb%7BF%7D_p$">Number of points on elliptic curves over $\mathbb{F}_p$<a class="anchor-link" href="#Number-of-points-on-elliptic-curves-over-$%5Cmathbb%7BF%7D_p$">¶</a></h3><p>The number of points $E(\mathbb{F}_p)$ on the elliptic curve $E$ over $\mathbb{F}_p$ is denoted by $\# E(\mathbb{F}_p)$ and is called the <em>order</em> of the curve. This number is somewhat close to the prime $ p $ and can be approximated by the Hasse Theorem:
+<h3 id="Number-of-points-on-elliptic-curves-over-$%5Cmathbb%7BF%7D_p$">Number of points on elliptic curves over $\mathbb{F}_p$<a class="anchor-link" href="#Number-of-points-on-elliptic-curves-over-$%5Cmathbb%7BF%7D_p$">¶</a></h3><p>The number of points $E(\mathbb{F}_p)$ on the elliptic curve $E$ over $\mathbb{F}_p$ is denoted by $\# E(\mathbb{F}_p)$, or $|E(\mathbb{F}_p)|$, and is called the <em>order</em> of the curve. This number is somewhat close to the prime $ p $ and can be approximated by the Hasse Theorem:
 $$
 p + 1 - 2 \sqrt{p} \leq \# E(\mathbb{F}_p) \leq p + 1 + 2 \sqrt{p}
 $$</p>
@@ -7999,10 +8191,11 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span><span class="o">=</span><span class="mi">103</span><span class="p">;</span> <span class="k">assert</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">Primes</span><span class="p">();</span> <span class="n">FF</span><span class="o">=</span><span class="n">FiniteField</span><span class="p">(</span><span class="n">p</span><span class="p">);</span> <span class="n">FF</span><span class="o">.</span><span class="n">order</span><span class="p">()</span>  <span class="c1"># order of the underlying FF</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span><span class="o">=</span><span class="mi">103</span><span class="p">;</span> <span class="k">assert</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">Primes</span><span class="p">();</span> <span class="n">FF</span><span class="o">=</span><span class="n">FiniteField</span><span class="p">(</span><span class="n">p</span><span class="p">);</span> 
+<span class="n">FF</span><span class="o">.</span><span class="n">order</span><span class="p">()</span>  <span class="c1"># order of the underlying FF</span>
 </pre></div>
 </div>
 </div>
@@ -8013,7 +8206,7 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>103</pre>
 </div>
@@ -8025,7 +8218,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">EC</span><span class="o">=</span><span class="n">EllipticCurve</span><span class="p">(</span><span class="n">FF</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span> <span class="n">EC</span>
@@ -8039,7 +8232,7 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>Elliptic Curve defined by y^2 = x^3 + 102*x + 1 over Finite Field of size 103</pre>
 </div>
@@ -8051,10 +8244,11 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">EC</span><span class="o">.</span><span class="n">order</span><span class="p">()</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">points</span><span class="p">());</span> <span class="n">EC</span><span class="o">.</span><span class="n">order</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">EC</span><span class="o">.</span><span class="n">order</span><span class="p">()</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">points</span><span class="p">());</span> 
+<span class="n">EC</span><span class="o">.</span><span class="n">order</span><span class="p">()</span> <span class="c1"># order of the EC</span>
 </pre></div>
 </div>
 </div>
@@ -8065,23 +8259,9 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>112</pre>
-</div>
-</div>
-</div>
-</div>
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5ac87bcd-9f58-41ee-9603-69e44199ebf7">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">sqrt</span><span class="p">())</span> <span class="o">&lt;=</span> <span class="n">EC</span><span class="o">.</span><span class="n">order</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">sqrt</span><span class="p">())</span> <span class="c1"># Hasse Theorem</span>
-</pre></div>
 </div>
 </div>
 </div>
@@ -8105,7 +8285,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">EC</span><span class="o">.</span><span class="n">gen</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="n">G</span><span class="o">.</span><span class="n">xy</span><span class="p">()</span> 
@@ -8119,7 +8299,7 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>(2, 78)</pre>
 </div>
@@ -8131,7 +8311,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">G</span> <span class="c1"># (x :  y : 0 iff point at infinity, 1 otherwise)</span>
@@ -8145,7 +8325,7 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>(2 : 78 : 1)</pre>
 </div>
@@ -8157,7 +8337,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">G</span><span class="o">.</span><span class="n">order</span><span class="p">()</span>
@@ -8171,19 +8351,30 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>112</pre>
 </div>
 </div>
 </div>
 </div>
-</div></div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3b4ee6b9-bc36-4cf9-b111-53561e817a8b">
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=68b83778-80a8-444b-9bdf-d39b9adbf9f0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Generators-for-elliptic-curves">Generators for elliptic curves<a class="anchor-link" href="#Generators-for-elliptic-curves">¶</a></h4>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3b4ee6b9-bc36-4cf9-b111-53561e817a8b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">EC</span><span class="o">.</span><span class="n">order</span><span class="p">()</span>
@@ -8197,7 +8388,7 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>112</pre>
 </div>
@@ -8209,7 +8400,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">G</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span><span class="n">G</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span><span class="n">G</span><span class="o">*</span><span class="mi">111</span><span class="p">,</span><span class="n">G</span><span class="o">*</span><span class="mi">112</span><span class="p">,</span><span class="n">G</span><span class="o">*</span><span class="mi">113</span><span class="p">)</span> <span class="c1"># last point is the starting point G again</span>
@@ -8236,7 +8427,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"point at infinity = </span><span class="si">{</span><span class="n">G</span><span class="o">*</span><span class="mi">112</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> 
@@ -8263,7 +8454,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">G</span><span class="o">*</span><span class="mi">112</span><span class="p">)</span><span class="o">.</span><span class="n">is_zero</span><span class="p">()</span>
@@ -8277,7 +8468,7 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>True</pre>
 </div>
@@ -8300,6 +8491,18 @@ a &amp;= -1 \\
 b &amp;= 1 
 \end{align*}
 $$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a89d770b-8a15-49bf-a391-261c8d9e7cd3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Due to the nature of the ECDLP, a important operation in elliptic curve cryptography is <strong>point multiplication</strong>, or <em>scalar multiplication</em>, which refers to the multiplication of a scalar value $k$ with a point $G$ on an elliptic curve over a finite field, to gain another point $Q$ which is also located  on the elliptic curve.
+To perform these point multiplication operations, two main calculations are needed in general: <em>point addition</em> and <em>point doubling</em>.</p>
 </div>
 </div>
 </div>
@@ -8385,7 +8588,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">point_double_sage</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">a</span><span class="p">):</span> 
@@ -8408,7 +8611,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mi">31</span>
@@ -8425,9 +8628,9 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[38]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(1 : 30 : 1)</pre>
+<pre>(30 : 30 : 1)</pre>
 </div>
 </div>
 </div>
@@ -8437,7 +8640,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [39]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Q_point</span> <span class="o">=</span> <span class="n">P</span> <span class="o">+</span> <span class="n">P</span><span class="p">;</span> <span class="n">Q_point</span> <span class="c1"># sage point doubling simple implicit notation </span>
@@ -8451,9 +8654,9 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[35]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(30 : 30 : 1)</pre>
+<pre>(3 : 5 : 1)</pre>
 </div>
 </div>
 </div>
@@ -8463,7 +8666,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [39]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Q_xy</span> <span class="o">=</span> <span class="n">point_double_sage</span><span class="p">(</span> <span class="n">P</span><span class="o">.</span><span class="n">xy</span><span class="p">(),</span> <span class="n">a</span><span class="o">=</span><span class="n">FF</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">);</span> <span class="n">Q_xy</span>
@@ -8477,9 +8680,9 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(30, 30)</pre>
+<pre>(3, 5)</pre>
 </div>
 </div>
 </div>
@@ -8589,12 +8792,12 @@ $$</p>
 </div>
 </div>
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6ea16724-236e-468a-98eb-d1a424754f80">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6ea16724-236e-468a-98eb-d1a424754f80">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [47]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [52]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">point_addition_sage</span><span class="p">(</span><span class="n">P1</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
@@ -8615,17 +8818,15 @@ $$</p>
 </div>
 </div>
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=554a4a16-d064-4e60-b0a8-88edf1d45a61">
+</div></div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=554a4a16-d064-4e60-b0a8-88edf1d45a61">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [49]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [56]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mi">31</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">FF</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">FF</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mi">31</span><span class="p">;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">FF</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="n">b</span> <span class="o">=</span> <span class="n">FF</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">FF</span> <span class="o">=</span> <span class="n">FiniteField</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 <span class="n">EC</span> <span class="o">=</span> <span class="n">EllipticCurve</span><span class="p">(</span><span class="n">FF</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]);</span> <span class="n">EC</span>
 <span class="n">P1</span> <span class="o">=</span> <span class="n">EC</span><span class="o">.</span><span class="n">random_element</span><span class="p">()</span>
@@ -8646,7 +8847,7 @@ $$</p>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>(26, 25)
+<pre>(25, 16)
 (28, 15)
 </pre>
 </div>
@@ -8658,7 +8859,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [54]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [60]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Q_point</span> <span class="o">=</span> <span class="n">P1</span><span class="o">+</span><span class="n">P2</span><span class="p">;</span> <span class="n">Q_point</span>
@@ -8672,9 +8873,9 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[54]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[60]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(2 : 21 : 1)</pre>
+<pre>(9 : 15 : 1)</pre>
 </div>
 </div>
 </div>
@@ -8684,7 +8885,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [55]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [61]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Q_xy</span> <span class="o">=</span> <span class="n">point_addition_sage</span><span class="p">(</span><span class="n">P1</span><span class="o">.</span><span class="n">xy</span><span class="p">(),</span><span class="n">P2</span><span class="o">.</span><span class="n">xy</span><span class="p">(),</span><span class="n">a</span><span class="o">=</span><span class="n">FF</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span> <span class="n">Q_xy</span>
@@ -8698,9 +8899,9 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[55]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[61]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(2, 21)</pre>
+<pre>(9, 15)</pre>
 </div>
 </div>
 </div>
@@ -8713,7 +8914,7 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Point-multiplication">Point multiplication<a class="anchor-link" href="#Point-multiplication">¶</a></h3><p>Point multiplication, or scalar multiplication,  is an important operation in ECC.
-A simple algorithm for point multiplication is the binary method also called right-to-left binary method.
+A simple algorithm for point multiplication is the binary method also called <em>right-to-left binary method</em>.
 Let $G=(x,y)$ be a point on an elliptic curve over $\mathbb{F}$, then point multiplication can be expressed as calculation of the following form:</p>
 <p>$$
     Q=kG=\overbrace{G+G+G+...+G}^{\text{k times G}}
@@ -8724,7 +8925,33 @@ This reduces the $17$ additions to $4$ multiplications and one addition operatio
 </div>
 </div>
 </div>
-</div></section><section>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=711e8a89-deb1-4746-955a-aa9ba97e76f0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [114]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">var</span><span class="p">(</span><span class="s2">"g"</span><span class="p">);</span> <span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">g</span><span class="o">+</span><span class="n">g</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[114]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>17*g</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5e9699c3-823a-4505-8e24-910b07c60c04">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8733,17 +8960,15 @@ This reduces the $17$ additions to $4$ multiplications and one addition operatio
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="Point-multiplication-formular">Point multiplication formular<a class="anchor-link" href="#Point-multiplication-formular">¶</a></h4><p>Algorithm for <em>point multiplication</em> from [<a href="https://link.springer.com/book/10.1007/b97644">GECC</a>]</p>
 <p><img alt="binarymultiplication" src="./algorithms/binarymultiplication.png"/></p>
-<p>As this algorithm demonstrates, the operations needed for point multiplication are <em>point addition</em> and <em>point doubling</em>.
-In ECC these two types of calculations have to be performed on elliptic curves that are defined over the finite field $\mathbb{F}_p$.</p>
 </div>
 </div>
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=aba6e532-8a4d-4d9d-ad77-e67ae68ff6a0">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=aba6e532-8a4d-4d9d-ad77-e67ae68ff6a0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [63]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [116]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">point_multiplication_sage</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
@@ -8759,12 +8984,23 @@ In ECC these two types of calculations have to be performed on elliptic curves t
 </div>
 </div>
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0ad6ab27-6f9b-4543-ae67-19cf2b8f7619">
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=80c4d68e-1aae-4abb-a9c8-f1f98b4650c3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Example:-Point-multiplication">Example: Point multiplication<a class="anchor-link" href="#Example:-Point-multiplication">¶</a></h4>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0ad6ab27-6f9b-4543-ae67-19cf2b8f7619">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [64]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [117]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mi">31</span>
@@ -8781,9 +9017,9 @@ In ECC these two types of calculations have to be performed on elliptic curves t
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[64]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[117]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(18 : 24 : 1)</pre>
+<pre>(9 : 15 : 1)</pre>
 </div>
 </div>
 </div>
@@ -8793,7 +9029,7 @@ In ECC these two types of calculations have to be performed on elliptic curves t
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [65]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [118]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
@@ -8808,7 +9044,7 @@ In ECC these two types of calculations have to be performed on elliptic curves t
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[65]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[118]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>12</pre>
 </div>
@@ -8820,7 +9056,7 @@ In ECC these two types of calculations have to be performed on elliptic curves t
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [66]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [119]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Q_point</span> <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">P</span><span class="p">;</span> <span class="n">Q_point</span>
@@ -8834,9 +9070,9 @@ In ECC these two types of calculations have to be performed on elliptic curves t
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[66]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[119]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(5 : 20 : 1)</pre>
+<pre>(18 : 7 : 1)</pre>
 </div>
 </div>
 </div>
@@ -8846,7 +9082,7 @@ In ECC these two types of calculations have to be performed on elliptic curves t
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [67]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [120]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Q_xy</span> <span class="o">=</span> <span class="n">point_multiplication_sage</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">xy</span><span class="p">(),</span> <span class="n">a</span><span class="o">=</span><span class="n">FF</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">);</span> <span class="n">Q_xy</span>
@@ -8860,23 +9096,9 @@ In ECC these two types of calculations have to be performed on elliptic curves t
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[67]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[120]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(5, 20)</pre>
-</div>
-</div>
-</div>
-</div>
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=43cf8fad-58c5-479f-ba04-21cc34246e19">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [68]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">Q_point</span><span class="o">.</span><span class="n">xy</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">Q_xy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">Q_point</span><span class="o">.</span><span class="n">xy</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">Q_xy</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
+<pre>(18, 7)</pre>
 </div>
 </div>
 </div>
@@ -8888,12 +9110,12 @@ In ECC these two types of calculations have to be performed on elliptic curves t
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="ECC---domain-parameters">ECC - domain parameters<a class="anchor-link" href="#ECC---domain-parameters">¶</a></h2><p>In case of ECC over prime fields ($\mathbb{F}_p$), where $p \in \textrm{Prime}$, the following <em>domain parameters</em> have to be defined:</p>
+<h2 id="ECC-domain-parameters">ECC domain parameters<a class="anchor-link" href="#ECC-domain-parameters">¶</a></h2><p>In case of ECC over prime fields ($\mathbb{F}_p$), where $p \in \textrm{Prime}$, the following <em>domain parameters</em> have to be defined:</p>
 <ul>
 <li>$p$: The prime defining the field $\mathbb{F}_p$, under which the curve operates. All point operations $(+,\cdot)$ are taken modulo $p$</li>
 <li>$a,b$: Two integers which are the coefficients defining the curve $E$</li>
 <li>$G$: The generator- or base-point used as a starting point for multiplications</li>
-<li>$n$: The order of $G$, which is the number of distinct points on the curve which can be computed by multiplying $G$ with a scalar value. Ideally this number is equal to t he number of points on the elliptic curve over $\mathbb{F}_p$, which is denotd by $\#E(\mathbb{F}_p)$</li>
+<li>$n$: The <em>order</em> of $G$, which is the number of distinct points on the curve which can be computed by multiplying $G$ with a scalar value. This number should be equal to the number of points on the elliptic curve over $\mathbb{F}_p$, which is denotd by $\#E(\mathbb{F}_p)$</li>
 <li>$h$: The cofactor, i.e., number of points on the elliptic curve divided by $n$</li>
 </ul>
 </div>
@@ -8919,7 +9141,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [73]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [128]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Secp256k1 from https://www.secg.org/sec2-v2.pdf</span>
@@ -8953,7 +9175,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [74]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [129]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">t</span><span class="o">=</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span> <span class="o">-</span> <span class="n">EC</span><span class="o">.</span><span class="n">order</span><span class="p">();</span> <span class="n">t</span> 
@@ -8967,7 +9189,7 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[74]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[129]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>432420386565659656852420866390673177327</pre>
 </div>
@@ -8979,7 +9201,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [75]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [130]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">EC</span><span class="o">.</span><span class="n">trace_of_frobenius</span><span class="p">()</span> <span class="c1"># also available as function in sage</span>
@@ -8993,7 +9215,7 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[75]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[130]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>432420386565659656852420866390673177327</pre>
 </div>
@@ -9005,7 +9227,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [76]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [131]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">EC</span><span class="o">.</span><span class="n">order</span><span class="p">()</span> <span class="o">==</span> <span class="n">G</span><span class="o">.</span><span class="n">order</span><span class="p">()</span> <span class="o">==</span> <span class="n">n</span>
@@ -9019,7 +9241,7 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[76]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[131]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>True</pre>
 </div>
@@ -9031,10 +9253,11 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [77]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [132]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">PK</span> <span class="o">=</span> <span class="mi">104180048334815325830625441518578326979476797852517177973225433558381925820558</span> <span class="o">*</span> <span class="n">G</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">SK</span> <span class="o">=</span> <span class="mi">104180048334815325830625441518578326979476797852517177973225433558381925820558</span>
+<span class="n">PK</span> <span class="o">=</span> <span class="n">SK</span> <span class="o">*</span> <span class="n">G</span>
 <span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="n">PK</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="nb">hex</span><span class="p">(</span><span class="n">PK</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
 </pre></div>
 </div>
@@ -9046,7 +9269,7 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[77]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[132]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>('0x4e7927e13423b2afa70f1299ad041978e55a1d9af1860a826ddb15024ed7da2',
  '0xd369291d811f2df550b1153d12ca5d3132b7f2e658a90300c0daa39a476db17c')</pre>
@@ -9054,55 +9277,27 @@ $$</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=56b1ac98-3576-4a53-ab2b-33b7412c3383">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [78]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">PK</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[78]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(2218404120244963262942688441315034122895494739329766368892963870531381984674 : 95623813759907722199505071633719440492035181416518679137887147878608899256700 : 1)</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5d7cc4e7-a42b-42be-870c-8aaabe915da2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Point-multiplication">Point multiplication<a class="anchor-link" href="#Point-multiplication">¶</a></h4>
+<h4 id="Pitfall:-Encoding-of-k-in-python">Pitfall: Encoding of k in python<a class="anchor-link" href="#Pitfall:-Encoding-of-k-in-python">¶</a></h4>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=335d7203-27fa-43b8-8a12-b17d55a06ebb">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=335d7203-27fa-43b8-8a12-b17d55a06ebb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [79]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [149]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="s1">'5f6b5c9588955286ea5cac4cd8c42f3d55a0e29c8af2bfeba487cf9d44b42954'</span><span class="p">),</span><span class="s2">"big"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-<span class="n">Q</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">G</span>
-<span class="n">Q</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">);</span> <span class="n">Q</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">G</span><span class="p">;</span> <span class="n">Q</span>
 </pre></div>
 </div>
 </div>
@@ -9120,25 +9315,23 @@ $$</p>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[79]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[149]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>(41858324777353967549034659156569719092956488814023218795456365288203237979134 : 16555327082719145925295244286557372390265073495347636540557744407873083411827 : 1)</pre>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3e23d174-24ac-4680-b2a3-6424d99c0f6c">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3e23d174-24ac-4680-b2a3-6424d99c0f6c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [80]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [150]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mh">0x5f6b5c9588955286ea5cac4cd8c42f3d55a0e29c8af2bfeba487cf9d44b42954</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-<span class="n">Q</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">G</span>
-<span class="n">Q</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">);</span> <span class="n">Q</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">G</span><span class="p">;</span> <span class="n">Q</span>
 </pre></div>
 </div>
 </div>
@@ -9156,9 +9349,43 @@ $$</p>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[80]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[150]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>(41858324777353967549034659156569719092956488814023218795456365288203237979134 : 16555327082719145925295244286557372390265073495347636540557744407873083411827 : 1)</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c065e754-21d0-4f2c-b0bb-0ad4c1b6f7cd">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [151]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="sa">b</span><span class="s2">"5f6b5c9588955286ea5cac4cd8c42f3d55a0e29c8af2bfeba487cf9d44b42954"</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span> <span class="c1"># not the same as above! </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">);</span> <span class="n">Q</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">G</span><span class="p">;</span> <span class="n">Q</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>35663662356339353838393535323836656135636163346364386334326633643535613065323963386166326266656261343837636639643434623432393534
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[151]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>(6346784422212244868555555448238701692585486454164203330957839538451111753464 : 105142884008388094226859483825865276832550578194178528738622802579099407956150 : 1)</pre>
 </div>
 </div>
 </div>
@@ -9170,7 +9397,8 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="ECDSA">ECDSA<a class="anchor-link" href="#ECDSA">¶</a></h2><p><a id="ecdsa"></a></p>
+<h2 id="ECDSA">ECDSA<a class="anchor-link" href="#ECDSA">¶</a></h2><hr/>
+<p><a id="ecdsa"></a></p>
 </div>
 </div>
 </div>
@@ -9422,7 +9650,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [82]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [89]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">message_hash</span> <span class="o">=</span> <span class="n">ecdsa_hashtoint</span><span class="p">(</span><span class="s2">"some string"</span><span class="p">);</span> <span class="nb">hex</span><span class="p">(</span><span class="n">message_hash</span><span class="p">)</span>
@@ -9436,7 +9664,7 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[82]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[89]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>'0x61d034473102d7dac305902770471fd50f4c5b26f6831a56dd90b5184b3c30fc'</pre>
 </div>
@@ -9463,7 +9691,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [83]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [90]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">Q_A</span><span class="p">,</span><span class="n">d_A</span><span class="p">)</span> <span class="o">=</span> <span class="n">ecdsa_keygen</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># generate keypair </span>
@@ -9479,9 +9707,9 @@ $$</p>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>d   = 0x5dbb6a850b9657e26e5bc84b5e07176e1788e237a0dbf092b1d2c83860d36cd1
-Q_x = 0xe4d01cac6aba81d004b8b2d84b648dbc7ff814ddafd39d9b4f673e663fa6ce2e
-Q_y = 0x619e3ccec454bb5055b51aae658080f042c49992042bbb6606171db1a3bf59e6
+<pre>d   = 0xaf417d0a4ffbfedcf31039a0a0b77aa6096646133bd2653c3b6b5b027449d2d
+Q_x = 0xe65a67ebb223e4dafdbb396eca69b5f0ceba628cd489de083f6da5d83a878235
+Q_y = 0xd2de9bf5eff153c85dea2ffc2bb4fe6431ffc93f04c7761b18a2db8fdbf00f68
 </pre>
 </div>
 </div>
@@ -9517,7 +9745,7 @@ Q_y = 0x619e3ccec454bb5055b51aae658080f042c49992042bbb6606171db1a3bf59e6
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [84]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [91]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">s</span><span class="p">)</span> <span class="o">=</span> <span class="n">ecdsa_sign</span><span class="p">(</span><span class="n">d_A</span><span class="p">,</span><span class="n">message_hash</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -9533,12 +9761,12 @@ Q_y = 0x619e3ccec454bb5055b51aae658080f042c49992042bbb6606171db1a3bf59e6
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>k   = 0xa99a6bda58a12da1383b1c0baff8b195e95339020ba2d436da2ac7c0986bf8aa
+<pre>k   = 0x58350304f16b88330d470978e3f60ffe481ad6c50bd39d83e212043180d29b8b
 G_x = 0x79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
 G_y = 0x483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8
 e   = 0x61d034473102d7dac305902770471fd50f4c5b26f6831a56dd90b5184b3c30fc
-r   = 0xdd8983ee0f8fd2d6f1fc13acbec1f2d0a274a6244d5f8283ad706cc86a758b78
-s   = 0x3a95efbba619ff0bdb5a31bff42339a8d39fb8af5cf7c3385de2397770829db
+r   = 0x8024d13cf2a96cda82448cf33dfd6c4eab9b06582ca139b0ea9abba53503f358
+s   = 0xddc336766cec84267a2cde8e47222fed60e5cbfa7bfda9aad8d768e965082085
 </pre>
 </div>
 </div>
@@ -9571,7 +9799,7 @@ s   = 0x3a95efbba619ff0bdb5a31bff42339a8d39fb8af5cf7c3385de2397770829db
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [85]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [92]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="kc">True</span> <span class="o">==</span> <span class="n">ecdsa_verify</span><span class="p">(</span><span class="n">Q_A</span><span class="p">,</span> <span class="n">message_hash</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -9587,12 +9815,12 @@ s   = 0x3a95efbba619ff0bdb5a31bff42339a8d39fb8af5cf7c3385de2397770829db
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>w   = 0xc618adda248c092cbad9b1b89db550470c264f02493d52a661de3f28e1bf6ebe
+<pre>w   = 0x820b012975707786aed14bc74b166672a19a7245f917bbb80b64c3b7787eeec8
 e   = 0x61d034473102d7dac305902770471fd50f4c5b26f6831a56dd90b5184b3c30fc
-u1  = 0xf14984c3d4a4b7b8cb2de665db02d6535eb951858999c742c9c1954aed71efca
-u2  = 0x6a96a6d976fb1d63fc687d7f8872bf57151417cb5a415cf486f5b8bacd0bedfe
-r   = 0xdd8983ee0f8fd2d6f1fc13acbec1f2d0a274a6244d5f8283ad706cc86a758b78
-p_x = 0xdd8983ee0f8fd2d6f1fc13acbec1f2d0a274a6244d5f8283ad706cc86a758b78
+u1  = 0xf3503bf0412a960f937c94d0362b427c98b8a9add1cbc22594e20f068f3306f7
+u2  = 0x8b2d37892627a04be6f04231f24508d207c13422d8c67cb12480d575eee92629
+r   = 0x8024d13cf2a96cda82448cf33dfd6c4eab9b06582ca139b0ea9abba53503f358
+p_x = 0x8024d13cf2a96cda82448cf33dfd6c4eab9b06582ca139b0ea9abba53503f358
 </pre>
 </div>
 </div>
@@ -9603,7 +9831,7 @@ p_x = 0xdd8983ee0f8fd2d6f1fc13acbec1f2d0a274a6244d5f8283ad706cc86a758b78
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [86]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [93]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">message_hash</span> <span class="o">=</span> <span class="n">ecdsa_hashtoint</span><span class="p">(</span><span class="s2">"other message"</span><span class="p">)</span>
@@ -9629,7 +9857,7 @@ p_x = 0xdd8983ee0f8fd2d6f1fc13acbec1f2d0a274a6244d5f8283ad706cc86a758b78
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [87]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [94]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">e1</span> <span class="o">=</span> <span class="n">ecdsa_hashtoint</span><span class="p">(</span><span class="s2">"some string"</span><span class="p">)</span>
@@ -9649,7 +9877,7 @@ p_x = 0xdd8983ee0f8fd2d6f1fc13acbec1f2d0a274a6244d5f8283ad706cc86a758b78
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>r1 = 0x8362f4339944b91019606dd91522abc23d653a28cc899437f5109a1d1ceb4641
-s1 = 0xf348c593c91efa4d0738cb5bf6cb86d8fd080e7e95e11deb2f7eaba91264f723
+s1 = 0x7b815f71074e204417744a72f33cfbd63b92b33897f1d96ea1453e63499e2b23
 </pre>
 </div>
 </div>
@@ -9660,7 +9888,7 @@ s1 = 0xf348c593c91efa4d0738cb5bf6cb86d8fd080e7e95e11deb2f7eaba91264f723
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [88]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [95]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">e2</span> <span class="o">=</span> <span class="n">ecdsa_hashtoint</span><span class="p">(</span><span class="s2">"some other string"</span><span class="p">)</span>
@@ -9680,7 +9908,7 @@ s1 = 0xf348c593c91efa4d0738cb5bf6cb86d8fd080e7e95e11deb2f7eaba91264f723
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>r2 = 0x8362f4339944b91019606dd91522abc23d653a28cc899437f5109a1d1ceb4641
-s2 = 0x5ff9808c0dd483299df510470c9895dd9f2afff44a209fa7822ac4c2fd93987b
+s2 = 0xe8321a694c03a920ae308f5e090a0ad998648194fb79fb66b3c3b60a05030dbc
 </pre>
 </div>
 </div>
@@ -9691,7 +9919,7 @@ s2 = 0x5ff9808c0dd483299df510470c9895dd9f2afff44a209fa7822ac4c2fd93987b
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [89]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [96]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">r1</span> <span class="o">==</span> <span class="n">r2</span>
@@ -9719,7 +9947,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [90]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [97]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">d_recovered</span> <span class="o">=</span> <span class="p">(</span><span class="n">s2</span> <span class="o">*</span> <span class="n">e1</span> <span class="o">-</span> <span class="n">s1</span> <span class="o">*</span> <span class="n">e2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">r1</span> <span class="o">*</span> <span class="p">(</span><span class="n">s1</span> <span class="o">-</span> <span class="n">s2</span><span class="p">))</span>
@@ -9733,7 +9961,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [91]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [98]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">d_A</span>
@@ -9747,9 +9975,9 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[91]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[98]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>42396230491363281373342284474308368706404519408723249133679703364090541075665</pre>
+<pre>4954403534849897777544244586142600302248459427819005131656452618828546088237</pre>
 </div>
 </div>
 </div>
@@ -9759,7 +9987,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [92]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [99]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">d_recovered</span>
@@ -9773,9 +10001,9 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[92]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[99]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>42396230491363281373342284474308368706404519408723249133679703364090541075665</pre>
+<pre>4954403534849897777544244586142600302248459427819005131656452618828546088237</pre>
 </div>
 </div>
 </div>
@@ -9785,7 +10013,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [93]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [100]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">d_A</span> <span class="o">==</span> <span class="n">d_recovered</span>
@@ -9857,7 +10085,7 @@ This curve is birationally equivalent to a twisted Edwards curve $ -x^2 + y^2 = 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [96]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [103]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Curve25519</span> <span class="o">=</span> <span class="n">EllipticCurve</span><span class="p">(</span><span class="n">GF</span><span class="p">(</span><span class="mi">2</span><span class="o">^</span><span class="mi">255</span><span class="o">-</span><span class="mi">19</span><span class="p">),[</span><span class="mi">0</span><span class="p">,</span><span class="mi">486662</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
@@ -9872,7 +10100,7 @@ This curve is birationally equivalent to a twisted Edwards curve $ -x^2 + y^2 = 
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[96]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[103]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>Elliptic Curve defined by y^2 = x^3 + 486662*x^2 + x over Finite Field of size 57896044618658097711785492504343953926634992332820282019728792003956564819949</pre>
 </div>
@@ -9884,7 +10112,7 @@ This curve is birationally equivalent to a twisted Edwards curve $ -x^2 + y^2 = 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [97]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [104]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Curve25519</span><span class="o">.</span><span class="n">trace_of_frobenius</span><span class="p">()</span>
@@ -9898,7 +10126,7 @@ This curve is birationally equivalent to a twisted Edwards curve $ -x^2 + y^2 = 
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[97]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[104]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>-221938542218978828286815502327069187962</pre>
 </div>
@@ -9935,12 +10163,26 @@ $$</p>
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f9fd3833-a228-4432-9d47-05e81d6e9484">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=28fcb332-7afc-4242-ae34-128580f279f1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [99]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [106]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mh">0x7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffed</span>
@@ -9955,7 +10197,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [101]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [108]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">FFp</span><span class="p">(</span><span class="mh">0x52036cee2b6ffe738cc740797779e89800700a4d4141d8ab75eb4dca135978a3</span><span class="p">)</span>
@@ -9982,7 +10224,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [105]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [112]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># This curve is a Weierstrass curve (SAGE does not support TwistedEdwards curves) birationally equivalent to the intended curve.</span>
@@ -10009,7 +10251,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [106]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [113]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">EC</span><span class="o">.</span><span class="n">trace_of_frobenius</span><span class="p">()</span> <span class="o">==</span> <span class="o">-</span><span class="mi">221938542218978828286815502327069187962</span>
