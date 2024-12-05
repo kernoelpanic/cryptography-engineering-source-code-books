@@ -7517,7 +7517,7 @@ main {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sage.misc.banner</span> <span class="c1"># sage math version info </span>
@@ -7544,6 +7544,35 @@ main {
  Using Python 3.10.12. Type "help()" for help.                      
 
 </pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=df696e17-0e26-400a-878c-a4c2f17379b2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [143]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">secrets</span> 
+<span class="kn">import</span> <span class="nn">src.ecarithmetic</span> <span class="k">as</span> <span class="nn">eca</span>
+<span class="kn">import</span> <span class="nn">importlib</span> 
+<span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">eca</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[143]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>&lt;module 'src.ecarithmetic' from '/workdir/src/ecarithmetic.py'&gt;</pre>
 </div>
 </div>
 </div>
@@ -7704,7 +7733,17 @@ This should ensure that the curve is <strong>smooth</strong>, i.e., the equation
 <li><strong>A cusp</strong>: The curve bends sharply into itself, i.e., a single tangent line touches the curve with higher multiplicity.
 Singular elliptic curves are no longer elliptic curves in the strict mathematical sense, as they fail to satisfy the smoothness condition.</li>
 </ol>
-<p><strong>Example</strong>:</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5e74182d-a273-46bd-8baa-cdffc0788074">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Example: Singular curve</strong></p>
 </div>
 </div>
 </div>
@@ -7841,7 +7880,7 @@ $$</li>
 </div>
 </div>
 </div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e75d9166-ff40-4492-9fdb-8322cae27544">
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e75d9166-ff40-4492-9fdb-8322cae27544">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7859,7 +7898,7 @@ $$</li>
 </div>
 </div>
 </div>
-</div></div><div class="fragment">
+</div><div class="fragment">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c4e8901b-522a-45cf-918e-75433e6ec1fd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8630,7 +8669,7 @@ $$</p>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[38]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(30 : 30 : 1)</pre>
+<pre>(1 : 30 : 1)</pre>
 </div>
 </div>
 </div>
@@ -8656,7 +8695,7 @@ $$</p>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(3 : 5 : 1)</pre>
+<pre>(30 : 30 : 1)</pre>
 </div>
 </div>
 </div>
@@ -8682,7 +8721,7 @@ $$</p>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(3, 5)</pre>
+<pre>(30, 30)</pre>
 </div>
 </div>
 </div>
@@ -8823,7 +8862,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [56]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [54]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mi">31</span><span class="p">;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">FF</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="n">b</span> <span class="o">=</span> <span class="n">FF</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -8847,8 +8886,8 @@ $$</p>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>(25, 16)
-(28, 15)
+<pre>(0, 1)
+(6, 26)
 </pre>
 </div>
 </div>
@@ -8859,7 +8898,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [60]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [58]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Q_point</span> <span class="o">=</span> <span class="n">P1</span><span class="o">+</span><span class="n">P2</span><span class="p">;</span> <span class="n">Q_point</span>
@@ -8873,9 +8912,9 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[60]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[58]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(9 : 15 : 1)</pre>
+<pre>(20 : 18 : 1)</pre>
 </div>
 </div>
 </div>
@@ -8885,7 +8924,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [61]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [59]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Q_xy</span> <span class="o">=</span> <span class="n">point_addition_sage</span><span class="p">(</span><span class="n">P1</span><span class="o">.</span><span class="n">xy</span><span class="p">(),</span><span class="n">P2</span><span class="o">.</span><span class="n">xy</span><span class="p">(),</span><span class="n">a</span><span class="o">=</span><span class="n">FF</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span> <span class="n">Q_xy</span>
@@ -8899,9 +8938,9 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[61]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[59]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(9, 15)</pre>
+<pre>(20, 18)</pre>
 </div>
 </div>
 </div>
@@ -8930,7 +8969,7 @@ This reduces the $17$ additions to $4$ multiplications and one addition operatio
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [114]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [67]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">var</span><span class="p">(</span><span class="s2">"g"</span><span class="p">);</span> <span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">g</span><span class="o">+</span><span class="n">g</span>
@@ -8944,7 +8983,7 @@ This reduces the $17$ additions to $4$ multiplications and one addition operatio
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[114]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[67]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>17*g</pre>
 </div>
@@ -8968,7 +9007,7 @@ This reduces the $17$ additions to $4$ multiplications and one addition operatio
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [116]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [68]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">point_multiplication_sage</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
@@ -9000,7 +9039,7 @@ This reduces the $17$ additions to $4$ multiplications and one addition operatio
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [117]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [69]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mi">31</span>
@@ -9017,9 +9056,9 @@ This reduces the $17$ additions to $4$ multiplications and one addition operatio
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[117]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[69]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(9 : 15 : 1)</pre>
+<pre>(25 : 16 : 1)</pre>
 </div>
 </div>
 </div>
@@ -9029,7 +9068,7 @@ This reduces the $17$ additions to $4$ multiplications and one addition operatio
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [118]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [70]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
@@ -9044,9 +9083,9 @@ This reduces the $17$ additions to $4$ multiplications and one addition operatio
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[118]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[70]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>12</pre>
+<pre>21</pre>
 </div>
 </div>
 </div>
@@ -9056,7 +9095,7 @@ This reduces the $17$ additions to $4$ multiplications and one addition operatio
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [119]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [71]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Q_point</span> <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">P</span><span class="p">;</span> <span class="n">Q_point</span>
@@ -9070,9 +9109,9 @@ This reduces the $17$ additions to $4$ multiplications and one addition operatio
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[119]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[71]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(18 : 7 : 1)</pre>
+<pre>(6 : 5 : 1)</pre>
 </div>
 </div>
 </div>
@@ -9082,7 +9121,7 @@ This reduces the $17$ additions to $4$ multiplications and one addition operatio
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [120]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [72]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Q_xy</span> <span class="o">=</span> <span class="n">point_multiplication_sage</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">xy</span><span class="p">(),</span> <span class="n">a</span><span class="o">=</span><span class="n">FF</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">);</span> <span class="n">Q_xy</span>
@@ -9096,9 +9135,9 @@ This reduces the $17$ additions to $4$ multiplications and one addition operatio
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[120]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[72]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(18, 7)</pre>
+<pre>(6, 5)</pre>
 </div>
 </div>
 </div>
@@ -9141,7 +9180,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [128]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [78]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Secp256k1 from https://www.secg.org/sec2-v2.pdf</span>
@@ -9175,7 +9214,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [129]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [79]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">t</span><span class="o">=</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span> <span class="o">-</span> <span class="n">EC</span><span class="o">.</span><span class="n">order</span><span class="p">();</span> <span class="n">t</span> 
@@ -9189,7 +9228,7 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[129]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[79]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>432420386565659656852420866390673177327</pre>
 </div>
@@ -9201,7 +9240,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [130]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [80]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">EC</span><span class="o">.</span><span class="n">trace_of_frobenius</span><span class="p">()</span> <span class="c1"># also available as function in sage</span>
@@ -9215,7 +9254,7 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[130]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[80]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>432420386565659656852420866390673177327</pre>
 </div>
@@ -9227,7 +9266,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [131]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [81]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">EC</span><span class="o">.</span><span class="n">order</span><span class="p">()</span> <span class="o">==</span> <span class="n">G</span><span class="o">.</span><span class="n">order</span><span class="p">()</span> <span class="o">==</span> <span class="n">n</span>
@@ -9241,7 +9280,7 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[131]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[81]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>True</pre>
 </div>
@@ -9253,7 +9292,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [132]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [82]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">SK</span> <span class="o">=</span> <span class="mi">104180048334815325830625441518578326979476797852517177973225433558381925820558</span>
@@ -9269,7 +9308,7 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[132]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[82]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>('0x4e7927e13423b2afa70f1299ad041978e55a1d9af1860a826ddb15024ed7da2',
  '0xd369291d811f2df550b1153d12ca5d3132b7f2e658a90300c0daa39a476db17c')</pre>
@@ -9293,7 +9332,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [149]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [84]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="s1">'5f6b5c9588955286ea5cac4cd8c42f3d55a0e29c8af2bfeba487cf9d44b42954'</span><span class="p">),</span><span class="s2">"big"</span><span class="p">)</span>
@@ -9315,7 +9354,7 @@ $$</p>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[149]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[84]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>(41858324777353967549034659156569719092956488814023218795456365288203237979134 : 16555327082719145925295244286557372390265073495347636540557744407873083411827 : 1)</pre>
 </div>
@@ -9327,7 +9366,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [150]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [85]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mh">0x5f6b5c9588955286ea5cac4cd8c42f3d55a0e29c8af2bfeba487cf9d44b42954</span>
@@ -9349,7 +9388,7 @@ $$</p>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[150]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[85]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>(41858324777353967549034659156569719092956488814023218795456365288203237979134 : 16555327082719145925295244286557372390265073495347636540557744407873083411827 : 1)</pre>
 </div>
@@ -9361,7 +9400,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [151]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [86]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="sa">b</span><span class="s2">"5f6b5c9588955286ea5cac4cd8c42f3d55a0e29c8af2bfeba487cf9d44b42954"</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span> <span class="c1"># not the same as above! </span>
@@ -9383,9 +9422,107 @@ $$</p>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[151]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[86]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>(6346784422212244868555555448238701692585486454164203330957839538451111753464 : 105142884008388094226859483825865276832550578194178528738622802579099407956150 : 1)</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=06bd2bc3-0eef-4e10-9c46-d8012acbdc55">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="ECDH">ECDH<a class="anchor-link" href="#ECDH">¶</a></h2><hr/>
+<p><a id="ecdh"></a></p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2f73e94e-1d37-4626-888e-f753f3f57804">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="ECDH">ECDH<a class="anchor-link" href="#ECDH">¶</a></h3><p><strong>Elliptic Curve Diffi-Hellman</strong> (ECDH) is a key agreement protocol that can be used as its <em>algebraic</em>/<em>finite field</em> counterpart.
+The goal is also to establish a shared secret over some public channel.</p>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9033acf9-0483-4756-b74c-7f9e657ed164">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [132]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">ecdh</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">d</span><span class="p">):</span>
+    <span class="n">FF</span> <span class="o">=</span> <span class="n">FiniteField</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">EC</span> <span class="o">=</span> <span class="n">EllipticCurve</span><span class="p">(</span><span class="n">FF</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">])</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="n">EC</span><span class="o">.</span><span class="n">point</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">d</span> <span class="o">*</span> <span class="n">P</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=cdfe13bb-8537-43c6-95ad-4b1f1a2444aa">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [147]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Domain parameters for secp256k1 from https://www.secg.org/sec2-v2.pdf</span>
+<span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">256</span> <span class="o">-</span> <span class="mi">2</span><span class="o">**</span><span class="mi">32</span> <span class="o">-</span> <span class="mi">2</span><span class="o">**</span><span class="mi">9</span> <span class="o">-</span> <span class="mi">2</span><span class="o">**</span><span class="mi">8</span> <span class="o">-</span> <span class="mi">2</span><span class="o">**</span><span class="mi">7</span> <span class="o">-</span> <span class="mi">2</span><span class="o">**</span><span class="mi">6</span> <span class="o">-</span> <span class="mi">2</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">b</span><span class="o">=</span><span class="mi">7</span><span class="p">;</span> <span class="n">n</span><span class="o">=</span><span class="mh">0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141</span>
+<span class="n">x_G</span><span class="o">=</span><span class="mh">0x79BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798</span>
+<span class="n">y_G</span><span class="o">=</span><span class="mh">0x483ADA7726A3C4655DA4FBFC0E1108A8FD17B448A68554199C47D08FFB10D4B8</span>
+<span class="n">G</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_G</span><span class="p">,</span> <span class="n">y_G</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=fc67c518-7b7d-4765-98b0-ee9a358f8b2e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [151]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">d_a</span>  <span class="o">=</span> <span class="n">secrets</span><span class="o">.</span><span class="n">randbelow</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="c1"># secret key (sk) Alice</span>
+<span class="n">d_b</span>  <span class="o">=</span> <span class="n">secrets</span><span class="o">.</span><span class="n">randbelow</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="c1"># secret key (sk) Bob</span>
+<span class="n">Q_A</span>  <span class="o">=</span> <span class="n">ecdh</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">d_a</span><span class="p">)</span> <span class="c1"># public key (pk) Alice</span>
+<span class="n">Q_B</span>  <span class="o">=</span> <span class="n">ecdh</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">d_b</span><span class="p">)</span> <span class="c1"># public key (pk) Bob</span>
+<span class="n">SK_A</span> <span class="o">=</span> <span class="n">ecdh</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">Q_B</span><span class="p">,</span><span class="n">d_a</span><span class="p">)</span> <span class="c1"># shared secret (SK) computed by Alice </span>
+<span class="n">SK_B</span> <span class="o">=</span> <span class="n">ecdh</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">Q_A</span><span class="p">,</span><span class="n">d_b</span><span class="p">)</span> <span class="c1"># shared secret (SK) computed by Bob</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"SK_A   = </span><span class="si">{</span><span class="n">SK_A</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"SK_B   = </span><span class="si">{</span><span class="n">SK_B</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"SK x_k =  </span><span class="si">{</span><span class="n">SK_A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="c1"># shared secret x of point</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>SK_A   = (1714854378043910545153263901608971044775638346296924361323314435956829275002 : 24931585447127274718857701562903370281236061660408864927519322171547711496725 : 1)
+SK_B   = (1714854378043910545153263901608971044775638346296924361323314435956829275002 : 24931585447127274718857701562903370281236061660408864927519322171547711496725 : 1)
+SK x_k =  1714854378043910545153263901608971044775638346296924361323314435956829275002
+</pre>
 </div>
 </div>
 </div>
@@ -9654,7 +9791,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [89]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [88]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">message_hash</span> <span class="o">=</span> <span class="n">ecdsa_hashtoint</span><span class="p">(</span><span class="s2">"some string"</span><span class="p">);</span> <span class="nb">hex</span><span class="p">(</span><span class="n">message_hash</span><span class="p">)</span>
@@ -9668,7 +9805,7 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[89]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[88]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>'0x61d034473102d7dac305902770471fd50f4c5b26f6831a56dd90b5184b3c30fc'</pre>
 </div>
@@ -9695,7 +9832,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [90]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [89]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">Q_A</span><span class="p">,</span><span class="n">d_A</span><span class="p">)</span> <span class="o">=</span> <span class="n">ecdsa_keygen</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># generate keypair </span>
@@ -9711,9 +9848,9 @@ $$</p>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>d   = 0xaf417d0a4ffbfedcf31039a0a0b77aa6096646133bd2653c3b6b5b027449d2d
-Q_x = 0xe65a67ebb223e4dafdbb396eca69b5f0ceba628cd489de083f6da5d83a878235
-Q_y = 0xd2de9bf5eff153c85dea2ffc2bb4fe6431ffc93f04c7761b18a2db8fdbf00f68
+<pre>d   = 0x96a01521e7b28bff0f6e062294c44d192e4d47c216bf105ef3ba47cd40f254a4
+Q_x = 0x20aa48b4f7834f26c96d051a841a9e29c8df6d2e479f8c51c142dbb0a1b7ad4e
+Q_y = 0x39eaa8214e17938f717d2ea951e85cd01d77067c10ebc1e8dd59c377e2383450
 </pre>
 </div>
 </div>
@@ -9749,7 +9886,7 @@ Q_y = 0xd2de9bf5eff153c85dea2ffc2bb4fe6431ffc93f04c7761b18a2db8fdbf00f68
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [91]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [90]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">s</span><span class="p">)</span> <span class="o">=</span> <span class="n">ecdsa_sign</span><span class="p">(</span><span class="n">d_A</span><span class="p">,</span><span class="n">message_hash</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -9765,12 +9902,12 @@ Q_y = 0xd2de9bf5eff153c85dea2ffc2bb4fe6431ffc93f04c7761b18a2db8fdbf00f68
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>k   = 0x58350304f16b88330d470978e3f60ffe481ad6c50bd39d83e212043180d29b8b
+<pre>k   = 0x4dfe7bad1b120d36f547002d61086657dc92b8797dbff19d1dc70e1f83c64586
 G_x = 0x79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
 G_y = 0x483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8
 e   = 0x61d034473102d7dac305902770471fd50f4c5b26f6831a56dd90b5184b3c30fc
-r   = 0x8024d13cf2a96cda82448cf33dfd6c4eab9b06582ca139b0ea9abba53503f358
-s   = 0xddc336766cec84267a2cde8e47222fed60e5cbfa7bfda9aad8d768e965082085
+r   = 0x2f637666a8cbd30b3b0d6c66947c83e160df432ab98434aad4e4fee9d166344a
+s   = 0x5339e3d0ca1a114e7304e115366adc50f24168327a6e27d4c68293f2c5e6071
 </pre>
 </div>
 </div>
@@ -9803,7 +9940,7 @@ s   = 0xddc336766cec84267a2cde8e47222fed60e5cbfa7bfda9aad8d768e965082085
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [92]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [91]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="kc">True</span> <span class="o">==</span> <span class="n">ecdsa_verify</span><span class="p">(</span><span class="n">Q_A</span><span class="p">,</span> <span class="n">message_hash</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -9819,12 +9956,12 @@ s   = 0xddc336766cec84267a2cde8e47222fed60e5cbfa7bfda9aad8d768e965082085
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>w   = 0x820b012975707786aed14bc74b166672a19a7245f917bbb80b64c3b7787eeec8
+<pre>w   = 0xfddc1b7d2aaae3eae2182e1fd3dd407b2c33ce56816729ab20e3b4a20d37282d
 e   = 0x61d034473102d7dac305902770471fd50f4c5b26f6831a56dd90b5184b3c30fc
-u1  = 0xf3503bf0412a960f937c94d0362b427c98b8a9add1cbc22594e20f068f3306f7
-u2  = 0x8b2d37892627a04be6f04231f24508d207c13422d8c67cb12480d575eee92629
-r   = 0x8024d13cf2a96cda82448cf33dfd6c4eab9b06582ca139b0ea9abba53503f358
-p_x = 0x8024d13cf2a96cda82448cf33dfd6c4eab9b06582ca139b0ea9abba53503f358
+u1  = 0x57426b9a4d7cc965ec4184301143a2926f6592fdaf9c017b11371de821486f11
+u2  = 0xe8e2e9db6337b1ced787b21055e83b0420eb1791cb7f5ab26ca6c7105050fa5d
+r   = 0x2f637666a8cbd30b3b0d6c66947c83e160df432ab98434aad4e4fee9d166344a
+p_x = 0x2f637666a8cbd30b3b0d6c66947c83e160df432ab98434aad4e4fee9d166344a
 </pre>
 </div>
 </div>
@@ -9835,7 +9972,7 @@ p_x = 0x8024d13cf2a96cda82448cf33dfd6c4eab9b06582ca139b0ea9abba53503f358
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [93]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [92]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">message_hash</span> <span class="o">=</span> <span class="n">ecdsa_hashtoint</span><span class="p">(</span><span class="s2">"other message"</span><span class="p">)</span>
@@ -9861,7 +9998,7 @@ p_x = 0x8024d13cf2a96cda82448cf33dfd6c4eab9b06582ca139b0ea9abba53503f358
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [94]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [93]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">e1</span> <span class="o">=</span> <span class="n">ecdsa_hashtoint</span><span class="p">(</span><span class="s2">"some string"</span><span class="p">)</span>
@@ -9881,7 +10018,7 @@ p_x = 0x8024d13cf2a96cda82448cf33dfd6c4eab9b06582ca139b0ea9abba53503f358
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>r1 = 0x8362f4339944b91019606dd91522abc23d653a28cc899437f5109a1d1ceb4641
-s1 = 0x7b815f71074e204417744a72f33cfbd63b92b33897f1d96ea1453e63499e2b23
+s1 = 0xfe104e0eb83c9397798e7fefe813b40e551dfa1cbbfd62aa885209341a81cda4
 </pre>
 </div>
 </div>
@@ -9892,7 +10029,7 @@ s1 = 0x7b815f71074e204417744a72f33cfbd63b92b33897f1d96ea1453e63499e2b23
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [95]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [94]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">e2</span> <span class="o">=</span> <span class="n">ecdsa_hashtoint</span><span class="p">(</span><span class="s2">"some other string"</span><span class="p">)</span>
@@ -9912,7 +10049,7 @@ s1 = 0x7b815f71074e204417744a72f33cfbd63b92b33897f1d96ea1453e63499e2b23
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>r2 = 0x8362f4339944b91019606dd91522abc23d653a28cc899437f5109a1d1ceb4641
-s2 = 0xe8321a694c03a920ae308f5e090a0ad998648194fb79fb66b3c3b60a05030dbc
+s2 = 0x6ac10906fcf21c74104ac4dafde0c312f740eb92703ce466dafe224e05b06efc
 </pre>
 </div>
 </div>
@@ -9923,7 +10060,7 @@ s2 = 0xe8321a694c03a920ae308f5e090a0ad998648194fb79fb66b3c3b60a05030dbc
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [96]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [95]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">r1</span> <span class="o">==</span> <span class="n">r2</span>
@@ -9951,7 +10088,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [97]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [96]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">d_recovered</span> <span class="o">=</span> <span class="p">(</span><span class="n">s2</span> <span class="o">*</span> <span class="n">e1</span> <span class="o">-</span> <span class="n">s1</span> <span class="o">*</span> <span class="n">e2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">r1</span> <span class="o">*</span> <span class="p">(</span><span class="n">s1</span> <span class="o">-</span> <span class="n">s2</span><span class="p">))</span>
@@ -9965,7 +10102,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [98]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [97]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">d_A</span>
@@ -9979,9 +10116,9 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[98]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[97]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>4954403534849897777544244586142600302248459427819005131656452618828546088237</pre>
+<pre>68129768668606611660207536433936544511679163492021451989854272372038847059108</pre>
 </div>
 </div>
 </div>
@@ -9991,7 +10128,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [99]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [98]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">d_recovered</span>
@@ -10005,9 +10142,9 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[99]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[98]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>4954403534849897777544244586142600302248459427819005131656452618828546088237</pre>
+<pre>68129768668606611660207536433936544511679163492021451989854272372038847059108</pre>
 </div>
 </div>
 </div>
@@ -10017,7 +10154,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [100]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [99]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">d_A</span> <span class="o">==</span> <span class="n">d_recovered</span>
@@ -10109,7 +10246,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Projective-coordinates-addition">Projective coordinates addition<a class="anchor-link" href="#Projective-coordinates-addition">¶</a></h3><p>One advantage of using projective coordinates is that adding two points can now be done without computing inverses modulo $p$ [<a href="https://www.cs.umd.edu/~jkatz/imc.html">ITMC</a>]
+<h3 id="Projective-coordinates-addition">Projective coordinates addition<a class="anchor-link" href="#Projective-coordinates-addition">¶</a></h3><p>One advantage of using projective coordinates is that adding two points can now be done <em>without computing inverses</em> modulo $p$ which is the most expensive operation [<a href="https://www.cs.umd.edu/~jkatz/imc.html">ITMC</a>]
 $$
 \begin{align}
 P_3 &amp;= P_1 + P_2 \\
@@ -10128,7 +10265,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [57]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [100]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mi">31</span>
@@ -10147,9 +10284,9 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[57]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[100]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>((18 : 24 : 1), (0 : 30 : 1))</pre>
+<pre>((16 : 19 : 1), (28 : 15 : 1))</pre>
 </div>
 </div>
 </div>
@@ -10159,7 +10296,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [86]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [103]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">add_projective</span><span class="p">(</span><span class="n">P1</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
@@ -10171,8 +10308,7 @@ $$</p>
     <span class="n">X3</span> <span class="o">=</span> <span class="n">v</span><span class="o">*</span><span class="n">w</span> 
     <span class="n">Y3</span> <span class="o">=</span> <span class="n">u</span> <span class="o">*</span> <span class="p">(</span><span class="n">v</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">X1</span> <span class="o">*</span> <span class="n">Z2</span> <span class="o">-</span> <span class="n">w</span><span class="p">)</span> <span class="o">-</span> <span class="n">v</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">Y1</span> <span class="o">*</span> <span class="n">Z2</span> 
     <span class="n">Z3</span> <span class="o">=</span> <span class="n">Z1</span> <span class="o">*</span> <span class="n">Z2</span> <span class="o">*</span> <span class="n">v</span><span class="o">**</span><span class="mi">3</span> 
-    <span class="c1"># translate to affine and return</span>
-    <span class="k">return</span> <span class="p">(</span> <span class="n">X3</span><span class="o">/</span><span class="n">Z3</span><span class="p">,</span><span class="n">Y3</span><span class="o">/</span><span class="n">Z3</span><span class="p">,</span><span class="mi">1</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span> <span class="n">X3</span><span class="o">/</span><span class="n">Z3</span><span class="p">,</span><span class="n">Y3</span><span class="o">/</span><span class="n">Z3</span><span class="p">,</span><span class="mi">1</span> <span class="p">)</span> <span class="c1"># translate to affine and return</span>
 </pre></div>
 </div>
 </div>
@@ -10183,10 +10319,10 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [87]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [104]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">P3</span> <span class="o">=</span> <span class="n">add_projective</span><span class="p">(</span><span class="n">P1</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">p</span><span class="p">);</span> <span class="n">P3</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">P3_proj</span> <span class="o">=</span> <span class="n">add_projective</span><span class="p">(</span><span class="n">P1</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">p</span><span class="p">);</span> <span class="n">P3_proj</span>
 </pre></div>
 </div>
 </div>
@@ -10197,9 +10333,9 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[87]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[104]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(20, 18, 1)</pre>
+<pre>(25, 15, 1)</pre>
 </div>
 </div>
 </div>
@@ -10209,7 +10345,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [88]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [105]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">P3</span> <span class="o">=</span> <span class="n">P1</span> <span class="o">+</span> <span class="n">P2</span><span class="p">;</span> <span class="n">P3</span>
@@ -10223,9 +10359,23 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[88]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[105]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(20 : 18 : 1)</pre>
+<pre>(25 : 15 : 1)</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0daa505d-ce3d-4638-aaa6-69532e47e64d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [106]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">P3</span><span class="o">.</span><span class="n">xy</span><span class="p">()</span> <span class="o">==</span> <span class="p">(</span><span class="n">P3_proj</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">P3_proj</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -10286,7 +10436,7 @@ Here $B\neq 0 \pmod p$ and $ A \neq \pm 2 \pmod p $. Given this elliptic curve e
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [50]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [107]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -10355,7 +10505,7 @@ This curve is <em>birationally equivalent</em> to a twisted Edwards curve $ -x^2
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [44]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [109]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">B</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">A</span><span class="o">=</span><span class="mi">486662</span>
@@ -10371,7 +10521,7 @@ This curve is <em>birationally equivalent</em> to a twisted Edwards curve $ -x^2
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[44]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[109]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>Elliptic Curve defined by y^2 = x^3 + 486662*x^2 + x over Finite Field of size 57896044618658097711785492504343953926634992332820282019728792003956564819949</pre>
 </div>
@@ -10383,7 +10533,7 @@ This curve is <em>birationally equivalent</em> to a twisted Edwards curve $ -x^2
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [45]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [110]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Curve25519</span><span class="o">.</span><span class="n">trace_of_frobenius</span><span class="p">()</span>
@@ -10397,7 +10547,7 @@ This curve is <em>birationally equivalent</em> to a twisted Edwards curve $ -x^2
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[45]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[110]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>-221938542218978828286815502327069187962</pre>
 </div>
@@ -10431,7 +10581,7 @@ This curve is <em>birationally equivalent</em> to a twisted Edwards curve $ -x^2
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [49]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [112]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">EC</span> <span class="o">=</span> <span class="n">EllipticCurve</span><span class="p">(</span><span class="n">RR</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># Montgomery curve used for Curve25519</span>
@@ -10512,7 +10662,7 @@ Here $a,d \neq 0 \pmod p$ and $ a ¸\neq d \pmod p$. The special case where $ a 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [113]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -10580,7 +10730,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [106]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [114]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mh">0x7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffed</span>
@@ -10595,7 +10745,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [108]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [116]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">FFp</span><span class="p">(</span><span class="mh">0x52036cee2b6ffe738cc740797779e89800700a4d4141d8ab75eb4dca135978a3</span><span class="p">)</span>
@@ -10622,7 +10772,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [112]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [120]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># This curve is a Weierstrass curve (SAGE does not support TwistedEdwards curves) birationally equivalent to the intended curve.</span>
@@ -10649,7 +10799,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [113]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [121]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">EC</span><span class="o">.</span><span class="n">trace_of_frobenius</span><span class="p">()</span> <span class="o">==</span> <span class="o">-</span><span class="mi">221938542218978828286815502327069187962</span>
