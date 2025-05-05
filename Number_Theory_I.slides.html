@@ -7679,13 +7679,154 @@ $$</li>
 </div>
 </div>
 </div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9274d4c7-84cb-4e87-a622-79bbba6dadde">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Divisability">Divisability<a class="anchor-link" href="#Divisability">¶</a></h3><ul>
+<li>If $ a, b \in \mathbb{Z}$ and $ a \; divides \; b $, written as $ a | b $, then there exists a $ c \in \mathbb{Z} $ such that $ ac = b $.<ul>
+<li>If $ a $ does not divide $ b $, we write $ a  \nmid b $</li>
+</ul>
+</li>
+<li>If $ a | b $ and $ a | c $, then $ a | (Xb + Xc)$ for any $ X,Y \in \mathbb{Z}$</li>
+<li>If $ a | b $ and $ a $ is positive, $ a $ is called a $ divisor $ of $ b $<ul>
+<li>If $ a \notin \{ 1, b \} $ then it is a <em>nontrivial divisor</em> or <em>factor</em> of $ b $</li>
+<li>A positive integer $ p &gt; 1 $ is <strong>prime</strong> if it has no factors, so that his only divisors are $ 1 $ and itself.</li>
+<li>A positive integer that is not prime is called <strong>composite</strong></li>
+<li>Per convention $ 1 $ is neither prime nor composite but called <strong>unit</strong></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cfef7365-c699-4d15-a960-f783be4072d2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Divisability-in-sage">Divisability in sage<a class="anchor-link" href="#Divisability-in-sage">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0c0cbc0a-26b2-4067-ae8b-28fa8c489905">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">a</span><span class="o">.</span><span class="n">divides</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>True</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=015740a8-35cf-4f0f-ab69-173718659d13">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">b</span> <span class="o">%</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>True</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0fd3bb31-fd2f-45e4-a2b6-46c877acd48b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">a</span><span class="o">.</span><span class="n">divides</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>False</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=afa85656-4649-4bc8-9aad-ab9b54af9905">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">b</span> <span class="o">%</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>False</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bbe723f9-751e-4318-af18-7d745eb1a88a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Prime-numbers">Prime numbers<a class="anchor-link" href="#Prime-numbers">¶</a></h2><p>A <strong>prime</strong> is a natural number greater than $ 1 $ that <em>cannot</em> be formed by multiplying two smaller natural numbers.
+<h2 id="Prime-numbers">Prime numbers<a class="anchor-link" href="#Prime-numbers">¶</a></h2><p>A <strong>prime</strong> is a natural number greater than $ 1 $ that is only divisible by $ 1 $ and itself.
 A natural number greater than $ 1 $ that is not prime is called <strong>composite number</strong>.</p>
 <center>
 <img alt="primes and composites" src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Primes-vs-composites.svg" width="256"/>
@@ -7922,7 +8063,7 @@ Usually they never report a prime as a composite number, but it is possible that
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">isPrime_sage</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
@@ -7938,7 +8079,7 @@ Usually they never report a prime as a composite number, but it is possible that
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">isPrime_sage_BailiePSW</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
@@ -7954,7 +8095,7 @@ Usually they never report a prime as a composite number, but it is possible that
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">gmpy2</span>
@@ -7984,10 +8125,10 @@ Usually they never report a prime as a composite number, but it is possible that
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> isPrime_trial_division(random_number)
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> isPrime_trial_division(random_number) # 32 bit random_number  
 </pre></div>
 </div>
 </div>
@@ -8000,15 +8141,15 @@ Usually they never report a prime as a composite number, but it is possible that
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>CPU times: user 5.73 s, sys: 8.46 ms, total: 5.73 s
-Wall time: 5.73 s
+<pre>CPU times: user 846 ms, sys: 0 ns, total: 846 ms
+Wall time: 844 ms
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[38]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(False, [2, 2, 3, 3, 7, 14765687])</pre>
+<pre>(False, [3, 5, 67, 2136833])</pre>
 </div>
 </div>
 </div>
@@ -8018,7 +8159,7 @@ Wall time: 5.73 s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> isPrime_sage(random_number)
@@ -8034,13 +8175,13 @@ Wall time: 5.73 s
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>CPU times: user 48 µs, sys: 4 µs, total: 52 µs
-Wall time: 56.7 µs
+<pre>CPU times: user 53 µs, sys: 12 µs, total: 65 µs
+Wall time: 74.9 µs
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>False</pre>
 </div>
@@ -8052,7 +8193,7 @@ Wall time: 56.7 µs
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [43]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> isPrime_python_gmpy2(random_number)
@@ -8068,13 +8209,13 @@ Wall time: 56.7 µs
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>CPU times: user 10 µs, sys: 0 ns, total: 10 µs
-Wall time: 14.1 µs
+<pre>CPU times: user 0 ns, sys: 461 µs, total: 461 µs
+Wall time: 7.18 ms
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[43]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>False</pre>
 </div>
@@ -8099,7 +8240,8 @@ Wall time: 14.1 µs
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Factorization">Factorization<a class="anchor-link" href="#Factorization">¶</a></h3><p>Factorization is thought to be a <em>computationally difficult</em> problem, whereas primality testing is comparatively easy.</p>
+<h3 id="Factorization">Factorization<a class="anchor-link" href="#Factorization">¶</a></h3><p>Factorization is thought to be a <em>computationally difficult</em> problem (i.e., <strong>no</strong> <em>polynomial-time</em> algorithm for factoring has been demonstrated).
+Primality testing is comparatively easy.</p>
 <ul>
 <li><strong>Fundamental theorem of arithmetic:</strong> every natural number greater than $ 1 $ is either a <em>prime</em> itself or can be <em>factorized</em> as a product of primes that is unique up to their order (ie., the order is not relevant)</li>
 </ul>
@@ -8132,18 +8274,44 @@ Wall time: 14.1 µs
 </div>
 </div>
 </div>
-</div></div><div class="fragment">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=96da5b7d-37ab-48c5-946f-41077d70823f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [45]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">factor</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># prime factor of a prime</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[45]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>5</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5f827101-a810-4ad6-b4e5-05608d5bcb69">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>In sage <a href="https://en.wikipedia.org/wiki/Quadratic_sieve">quadratic sieve</a> (<code>qsieve</code>) is a more <a href="https://doc.sagemath.org/html/en/thematic_tutorials/explicit_methods_in_number_theory/integer_factorization.html">efficient factorization algorithm</a>. It is the second-fastest known method after the <a href="https://en.wikipedia.org/wiki/General_number_field_sieve">general number field sieve</a>.</p>
+<p>In sage <a href="https://en.wikipedia.org/wiki/Quadratic_sieve">quadratic sieve</a> (<code>qsieve</code>) is a more <a href="https://doc.sagemath.org/html/en/thematic_tutorials/explicit_methods_in_number_theory/integer_factorization.html">efficient factorization algorithm</a>. It is the second-fastest known method after the <a href="https://en.wikipedia.org/wiki/General_number_field_sieve">general number field sieve</a> (i.e., the time complexity is sub-exponential but still not polynomial).</p>
 </div>
 </div>
 </div>
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d5c8c4c0-a53b-400d-ab3e-cf533c2b8a39">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d5c8c4c0-a53b-400d-ab3e-cf533c2b8a39">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8863,7 +9031,7 @@ One example would be $ 8 $ and $ 9 $.</p>
 <p>If either $ a $ or $ b $ is prime, then they might, or might not be <em>relatively prime</em> to each other:</p>
 <ul>
 <li>All integers from $ 1 $ to $ p \in \textrm{Primes}$ have to be relatively prime to $ p $</li>
-<li>There might be an integer $ z &gt; p $ of which $ p $ is a prime faktor. In this case $ z $ and $ p $ are not <em>relatively prime</em></li>
+<li>There might be an integer $ z &gt; p $ of which $ p $ is a prime factor. In this case $ z $ and $ p $ are not <em>relatively prime</em></li>
 </ul>
 <p>For example, $ 4 $ and $ 5 $ are coprime, whereas $ 10 $ and $ 5 $ are not coprime.</p>
 </div>
@@ -9470,7 +9638,7 @@ Phi of n, when n is the product of two primes the dot is colored red
 </ul>
 <p>A group $ \mathbb{G} $ with operation $\circ$ is <em>abelian</em> if the follwing holds:</p>
 <ul>
-<li><strong>Commutativity:</strong> For all $ g,h \in \mathbb{G}, g \circ h = h \circ g $</li>
+<li><strong>Commutativity:</strong> For all $ g,h \in \mathbb{G}$, $g \circ h = h \circ g $</li>
 </ul>
 <p>When $ \mathbb{G} $ has a finite number of elements, we say $ \mathbb{G} $ is <em>finite</em> and let $ | \mathbb{G} | $ denote the <em>order</em> of the group i.e., the number of elements in $ \mathbb{G} $.</p>
 <p>If $ \mathbb{G} $ is a group, a set $ \mathbb{H} \subseteq \mathbb{G}$ is a <em>subgroup</em> of $ \mathbb{G} $ if $ \mathbb{ H } $ iteself forms a group under the same operation associated with $ \mathbb{G} $. Every group $ \mathbb{G} $ has the trivial subgroups $ \mathbb{G} $ and $ \{e\} $.</p>
