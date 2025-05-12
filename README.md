@@ -27,4 +27,4 @@ $ make html_docker # executes jupyter-nbconvert within the docker container
 
 ## Content 
 
-Start with the [index.html](./index.html). 
+Start with the [index.html](https://kernoelpanic.github.io/cryptography-engineering-source-code-books/). 
