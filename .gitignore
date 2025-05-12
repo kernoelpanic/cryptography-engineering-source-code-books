@@ -4,6 +4,13 @@
 /video
 /audio
 /reveal.js
+#/reveal.js/*
+#/reveal.js/dist/*
+#/reveal.js/plugin/*
+#/reveal.js/plugin/notes/*
+!/reveal.js/dist/reveal.css 
+!/reveal.js/dist/reveal.js
+!/reveal.js/plugin/notes/notes.js
 __pycache__
 /solutions
 /drafts
