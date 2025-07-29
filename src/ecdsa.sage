@@ -62,4 +62,57 @@ def ecdsa_verify(Q, m, r, s, verbose=False):
   if verbose: print(f"w   = {hex(w)}\ne   = {hex(e)}\nu1  = {hex(u1)}\nu2  = {hex(u2)}\nr   = {hex(r)}\np_x = {hex(p_x)}")
   return p_x == r
 
+def ecdsa_recover(p, a, b, G, n, h, r, s, m, verbose=False):
+	if not all(1 < x < n for x in (r,s)):
+		if verbose: print(f"r or s not within [1,n-1]")
+		return None
+	e = Integer(m) % n  # assume hashed message 
+	r = Integer(r)
+	s = Integer(s)	
+	
+	Q_list = list()
+	
+	for j in [0,1]:  # range(0,h+1):
+  	# since for secp256k1 h (cofactor) is only 1, we have only two options here:
+		# x = r 
+		# x = r + n
+		if verbose: print(f"j (recoverID) = {j}")
+		# Compute x: 
+		x = (r + j * n) % p 
+		if verbose: print(f"x = {x}")
+		
+		# Compute y: 
+		# Do prevent the runtime from generic Tonelli-Shanks algorithm
+		# we can use a short cut since $ p \equiv 3 mod 4 $ in secp256k1 
+		# $ y^2 = x^3 + 7 \mod p $
+		# $ y = (x^3 + 7)^{(p+1)/4} \mod p $ 
+		alpha = (x**3 + 7) % p 
+		y = power_mod( alpha, ( (p + 1) // 4), p)
+		if verbose: print(f"y = {y}")
+		
+		# Try with R and -R:
+		for i in [0,1]:
+			if i == 1: 
+				y = p - y # try other y coordinate
+			if E.is_on_curve(Fp(x),Fp(y)):
+				R = E(Fp(x),Fp(y))
+				if verbose: print(f"R = {R.xy()}")
+			
+				# Compute $ r^-1 \mod p $:
+				r_inv = inverse_mod(r, n)
+				if verbose: print(f"r^-1 = {r_inv}")
+				
+				# Compute Q:
+				#sR = (s * R) 
+				#eG = (e * G) 
+				#Q = r_inv * (sR - eG)	
+				
+				u_1 = - e * r_inv % n
+				u_2 = s * r_inv % n
+				Q = u_1 * G + u_2 * R
+				
+				if verbose: print(f"Q = {Q.xy()}")
+				Q_list.append(Q)
+	
+	return Q_list
 

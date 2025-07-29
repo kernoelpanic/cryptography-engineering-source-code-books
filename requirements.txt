@@ -52,3 +52,6 @@ jupyterlab
 # the jupyter-nbconvert command 
 # does not work
 #nbconvert>=6.0.7
+
+# ethereum helper functions
+web3
