@@ -12,6 +12,7 @@ pycryptodome
 # elliptic curve cryptography
 #py-ecc
 ecdsa
+coincurve
 
 # Hashing
 safe-pysha3
@@ -55,3 +56,5 @@ jupyterlab
 
 # ethereum helper functions
 web3
+eth_keys
+tronpy
