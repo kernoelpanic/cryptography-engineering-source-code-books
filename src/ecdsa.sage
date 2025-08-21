@@ -114,7 +114,7 @@ def ecdsa_recover(p, a, b, G, n, h, r, s, m, verbose=False):
 					print(f"uG = {(u_1 * G).xy()}")
 					print(f"uR = {(u_2 * R).xy()}")
 				
-				if verbose: print(f"Q = {Q.xy()}")
+				if verbose: print(f"Q = {Q}")
 				Q_list.append(Q)
 	
 	return Q_list
