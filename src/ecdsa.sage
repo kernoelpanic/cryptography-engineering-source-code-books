@@ -76,7 +76,7 @@ def ecdsa_recover(p, a, b, G, n, h, r, s, m, verbose=False):
   	# since for secp256k1 h (cofactor) is only 1, we have only two options here:
 		# x = r 
 		# x = r + n
-		if verbose: print(f"j (recoverID) = {j}")
+		if verbose: print(f"j = {j}")
 		# Compute x: 
 		x = (r + j * n) % p 
 		if verbose: print(f"x = {x}")
