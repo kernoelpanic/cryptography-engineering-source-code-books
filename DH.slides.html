@@ -7799,7 +7799,7 @@ At the same time, theoretical developments in information theory and computer sc
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <ul>
-<li>Therefore, we want to generate a cyclic prime-order subgroup of $\mathbb{Z}^*_p$ where DDH is believed to be hard</li>
+<li>Therefore, we want to generate a <em>cyclic prime-order subgroup</em> of $\mathbb{Z}^*_p$ where DDH is believed to be hard</li>
 </ul>
 </div>
 </div>
@@ -7817,6 +7817,19 @@ At the same time, theoretical developments in information theory and computer sc
 <li>$ q = (p-1)/r $</li>
 </ul>
 </li>
+</ul>
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=68517601-598a-4fd8-a1c1-4c3d8923459e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>If a group has <em>prime order</em> (i.e., number of elments is a prime) every element (except the idenity element $ e $) is a generator.</li>
 </ul>
 </div>
 </div>
@@ -7879,7 +7892,71 @@ At the same time, theoretical developments in information theory and computer sc
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7a075feb-799e-41a6-8e76-50837828fdb4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Subgroup-generation-explanation">Subgroup-generation explanation<a class="anchor-link" href="#Subgroup-generation-explanation">¶</a></h4>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8dd0cca6-08c4-4d0f-b093-99cec39bc835">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>We are searching for a subgroup consisting of $ q \in \texttt{Prime}$ elements of the form $ g^k \pmod p$ where $ k \in \{0,1,\dots,q-1\}$.</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=50fd6043-97c4-434e-80c9-e4e724e731c8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>The order of any element $h$ is the smalest number $m$ s.t., $h^m = e $, in other words the number where it "wraps around" (aka. <em>period length</em>)</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e66ee8f8-0ecf-4cd1-b60f-af6fcd985d2e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>If $h^{p-1} = 1 \pmod p$, the order of $ h $ divides $ p - 1 $, i.e., $ \texttt{ord}(h) | (p-1) $</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c8b26413-7550-4c7d-8b20-8c66835d50f5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>If $g = h^{(p-1)/q} \pmod p$, then $ q $ divides $ \texttt{ord}(h) $, i.e., $ q | \texttt{ord}(h)$ and $ q | (p-1) $, therefore
+$$g^q \pmod p \equiv h^{(p-1)} \pmod p \equiv 1 \pmod p$$</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=015cdc77-495b-431c-92f6-87b3c3bd2a8e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8242,6 +8319,7 @@ G.list()    = (1, f, f^2, f^3, f^4, f^5, f^6, f^7, f^8, f^9)
 02: g^ 2  mod 11 =   9
 03: g^ 3  mod 11 =   5
 04: g^ 4  mod 11 =   4
+05: g^ 5  mod 11 =   1
 </pre>
 </div>
 </div>
@@ -8325,6 +8403,7 @@ G.list()    = (1, f, f^2, f^3, f^4, f^5, f^6, f^7, f^8, f^9)
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>00: g^ 0  mod 11 =   1
 01: g^ 1  mod 11 =  10
+02: g^ 2  mod 11 =   1
 </pre>
 </div>
 </div>
@@ -8563,7 +8642,7 @@ g = 0x2
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> assert p in Primes() and q in Primes()
@@ -8579,8 +8658,8 @@ g = 0x2
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>CPU times: user 32.9 s, sys: 136 ms, total: 33.1 s
-Wall time: 32.7 s
+<pre>CPU times: user 19.2 s, sys: 113 ms, total: 19.3 s
+Wall time: 19.1 s
 </pre>
 </div>
 </div>
@@ -8602,7 +8681,7 @@ Wall time: 32.7 s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">gen_rand_int</span><span class="p">(</span><span class="n">lower_bound</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">upper_bound</span><span class="o">=</span><span class="n">q</span><span class="p">)</span>
@@ -8613,7 +8692,34 @@ Wall time: 32.7 s
 <span class="n">AB_bob</span> <span class="o">=</span> <span class="n">FFDH</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="n">b</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Alice computes  A = g^a (mod p) = </span><span class="si">{</span><span class="nb">hex</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Bob   computes  B = g^b (mod p) = </span><span class="si">{</span><span class="nb">hex</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Alice computes AB = B^a (mod p) = </span><span class="si">{</span><span class="nb">hex</span><span class="p">(</span><span class="n">AB_alice</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Alice computes  A = g^a (mod p) = 0xc3053b124fcc3a3bb566067cfc69bee118b007129b4a792be876cdf44ba7ffefb96eefe99564a9ef683298b9502dad856054d1dda39c502e7782f05d1ceae8118bec1287e23559472be74bc9980fd86873d02fcc7cae075eb4b31379e33bb1721fad238bddb8f25ce8738a91ac951ba539595c95b757662a9ce70062e7d70982e35c4c4160e039a90eb83d499a39b60c523a5d266eef182350945c63d3adff830b776aab0b721ebb3278b5e800d09bc1646d0ce2f80b99c3256ab19bd326772f26ad42a09c37ed6cacacbde0cad9c418954fad9118c9407fb5cd01c03ffee37c49c51498c07aeeb0a2d5dbaf3279f6876abc157cb2b1797af68489e11e649d72
+Bob   computes  B = g^b (mod p) = 0xdee57f44a6379b2d951019d926da8b0f1f946dd248132bc4b765c7d8bd5ecd295fa4aef0826183a0e18e4df92ca5d3516c913c5cdb635c67ff1bfa459e7afa6e180c6d846dabfbcb75b9b613b0b90b02de9aa0ef9f9cf6c156afe8f43fd6cd89d003f7f4ced51d02e5e2eedc848b76eaa8ef2d83c60cc68b9a002cb0dce92171c567f75e5913db6f7ab75e1b9a80f0acfc6fefe811d0e46786db92379221fe1f80d912561a8ee80d3425565d200268053ae5c4f28e7fb777fa0dbe6adf7ee3b4329200ac16a0803979b9d404e3511e6b04a121dc33fcaa89276a9614abe653e3d39044140fdc1f6a73d40ea25543c52e10aaa65bcf3514d386524c933c8ed885
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=1c5165e3-ad4f-41dd-ad99-1a29c62662bd">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Alice computes AB = B^a (mod p) = </span><span class="si">{</span><span class="nb">hex</span><span class="p">(</span><span class="n">AB_alice</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Bob   computes AB = A^b (mod p) = </span><span class="si">{</span><span class="nb">hex</span><span class="p">(</span><span class="n">AB_bob</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">AB_alice</span> <span class="o">==</span> <span class="n">AB_bob</span>
 </pre></div>
@@ -8628,10 +8734,8 @@ Wall time: 32.7 s
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Alice computes  A = g^a (mod p) = 0xda6aa04f81fb50e026130a11a123ac744bfef134d9bea293118257fa47de9a570762a1a188b9dce7189b19900b9c8930a88cc5b1c773ccffd798de1b53a79f1712aba718d0cc5da5710f6ac87669265798b6b1f5d58a2d48adf045e86e6bd07ff52364f25b53df5a6ba1936c05406b9ab11d7e96a5a86b4bb1bedfda38ed14b3f3a3a74dddbc499185831aea60e157588668ee293cdb56ae9db53a231c259903285e05c990f4976aea177c089d72d0cc46980a2562ae74134e7ddb3ef49117b357a740d1ae11a92fa7fd6c3f72df757b5e4621483d9ee65ebc19b4029330a90343af995ca49f6cdd7b424885e8c7c48b2c3c1a6161e135214af6bf8a188206c4
-Bob   computes  B = g^b (mod p) = 0xf635181d2f9f5aef365776374d33d0bdc167a69b4b41853b0123e4f33d4b3a44ee114a132f2fc02e289c2e41e46f419d2bfcaa860e1c3bc38db3dec7163dc84cd0bf54af373a262dd40d2d1411e0068d1b26e7b787fcb5d27f8dbda3c4c20c23a673c4e930fa7dc366d017c63bbb131d6ed33c2102696b3fddb0ad98aaccf7e9ed9a7ff16efec702e476320dc4b52f20b6d11d9582e0029d4a4d04d408db186fbf31edb64a0421bf34f3e4314e29797feb48a7812b9bc18007ad299f257962552703908e721a9211440b0d1124e382e78422fa8f8d25bc27a5d3b73535a2e1610c6b6e242044706b10c7390db27a7ba0cc39bdb16d9990f88518e908c0b99d90
-Alice computes AB = B^a (mod p) = 0xaabff6fbaab060c56d3a3eff218a4dad842ae7954ad00e90bdd937fcdaa170f5d4c0a8f7670190c9b91f4a91adf3d50a1dc4350166d10acde2128f73a3a36aa6986ab7a05331f298acef9b7a6f1af4da4f070242b80a188a6f5e876b8dbec36fe4e4e8486a8cbf7ad4c407415b7ee1c3472466d67f6c0c8f997ba5724a5ca0873984c8c2a04afb8e6596a70456ab46d7a5838b5f8f77361cc79fa6a962b2c387ff551297e2f47ea46f30277abe6ced2a51f99678d2f2bf5447892f333a0d9a34aad37999e9c0a7fb9ea9ac5b34e08bd78304d01e1a0d84d6db1ba7eff88a735c1849c1f147e00747a538560ecec4bf48d4555e5180c2c299d2bfd7b6c7635baf
-Bob   computes AB = A^b (mod p) = 0xaabff6fbaab060c56d3a3eff218a4dad842ae7954ad00e90bdd937fcdaa170f5d4c0a8f7670190c9b91f4a91adf3d50a1dc4350166d10acde2128f73a3a36aa6986ab7a05331f298acef9b7a6f1af4da4f070242b80a188a6f5e876b8dbec36fe4e4e8486a8cbf7ad4c407415b7ee1c3472466d67f6c0c8f997ba5724a5ca0873984c8c2a04afb8e6596a70456ab46d7a5838b5f8f77361cc79fa6a962b2c387ff551297e2f47ea46f30277abe6ced2a51f99678d2f2bf5447892f333a0d9a34aad37999e9c0a7fb9ea9ac5b34e08bd78304d01e1a0d84d6db1ba7eff88a735c1849c1f147e00747a538560ecec4bf48d4555e5180c2c299d2bfd7b6c7635baf
+<pre>Alice computes AB = B^a (mod p) = 0xeecd5472861ce550400e32131e7bbb76321741720ee1760f78690d09c56dfc4056b969dd9f8fac60a85ad7c36902e60091641df7b9ff1e3811cf87742a21ff9031960b0af21c63eb4c6865b2e7653209fafc169c8e78db1311a6d9288670d857f003ff3bcc5dc7f7050aa235ecef1fcf758cbc71b9361de469dc2b7f87c26e3902201a1210cf5d4c10541abbedee6979b26da24382bcb420576ffb4dbd3ee717d4a37e1e886ad1b51e37dbce8a0ace91547264f188c4f4b68a5fdaa28dc96069315e4747f3a1b4edcb13d584034f2a24b9ed81a01e726afd0a1c839f222b352e88443759ebb19d31c7b3038ee68401463181629163dfdded41a7806dfe40e422
+Bob   computes AB = A^b (mod p) = 0xeecd5472861ce550400e32131e7bbb76321741720ee1760f78690d09c56dfc4056b969dd9f8fac60a85ad7c36902e60091641df7b9ff1e3811cf87742a21ff9031960b0af21c63eb4c6865b2e7653209fafc169c8e78db1311a6d9288670d857f003ff3bcc5dc7f7050aa235ecef1fcf758cbc71b9361de469dc2b7f87c26e3902201a1210cf5d4c10541abbedee6979b26da24382bcb420576ffb4dbd3ee717d4a37e1e886ad1b51e37dbce8a0ace91547264f188c4f4b68a5fdaa28dc96069315e4747f3a1b4edcb13d584034f2a24b9ed81a01e726afd0a1c839f222b352e88443759ebb19d31c7b3038ee68401463181629163dfdded41a7806dfe40e422
 </pre>
 </div>
 </div>
@@ -8645,7 +8749,7 @@ Bob   computes AB = A^b (mod p) = 0xaabff6fbaab060c56d3a3eff218a4dad842ae7954ad0
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Practical-considerations">Practical considerations<a class="anchor-link" href="#Practical-considerations">¶</a></h3><ul>
-<li>Use a key derviation function (KDF) to get from a uniform (sub-)group element to a uniform bit string usable in other schemes</li>
+<li>Use a key derviation function (KDF) to get from a uniform (sub-)group element to a uniform bit string usable as secret key in other cryptographic schemes</li>
 <li>Use standardized group parameters to prevent small sub-group attacks<ul>
 <li>Validate each others public key $ 1 &lt; A,B &lt; p-1 $ to prevent forcing small sub-groups</li>
 </ul>

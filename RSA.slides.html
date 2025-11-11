@@ -7551,7 +7551,22 @@ main {
 $$
 \forall x \in X: F^{-1}(sk, F(pk,x)) = x 
 $$
-<em>Note:</em> If both sets are equal ($X = Y$) then then it is a <em>trapdoor permutation</em>. A secure trapdoor function/permutation is one-way without the trapdoor $sk$</p>
+<em>Note:</em> If both sets are equal ($X = Y$) then then it is a <em>trapdoor permutation</em>. A secure trapdoor function/permutation is hard to revert without the trapdoor $sk$</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=199be5dc-4b9d-45a9-8e38-12a7d228e728">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Trapdoor-permutation">Trapdoor permutation<a class="anchor-link" href="#Trapdoor-permutation">¶</a></h2><p>Note that there are few (widely believed) <em>trapdoor permutations</em></p>
+<ul>
+<li><strong>RSA familiy</strong> of trapdoor permutations (this slide deck)</li>
+<li><strong>Rabin/Williams</strong> squaring permutation on quadratic residues modulo a Blum integer</li>
+</ul>
 </div>
 </div>
 </div>
@@ -7608,7 +7623,7 @@ $$
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="RSA---Security">RSA - Security<a class="anchor-link" href="#RSA---Security">¶</a></h2><ul>
 <li>Computing $\varphi(n)$ without knowing the factorization of $ n $ is the difficulty of computing $ d $</li>
-<li>This is refered to as the <em>RSA problem</em>, which can be solved by factoring $ n $ and computing $\varphi(n)$.</li>
+<li>This is refered to as the <em>RSA problem</em>, which can be solved by factoring $ n $ and computing $\varphi(n) = (p-1)(q-1)$</li>
 <li>Knowing $\varphi(n)$, the multiplicative inverse of $ e $ can be calculated efficiently e.g., with using the extended euclidean algorithm
 $$
 \begin{align*}
@@ -7655,7 +7670,7 @@ which have to be addressed when RSA should be used in a secure way.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [51]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">rsa_gen</span><span class="p">(</span><span class="n">bits</span><span class="o">=</span><span class="mi">2</span><span class="o">^</span><span class="mi">1024</span><span class="p">,</span><span class="n">_p</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">_q</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">e</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
@@ -7672,7 +7687,7 @@ which have to be addressed when RSA should be used in a secure way.</p>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">e</span><span class="p">:</span>
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="n">e</span> <span class="o">=</span> <span class="n">ZZ</span><span class="o">.</span><span class="n">random_element</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">phi_n</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">gcd</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="n">phi_n</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="k">break</span>
+            <span class="k">if</span> <span class="n">gcd</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="n">phi_n</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="k">break</span> <span class="c1"># e has an inverse mod phi_n</span>
     <span class="n">d</span> <span class="o">=</span> <span class="n">inverse_mod</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="n">phi_n</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"n = </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="se">\n</span><span class="s2">e = </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="se">\n</span><span class="s2">d = </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="se">\n</span><span class="s2">p = </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="se">\n</span><span class="s2">q = </span><span class="si">{</span><span class="n">q</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">q</span> 
@@ -7686,7 +7701,7 @@ which have to be addressed when RSA should be used in a secure way.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">rsa_enc</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
@@ -7704,7 +7719,7 @@ which have to be addressed when RSA should be used in a secure way.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">str_to_num</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
@@ -7715,7 +7730,7 @@ which have to be addressed when RSA should be used in a secure way.</p>
         <span class="k">return</span> <span class="kc">None</span>
     <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span>
-        <span class="n">num</span> <span class="o">+=</span> <span class="nb">ord</span><span class="p">(</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span><span class="o">*</span><span class="mi">256</span><span class="o">^</span><span class="n">i</span>  <span class="c1"># the ^i inverts </span>
+        <span class="n">num</span> <span class="o">+=</span> <span class="nb">ord</span><span class="p">(</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span><span class="o">*</span><span class="mi">256</span><span class="o">**</span><span class="n">i</span>  
     <span class="k">return</span> <span class="n">num</span> 	
 
 <span class="k">def</span> <span class="nf">num_to_str</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
@@ -7731,7 +7746,136 @@ which have to be addressed when RSA should be used in a secure way.</p>
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f1c7964f-31dc-4435-8d7f-0f04399fae07">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Example-invocation">Example invocation<a class="anchor-link" href="#Example-invocation">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a9442235-35a6-447c-854b-f500e6526cb0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [48]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">q</span> <span class="o">=</span> <span class="n">rsa_gen</span><span class="p">(</span><span class="n">bits</span><span class="o">=</span><span class="mi">768</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=546bc78e-c057-48ad-a246-8992a53e6648">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [49]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">A_as_num</span> <span class="o">=</span> <span class="n">str_to_num</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span><span class="n">n</span><span class="p">);</span> <span class="nb">hex</span><span class="p">(</span><span class="n">A_as_num</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[49]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>'0x41'</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6f227174-dd32-42f7-947f-094db0036bbc">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [50]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">AA_as_num</span> <span class="o">=</span> <span class="n">str_to_num</span><span class="p">(</span><span class="s2">"AA"</span><span class="p">,</span><span class="n">n</span><span class="p">);</span> <span class="nb">hex</span><span class="p">(</span><span class="n">AA_as_num</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[50]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>'0x4141'</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=2abe6008-dc5b-4d5d-9e5d-45fd1e3da6a3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [51]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">num_to_str</span><span class="p">(</span><span class="n">A_as_num</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[51]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>'A'</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=db7c4436-6f65-4059-8e7e-48634b7d946f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [52]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">num_to_str</span><span class="p">(</span><span class="n">AA_as_num</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[52]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>'AA'</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ea3ee2d6-ca91-4d98-9fbb-1e1a102af257">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7764,14 +7908,10 @@ which have to be addressed when RSA should be used in a secure way.</p>
 </li>
 <li>For our example set $ e = 3 $ and $ d = 7 $, i.e., $ 3 \cdot 7 = 1 \pmod{\varphi(n)}$</li>
 <li>Publish $ pk = (n,e) = (22,3) $ and store $ sk = (n,d) = (22,7) $</li>
-<li><strong>Encryption:</strong> of message $ m = 8 $<ul>
-<li>$ c = m^e \pmod n = 8^3 \pmod{22} = 512 \pmod{22} = 6 $</li>
-</ul>
-</li>
-<li><strong>Decryption:</strong> of ciphertext $ c = 6 $<ul>
-<li>$ m = c^d \pmod n = 6^7 \pmod{22} = 279936 \pmod{22} = 8 $</li>
-</ul>
-</li>
+<li><strong>Encryption:</strong> of message $ m = 8 $
+$$ c = m^e \pmod n = 8^3 \pmod{22} = 512 \pmod{22} = 6 $$</li>
+<li><strong>Decryption:</strong> of ciphertext $ c = 6 $
+$$ m = c^d \pmod n = 6^7 \pmod{22} = 279936 \pmod{22} = 8 $$</li>
 </ul>
 </div>
 </div>
@@ -8266,6 +8406,23 @@ Wall time: 3min 4s
 </div>
 </div>
 </div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=70fab359-b4d9-4cd3-bf5c-db13a37ae0c2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="RSA-factoring-challenge">RSA factoring challenge<a class="anchor-link" href="#RSA-factoring-challenge">¶</a></h3><p>In 1991 the <a href="https://en.wikipedia.org/wiki/RSA_Factoring_Challenge">RSA Factoring Challenge (wikipedia)</a> was put forward by RSA Labs, which published a list of semiprimes (numbers which are a product of two primes) and promised rewards for factoring them. Still open challenges left.</p>
+<ul>
+<li><strong>2019:</strong> 795-bit was factored</li>
+<li><strong>2020:</strong> 829-bit was factored</li>
+<li>...</li>
+</ul>
+<p><a href="https://en.wikipedia.org/wiki/Integer_factorization_records">Factorization records (wikipedia)</a></p>
+</div>
+</div>
+</div>
 </div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5f3466ac-c6dc-4326-89b0-e1a60da3c3c8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -8694,7 +8851,7 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [44]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="o">==</span><span class="mi">8</span><span class="o">*</span><span class="mi">8</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">==</span> <span class="mi">8</span><span class="o">*</span><span class="mi">8</span>
 </pre></div>
 </div>
 </div>
@@ -8760,7 +8917,7 @@ Alice<span class="w">  </span>&lt;-----<span class="w"> </span>E<span class="o">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [47]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="o">==</span><span class="mi">8</span><span class="o">*</span><span class="mi">2</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">==</span> <span class="mi">8</span><span class="o">*</span><span class="mi">2</span>
 </pre></div>
 </div>
 </div>
@@ -8972,20 +9129,6 @@ It has to be embedded/transformed before usage, e.g., OAEP, PKCS1v2.0, or ISO 18
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h1 id="EOF">EOF<a class="anchor-link" href="#EOF">¶</a></h1>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=946e7c79-203a-4ce9-bb79-8eb4d8fa66bb">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
 </div>
 </div>
 </div>
