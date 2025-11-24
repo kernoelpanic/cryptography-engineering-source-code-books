@@ -8919,15 +8919,23 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Point-multiplication">Point multiplication<a class="anchor-link" href="#Point-multiplication">¶</a></h3><p>Point multiplication, or scalar multiplication,  is an important operation in ECC.
-A simple algorithm for point multiplication is the binary method also called <em>right-to-left binary method</em>.
-Let $G=(x,y)$ be a point on an elliptic curve over $\mathbb{F}$, then point multiplication can be expressed as calculation of the following form:</p>
+<h3 id="Point-multiplication">Point multiplication<a class="anchor-link" href="#Point-multiplication">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=55983bf1-5317-43d9-867b-3590787fe2ba">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>$$
     Q=kG=\overbrace{G+G+G+...+G}^{\text{k times G}}
 $$</p>
 <p>This chain of additions can be broken up into several multiplications and additions.
 For example if $k=17$ the chain of $G+G+G+...+G$ can be expressed as $(2\cdot (2\cdot (2\cdot (2\cdot G))))+G = 17\cdot G$.
-This reduces the $17$ additions to $4$ multiplications and one addition operation.</p>
+This reduces $17$ additions to $4$ multiplications and $1$ addition operation.</p>
 </div>
 </div>
 </div>
@@ -8964,8 +8972,7 @@ This reduces the $17$ additions to $4$ multiplications and one addition operatio
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Point-multiplication-formular">Point multiplication formular<a class="anchor-link" href="#Point-multiplication-formular">¶</a></h4><p>Algorithm for <em>point multiplication</em> from [<a href="https://link.springer.com/book/10.1007/b97644">GECC</a>]</p>
-<p><img alt="binarymultiplication" src="./algorithms/binarymultiplication.png"/></p>
+<h3 id="Point-multiplication-formular-for-$-Q-=-kG-$">Point multiplication formular for $ Q = kG $<a class="anchor-link" href="#Point-multiplication-formular-for-$-Q-=-kG-$">¶</a></h3><p><img alt="binarymultiplication" src="./algorithms/binarymultiplication.png"/></p>
 </div>
 </div>
 </div>
@@ -9272,119 +9279,6 @@ $$</p>
 </div>
 </div>
 </div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5d7cc4e7-a42b-42be-870c-8aaabe915da2">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Pitfall:-Encoding-of-k-in-python">Pitfall: Encoding of k in python<a class="anchor-link" href="#Pitfall:-Encoding-of-k-in-python">¶</a></h4>
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=335d7203-27fa-43b8-8a12-b17d55a06ebb">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [84]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="s1">'5f6b5c9588955286ea5cac4cd8c42f3d55a0e29c8af2bfeba487cf9d44b42954'</span><span class="p">),</span><span class="s2">"big"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">);</span> <span class="n">Q</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">G</span><span class="p">;</span> <span class="n">Q</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>43159412243421451483526775168090392406101811960614411036878899673868778350932
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[84]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(41858324777353967549034659156569719092956488814023218795456365288203237979134 : 16555327082719145925295244286557372390265073495347636540557744407873083411827 : 1)</pre>
-</div>
-</div>
-</div>
-</div>
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3e23d174-24ac-4680-b2a3-6424d99c0f6c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [85]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mh">0x5f6b5c9588955286ea5cac4cd8c42f3d55a0e29c8af2bfeba487cf9d44b42954</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">);</span> <span class="n">Q</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">G</span><span class="p">;</span> <span class="n">Q</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>43159412243421451483526775168090392406101811960614411036878899673868778350932
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[85]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(41858324777353967549034659156569719092956488814023218795456365288203237979134 : 16555327082719145925295244286557372390265073495347636540557744407873083411827 : 1)</pre>
-</div>
-</div>
-</div>
-</div>
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c065e754-21d0-4f2c-b0bb-0ad4c1b6f7cd">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [86]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="sa">b</span><span class="s2">"5f6b5c9588955286ea5cac4cd8c42f3d55a0e29c8af2bfeba487cf9d44b42954"</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span> <span class="c1"># not the same as above! </span>
-<span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">);</span> <span class="n">Q</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">G</span><span class="p">;</span> <span class="n">Q</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>35663662356339353838393535323836656135636163346364386334326633643535613065323963386166326266656261343837636639643434623432393534
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[86]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(6346784422212244868555555448238701692585486454164203330957839538451111753464 : 105142884008388094226859483825865276832550578194178528738622802579099407956150 : 1)</pre>
-</div>
-</div>
-</div>
-</div>
 </div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=06bd2bc3-0eef-4e10-9c46-d8012acbdc55">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -9411,8 +9305,8 @@ $(p,a,b,G,n,h)$. The goal is it to establish a shared secret over some public ch
 <li>Alice and Bob pick secret keys $d_A,d_B \in [1,n-1]$</li>
 <li>Alice computes his public key $ Q_A = d_A \cdot G$ and sends it to Bob</li>
 <li>Bob computes his public key $ Q_B = d_B \cdot G$ and sends it to Alice</li>
-<li>Alice computes the shared key (point) $ SK = d_A \cdot Q_B $</li>
-<li>Bob computes the shared key (point) $ SK = d_B \cdot Q_A $</li>
+<li>Alice computes the shared (secret) key $ SK = d_A \cdot Q_B $ (point on curve)</li>
+<li>Bob computes the shared (secret) key $ SK = d_B \cdot Q_A $ (point on curve)</li>
 <li>They end up with the same point because $ d_A \cdot Q_B = d_A \cdot d_B \cdot G = d_B \cdot d_A \cdot G = d_B \cdot Q_A $</li>
 <li>They can now use the $ x $ coordinate of the shared point to derive further keying material, e.g., for encryption</li>
 </ul>
@@ -10812,6 +10706,9 @@ There are multiple standards which standardized elliptic curves with their param
 <li>...</li>
 </ul>
 <p>A good (but old) overview of standards and for choosing the right curves for ECC can be found on <a href="https://safecurves.cr.yp.to/index.html">SafeCurves</a>.</p>
+<ul>
+<li><a href="https://www.hyperelliptic.org/">Hyperelliptic</a> calculation code snippets and implementation help</li>
+</ul>
 </div>
 </div>
 </div>
@@ -10837,17 +10734,14 @@ In its current version the recommended curves are defined over <em>prime fields<
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bbb6049f-893a-47d3-80b3-215b0c421f52">
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c3274c5d-f5ad-4e38-8095-b5919275ffc5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="EOF">EOF<a class="anchor-link" href="#EOF">¶</a></h1>
 </div>
 </div>
 </div>
