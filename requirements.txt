@@ -58,3 +58,7 @@ jupyterlab
 web3
 eth_keys
 tronpy
+
+# secp256k1 zkp libarary
+# bindings for: https://github.com/BlockstreamResearch/secp256k1-zkp?utm_source=chatgpt.com
+secp256k1-zkp-mw

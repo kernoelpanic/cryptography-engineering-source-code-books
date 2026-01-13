@@ -7503,7 +7503,7 @@ main {
 </ul>
 </li>
 <li>2018 Open Whisper Systems was transformed into <a href="https://signalfoundation.org/">Signal Foundation</a><ul>
-<li>recent podcast with CEO Meredith Whittaker <a href="https://logbuch-netzpolitik.de/lnp504-the-politics-of-intellectual-shame">LNP504</a></li>
+<li>podcast with CEO Meredith Whittaker <a href="https://logbuch-netzpolitik.de/lnp504-the-politics-of-intellectual-shame">LNP504</a></li>
 </ul>
 </li>
 </ul>
@@ -7562,11 +7562,54 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Signal-Protocol-Design-Goals">Signal Protocol Design Goals<a class="anchor-link" href="#Signal-Protocol-Design-Goals">¶</a></h2><p>Aims to provide end-to-end encrypted (E2EE) conversations for asynchronous (mobile) messaging, as well as a series of other (informally stated) security properties, such as the following three:</p>
+<h2 id="Signal-Protocol-Design-Goals">Signal Protocol Design Goals<a class="anchor-link" href="#Signal-Protocol-Design-Goals">¶</a></h2><p>Aims to provide end-to-end encrypted (E2EE) conversations for asynchronous (mobile) messaging, as well as a series of other (informally stated) security properties, such as:</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d3de7132-ce80-47cc-ab82-e34d7e860132">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ol start="0">
+<li><strong>End-to-End-Encryption (E2EE)</strong>: This means that every message is encrypted such that only the intended recipient (respectively his device) can decrypt and read it [<a href="https://support.signal.org/hc/en-us/articles/360007320391-Is-it-private-Can-I-trust-it">FAQ</a>]. This is the most basic security property of any secure messaging application, yet it has to be defended constantly, e.g. in case of chat control in the EU [<a href="https://www.patrick-breyer.de/en/posts/chat-control/">PatrickBreyer</a>,<a href="https://edri.org/our-work/chat-control-what-is-actually-going-on/">EDRi</a>,<a href="https://www.eff.org/deeplinks/2025/12/defending-encryption-us-and-abroad-2025-review">EFF</a>], or the crypto wars [<a href="https://www.eff.org/files/2025/08/19/the_crypto_wars.pdf?utm_source=chatgpt.com">EFF</a>].</li>
+</ol>
 </div>
 </div>
 </div>
 </div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=efc9327d-fb9e-4b5a-b5e0-a393ec976d64">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>This is ensured by using secret keys that are only known by the respective communication endpoints.</li>
+<li>To prevent <em>Machine-In-The-Middle</em> [<a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">MITM</a>] attacks, it has to be ensured that the correct (identity) keys of the communication partner are used!</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6786d1a6-7faa-4e48-bc21-10c9ae76e087">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>In Signal this is done by comparing the <a href="https://support.signal.org/hc/en-us/articles/360007060632-What-is-a-safety-number-and-why-do-I-see-that-it-changed">safety numbers</a></li>
+</ul>
+<blockquote>
+<p>In cryptographic software, this type of thing is traditionally called a “fingerprint” rather than a “safety number.” While “fingerprint” is a well established and well understood term in the world of cryptography, user studies have shown that it’s a metaphor which doesn’t carry well outside of that community. People tend to associate “fingerprints” with sensitive personal information [<a href="https://signal.org/blog/safety-number-updates/">Signal blog</a>]</p>
+</blockquote>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f1facaea-9b82-45ed-896f-768a1e0cbb5e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7579,7 +7622,7 @@ main {
 </div>
 </div>
 </div>
-</div></div><div class="fragment">
+</div><div class="fragment">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3248651c-2449-4e60-ac29-8f45add4bf11">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7600,7 +7643,7 @@ main {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <ol start="3">
-<li><strong>(Offline) Deniability</strong>: Refers to the ability that a party can deny having participated in a particular communication session in retrospect. Assuming a communication session between Alice and Bob. Given a transcript of the communication it should not be possible for Bob to convince a third party that Alice has participated knowingly in the session.</li>
+<li><strong>(Offline) Deniability</strong>: Refers to the ability that a party can deny having participated in a particular communication session in retrospect (sometimes also referred to as <em>repudiation</em>). Assuming a communication session between Alice and Bob, given a transcript of the communication it should not be possible for Bob to convince a third party that Alice has participated knowingly in the session.</li>
 </ol>
 </div>
 </div>
@@ -7626,25 +7669,89 @@ main {
 <p>The Signal Protocol can be further devided into the following parts:</p>
 <ul>
 <li><a href="https://signal.org/docs/specifications/x3dh/">X3DH</a> (extended triple Diffie-Hellman) key agreement<ul>
-<li>since late 2023 replaced by <a href="https://signal.org/docs/specifications/pqxdh/">PQXDH</a>, which is coceptually close but adds an additional post-quantum secure key encapsulation mechanism (KEM) into the key derivation function (KDF)</li>
+<li>since late 2023 replaced by <a href="https://signal.org/docs/specifications/pqxdh/">PQXDH</a>, which is coceptually close but adds an additional post-quantum secure key encapsulation mechanism (KEM) into the key derivation function (KDF) to protect against <a href="harvest-now-decrypt-later">harvest-now-decrypt-later</a> attacks.</li>
 </ul>
 </li>
-<li><a href="https://signal.org/docs/specifications/doubleratchet/">Double ratchet</a> algorithm</li>
+<li><a href="https://signal.org/docs/specifications/doubleratchet/">Double ratchet</a> algorithm<ul>
+<li>since 2025 replaced by a PQ triple ratched referred to as <a href="https://signal.org/docs/specifications/mlkembraid/">ML-KEM Braid</a> / <em>Sparse Post Quantum Ratchet</em> (<a href="https://signal.org/blog/spqr/">SPQR</a>), which relies on <em>Sparse Continuous Key Agreement</em> (SCKA) as introduced and described in the associated papers [<a href="https://www.usenix.org/system/files/usenixsecurity25-auerbach.pdf">USENIX25</a>,<a href="https://eprint.iacr.org/2025/078.pdf">Eurocrypt25</a>] to maintain PFS and PCS against a quantum computer.</li>
+</ul>
+</li>
 <li><a href="https://signal.org/docs/specifications/sesame/">Sesam</a> session management for multi-device support, e.g., phone and desktop</li>
 <li>Group chats and <a href="https://signal.org/blog/signal-private-group-system/">private groups</a> where the server has no record of group membership</li>
-<li>The underlying library <a href="https://github.com/signalapp/libsignal">libsignal</a> is written in rust and can be found on github</li>
 </ul>
 </div>
 </div>
 </div>
-</div></section><section>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3d4933d8-f397-4734-956c-6b5e5e130f61">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Signal-Protocol-Implementations">Signal Protocol Implementations<a class="anchor-link" href="#Signal-Protocol-Implementations">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e27ffb48-c327-4388-87c7-785259bf274e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The following implementaions of the signal protocol suite can be found online:</p>
+<ul>
+<li>The underlying library <a href="https://github.com/signalapp/libsignal">libsignal</a> written in rust implementing the core cryptographic funcationalities</li>
+<li>The Signal <a href="https://github.com/signalapp/Signal-Server">server</a> written in java</li>
+<li>The Signal app for <a href="https://github.com/signalapp/Signal-Android">Android</a> (Kotlin) and <a href="https://github.com/signalapp/Signal-iOS">iOS</a> (Swift)</li>
+<li>The Signal <a href="https://github.com/signalapp/Signal-Desktop">desktop</a> client</li>
+<li>...</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1114b63c-83f7-4481-8de1-7cba5cea8c95">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Signal-Protocol-Implementations-(unofficial)">Signal Protocol Implementations (unofficial)<a class="anchor-link" href="#Signal-Protocol-Implementations-(unofficial)">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bbd3148b-0359-492f-b6bd-14eb6f694f08">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>There are also alterantive implementations, but their use is discuraged by the Signal foundation as they might be insecure:</p>
+<ul>
+<li><a href="https://molly.im/">https://molly.im/</a></li>
+<li><a href="https://github.com/whisperfish/presage">presage</a></li>
+<li><a href="https://github.com/AsamK/signal-cli">signal-cli</a></li>
+<li>...</li>
+<li>Telemessage Signal<a href="https://github.com/micahflee/TM-SGNL-Android">TM SGNL</a><ul>
+<li>The signal fork used by officials in the case of "<a href="https://www.theatlantic.com/politics/archive/2025/03/trump-administration-accidentally-texted-me-its-war-plans/682151/">Houthi PC small group</a>".</li>
+<li>Found to contain vulnerabilities: <a href="https://micahflee.com/despite-misleading-marketing-israeli-company-telemessage-used-by-trump-officials-can-access-plaintext-chat-logs/">Micah Lee Blog</a>, <a href="https://www.wired.com/story/how-the-signal-knock-off-app-telemessage-got-hacked-in-20-minutes/">Wired</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ca7da368-9e62-449b-ae71-4b13837e5451">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Signal-Protocol-Overview">Signal Protocol Overview<a class="anchor-link" href="#Signal-Protocol-Overview">¶</a></h3>
+<h3 id="Signal-Protocol-Used-Primitives">Signal Protocol Used Primitives<a class="anchor-link" href="#Signal-Protocol-Used-Primitives">¶</a></h3>
 </div>
 </div>
 </div>
@@ -7766,7 +7873,7 @@ For messaging, the sender creates an individual E2EE channel with <em>each</em> 
 </div>
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=90343c77-e4f5-41ff-81f7-2451532ba5b5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7787,29 +7894,51 @@ For messaging, the sender creates an individual E2EE channel with <em>each</em> 
 <blockquote>
 <p>The <a href="https://eur-lex.europa.eu/eli/reg/2022/1925/oj">Digital Markets Act (DMA)</a> aims to ensure a higher degree of competition in European digital markets by preventing large companies from abusing their market power and by allowing new players to enter the market. This regulation targets the largest digital platforms operating in the European Union. They are also known as "gatekeepers" ... (<a href="https://en.wikipedia.org/wiki/Digital_Markets_Act">soruce Wikipedia</a>)</p>
 </blockquote>
-<p><em>WhatsApp</em> has been defined as a <em>gatekeeper</em> according to the DMA.
-Any gatekeeper has to comply with certain <a href="https://www.eu-digital-markets-act.com/Digital_Markets_Act_Article_7.html">obligations</a>:</p>
+<p><em>WhatsApp</em> has been defined as a <em>gatekeeper</em> according to the DMA.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8934f5c2-e37b-4937-80a1-a8e3f3d9c97d">
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a9cd4103-50e1-45e3-97be-a278d6c10cfe">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Any gatekeeper has to comply with certain <a href="https://www.eu-digital-markets-act.com/Digital_Markets_Act_Article_7.html">obligations</a>:</p>
 <blockquote>
 <p>The gatekeeper shall make at least the following basic functionalities ... interoperable where the gatekeeper itself provides those functionalities to its own end users:
 ...
 (i) end-to-end text messaging between two individual end users;
 (ii) sharing of images, voice messages, videos and other attached files in end to end communication between two individual end users;</p>
 </blockquote>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3b3d23a7-fbcc-4fde-a4df-caffedebc278">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Any gatekeeper has to comply with certain <a href="https://www.eu-digital-markets-act.com/Digital_Markets_Act_Article_7.html">obligations</a>:</p>
 <blockquote>
 <p>(b) within 2 years from the designation:
 (i) end-to-end text messaging within groups of individual end users;
 (ii) sharing of images, voice messages, videos and other attached files in end-to-end communication between a group chat and an individual end user;</p>
 </blockquote>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=44d31c52-0dde-4f93-9ce8-7228ac8dffff">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Any gatekeeper has to comply with certain <a href="https://www.eu-digital-markets-act.com/Digital_Markets_Act_Article_7.html">obligations</a>:</p>
 <blockquote>
 <p>(c) within 4 years from the designation:
 (i) end-to-end voice calls between two individual end users;
@@ -7820,7 +7949,7 @@ Any gatekeeper has to comply with certain <a href="https://www.eu-digital-market
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0d066842-be13-4b20-a254-124e1448a86b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7834,7 +7963,18 @@ Any gatekeeper has to comply with certain <a href="https://www.eu-digital-market
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=73cc9328-f812-42bd-8843-aeeceae1394a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Sound nice in theory, but how will this be implemented in practise?</p>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=33c1179e-1e80-43b6-944c-9af41cadd4da">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
