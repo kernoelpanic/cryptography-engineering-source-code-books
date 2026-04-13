@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body, html {
+    font-family: 'JetBrains Mono', monospace;
+    background: #ffffff;
+    color: #1a1a2e;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .controls {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: #f7f7f9;
+    border: 1px solid #e4e2ea;
+    border-radius: 14px;
+    padding: 18px 28px;
+  }
+
+  .control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .control-group label {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #8a8497;
+  }
+
+  .control-group input, .control-group select {
+    background: #ffffff;
+    border: 1px solid #d8d5e0;
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: #1a1a2e;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    width: 120px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .control-group input:focus, .control-group select:focus {
+    border-color: #d6336c;
+  }
+
+  .control-group select option {
+    background: #ffffff;
+  }
+
+  .main-area {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .clock-wrapper { flex-shrink: 0; }
+
+  .result-panel {
+    flex: 1;
+    min-width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .equation-box {
+    background: #f7f7f9;
+    border: 1px solid #e4e2ea;
+    border-radius: 14px;
+    padding: 28px;
+    text-align: center;
+  }
+
+  .equation {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .eq-dividend { color: #e67e22; }
+  .eq-mod { color: #8a8497; }
+  .eq-divisor { color: #2980b9; }
+  .eq-equals { color: #8a8497; }
+  .eq-result { color: #d6336c; }
+
+  .explanation {
+    font-size: 0.78rem;
+    color: #8a8497;
+    margin-top: 14px;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .explanation strong {
+    color: #4a4658;
+    font-weight: 600;
+  }
+
+  .wrap-info {
+    background: #f7f7f9;
+    border: 1px solid #e4e2ea;
+    border-radius: 14px;
+    padding: 20px 24px;
+    font-size: 0.75rem;
+    line-height: 1.8;
+    color: #6a6577;
+  }
+
+  .wrap-info .wraps { color: #e67e22; font-weight: 600; }
+  .wrap-info .remainder { color: #d6336c; font-weight: 600; }
+
+  .tick-highlight { transition: all 0.3s ease; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="controls">
+    <div class="control-group">
+      <label>Dividend (hours)</label>
+      <input type="number" id="dividend" value="17" min="0" max="999">
+    </div>
+    <div class="control-group">
+      <label>Modulus (clock size)</label>
+      <select id="modulus">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="5">5</option>
+        <option value="7">7</option>
+        <option value="11">11</option>
+        <option value="12" selected>12 (standard)</option>
+        <option value="13">13</option>
+        <option value="17">17</option>
+        <option value="19">19</option>
+        <option value="23">23</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="main-area">
+    <div class="clock-wrapper">
+      <svg class="clock" id="clockSvg" width="360" height="360" viewBox="-180 -180 360 360">
+        <defs>
+          <radialGradient id="faceGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#f7f7f9"/>
+            <stop offset="100%" stop-color="#eeedf2"/>
+          </radialGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="2.5" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        <circle r="155" fill="url(#faceGrad)" stroke="#d8d5e0" stroke-width="1"/>
+        <circle r="152" fill="none" stroke="rgba(0,0,0,0.03)" stroke-width="0.5"/>
+        <g id="ticksGroup"></g>
+        <path id="resultArc" fill="none" stroke="#d6336c" stroke-width="4" stroke-linecap="round" filter="url(#glow)" opacity="0.7"/>
+        <g id="handGroup">
+          <line x1="0" y1="8" x2="0" y2="-110" stroke="#d6336c" stroke-width="2.5" stroke-linecap="round"/>
+          <circle r="5" fill="#d6336c"/>
+        </g>
+        <circle r="3" fill="#ffffff" stroke="#d6336c" stroke-width="1"/>
+      </svg>
+    </div>
+
+    <div class="result-panel">
+      <div class="equation-box">
+        <div class="equation">
+          <span class="eq-dividend" id="eqDividend">17</span>
+          <span class="eq-mod"> mod </span>
+          <span class="eq-divisor" id="eqDivisor">12</span>
+          <span class="eq-equals"> = </span>
+          <span class="eq-result" id="eqResult">5</span>
+        </div>
+        <div class="explanation" id="explanation"></div>
+      </div>
+      <div class="wrap-info" id="wrapInfo"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function() {
+  const $ = id => document.getElementById(id);
+  const dividendInput = $('dividend');
+  const modulusSelect = $('modulus');
+  const ticksGroup = $('ticksGroup');
+  const handGroup = $('handGroup');
+  const resultArc = $('resultArc');
+  const eqDividend = $('eqDividend');
+  const eqDivisor = $('eqDivisor');
+  const eqResult = $('eqResult');
+  const explanationEl = $('explanation');
+  const wrapInfoEl = $('wrapInfo');
+
+  function polarToCart(angleDeg, r) {
+    const a = (angleDeg - 90) * Math.PI / 180;
+    return { x: r * Math.cos(a), y: r * Math.sin(a) };
+  }
+
+  function describeArc(startAngle, endAngle, r) {
+    if (Math.abs(endAngle - startAngle) < 0.01) return '';
+    const s = polarToCart(startAngle, r);
+    const e = polarToCart(endAngle, r);
+    const largeArc = (endAngle - startAngle) > 180 ? 1 : 0;
+    return `M ${s.x} ${s.y} A ${r} ${r} 0 ${largeArc} 1 ${e.x} ${e.y}`;
+  }
+
+  function renderTicks(mod) {
+    ticksGroup.innerHTML = '';
+    const step = 360 / mod;
+    for (let i = 0; i < mod; i++) {
+      const angle = i * step;
+      const p1 = polarToCart(angle, 145);
+      const p2 = polarToCart(angle, 133);
+      const pt = polarToCart(angle, 120);
+
+      const tick = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      tick.setAttribute('x1', p1.x); tick.setAttribute('y1', p1.y);
+      tick.setAttribute('x2', p2.x); tick.setAttribute('y2', p2.y);
+      tick.setAttribute('stroke', '#b0aaba'); tick.setAttribute('stroke-width', '1.5');
+      tick.setAttribute('class', 'tick-highlight'); tick.setAttribute('data-index', i);
+      ticksGroup.appendChild(tick);
+
+      const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      text.setAttribute('x', pt.x); text.setAttribute('y', pt.y);
+      text.setAttribute('text-anchor', 'middle'); text.setAttribute('dominant-baseline', 'central');
+      text.setAttribute('fill', '#6a6577');
+      text.setAttribute('font-family', "'JetBrains Mono', monospace");
+      text.setAttribute('font-size', mod <= 13 ? '13' : '10');
+      text.setAttribute('font-weight', '400');
+      text.setAttribute('class', 'tick-highlight'); text.setAttribute('data-index', i);
+      text.textContent = i;
+      ticksGroup.appendChild(text);
+    }
+  }
+
+  function highlightResult(mod, result) {
+    ticksGroup.querySelectorAll('[data-index]').forEach(el => {
+      const idx = parseInt(el.getAttribute('data-index'));
+      if (el.tagName === 'line') {
+        el.setAttribute('stroke', idx === result ? '#d6336c' : '#b0aaba');
+        el.setAttribute('stroke-width', idx === result ? '3' : '1.5');
+      } else {
+        el.setAttribute('fill', idx === result ? '#d6336c' : '#6a6577');
+        el.setAttribute('font-weight', idx === result ? '700' : '400');
+        el.setAttribute('font-size', idx === result ? (mod <= 13 ? '16' : '13') : (mod <= 13 ? '13' : '10'));
+      }
+    });
+  }
+
+  function update() {
+    const a = Math.max(0, parseInt(dividendInput.value) || 0);
+    const mod = parseInt(modulusSelect.value);
+    const result = a % mod;
+    const wraps = Math.floor(a / mod);
+
+    renderTicks(mod);
+    highlightResult(mod, result);
+
+    handGroup.setAttribute('transform', `rotate(${(result / mod) * 360})`);
+
+    const step = 360 / mod;
+    if (result > 0) {
+      resultArc.setAttribute('d', describeArc(0, result * step, 155));
+      resultArc.setAttribute('opacity', '0.7');
+    } else {
+      resultArc.setAttribute('d', ''); resultArc.setAttribute('opacity', '0');
+    }
+
+    eqDividend.textContent = a;
+    eqDivisor.textContent = mod;
+    eqResult.textContent = result;
+
+    explanationEl.innerHTML =
+      `<strong>${a}</strong> divided by <strong>${mod}</strong> gives ` +
+      `<strong>${wraps}</strong> full wrap${wraps !== 1 ? 's' : ''} with a remainder of <strong>${result}</strong>.<br>` +
+      `So the hand lands on <strong>${result}</strong>.`;
+
+    wrapInfoEl.innerHTML =
+      `The hand sweeps <span class="wraps">${wraps} full revolution${wraps !== 1 ? 's' : ''}</span> ` +
+      `around the ${mod}-hour clock, then stops at ` +
+      `<span class="remainder">${result}</span>. ` +
+      `That's because ${a} = ${wraps} &times; ${mod} + ${result}.`;
+  }
+
+  dividendInput.addEventListener('input', update);
+  modulusSelect.addEventListener('change', update);
+  update();
+})();
+</script>
+</body>
+</html>

@@ -19,6 +19,9 @@ safe-pysha3
 #hashlib
 #hmac
 
+# RIPEMD160 since no longer part of openssl
+ripemd-hash
+
 # python wrapper for libsecp256k1
 secp256k1
 
@@ -32,8 +35,8 @@ mnemonic
 base58 # bitcoin addresses 
 bech32 # bitcoin addresses
 
-# RIPEMD160 since no longer part of openssl
-ripemd-hash
+# all CRC variants 
+crccheck
 
 # testing 
 pytest
