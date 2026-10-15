@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diffie-Hellman Clock</title>
+<style>
+:root{
+  --bg:#111214; --surface:#191b1f; --surface2:#20232a; --line:#2c3038;
+  --ink:#eceff4; --soft:#a0a8b8; --faint:#6d7585; --grid:#3c4350;
+  --alice:#7aa2ff; --alice-dim:#2b3756;
+  --bob:#49d6c0; --bob-dim:#1d4a46;
+  --gold:#f2c14e; --gold-dim:#4a3c17;
+  --eve:#ff7b8a; --eve-dim:#4d2630;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --sans:"Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --r:14px; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.25);
+}
+:root[data-theme="light"]{
+  --bg:#f5f6f9; --surface:#ffffff; --surface2:#f0f2f6; --line:#e0e3ea;
+  --ink:#15181d; --soft:#555f70; --faint:#8b94a3; --grid:#c8cdd8;
+  --alice:#3b5bdb; --alice-dim:#dbe2ff;
+  --bob:#0b8f80; --bob-dim:#c9f0ea;
+  --gold:#a8710a; --gold-dim:#fbeccd;
+  --eve:#c8203c; --eve-dim:#fcdde2;
+  --shadow:0 1px 2px rgba(16,24,40,.06),0 10px 28px rgba(16,24,40,.08);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--sans);
+  font-size:17px; line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+main{max-width:1120px; margin:0 auto; padding:28px 16px 72px}
+h1,h2,h3{line-height:1.2; margin:0}
+h1{font-size:clamp(1.7rem,4.2vw,2.6rem); letter-spacing:-.02em}
+h2{font-size:1.25rem; letter-spacing:-.01em}
+h3{font-size:1rem}
+p{margin:.5em 0}
+code,.num{font-family:var(--mono)}
+sup{font-size:.72em}
+a{color:var(--alice)}
+
+/* ---------- header ---------- */
+.top{display:flex; align-items:flex-start; gap:16px; margin-bottom:26px}
+.eyebrow{text-transform:uppercase; letter-spacing:.14em; font-size:.68rem; color:var(--faint); margin:0 0 .5em}
+.lede{color:var(--soft); max-width:62ch; margin-top:.6em}
+.theme-btn{
+  margin-left:auto; flex:none; background:var(--surface); color:var(--soft);
+  border:1px solid var(--line); border-radius:999px; padding:7px 14px;
+  font:inherit; font-size:.82rem; cursor:pointer;
+}
+.theme-btn:hover{color:var(--ink); border-color:var(--soft)}
+
+/* ---------- cards ---------- */
+.card{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+  padding:20px 22px; box-shadow:var(--shadow); margin-bottom:22px;
+}
+.card>h2{margin-bottom:.35em}
+.card .hint{color:var(--soft); font-size:.92rem}
+
+/* ---------- metaphor ---------- */
+.three{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:18px; margin-top:14px}
+.three h3{display:flex; align-items:center; gap:8px; margin-bottom:.3em}
+.three p{font-size:.93rem; color:var(--soft); margin:0}
+.badge{
+  width:24px;height:24px;flex:none;border-radius:7px;display:grid;place-items:center;
+  font-size:.78rem;font-weight:700;background:var(--surface2);color:var(--soft);
+  font-family:var(--mono);
+}
+
+/* ---------- setup ---------- */
+.controls{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:16px 20px; margin-top:16px}
+.ctl label{display:block; font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; color:var(--faint); margin-bottom:6px}
+select,input[type=range]{width:100%; font:inherit; accent-color:var(--gold)}
+select{
+  background:var(--surface2); color:var(--ink); border:1px solid var(--line);
+  border-radius:9px; padding:8px 10px;
+}
+input[type=range]{margin:6px 0 0}
+.ctl.alice input[type=range]{accent-color:var(--alice)}
+.ctl.bob input[type=range]{accent-color:var(--bob)}
+.ctl .val{font-family:var(--mono); font-size:1.05rem}
+.switches{display:flex; flex-wrap:wrap; gap:10px 18px; align-items:center; margin-top:18px; padding-top:16px; border-top:1px solid var(--line)}
+.btn{
+  background:var(--surface2); color:var(--ink); border:1px solid var(--line);
+  border-radius:10px; padding:8px 14px; font:inherit; font-size:.9rem; cursor:pointer;
+}
+.btn:hover{border-color:var(--soft)}
+.btn.primary{background:var(--gold); color:#1b1505; border-color:transparent; font-weight:600}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn:disabled{opacity:.45; cursor:default}
+.check{display:inline-flex; align-items:center; gap:8px; font-size:.9rem; color:var(--soft); cursor:pointer}
+.check input{accent-color:var(--gold); width:16px; height:16px}
+
+/* ---------- stepper ---------- */
+.stepper{display:flex; flex-wrap:wrap; gap:8px; margin:4px 0 18px}
+.stepper button{
+  flex:1 1 150px; text-align:left; background:var(--surface); color:var(--soft);
+  border:1px solid var(--line); border-radius:11px; padding:9px 12px; font:inherit;
+  font-size:.84rem; cursor:pointer; line-height:1.3;
+}
+.stepper button b{display:block; color:var(--ink); font-size:.88rem; font-weight:600}
+.stepper button.done{border-color:var(--line); opacity:.75}
+.stepper button.active{border-color:var(--gold); background:var(--gold-dim); color:var(--ink)}
+.stepper button.active b{color:var(--ink)}
+.navrow{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:4px}
+.narration{
+  background:var(--surface2); border-left:3px solid var(--gold); border-radius:0 10px 10px 0;
+  padding:12px 16px; margin:0 0 20px; color:var(--ink); font-size:.95rem; min-height:3.2em;
+}
+
+/* ---------- board ---------- */
+.board{display:grid; grid-template-columns:1fr minmax(210px,.82fr) 1fr; gap:18px; align-items:start}
+@media (max-width:900px){.board{grid-template-columns:1fr}}
+.panel{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+  padding:18px; box-shadow:var(--shadow);
+}
+.panel.a{border-top:3px solid var(--alice)}
+.panel.b{border-top:3px solid var(--bob)}
+.who{display:flex; align-items:center; gap:9px; margin-bottom:12px}
+.who h2{font-size:1.1rem}
+.dot{width:10px;height:10px;border-radius:50%}
+.a .dot{background:var(--alice)} .b .dot{background:var(--bob)}
+.who .tag{margin-left:auto; font-size:.72rem; letter-spacing:.07em; text-transform:uppercase; color:var(--faint)}
+
+.secret{
+  background:var(--surface2); border:1px dashed var(--line); border-radius:10px;
+  padding:10px 12px; margin-bottom:12px;
+}
+.secret .k{display:block; font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:var(--faint); margin-bottom:3px}
+.secret .v{font-family:var(--mono); font-size:1.15rem}
+.a .secret .v{color:var(--alice)} .b .secret .v{color:var(--bob)}
+body.eve-view .secret .v{filter:blur(7px); user-select:none}
+body.eve-view .secret::after{content:"hidden from Eve"; display:block; font-size:.74rem; color:var(--eve)}
+
+.clockwrap{position:relative}
+svg.clock{display:block; width:100%; height:auto; max-width:320px; margin:0 auto}
+.face{fill:none; stroke:var(--grid); stroke-width:1.5}
+.tick{stroke:var(--grid); stroke-width:1.5}
+.tick-zero{stroke:var(--soft); stroke-width:2.5}
+.lbl{fill:var(--faint); text-anchor:middle; dominant-baseline:central; font-family:var(--mono)}
+.hand line{stroke:var(--ink); stroke-width:3; stroke-linecap:round}
+.hand .knob{fill:var(--ink)}
+.hub{fill:var(--ink)}
+.chord{stroke-width:1.6; fill:none; stroke-linecap:round}
+.dot-mark{stroke:none}
+.trail-1 .chord{stroke:var(--c-main); opacity:.55}
+.trail-1 .dot-mark{fill:var(--c-main); opacity:.8}
+.trail-2 .chord{stroke:var(--gold); opacity:.8}
+.trail-2 .dot-mark{fill:var(--gold)}
+.trail.faded{opacity:.38}
+.a .clockwrap{--c-main:var(--alice)} .b .clockwrap{--c-main:var(--bob)}
+.readout{
+  text-align:center; font-size:.86rem; color:var(--soft); margin-top:2px;
+}
+.readout b{font-family:var(--mono); font-size:1.05rem; color:var(--ink)}
+
+.result{
+  margin-top:12px; padding:11px 13px; border-radius:10px; background:var(--surface2);
+  border:1px solid var(--line); font-size:.92rem;
+}
+.result .k{font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:var(--faint); display:block; margin-bottom:3px}
+.result .f{font-family:var(--mono)}
+.result .out{font-family:var(--mono); font-weight:700; font-size:1.05rem}
+.a .result.pub{border-color:var(--alice-dim)} .a .result.pub .out{color:var(--alice)}
+.b .result.pub{border-color:var(--bob-dim)} .b .result.pub .out{color:var(--bob)}
+.result.key{border-color:var(--gold); background:var(--gold-dim)}
+.result.key .out{color:var(--gold); font-size:1.15rem}
+
+/* reveal mechanics */
+.reveal-el{opacity:0; transform:translateY(6px); transition:opacity .35s ease, transform .35s ease; pointer-events:none}
+.reveal-el.shown{opacity:1; transform:none; pointer-events:auto}
+
+/* ---------- channel ---------- */
+.channel{position:sticky; top:12px}
+.channel .pub{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px}
+.chip{
+  font-family:var(--mono); font-size:.86rem; background:var(--surface2);
+  border:1px solid var(--line); border-radius:999px; padding:5px 11px; white-space:nowrap;
+}
+.chip.hi{border-color:var(--gold); color:var(--gold)}
+.wirebox{border-top:1px dashed var(--line); padding-top:12px; margin-top:4px}
+.wirelabel{font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:var(--faint); margin-bottom:8px}
+.wire{position:relative; height:40px; border-radius:999px; background:var(--surface2); border:1px solid var(--line); overflow:hidden}
+.wire+.wire{margin-top:10px}
+.wire::before{
+  content:""; position:absolute; top:50%; left:10px; right:10px; height:1px;
+  background:repeating-linear-gradient(90deg,var(--line) 0 6px,transparent 6px 12px);
+}
+.packet{
+  position:absolute; top:50%; margin-top:-14px; left:5px; height:28px;
+  display:flex; align-items:center; padding:0 11px; border-radius:999px;
+  font-family:var(--mono); font-size:.84rem; white-space:nowrap;
+  background:var(--alice-dim); color:var(--alice); border:1px solid currentColor;
+}
+.packet.from-b{background:var(--bob-dim); color:var(--bob)}
+.eve-peek{
+  display:flex; gap:9px; align-items:flex-start; margin-top:14px; font-size:.84rem;
+  color:var(--eve); background:var(--eve-dim); border-radius:10px; padding:10px 12px;
+}
+.eve-peek svg{flex:none; margin-top:2px}
+
+/* ---------- shared banner ---------- */
+.banner{
+  display:flex; gap:14px; align-items:center; margin-top:22px; padding:16px 18px;
+  border:1px solid var(--gold); background:var(--gold-dim); border-radius:var(--r);
+}
+.banner .big{font-family:var(--mono); font-size:1.5rem; font-weight:700; color:var(--gold)}
+.banner p{margin:0; font-size:.93rem}
+.banner svg{flex:none; stroke:var(--gold)}
+
+/* ---------- eve card ---------- */
+.card.eve{border-color:var(--eve-dim)}
+.card.eve h2{color:var(--eve)}
+.crack{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px; margin-top:14px}
+.log{
+  font-family:var(--mono); font-size:.84rem; background:var(--surface2); border:1px solid var(--line);
+  border-radius:10px; padding:12px; height:160px; overflow:auto; line-height:1.5;
+}
+.log .row{color:var(--soft)}
+.log .row.hit{color:var(--eve); font-weight:700}
+.log .row.start{color:var(--faint)}
+.table{display:flex; flex-wrap:wrap; gap:5px; margin-top:12px}
+.table[hidden]{display:none}
+.cell{
+  font-family:var(--mono); font-size:.78rem; border:1px solid var(--line); border-radius:7px;
+  padding:4px 7px; color:var(--soft); background:var(--surface2);
+}
+.cell.isA{border-color:var(--alice); color:var(--alice)}
+.cell.isB{border-color:var(--bob); color:var(--bob)}
+.cell sup{color:inherit}
+ul.tight{margin:.6em 0 0; padding-left:1.2em}
+ul.tight li{margin:.35em 0; color:var(--soft)}
+ul.tight li b{color:var(--ink)}
+footer{color:var(--faint); font-size:.82rem; text-align:center; margin-top:30px}
+.kbd{font-family:var(--mono); font-size:.78rem; border:1px solid var(--line); border-bottom-width:2px; border-radius:5px; padding:1px 5px; color:var(--soft)}
+</style>
+</head>
+<body>
+<main>
+
+  <div class="top">
+    <div>
+      <!--<p class="eyebrow">Public-key cryptography &middot; interactive demo</p>-->
+      <h1>Diffie&ndash;Hellman Toy Demo</h1>
+      <p class="lede">Two entities establish the same secret number while everything they say out loud stays useless to an eavesdropper. Therefore, they use a &ldquo;clock&rdquo; with
+      <span class="num" id="lede-p">17</span> positions and a hand that hops.</p>
+    </div>
+    <button class="theme-btn" id="theme">&#9681; light</button>
+  </div>
+
+  <section class="card">
+    <h2>The metaphor</h2>
+    <p class="hint">Everything below happens on a clock: numbers that grow to large wrap around.</p>
+    <div class="three">
+      <div>
+        <h3><span class="badge">p</span> The clock face</h3>
+        <p>The clock has <b class="num" id="m-p">17</b> positions, <span class="num">0</span>&hellip;<span class="num" id="m-p1">16</span>.
+        Counting past the top wraps back to <span class="num">0</span>. This resembles computation &ldquo;mod p&rdquo;.</p>
+      </div>
+      <div>
+        <h3><span class="badge">g</span> One hop</h3>
+        <p>A hop <em>multiplies</em> the hand's position by <b class="num" id="m-g">3</b>, then wraps.
+        Starting at <span class="num">1</span>: <span class="num" id="m-walk">1 &rarr; 3 &rarr; 9 &rarr; 10 &rarr; 13</span> (all mod p).
+        The exponent defines the number of hops. The base is called the <em>generator</em>.</p>
+      </div>
+      <div>
+        <h3><span class="badge">?</span> The trapdoor</h3>
+        <p>Hopping forward is easy. Looking at where the hand stopped and saying
+        <em>how many</em> hops it took is the <b>discrete logarithm</b> problem &mdash; no shortcut known.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Set up the toy example</h2>
+    <div class="controls">
+      <div class="ctl">
+        <label for="sel-p">Clock size &equals; prime p</label>
+        <select id="sel-p"></select>
+      </div>
+      <div class="ctl">
+        <label for="sel-g">Hop size &equals; generator g</label>
+        <select id="sel-g"></select>
+      </div>
+      <div class="ctl alice">
+        <label for="sl-a">Alice's secret a = <span class="val" id="out-a">4</span></label>
+        <input type="range" id="sl-a" min="2" max="15" value="4">
+      </div>
+      <div class="ctl bob">
+        <label for="sl-b">Bob's secret b = <span class="val" id="out-b">7</span></label>
+        <input type="range" id="sl-b" min="2" max="15" value="7">
+      </div>
+    </div>
+    <div class="switches">
+      <button class="btn" id="btn-rand">Random secrets</button>
+      <label class="check"><input type="checkbox" id="cb-eve"> Eve's view (hide the secrets)</label>
+      <label class="check"><input type="checkbox" id="cb-gsteps"> Final round as single g&#8209;hops</label>
+      <label class="check" style="gap:6px">speed
+        <select id="sel-speed" style="width:auto"><option value="slow">slow</option><option value="normal" selected>normal</option><option value="fast">fast</option></select>
+      </label>
+    </div>
+  </section>
+
+  <section>
+    <div class="stepper" id="stepper"></div>
+    <div class="navrow">
+      <button class="btn" id="btn-prev">&larr; Back</button>
+      <button class="btn primary" id="btn-next">Next &rarr;</button>
+      <button class="btn" id="btn-play">&#9654; Play all</button>
+      <button class="btn" id="btn-reset">Reset</button>
+      <span class="hint" style="margin-left:auto"><span class="kbd">&rarr;</span> / <span class="kbd">space</span> to advance</span>
+    </div>
+    <p class="narration" id="narration"></p>
+
+    <div class="board">
+      <div class="panel a" id="panel-a">
+        <div class="who"><span class="dot"></span><h2>Alice</h2><span class="tag">private box</span></div>
+        <div class="secret reveal-el" data-at="1">
+          <span class="k">her secret hop count</span>
+          <span class="v">a = <span id="s-a">4</span></span>
+        </div>
+        <div class="clockwrap"><svg class="clock" id="clock-a" viewBox="0 0 300 300" role="img" aria-label="Alice's clock"></svg></div>
+        <div class="readout" id="rd-a">hand at <b>1</b> &middot; 0 hops</div>
+        <div class="result pub reveal-el late" data-at="2">
+          <span class="k">she says out loud</span>
+          <span class="f" id="f-A"></span>
+        </div>
+        <div class="result key reveal-el late" data-at="4">
+          <span class="k">shared secret she computes</span>
+          <span class="f" id="f-SA"></span>
+        </div>
+      </div>
+
+      <div class="panel channel">
+        <div class="who"><h2>Public</h2><span class="tag">everyone hears this</span></div>
+        <div class="pub">
+          <span class="chip" id="chip-p">p = 17</span>
+          <span class="chip" id="chip-g">g = 3</span>
+        </div>
+        <div class="wirebox">
+          <div class="wirelabel">the open channel</div>
+          <div class="wire" id="wire-ab"></div>
+          <div class="wire" id="wire-ba"></div>
+        </div>
+        <div class="eve-peek reveal-el" data-at="3">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span>Eve copies both numbers. She still has nothing she can use.</span>
+        </div>
+      </div>
+
+      <div class="panel b" id="panel-b">
+        <div class="who"><span class="dot"></span><h2>Bob</h2><span class="tag">private box</span></div>
+        <div class="secret reveal-el" data-at="1">
+          <span class="k">his secret hop count</span>
+          <span class="v">b = <span id="s-b">7</span></span>
+        </div>
+        <div class="clockwrap"><svg class="clock" id="clock-b" viewBox="0 0 300 300" role="img" aria-label="Bob's clock"></svg></div>
+        <div class="readout" id="rd-b">hand at <b>1</b> &middot; 0 hops</div>
+        <div class="result pub reveal-el late" data-at="2">
+          <span class="k">he says out loud</span>
+          <span class="f" id="f-B"></span>
+        </div>
+        <div class="result key reveal-el late" data-at="4">
+          <span class="k">shared secret he computes</span>
+          <span class="f" id="f-SB"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner reveal-el late" data-at="4" id="banner">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+      <div>
+        <span class="big" id="banner-key">4</span>
+        <p>Both hands stopped on the same position: <b>g<sup>ab</sup> mod p</b>. That number never
+        travelled over the wire &mdash; it was never sent, only re&#8209;derived on both sides.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card eve">
+    <h2>Why this is hard for Eve</h2>
+    <p class="hint">Eve has the whole conversation: p, g, A and B. To get the key she needs
+    <em>a</em> (or <em>b</em>) i.e., the hop count hidden behind A. In case of this toy example she can just try them all.</p>
+    <div class="crack">
+      <div>
+        <div class="pub" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px">
+          <span class="chip" id="e-p"></span><span class="chip" id="e-g"></span>
+          <span class="chip" id="e-A"></span><span class="chip" id="e-B"></span>
+        </div>
+        <button class="btn" id="btn-crack">Brute&#8209;force Alice's secret</button>
+        <button class="btn" id="btn-table">Show the hop table</button>
+        <div class="table" id="dltable" hidden></div>
+      </div>
+      <div>
+        <div class="log" id="crack-log"><div class="row start">idle &mdash; press the button</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Changes to real Diffie-Hellman</h2>
+    <ul class="tight">
+      <li><b>(Sub)-Group Properties:</b> The algebraic group which is used for DH has to fulfill some properties for Dlog to be considered hard (e.g., order of the group has to be prime).  
+      <li><b>Parameter Sizes:</b>>Real Diffie&ndash;Hellman uses a prime p with
+ 2048 to 4096 bits for finite&#8209;field DH (FFDH) and g is usually just 2. Same picture, unimaginably bigger clock (approx. 10<sup>616</sup> entries).</li>
+      <li><b>Ellipitc Curves:</b> Besides FFDH there is also ECDH over the algebraic structure of elliptic curves. The clock becomes an elliptic curve, hopping becomes point addition, and keys are 32 bytes (for example <em>X25519</em> used in TLS, Signal, SSH, ...). </li>
+      <li><b>Fresh public key per session:</b> Ephemeral DH keys give <em>forward secrecy</em>: a stolen long&#8209;term key cannot decrypt yesterday's traffic.</li>
+      <li><b>Shared secret number is not used directly:</b> The shared secret number goes through a KDF (e.g. HKDF) before it is used as an encryption key for a symmetric scheme such as some mode of AES.</li>
+      <li><b>No active attack protection: </b> Plain DH is <b>MITM&#8209;able</b> &mdash; it gives you a secret, not proof of <em>whose</em> secret. Signatures or certificates required for that part.</li>
+    </ul>
+  </section>
+
+  <!--<footer>Toy numbers, chosen to be watchable. Press <span class="kbd">Reset</span> and change p, g, a or b to re-run the exchange.</footer>-->
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------------- math ---------------- */
+  function modpow(base, exp, m) {
+    var r = 1, x = base % m;
+    while (exp > 0) { if (exp & 1) r = (r * x) % m; x = (x * x) % m; exp >>= 1; }
+    return r;
+  }
+  function order(g, p) {
+    var k = 1, x = g % p;
+    while (x !== 1) { x = (x * g) % p; k++; }
+    return k;
+  }
+  function generators(p) {
+    var out = [];
+    for (var g = 2; g < p; g++) if (order(g, p) === p - 1) out.push(g);
+    return out;
+  }
+  var PRIMES = [7, 11, 13, 17, 19, 23, 29, 31];
+
+  /* ---------------- tiny helpers ---------------- */
+  var $ = function (id) { return document.getElementById(id); };
+  var f2 = function (n) { return Math.round(n * 100) / 100; };
+  var sleep = function (ms) { return new Promise(function (r) { setTimeout(r, ms); }); };
+
+  /* ---------------- clock widget ---------------- */
+  var CX = 150, CY = 150, R = 112, HAND = R * 0.80, CHORD_R = R * 0.90;
+
+  function Clock(svg, readoutEl) {
+    this.svg = svg; this.ro = readoutEl;
+    this.token = 0; this.p = 0; this.ang = 0; this.value = 1; this.hops = 0;
+  }
+  Clock.prototype.point = function (v, rad) {
+    var a = (v / this.p) * Math.PI * 2;
+    return { x: CX + Math.sin(a) * rad, y: CY - Math.cos(a) * rad };
+  };
+  Clock.prototype.build = function (p) {
+    this.p = p;
+    var fs = p <= 13 ? 15 : (p <= 23 ? 13 : 11), ticks = "", labels = "", v, a, s, e, l;
+    for (v = 0; v < p; v++) {
+      s = this.point(v, R - 9); e = this.point(v, R); l = this.point(v, R + 18);
+      ticks += '<line class="tick' + (v === 0 ? ' tick-zero' : '') + '" x1="' + f2(s.x) + '" y1="' + f2(s.y) +
+               '" x2="' + f2(e.x) + '" y2="' + f2(e.y) + '"/>';
+      labels += '<text class="lbl" x="' + f2(l.x) + '" y="' + f2(l.y) + '" font-size="' + fs + '">' + v + '</text>';
+    }
+    this.svg.innerHTML =
+      '<circle class="face" cx="' + CX + '" cy="' + CY + '" r="' + R + '"/>' +
+      '<g class="ticks">' + ticks + '</g><g class="labels">' + labels + '</g>' +
+      '<g class="trail trail-1"></g><g class="trail trail-2"></g>' +
+      '<g class="hand"><line x1="' + CX + '" y1="' + CY + '" x2="' + CX + '" y2="' + (CY - HAND) +
+      '"/><circle class="knob" cx="' + CX + '" cy="' + (CY - HAND) + '" r="6"/></g>' +
+      '<circle class="hub" cx="' + CX + '" cy="' + CY + '" r="5"/>';
+    this.hand = this.svg.querySelector(".hand");
+    this.layers = [null, this.svg.querySelector(".trail-1"), this.svg.querySelector(".trail-2")];
+    this.reset(1);
+  };
+  Clock.prototype.clearTrails = function () {
+    this.layers[1].innerHTML = ""; this.layers[2].innerHTML = "";
+    this.layers[1].classList.remove("faded"); this.layers[2].classList.remove("faded");
+  };
+  Clock.prototype.reset = function (v) {
+    this.token++;
+    this.clearTrails();
+    this.place(v == null ? 1 : v, 0);
+  };
+  Clock.prototype.place = function (v, hops) {
+    this.value = v; this.hops = hops;
+    this.ang = (v / this.p) * 360;
+    this.hand.setAttribute("transform", "rotate(" + f2(this.ang) + " " + CX + " " + CY + ")");
+    this.say();
+  };
+  Clock.prototype.say = function () {
+    if (this.ro) this.ro.innerHTML = "hand at <b>" + this.value + "</b> &middot; " + this.hops +
+      (this.hops === 1 ? " hop" : " hops");
+  };
+  Clock.prototype.mark = function (from, to, layer) {
+    var g = this.layers[layer];
+    var p1 = this.point(from, CHORD_R), p2 = this.point(to, CHORD_R);
+    var ns = "http://www.w3.org/2000/svg";
+    var ln = document.createElementNS(ns, "line");
+    ln.setAttribute("class", "chord");
+    ln.setAttribute("x1", f2(p1.x)); ln.setAttribute("y1", f2(p1.y));
+    ln.setAttribute("x2", f2(p2.x)); ln.setAttribute("y2", f2(p2.y));
+    g.appendChild(ln);
+    var c = document.createElementNS(ns, "circle");
+    c.setAttribute("class", "dot-mark");
+    c.setAttribute("cx", f2(p2.x)); c.setAttribute("cy", f2(p2.y)); c.setAttribute("r", 3.4);
+    g.appendChild(c);
+  };
+  Clock.prototype.hop = function (to, dur, token, layer) {
+    var self = this, from = this.ang, prev = this.value;
+    var target = (to / this.p) * 360;
+    var cur = ((from % 360) + 360) % 360;
+    var d = ((target - cur) % 360 + 360) % 360;
+    if (d < 1e-6 && to !== prev) d = 360;
+    return new Promise(function (res) {
+      var t0 = null;
+      function frame(t) {
+        if (token !== self.token) { res(false); return; }
+        if (t0 === null) t0 = t;
+        var k = dur <= 0 ? 1 : Math.min(1, (t - t0) / dur);
+        var e = k < 0.5 ? 2 * k * k : 1 - 2 * (1 - k) * (1 - k);
+        self.ang = from + d * e;
+        self.hand.setAttribute("transform", "rotate(" + f2(self.ang) + " " + CX + " " + CY + ")");
+        if (k < 1) { requestAnimationFrame(frame); return; }
+        self.value = to; self.mark(prev, to, layer); res(true);
+      }
+      requestAnimationFrame(frame);
+    });
+  };
+  /* walk: start at `start`, multiply by `base`, `times` times */
+  Clock.prototype.walk = function (base, times, opts) {
+    opts = opts || {};
+    var self = this, token = ++this.token, layer = opts.layer || 1;
+    if (opts.keep) {
+      this.layers[1].classList.add("faded");
+      this.layers[2].innerHTML = "";
+    } else this.clearTrails();
+    this.place(opts.start == null ? 1 : opts.start, 0);
+    var dur = times <= 8 ? 460 : (times <= 20 ? 260 : (times <= 60 ? 110 : (times <= 200 ? 45 : 14)));
+    dur *= opts.speed == null ? 1 : opts.speed;
+    var pause = times <= 8 ? 110 : (times <= 20 ? 50 : 0);
+    pause *= opts.speed == null ? 1 : opts.speed;
+    var i = 0;
+    function next() {
+      if (token !== self.token) return Promise.resolve(null);
+      if (i >= times) return Promise.resolve(self.value);
+      i++;
+      var nv = (self.value * base) % self.p;
+      return self.hop(nv, dur, token, layer).then(function (ok) {
+        if (!ok) return null;
+        self.hops = i; self.say();
+        return pause ? sleep(pause).then(next) : next();
+      });
+    }
+    return next();
+  };
+
+  /* ---------------- state ---------------- */
+  var state = { p: 17, g: 3, a: 4, b: 7, step: 0, speed: 1 };
+  var clockA = new Clock($("clock-a"), $("rd-a"));
+  var clockB = new Clock($("clock-b"), $("rd-b"));
+  var runToken = 0;
+
+  function A() { return modpow(state.g, state.a, state.p); }
+  function B() { return modpow(state.g, state.b, state.p); }
+  function shared() { return modpow(B(), state.a, state.p); }
+
+  var STEPS = [
+    { t: "Agree in the open", s: "pick p and g",
+      n: "Alice and Bob agree on a clock with <b>p = {p}</b> positions and a hop that multiplies by <b>g = {g}</b>. They shout this across the room — Eve may write it down, it is not a secret." },
+    { t: "Pick a secret", s: "a and b stay home",
+      n: "Each one thinks of a private hop count and tells nobody: Alice picks <b>a = {a}</b>, Bob picks <b>b = {b}</b>. These two numbers never leave their rooms." },
+    { t: "Walk the clock", s: "A = g<sup>a</sup>, B = g<sup>b</sup>",
+      n: "Both start the hand at <b>1</b> and hop their secret number of times. Alice lands on <b>A = {A}</b>, Bob on <b>B = {B}</b>. The trail shows every hop — and how quickly the positions stop looking orderly." },
+    { t: "Swap in public", s: "send A and B",
+      n: "They exchange the positions they landed on. <b>A = {A}</b> goes to Bob, <b>B = {B}</b> comes back to Alice. Eve hears both numbers." },
+    { t: "Walk again", s: "same spot, no message",
+      n: "Now each one restarts the hand at <b>1</b> and hops with the <em>other</em> person's number as hop size: Alice hops {a}&times; by {B}, Bob hops {b}&times; by {A}. Both hands stop on <b>{S}</b> — because each one really walked {a}&times;{b} = {ab} single g-hops." },
+    { t: "Eve's problem", s: "the discrete log",
+      n: "Eve knows p, g, A and B. To finish the trick she needs the <em>hop count</em> behind A, and the only known way on a big clock is to try them all. That gap is the whole security of Diffie–Hellman." }
+  ];
+
+  function fill(txt) {
+    return txt
+      .replace(/\{p\}/g, state.p).replace(/\{g\}/g, state.g)
+      .replace(/\{a\}/g, state.a).replace(/\{b\}/g, state.b)
+      .replace(/\{A\}/g, A()).replace(/\{B\}/g, B())
+      .replace(/\{S\}/g, shared()).replace(/\{ab\}/g, state.a * state.b);
+  }
+
+  /* ---------------- static UI wiring ---------------- */
+  (function buildSelects() {
+    var sp = $("sel-p"), i;
+    for (i = 0; i < PRIMES.length; i++) {
+      var o = document.createElement("option");
+      o.value = PRIMES[i]; o.textContent = PRIMES[i];
+      if (PRIMES[i] === state.p) o.selected = true;
+      sp.appendChild(o);
+    }
+  })();
+
+  function syncG() {
+    var gs = generators(state.p), sel = $("sel-g"), i;
+    sel.innerHTML = "";
+    for (i = 0; i < gs.length; i++) {
+      var o = document.createElement("option");
+      o.value = gs[i]; o.textContent = gs[i];
+      sel.appendChild(o);
+    }
+    if (gs.indexOf(state.g) === -1) state.g = gs[0];
+    sel.value = state.g;
+  }
+
+  function clampSecrets() {
+    var max = state.p - 2;
+    $("sl-a").max = max; $("sl-b").max = max;
+    if (state.a > max) state.a = max;
+    if (state.b > max) state.b = max;
+    $("sl-a").value = state.a; $("sl-b").value = state.b;
+  }
+
+  function buildStepper() {
+    var box = $("stepper");
+    box.innerHTML = "";
+    STEPS.forEach(function (st, i) {
+      var b = document.createElement("button");
+      b.innerHTML = "<b>" + (i + 1) + ". " + st.t + "</b>" + st.s;
+      b.addEventListener("click", function () { setStep(i); });
+      box.appendChild(b);
+    });
+  }
+
+  function paintStepper() {
+    var kids = $("stepper").children, i;
+    for (i = 0; i < kids.length; i++) {
+      kids[i].className = i === state.step ? "active" : (i < state.step ? "done" : "");
+    }
+    $("btn-prev").disabled = state.step === 0;
+    $("btn-next").textContent = state.step >= STEPS.length - 1 ? "Start over" : "Next →";
+  }
+
+  function paintNumbers() {
+    var p = state.p, g = state.g, a = state.a, b = state.b, Av = A(), Bv = B(), Sv = shared();
+    $("out-a").textContent = a; $("out-b").textContent = b;
+    $("s-a").textContent = a; $("s-b").textContent = b;
+    $("chip-p").textContent = "p = " + p; $("chip-g").textContent = "g = " + g;
+    $("lede-p").textContent = p; $("m-p").textContent = p; $("m-p1").textContent = p - 1;
+    $("m-g").textContent = g;
+    $("m-walk").innerHTML = "1 &rarr; " + (g % p) + " &rarr; " + ((g * g) % p) + " &rarr; " + modpow(g, 3, p) + " &rarr; " + modpow(g, 4, p);
+    $("f-A").innerHTML = "A = g<sup>a</sup> mod p = " + g + "<sup>" + a + "</sup> mod " + p +
+      " = <span class='out'>" + Av + "</span>";
+    $("f-B").innerHTML = "B = g<sup>b</sup> mod p = " + g + "<sup>" + b + "</sup> mod " + p +
+      " = <span class='out'>" + Bv + "</span>";
+    $("f-SA").innerHTML = "B<sup>a</sup> mod p = " + Bv + "<sup>" + a + "</sup> mod " + p +
+      " = <span class='out'>" + Sv + "</span>";
+    $("f-SB").innerHTML = "A<sup>b</sup> mod p = " + Av + "<sup>" + b + "</sup> mod " + p +
+      " = <span class='out'>" + Sv + "</span>";
+    $("banner-key").textContent = Sv;
+    $("e-p").textContent = "p = " + p; $("e-g").textContent = "g = " + g;
+    $("e-A").textContent = "A = " + Av; $("e-B").textContent = "B = " + Bv;
+    buildTable();
+  }
+
+  /* a .late element belongs to its step but only appears once that step's
+     animation has finished (so the answer does not spoil the walk) */
+  function reveals(step) {
+    var els = document.querySelectorAll(".reveal-el"), i, at, late;
+    for (i = 0; i < els.length; i++) {
+      at = parseInt(els[i].getAttribute("data-at"), 10);
+      late = els[i].classList.contains("late");
+      els[i].classList.toggle("shown", late ? step > at : step >= at);
+    }
+  }
+  function showLate(at) {
+    var els = document.querySelectorAll('.reveal-el.late[data-at="' + at + '"]'), i;
+    for (i = 0; i < els.length; i++) els[i].classList.add("shown");
+  }
+
+  function clearWires() {
+    $("wire-ab").innerHTML = ""; $("wire-ba").innerHTML = "";
+  }
+
+  function sendPacket(wire, text, leftToRight, speed) {
+    var pill = document.createElement("span");
+    pill.className = "packet" + (leftToRight ? "" : " from-b");
+    pill.textContent = text;
+    wire.innerHTML = "";
+    wire.appendChild(pill);
+    var dist = Math.max(0, wire.clientWidth - pill.offsetWidth - 10);
+    var dur = 1000 * speed;
+    pill.style.transform = "translateX(" + (leftToRight ? 0 : dist) + "px)";
+    return new Promise(function (res) {
+      requestAnimationFrame(function () {
+        pill.style.transition = "transform " + dur + "ms cubic-bezier(.4,0,.2,1)";
+        pill.style.transform = "translateX(" + (leftToRight ? dist : 0) + "px)";
+        setTimeout(res, dur + 60);
+      });
+    });
+  }
+
+  /* ---------------- the walkthrough ---------------- */
+  function setStep(n) {
+    if (n >= STEPS.length) { resetAll(); return Promise.resolve(); }
+    var my = ++runToken;
+    state.step = n;
+    paintStepper();
+    reveals(n);
+    $("narration").innerHTML = fill(STEPS[n].n);
+
+    if (n < 2) { clockA.reset(1); clockB.reset(1); clearWires(); return Promise.resolve(); }
+    if (n === 2) {
+      clearWires();
+      return Promise.all([
+        clockA.walk(state.g, state.a, { layer: 1, speed: state.speed }),
+        clockB.walk(state.g, state.b, { layer: 1, speed: state.speed })
+      ]).then(function () { if (my === runToken) showLate(2); });
+    }
+    if (n === 3) {
+      /* put the finished first walk back on screen without re-animating */
+      showLate(2);
+      clockA.reset(1); clockB.reset(1);
+      replay(clockA, state.g, state.a, 1);
+      replay(clockB, state.g, state.b, 1);
+      return Promise.all([
+        sendPacket($("wire-ab"), "A = " + A() + "  →", true, state.speed),
+        sendPacket($("wire-ba"), "←  B = " + B(), false, state.speed)
+      ]);
+    }
+    if (n === 4) {
+      showLate(2);
+      clockA.reset(1); clockB.reset(1);
+      replay(clockA, state.g, state.a, 1);
+      replay(clockB, state.g, state.b, 1);
+      var gmode = $("cb-gsteps").checked;
+      var optA = { layer: 2, keep: true, speed: state.speed };
+      var optB = { layer: 2, keep: true, speed: state.speed };
+      var pa = gmode ? clockA.walk(state.g, state.a * state.b, optA)
+                     : clockA.walk(B(), state.a, optA);
+      var pb = gmode ? clockB.walk(state.g, state.a * state.b, optB)
+                     : clockB.walk(A(), state.b, optB);
+      return Promise.all([pa, pb]).then(function () {
+        if (my === runToken) showLate(4);
+      });
+    }
+    if (n === 5) {
+      showLate(2); showLate(4);
+      clockA.reset(1); clockB.reset(1);
+      replay(clockA, state.g, state.a, 1);
+      replay(clockB, state.g, state.b, 1);
+      $("crack-log").innerHTML = '<div class="row start">idle &mdash; press the button</div>';
+      document.querySelector(".card.eve").scrollIntoView({ behavior: "smooth", block: "nearest" });
+      return Promise.resolve();
+    }
+    return Promise.resolve();
+  }
+
+  /* draw a finished walk instantly (no animation) */
+  function replay(clock, base, times, layer) {
+    var v = 1, i, nv;
+    for (i = 0; i < times; i++) {
+      nv = (v * base) % clock.p;
+      clock.mark(v, nv, layer);
+      v = nv;
+    }
+    clock.place(v, times);
+  }
+
+  function resetAll() {
+    runToken++;
+    state.step = 0;
+    paintStepper();
+    reveals(0);
+    clearWires();
+    $("banner").classList.remove("shown");
+    clockA.build(state.p); clockB.build(state.p);
+    $("narration").innerHTML = fill(STEPS[0].n);
+    $("crack-log").innerHTML = '<div class="row start">idle &mdash; press the button</div>';
+  }
+
+  function rebuild() {
+    syncG();
+    clampSecrets();
+    paintNumbers();
+    resetAll();
+  }
+
+  /* ---------------- Eve ---------------- */
+  var crackTimer = null;
+  function crack() {
+    if (crackTimer) { clearInterval(crackTimer); crackTimer = null; }
+    var log = $("crack-log"), target = A(), k = 0, v = 1, p = state.p, g = state.g;
+    log.innerHTML = '<div class="row start">looking for k with ' + g + '^k mod ' + p + ' = ' + target + '</div>';
+    crackTimer = setInterval(function () {
+      k++; v = (v * g) % p;
+      var hit = v === target;
+      var row = document.createElement("div");
+      row.className = "row" + (hit ? " hit" : "");
+      row.innerHTML = "k = " + k + " → " + g + "^" + k + " mod " + p + " = " + v + (hit ? "   ← that is A, so a = " + k : "");
+      log.appendChild(row);
+      log.scrollTop = log.scrollHeight;
+      if (hit || k >= p - 1) {
+        clearInterval(crackTimer); crackTimer = null;
+        var end = document.createElement("div");
+        end.className = "row start";
+        end.textContent = hit ? ("cracked after " + k + " tries — key = " + modpow(B(), k, p))
+                              : "no match (should not happen with a generator)";
+        log.appendChild(end);
+        log.scrollTop = log.scrollHeight;
+      }
+    }, 150);
+  }
+
+  function buildTable() {
+    var box = $("dltable"), p = state.p, g = state.g, Av = A(), Bv = B();
+    var html = "", v = 1, k;
+    for (k = 1; k <= p - 1; k++) {
+      v = (v * g) % p;
+      var cls = "cell" + (v === Av ? " isA" : "") + (v === Bv ? " isB" : "");
+      html += '<span class="' + cls + '">' + g + '<sup>' + k + '</sup>=' + v + '</span>';
+    }
+    box.innerHTML = html;
+  }
+
+  /* ---------------- events ---------------- */
+  $("sel-p").addEventListener("change", function () { state.p = parseInt(this.value, 10); rebuild(); });
+  $("sel-g").addEventListener("change", function () { state.g = parseInt(this.value, 10); paintNumbers(); resetAll(); });
+  $("sl-a").addEventListener("input", function () { state.a = parseInt(this.value, 10); paintNumbers(); resetAll(); });
+  $("sl-b").addEventListener("input", function () { state.b = parseInt(this.value, 10); paintNumbers(); resetAll(); });
+  $("sel-speed").addEventListener("change", function () {
+    state.speed = this.value === "slow" ? 1.9 : (this.value === "fast" ? 0.45 : 1);
+  });
+  $("btn-rand").addEventListener("click", function () {
+    var max = state.p - 2;
+    function pick() { return 2 + Math.floor(Math.random() * (max - 1)); }
+    state.a = pick(); do { state.b = pick(); } while (state.b === state.a && max > 2);
+    $("sl-a").value = state.a; $("sl-b").value = state.b;
+    paintNumbers(); resetAll();
+  });
+  $("cb-eve").addEventListener("change", function () {
+    document.body.classList.toggle("eve-view", this.checked);
+  });
+  $("cb-gsteps").addEventListener("change", function () {
+    if (state.step >= 4) setStep(4);
+  });
+  $("btn-next").addEventListener("click", function () { setStep(state.step + 1); });
+  $("btn-prev").addEventListener("click", function () { if (state.step > 0) setStep(state.step - 1); });
+  $("btn-reset").addEventListener("click", resetAll);
+  $("btn-play").addEventListener("click", function () {
+    var i = 0;
+    resetAll();
+    (function run() {
+      if (i >= STEPS.length) return;
+      var mine = runToken + 1;
+      setStep(i).then(function () {
+        if (mine !== runToken) return;       /* user took over */
+        i++;
+        setTimeout(run, 900 * state.speed);
+      });
+    })();
+  });
+  $("btn-crack").addEventListener("click", crack);
+  $("btn-table").addEventListener("click", function () {
+    var t = $("dltable");
+    t.hidden = !t.hidden;
+    this.textContent = t.hidden ? "Show the hop table" : "Hide the hop table";
+  });
+
+  document.addEventListener("keydown", function (ev) {
+    var tn = (ev.target.tagName || "").toLowerCase();
+    if (tn === "input" || tn === "select" || tn === "textarea") return;
+    if (ev.key === "ArrowRight" || ev.key === " " || ev.key === "Enter") {
+      ev.preventDefault(); setStep(state.step + 1);
+    } else if (ev.key === "ArrowLeft") {
+      ev.preventDefault(); if (state.step > 0) setStep(state.step - 1);
+    }
+  });
+
+  /* theme */
+  var themeBtn = $("theme");
+  function applyTheme(t) {
+    document.documentElement.setAttribute("data-theme", t);
+    themeBtn.innerHTML = t === "dark" ? "◑ light" : "◐ dark";
+    try { localStorage.setItem("dhclock-theme", t); } catch (e) {}
+  }
+  themeBtn.addEventListener("click", function () {
+    applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
+  });
+  try {
+    var saved = localStorage.getItem("dhclock-theme");
+    if (saved === "light" || saved === "dark") applyTheme(saved);
+  } catch (e) {}
+
+  /* go */
+  buildStepper();
+  rebuild();
+})();
+</script>
+</body>
+</html>
