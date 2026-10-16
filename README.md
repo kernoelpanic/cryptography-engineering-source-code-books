@@ -1,13 +1,20 @@
-# Cryptography Engineering Source Code Books 
+# Cryptography Source Code Books 
 
-🚧 **work-in-progress** 🚧
+> Don't rule your own crypto in production, but tinker in the sandbox
 
-This is a collection of jupyter notebooks which should provide an introduction to cryptography while taking a more practical *hands-on* engineering perspective. Therefore, the notebooks include source code snippets mostly in [sage math](https://www.sagemath.org/) and python. 
+tl;dr [start here](https://kernoelpanic.github.io/cryptography-   engineering-source-code-books/)
 
-**Attention:** The provided code snippets are **not** meant to represent secure functioning implementations or parts thereof.
-They are for learning purposes only!
+This is a collection of jupyter notebooks which should provide an introduction to cryptography while taking a more practical *hands-on* perspective. Therefore, the notebooks include source code snippets in [sage math](https://www.sagemath.org/) and python. 
 
-The goal of the code snippets is it to demonstrate the mathematical concepts in an accessible way targeted for computer science students, or software developers, as well as encourage and enable readers to directly experiment with what they learn. 
+**Attention:** The provided code snippets are **not** meant to represent secure production ready implementations, or parts thereof. They are meant for learning purposes.
+
+The goal of the code snippets is it to demonstrate the mathematical concepts in an accessible way targeted for computer science students, or software developers, as well as encourage and enable readers to directly experiment with them. 
+
+Parts of the content in this repo is used in the following courses at the University of Vienna: 
+* [Informationssicherheit](https://ufind.univie.ac.at/de/course.html?lv=051061&semester=2026W)
+* [Information Security Management](https://ufind.univie.ac.at/de/course.html?lv=052000&semester=2026W)
+* [Cryptography](https://ufind.univie.ac.at/en/course.html?lv=052014&semester=2026W)
+* [Security and Privacy Engineering](https://ufind.univie.ac.at/en/course.html?lv=052011&semester=2026S)
 
 ## Docker 
 
