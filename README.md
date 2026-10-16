@@ -2,7 +2,7 @@
 
 > Don't rule your own crypto in production, but tinker in the sandbox
 
-tl;dr [start here](https://kernoelpanic.github.io/cryptography-   engineering-source-code-books/)
+tl;dr [start here](https://kernoelpanic.github.io/cryptography-engineering-source-code-books/)
 
 This is a collection of jupyter notebooks which should provide an introduction to cryptography while taking a more practical *hands-on* perspective. Therefore, the notebooks include source code snippets in [sage math](https://www.sagemath.org/) and python. 
 
