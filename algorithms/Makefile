@@ -22,13 +22,13 @@ textopdf: $(TEX_TO_PDF_FILES)
 pdftopng: $(PDF_TO_PNG_FILES)
 	#@echo $(PDF_TO_PNG_FILES) 
 
-cleanup: 
+clean: 
 	echo "cleaning up..."
 	-rm *.aux
 	-rm *.log
 	-rm *.dvi
-	-rm *.pdf
+	#-rm *.pdf
 
-clean: cleanup
+remove: clean
 	-rm *.svg
 	-rm *.png
