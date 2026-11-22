@@ -7648,6 +7648,19 @@ main {
 </div>
 </div>
 </div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b644b213-f42d-4f90-a6ea-8cb3f8231b3f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ol start="4">
+<li><strong>Minimize Trust in Server</strong>: The Signal designers put a lot of effort into minimizing the trust into the server infrastructure, e.g., by reducing the data that is readily available on the servers [<a href="https://signal.org/blog/pdfs/signal_private_group_system.pdf">Private Groups</a>]</li>
+</ol>
+</div>
+</div>
+</div>
 </div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=899d50b6-9ca9-4818-9733-83bcccf7408f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -7669,15 +7682,20 @@ main {
 <p>The Signal Protocol can be further devided into the following parts:</p>
 <ul>
 <li><a href="https://signal.org/docs/specifications/x3dh/">X3DH</a> (extended triple Diffie-Hellman) key agreement<ul>
-<li>since late 2023 replaced by <a href="https://signal.org/docs/specifications/pqxdh/">PQXDH</a>, which is coceptually close but adds an additional post-quantum secure key encapsulation mechanism (KEM) into the key derivation function (KDF) to protect against <a href="harvest-now-decrypt-later">harvest-now-decrypt-later</a> attacks.</li>
+<li>since late 2023 replaced by <a href="https://signal.org/docs/specifications/pqxdh/">PQXDH</a>, which is coceptually close but adds an additional post-quantum secure key encapsulation mechanism (KEM) into the key derivation function (KDF) to protect against <a href="https://en.wikipedia.org/wiki/Harvest_now%2C_decrypt_later">harvest-now-decrypt-later</a> attacks [<a href="https://www.usenix.org/system/files/usenixsecurity24-bhargavan.pdf">USENIX24</a>].</li>
 </ul>
 </li>
 <li><a href="https://signal.org/docs/specifications/doubleratchet/">Double ratchet</a> algorithm<ul>
 <li>since 2025 replaced by a PQ triple ratched referred to as <a href="https://signal.org/docs/specifications/mlkembraid/">ML-KEM Braid</a> / <em>Sparse Post Quantum Ratchet</em> (<a href="https://signal.org/blog/spqr/">SPQR</a>), which relies on <em>Sparse Continuous Key Agreement</em> (SCKA) as introduced and described in the associated papers [<a href="https://www.usenix.org/system/files/usenixsecurity25-auerbach.pdf">USENIX25</a>,<a href="https://eprint.iacr.org/2025/078.pdf">Eurocrypt25</a>] to maintain PFS and PCS against a quantum computer.</li>
 </ul>
 </li>
+<li><a href="https://signal.org/blog/sealed-sender/">Sealed Sender</a> reduces the data the server needs to know about the sender [<a href="https://www.ndss-symposium.org/wp-content/uploads/ndss2021_1C-4_24180_paper.pdf">NDSS21</a>]</li>
 <li><a href="https://signal.org/docs/specifications/sesame/">Sesam</a> session management for multi-device support, e.g., phone and desktop</li>
-<li>Group chats and <a href="https://signal.org/blog/signal-private-group-system/">private groups</a> where the server has no record of group membership</li>
+<li>Group chats and <a href="https://signal.org/blog/signal-private-group-system/">private groups</a> where the server has no record of group membership [<a href="https://eprint.iacr.org/2019/1416.pdf">CCS20</a>]<ul>
+<li>based on <em>Keyed-Verification Anonymous Credentials</em> (KVAC) [<a href="https://eprint.iacr.org/2013/516.pdf">CCS14</a>]</li>
+<li>proposal for a <a href="https://eprint.iacr.org/2026/453.pdf">PQ variant</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -7751,7 +7769,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Signal-Protocol-Used-Primitives">Signal Protocol Used Primitives<a class="anchor-link" href="#Signal-Protocol-Used-Primitives">¶</a></h3>
+<h3 id="Used-Cryptographic-Primitives-in-the-Signal-Protocol">Used Cryptographic Primitives in the Signal Protocol<a class="anchor-link" href="#Used-Cryptographic-Primitives-in-the-Signal-Protocol">¶</a></h3>
 </div>
 </div>
 </div>
@@ -7777,7 +7795,7 @@ main {
 <li><em>asymmetric primitives:</em><ul>
 <li>DH over curve X25519, or curve X448</li>
 <li>Ed25519 as signature scheme</li>
-<li>ML-KEM from <a href="https://csrc.nist.gov/pubs/fips/203/final">FIPS-203</a> (variant of CRYSTALS-Kyber PQ-KEM)</li>
+<li>ML-KEM from <a href="https://csrc.nist.gov/pubs/fips/203/final">FIPS-203</a> (variant of <a href="https://pq-crystals.org/kyber/">CRYSTALS-Kyber</a> PQ-KEM)</li>
 <li>Keyed-Verification Anonymous Credential <a href="https://eprint.iacr.org/2019/1416.pdf">(KVAC)</a></li>
 </ul>
 </li>
@@ -7809,6 +7827,34 @@ main {
 </p>
 <p style="text-align:center">
 <img alt="number systems" src="./figures/signal-2024-12-17-1108.png"/>
+</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=34772c6f-4caf-421a-a6f4-234996f514d3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="PQXDH-and-the-Sparse-Post-Quantum-Ratchet"><a href="https://signal.org/docs/specifications/pqxdh/">PQXDH</a> and the <a href="https://signal.org/blog/spqr/">Sparse Post Quantum Ratchet</a><a class="anchor-link" href="#PQXDH-and-the-Sparse-Post-Quantum-Ratchet">¶</a></h2>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=40ccc808-9856-4fe2-a0c5-41cfd07f101e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p style="text-align:center;font-size:10px">
+<a href="https://math.preview.excalidraw.com/">(excalidraw)</a>
+<a href="./figures/signal-2026-08.svg">(image)</a>
+</p>
+<p style="text-align:center">
+<img alt="number systems" src="./figures/signal-2026-08.png"/>
 </p>
 </div>
 </div>

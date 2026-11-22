@@ -7962,12 +7962,38 @@ If should be infeasible to find <em>any</em> two messages $m \neq m'$ where $H(m
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Collisions">Collisions<a class="anchor-link" href="#Collisions">¶</a></h3><ul>
-<li>Birthday bound: collisions after ~$2^{n/2}$ tries, SHA-256 = 128-bit collision security.</li>
+<li>$2^{n}+1$ tries require $O(2^n)$ <em>time complexity</em> and $O(2^n)$ <em>space complexity</em></li>
+<li><strong>Birthday bound:</strong> $50\%$ chance for a collision after ~$2^{n/2}$ tries</li>
 </ul>
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1856688d-5cb0-469e-b428-9744b39ed180">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>SHA-256 = 128-bit collision security.<ul>
+<li>it takes about $10^{27}$ years to calculate $2^{128}$ hashes</li>
+<li>the universe is less than $10^{11}$ years old</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><em>if every computer ever made by humanity was computing
+since the beginning of the entire universe, up to now, the
+odds that they would have found a collision is still
+infinitesimally small. So small that it’s way less than the odds
+that the Earth will be destroyed by a giant meteor in the
+next two seconds.</em> [Narayanan et al. Princton Bitcoin Book]</p>
+</blockquote>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f3932904-e6f8-4cce-a968-1e1e1b2df6f5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
