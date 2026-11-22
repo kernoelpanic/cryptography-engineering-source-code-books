@@ -1,6 +1,8 @@
 # execute twice since the files have to be found at the beginning 
 # of execution 
-# $ make clean && make && make && make cleanup && sxiv binarymultiplication.png
+# $ make purge && make && make && make clean 
+# view pictures: 
+# $ chromium ./binarymultiplication.png
 
 TEX_TO_PDF_FILES=$(patsubst %.tex,%.pdf,$(wildcard *.tex))
 PDF_TO_PNG_FILES=$(patsubst %.pdf,%.png,$(wildcard *.pdf))
@@ -27,8 +29,9 @@ clean:
 	-rm *.aux
 	-rm *.log
 	-rm *.dvi
-	#-rm *.pdf
 
-remove: clean
+purge: clean
+	echo "purging all output files..."
 	-rm *.svg
 	-rm *.png
+	-rm *.pdf
