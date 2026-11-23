@@ -7456,7 +7456,7 @@ main {
 <li>[<a href="https://toc.cryptobook.us/">GCAC</a>] A Graduate Course in Applied Cryptography, Dan Boneh and Victor Shoup</li>
 <li>[<a href="https://shoup.net/ntb/">CINTA</a>] A Computational Introduction to Number Theory and Algebra, Victor Shoup</li>
 <li>[<a href="https://cacr.uwaterloo.ca/hac/">HAC</a>] Handbook of Applied Cryptography, Alfred J. Menezes, Paul C. van Oorschot and Scott A. Vanstone</li>
-<li>[<a href="https://www.cs.umd.edu/~jkatz/imc.html">ITMC</a>] Introduction to Modern Cryptography, Jonathan Katz and Yehuda Lindell (3rd Edition)</li>
+<li>[<a href="https://www.cs.umd.edu/~jkatz/imc.html">ITMC</a>] Introduction to Modern Cryptography, Jonathan Katz and Yehuda Lindell (2nd Edition)</li>
 <li><a href="http://doc.sagemath.org/html/en/constructions/number_theory.html">Elementary number theory in sage</a></li>
 </ul>
 </div>
@@ -7533,7 +7533,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Number-systems">Number systems<a class="anchor-link" href="#Number-systems">¶</a></h2><p>Natural Numbers &lt; Integers &lt; Rational numbers &lt; Real nunmbers</p>
+<h2 id="Number-systems">Number systems<a class="anchor-link" href="#Number-systems">¶</a></h2><p>Natural Numbers &lt; Integers &lt; Rational numbers &lt; Real numbers</p>
 <p style="text-align:center">
 <img alt="number systems" src="./figures/Number-systems.svg" width="256"/>
 </p>
@@ -7556,7 +7556,8 @@ main {
 <li>integers: $$
 \mathbb{Z} = \{ \dots, -2, -1, 0, 1, 2, \dots \}
 $$</li>
-<li>non-zero integers: $$ \mathbb{Z}^{\neq} = \mathbb{Z}^{*} = \{ \dots, -2, -1, 1, 2, \dots \} $$</li>
+<li>non-zero integers: $$ \mathbb{Z}^{\neq} = \mathbb{Z} \setminus \{0\} = \{ \dots, -2, -1, 1, 2, \dots \} $$
+(we do not use $ \mathbb{Z}^{*} $ for this set, as $ \mathbb{Z}^*_n $ will denote the invertible elements modulo $ n $)</li>
 <li>positive integers: $$ \mathbb{Z}^+ = \mathbb{Z}_+ = \mathbb{Z}^&gt; = \{ 1, 2, \dots \} $$</li>
 <li>non-negative integers: $$ \mathbb{Z}^{0+} = \mathbb{Z}^\geq = \{ 0,1, 2, \dots \} $$</li>
 </ul>
@@ -7572,7 +7573,7 @@ $$</li>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Natural-Numbers">Natural Numbers<a class="anchor-link" href="#Natural-Numbers">¶</a></h2><p>Also referred to as <em>non-negative integers</em> or <em>positive integers</em> if without $ 0 $. Possible notations:</p>
 <ul>
-<li>non-negative integers including zero: $$ \mathbb{N} = \mathbb{N}_0 = \{0,1,2,3,\dots\} $$</li>
+<li>non-negative integers (including zero): $$ \mathbb{N} = \mathbb{N}_0 = \{0,1,2,3,\dots\} $$</li>
 <li><strong>positive integers</strong>: $$ \mathbb{N} = \mathbb{N}_1 = \mathbb{N}^* = \{1,2,3,\dots\} $$</li>
 </ul>
 <p>Every <em>positive integer</em> is either <strong>composite</strong>, <strong>prime</strong>, or the <strong>unit</strong> $ 1 $</p>
@@ -7701,7 +7702,7 @@ $$</li>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Divisability-I">Divisability I<a class="anchor-link" href="#Divisability-I">¶</a></h3><p>Terminology:
+<h3 id="Divisibility-I">Divisibility I<a class="anchor-link" href="#Divisibility-I">¶</a></h3><p>Terminology:
 $$
 \begin{align*}
 \frac{divident}{divisor} &amp;= quotient \\
@@ -7719,15 +7720,27 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Divisability-II">Divisability II<a class="anchor-link" href="#Divisability-II">¶</a></h3><ul>
+<h3 id="Divisibility-II">Divisibility II<a class="anchor-link" href="#Divisibility-II">¶</a></h3><ul>
 <li>$ a,b \in \mathbb{Z}$<ul>
 <li>If $ a $ <em>divides</em> $ b $ (without remainder), this is denoted by $ a | b $</li>
 <li>If $ a $ does <em>not divide</em> $ b $, this is denoted by $ a  \nmid b $</li>
 </ul>
 </li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b0abe8a1-7000-4993-be55-572581455347">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
 <li>If $ a | b $ and $ a $ is positive, $ a $ is called a $ divisor $ of $ b $<ul>
 <li>If $ a \notin \{ 1, b \} $ then it is a <em>nontrivial divisor</em> or <em>factor</em> of $ b $</li>
-<li>A positive integer $ p &gt; 1 $ is <strong>prime</strong> if it has no factors (nontrivial divisors), so that his only divisors are $ 1 $ and itself</li>
+<li>A positive integer $ p &gt; 1 $ is <strong>prime</strong> if it has no factors (nontrivial divisors), so that its only divisors are $ 1 $ and itself</li>
 <li>A positive integer that is not prime is called <strong>composite</strong></li>
 <li>Per convention $ 1 $ is neither prime nor composite but called <strong>unit</strong></li>
 </ul>
@@ -7736,32 +7749,44 @@ $$</p>
 </div>
 </div>
 </div>
-</div></section><section>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=266bfef0-8f9e-472f-beb5-9d816f5d4afa">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Divisability-III">Divisability III<a class="anchor-link" href="#Divisability-III">¶</a></h3><ul>
+<h3 id="Divisibility-III">Divisibility III<a class="anchor-link" href="#Divisibility-III">¶</a></h3><ul>
 <li>If $ a, b \in \mathbb{Z}$ and $ a | b $ then there exists some $ n \in \mathbb{Z} $ such that $ a \cdot n = b $<ul>
 <li>If $ a | b $ then $ a | (n \cdot b)$ for any $ n \in \mathbb{Z} $</li>
 <li>If $ a | b $ and $ a | c $ then $ a | (b + c) $</li>
 </ul>
 </li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=31a6a2c4-eede-4e64-8f00-c730aec21f78">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
 <li>If $ a | b $ and $ a | c $, then $ a | (Xb + Yc)$ for any $ X,Y \in \mathbb{Z}$</li>
 </ul>
 </div>
 </div>
 </div>
-</div></section><section>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cfef7365-c699-4d15-a960-f783be4072d2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Divisability-in-sage">Divisability in sage<a class="anchor-link" href="#Divisability-in-sage">¶</a></h3>
+<h3 id="Divisibility-in-sage-&amp;-python">Divisibility in sage &amp; python<a class="anchor-link" href="#Divisibility-in-sage-&amp;-python">¶</a></h3>
 </div>
 </div>
 </div>
@@ -7935,7 +7960,7 @@ A natural number greater than $ 1 $ that is not prime is called <strong>composit
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Open-questions">Open questions<a class="anchor-link" href="#Open-questions">¶</a></h3><p>Several historical questions regarding prime numbers are still unsolved.</p>
+<h2 id="Open-questions">Open questions<a class="anchor-link" href="#Open-questions">¶</a></h2><p>Several historical questions regarding prime numbers are still unsolved.</p>
 <p>These include <a href="https://en.wikipedia.org/wiki/Goldbach%27s_conjecture">Goldbach's conjecture</a>, that every even integer greater than 2 can be expressed as the sum of two primes, and the <a href="https://en.wikipedia.org/wiki/Twin_prime">twin prime conjecture</a>, that there are infinitely many pairs of primes having just one even number between them.</p>
 <p style="text-align:right;font-size:10px">
 <a href="https://en.wikipedia.org/wiki/Prime_number">(source)</a>
@@ -8066,7 +8091,7 @@ A natural number greater than $ 1 $ that is not prime is called <strong>composit
 <div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># get a random 32 bit prime specified as beeing between lbound and n</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># get a random 32 bit prime specified as being between lbound and n</span>
 <span class="n">random_prime</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">32</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">proof</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">lbound</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">31</span><span class="p">)</span>  
 </pre></div>
 </div>
@@ -8086,13 +8111,86 @@ A natural number greater than $ 1 $ that is not prime is called <strong>composit
 </div>
 </div>
 </div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=32befa35-5af2-4bf7-aeb1-0667845ec53c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Time-complexity">Time complexity<a class="anchor-link" href="#Time-complexity">¶</a></h2><p>The running time of an algorithm taking as input an integer $ a $ is measured in terms of length of the binary representation of $ a $ denoted by $ \|a\| = n = \lfloor \log_2 a \rfloor + 1 $, where the leading (most significant) bit is $ 1 $.</p>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4b5ac601-3519-477c-8c88-35e71f9f1b1f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">a</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">n</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>7</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=82798322-8747-4048-b2da-3ff611e05c88">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> in binary is </span><span class="si">{</span><span class="nb">bin</span><span class="p">(</span><span class="n">a</span><span class="p">)[</span><span class="mi">2</span><span class="p">:]</span><span class="si">}</span><span class="s2"> which has length </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">a</span><span class="p">)[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">==</span> <span class="n">n</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>100 in binary is 1100100 which has length 7
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>True</pre>
+</div>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=92504dcb-b5aa-4d21-b9f1-1ee9e173d5f7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Primality-test">Primality test<a class="anchor-link" href="#Primality-test">¶</a></h3><p>The test if a given number is prime is called <em>primality test</em>.</p>
+<h2 id="Primality-Test">Primality Test<a class="anchor-link" href="#Primality-Test">¶</a></h2><p>The test if a given number is prime is called <em>primality test</em>.</p>
 <p>A simple inefficient primality test (and factorization algorithm) is <em>trial division</em>: Given an input number $ a $, check whether it is divisible by $ 2 $ or any odd number between $ 2 $ and $\sqrt {a}$. If so, it is not prime and this number is one of its factors.</p>
 <p>If we are only interested in the question if the number is prime or not, there are <strong>deterministic tests</strong> which run in polynomial time (e.g., <a href="https://en.wikipedia.org/wiki/AKS_primality_test">AKS primality test</a>).</p>
 <p>There are also <strong>probabilistic tests</strong> which are even faster but have small (configurable) error probability.
@@ -8126,17 +8224,6 @@ Usually they never report a prime as a composite number, but it is possible that
 </div>
 </div>
 </div>
-</div></div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fdd8e347-fede-40db-9c5b-100ccd8bde77">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>10 in P</p>
-</div>
-</div>
-</div>
 </div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0b90b4f4-d720-41ba-adef-87f3543f7660">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -8153,7 +8240,7 @@ Usually they never report a prime as a composite number, but it is possible that
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">isPrime_sage</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
@@ -8169,7 +8256,7 @@ Usually they never report a prime as a composite number, but it is possible that
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">isPrime_sage_BailiePSW</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
@@ -8185,7 +8272,7 @@ Usually they never report a prime as a composite number, but it is possible that
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">gmpy2</span>
@@ -8206,7 +8293,7 @@ Usually they never report a prime as a composite number, but it is possible that
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Primality-testing">Primality testing<a class="anchor-link" href="#Primality-testing">¶</a></h3>
+<h3 id="Primality-testing-is-fast">Primality testing is fast<a class="anchor-link" href="#Primality-testing-is-fast">¶</a></h3>
 </div>
 </div>
 </div>
@@ -8215,7 +8302,7 @@ Usually they never report a prime as a composite number, but it is possible that
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> isPrime_trial_division(random_number) # 32 bit random_number  
@@ -8231,15 +8318,15 @@ Usually they never report a prime as a composite number, but it is possible that
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>CPU times: user 846 ms, sys: 0 ns, total: 846 ms
-Wall time: 844 ms
+<pre>CPU times: user 1.84 ms, sys: 0 ns, total: 1.84 ms
+Wall time: 1.85 ms
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(False, [3, 5, 67, 2136833])</pre>
+<pre>(False, [5, 96855949])</pre>
 </div>
 </div>
 </div>
@@ -8249,7 +8336,7 @@ Wall time: 844 ms
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> isPrime_sage(random_number)
@@ -8265,13 +8352,13 @@ Wall time: 844 ms
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>CPU times: user 53 µs, sys: 12 µs, total: 65 µs
-Wall time: 74.9 µs
+<pre>CPU times: user 23 µs, sys: 6 µs, total: 29 µs
+Wall time: 33.4 µs
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[32]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>False</pre>
 </div>
@@ -8283,7 +8370,7 @@ Wall time: 74.9 µs
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> isPrime_python_gmpy2(random_number)
@@ -8299,13 +8386,13 @@ Wall time: 74.9 µs
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>CPU times: user 0 ns, sys: 461 µs, total: 461 µs
-Wall time: 7.18 ms
+<pre>CPU times: user 7 µs, sys: 2 µs, total: 9 µs
+Wall time: 11.9 µs
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[35]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>False</pre>
 </div>
@@ -8319,7 +8406,7 @@ Wall time: 7.18 ms
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Note that, testing if a given positive integer is prime is resonably fast</p>
+<p>Note that, testing if a given positive integer is prime is reasonably fast</p>
 </div>
 </div>
 </div>
@@ -8330,7 +8417,7 @@ Wall time: 7.18 ms
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Factorization">Factorization<a class="anchor-link" href="#Factorization">¶</a></h3><p>Factorization is thought to be a <em>computationally difficult</em> problem (i.e., <strong>no</strong> <em>polynomial-time</em> algorithm for factoring has been demonstrated).
+<h2 id="Factorization">Factorization<a class="anchor-link" href="#Factorization">¶</a></h2><p>Factorization is thought to be a <em>computationally difficult</em> problem (i.e., <strong>no</strong> <em>polynomial-time</em> algorithm for factoring has been demonstrated).
 Primality testing is comparatively easy.</p>
 <ul>
 <li><strong>Fundamental theorem of arithmetic:</strong> every natural number greater than $ 1 $ is either a <em>prime</em> itself or can be <em>factorized</em> as a product of primes that is unique up to their order (ie., the order is not relevant)</li>
@@ -8391,6 +8478,17 @@ Primality testing is comparatively easy.</p>
 </div>
 </div>
 </div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e2a3e09d-81b0-4afb-bfc4-f56be3915f49">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Fasted-Factoring-Algorithms">Fasted Factoring Algorithms<a class="anchor-link" href="#Fasted-Factoring-Algorithms">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="fragment">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5f827101-a810-4ad6-b4e5-05608d5bcb69">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8401,7 +8499,7 @@ Primality testing is comparatively easy.</p>
 </div>
 </div>
 </div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d5c8c4c0-a53b-400d-ab3e-cf533c2b8a39">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d5c8c4c0-a53b-400d-ab3e-cf533c2b8a39">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8614,7 +8712,7 @@ This is comparable to a <a href="./vis/modulo_clock.html">clock</a>.</p>
 </ul>
 <p><strong>Example:</strong>
 If $n=15$ then
-$ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
+$ \mathbb{Z}_n=\{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 </div>
 </div>
 </div>
@@ -8623,7 +8721,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [45]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [43]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Zn</span> <span class="o">=</span> <span class="n">IntegerModRing</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span> <span class="n">Zn</span>
@@ -8637,7 +8735,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[45]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[43]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>Ring of integers modulo 15</pre>
 </div>
@@ -8649,7 +8747,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [46]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [44]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Zn</span><span class="o">.</span><span class="n">list</span><span class="p">()</span> <span class="c1"># list all elements</span>
@@ -8663,7 +8761,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[46]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[44]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]</pre>
 </div>
@@ -8675,7 +8773,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [47]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [45]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Zn</span><span class="o">.</span><span class="n">order</span><span class="p">()</span> <span class="c1"># number of elements </span>
@@ -8689,7 +8787,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[47]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[45]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>15</pre>
 </div>
@@ -8712,7 +8810,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [57]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [46]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Zn</span><span class="o">.</span><span class="n">list</span><span class="p">()</span> <span class="c1"># list all elements where n=15</span>
@@ -8726,7 +8824,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[57]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[46]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]</pre>
 </div>
@@ -8738,7 +8836,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [58]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [47]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="mi">6</span><span class="o">*</span><span class="mi">3</span> <span class="c1"># result in the set of integers</span>
@@ -8752,7 +8850,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[58]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[47]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>18</pre>
 </div>
@@ -8764,7 +8862,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [59]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [48]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Zn</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># result in the set of integers mod n</span>
@@ -8778,22 +8876,22 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[59]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[48]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>3</pre>
 </div>
 </div>
 </div>
 </div>
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=61df2916-1bae-4674-a50d-20c1aa1aabbe">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=97670d79-5205-4ee1-9072-68c52798ec2c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [60]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [55]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">Zn</span><span class="o">.</span><span class="n">random_element</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">Zn</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="mi">8</span><span class="p">)</span> <span class="c1"># equivalent result in set of int. mod n</span>
 </pre></div>
 </div>
 </div>
@@ -8804,10 +8902,35 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[60]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[55]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>9</pre>
+<pre>3</pre>
 </div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=976f8195-576c-410b-b87e-88482007ac9c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>$ 6 \cdot 3 \mod 15 = 6 \cdot 8 \mod 15 $</p>
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b8f0bffc-b7d5-4994-9027-a2a65e46d478">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>This congruence modulo $n$ is denoted by
+$$ 
+6 \cdot 3 \equiv 3 \pmod{15} 
+$$</p>
 </div>
 </div>
 </div>
@@ -8820,7 +8943,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Greatest-common-divisor-(GCD)">Greatest common divisor (GCD)<a class="anchor-link" href="#Greatest-common-divisor-(GCD)">¶</a></h2><p>The <strong>greatest common divisor</strong> (gcd) of two or more integers, which are not all zero, is the largest positive integer that divides each of the integers (without remainder).</p>
 <ul>
-<li>Commutaive: $$ gcd(a,b) =  gcd(b,a) $$</li>
+<li>Commutative: $$ gcd(a,b) =  gcd(b,a) $$</li>
 <li>Associative: $$ gcd(a,b,c) = gcd(gcd(a,b),c) =  gcd(a,gcd(b,c)) $$</li>
 </ul>
 </div>
@@ -8975,7 +9098,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Euclidean-algorithm">Euclidean algorithm<a class="anchor-link" href="#Euclidean-algorithm">¶</a></h3><p>The Euclidean algorithm is an efficient method for computing the <em>greatest common divisor</em> (GCD) of two numbers.</p>
-<p>The basic principle is that replacing the larger of the two numbers by its difference with the smaller number does not change the greatest common divisor. This process is reapeated until the remainder is $ 0 $. The last non-zero difference is the gcd.</p>
+<p>The basic principle is that replacing the larger of the two numbers by its difference with the smaller number does not change the greatest common divisor. This process is repeated until the remainder is $ 0 $. The last non-zero difference is the gcd.</p>
 <p>The following is a visual example of computing the gcd of $ 49 $ (black) and $ 21 $ (red), which is $ 7 $.</p>
 <p style="text-align:center">
 <img alt="Euclidean algorithm" src="./figures/euclid.png" width="150"/>
@@ -8993,7 +9116,7 @@ $ \mathbb{Z}_n=\{0,1,2,4,5,6,7,8,9,10,11,12,13,14\} $</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Euclidean-algorithm-animation">Euclidean algorithm animation<a class="anchor-link" href="#Euclidean-algorithm-animation">¶</a></h3><p>Animation of computing the Euclidean algorihm for $gcd(62,36) = 2$:</p>
+<h3 id="Euclidean-algorithm-animation">Euclidean algorithm animation<a class="anchor-link" href="#Euclidean-algorithm-animation">¶</a></h3><p>Animation of computing the Euclidean algorithm for $gcd(62,36) = 2$:</p>
 <p style="text-align:center;font-size:10px">
 <video controls="" src="https://upload.wikimedia.org/wikipedia/commons/transcoded/5/5f/The_Great_Common_Divisor_of_62_and_36_is_2.ogv/The_Great_Common_Divisor_of_62_and_36_is_2.ogv.720p.vp9.webm" width="480"></video>
 </p>
@@ -9155,7 +9278,7 @@ One example would be $ 8 $ and $ 9 $.</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>If either $ a $ or $ b $ is prime, then they might, or might not be <em>relatively prime</em> to each other:</p>
 <ul>
-<li>All integers from $ 1 $ to $ p \in \textrm{Primes}$ have to be relatively prime to $ p $</li>
+<li>All integers from $ 1 $ to $ p - 1 $ are relatively prime to $ p \in \textrm{Primes}$ (but $ \gcd(p,p) = p $)</li>
 <li>There might be an integer $ z &gt; p $ of which $ p $ is a prime factor. In this case $ z $ and $ p $ are not <em>relatively prime</em></li>
 </ul>
 <p>For example, $ 4 $ and $ 5 $ are coprime, whereas $ 10 $ and $ 5 $ are not coprime.</p>
@@ -9258,7 +9381,7 @@ One example would be $ 8 $ and $ 9 $.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The answers is of course yes, since per definition of a prime they cannot have a common divisor, i.e., $\gcd(a,b) = 1 $</p>
+<p>Yes, if they are <em>distinct</em>: by definition, the only positive divisors of a prime $ a $ are $ 1 $ and $ a $, so if $ a \neq b $ the only common divisor is $ 1 $, i.e., $\gcd(a,b) = 1 $. (If $ a = b $, then $ \gcd(a,a) = a \neq 1 $.)</p>
 </div>
 </div>
 </div>
@@ -9321,7 +9444,7 @@ One example would be $ 8 $ and $ 9 $.</p>
 <p><strong>Examples:</strong></p>
 <ul>
 <li>In $ \mathbb{Q} $ the inverse of $ 3 $ would be $ 1/3 $ since $ 3 \cdot 1/3 = 1 $.</li>
-<li>In $ \mathbb{Z}_n $ the inverse of $ 2 $ would be $ \frac{n+1}{2} $ since $ 2 \cdot \frac{n+1}{2} = n + 1 = 1 \pmod{n} $</li>
+<li>In $ \mathbb{Z}_n $ with $ n $ <em>odd</em> the inverse of $ 2 $ would be $ \frac{n+1}{2} $ since $ 2 \cdot \frac{n+1}{2} = n + 1 = 1 \pmod{n} $ (for even $ n $, $ \gcd(2,n) = 2 $ and $ 2 $ has no inverse)</li>
 </ul>
 </div>
 </div>
@@ -9361,19 +9484,29 @@ One example would be $ 8 $ and $ 9 $.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="A-set-where-very-element-has-an-inverse">A set where very element has an inverse<a class="anchor-link" href="#A-set-where-very-element-has-an-inverse">¶</a></h3><p>A subset of the set of integers modulo $n$, in which all elements are <em>coprime (relatively prime)</em> to $n$ is defined as:</p>
+<h3 id="A-set-where-every-element-has-an-inverse">A set where every element has an inverse<a class="anchor-link" href="#A-set-where-every-element-has-an-inverse">¶</a></h3><p>A subset of the set of integers modulo $n$, in which all elements are <em>coprime (relatively prime)</em> to $n$ is defined as:</p>
 <p>$$
 \mathbb{Z}^*_n = \{ x \in \mathbb{Z}_n : \gcd(x,n)=1 \}
 $$</p>
-<p>The set $ \mathbb{Z}_n^* $ forms a <em>group</em> under mutliplication, hence the $^*$ symbol (see <a href="./Number_Theory_I.slides.html#group">definition of a group</a> for more details)</p>
+<p>The set $ \mathbb{Z}_n^* $ forms a <em>group</em> under multiplication, hence the $^*$ symbol (see <a href="./Number_Theory_I.slides.html#group">definition of a group</a> for more details)</p>
 <p>To construct this set  all elements in $ \mathbb{Z}_n $ that are not invertible have to be eliminated. This includes $ 0 $ as it does not have an inverse.</p>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e0fc0b65-9866-4200-8ca1-f25ae997cb8f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>Example:</strong></p>
 <p>If $n=15$ then $ \mathbb{Z}^*_n = \{ 1,2,4,7,8,11,13,14 \} $ and the order is $ | \mathbb{Z}^*_n | = 8 $</p>
-<p>For small $n$, this set can be computed by iterating through the elements of $\mathbb{Z}_n$ and check if $\gcd(x,n) = 1 $. This is computationally inveasable for large $n$, but computing a multiplicative inverse of an element $ x \in \mathbb{Z}_n $, where $ \gcd(x,n) = 1 $ can be done in polynomial time, for example by using the extended Euclidean algorithm.</p>
+<p>For small $n$, this set can be computed by iterating through the elements of $\mathbb{Z}_n$ and check if $\gcd(x,n) = 1 $. This is computationally infeasible for large $n$, but computing a multiplicative inverse of an element $ x \in \mathbb{Z}_n $, where $ \gcd(x,n) = 1 $ can be done in polynomial time, for example by using the extended Euclidean algorithm.</p>
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=53d7a4c7-3801-4dcf-963f-d12f08866a5e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -9396,7 +9529,7 @@ $ y $ is the modular multiplicative inverse of $ b \mod a $.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [93]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># exteneded euclidean algorithm in sage</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># extended euclidean algorithm in sage</span>
 <span class="n">xgcd</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span> <span class="c1"># returns (gcd,x,y)</span>
 </pre></div>
 </div>
@@ -9476,7 +9609,7 @@ $ y $ is the modular multiplicative inverse of $ b \mod a $.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="Extended-Euclidean-algorithm-complexity">Extended Euclidean algorithm complexity<a class="anchor-link" href="#Extended-Euclidean-algorithm-complexity">¶</a></h4><p>The extended euclidean algorithm can be used to compute the modular multiplicative inverse of $ a \mod b $ in polynomial time.
-In big $\mathcal{O}$ notation this algorithm runs in time $\mathcal{O}(\log_2(b))$ (assuming $a$ &lt; $b$).</p>
+In big $\mathcal{O}$ notation the algorithm needs $\mathcal{O}(\log_2(b))$ iterations (division steps), assuming $a &lt; b$. Since each division step on numbers of $ n = \|b\| $ bits costs $\mathcal{O}(n^2)$ bit operations, the overall running time is polynomial in $ n $ (a more careful analysis gives $\mathcal{O}(n^2)$).</p>
 </div>
 </div>
 </div>
@@ -9488,7 +9621,7 @@ In big $\mathcal{O}$ notation this algorithm runs in time $\mathcal{O}(\log_2(b)
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Euler's-totient-function-$%5Cvarphi(n)$">Euler's totient function $\varphi(n)$<a class="anchor-link" href="#Euler's-totient-function-$%5Cvarphi(n)$">¶</a></h2><p><a id="phi_n"></a>
-Eulers totient function, written as $\varphi(n)$ or $\phi(n)$, gives the count of integers that are relatively prime to $n$. This resembles the number of <em>invertable elements</em> in $ \mathbb{Z}_n $, i.e., elements that have an inverse in $\mathbb{Z}_n$.</p>
+Eulers totient function, written as $\varphi(n)$ or $\phi(n)$, gives the count of integers that are relatively prime to $n$. This resembles the number of <em>invertible elements</em> in $ \mathbb{Z}_n $, i.e., elements that have an inverse in $\mathbb{Z}_n$.</p>
 <p>To compute the function the <em>prime factors</em> of $n$ need to be known!</p>
 <p>If there are $ r $ different prime factors $\{p_1,p_2,\dots,p_r\}$ of $ n $, the function $ \varphi(n) $ can be computed as follows:
 $$
@@ -9536,13 +9669,13 @@ $$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Euler's-totient-function-when-$n-%5Cin-%5Ctextrm%7BPrimes%7D$">Euler's totient function when $n \in \textrm{Primes}$<a class="anchor-link" href="#Euler's-totient-function-when-$n-%5Cin-%5Ctextrm%7BPrimes%7D$">¶</a></h3><p>If $n=p \in \textrm{Primes}$ this implies that the group of elements in $\mathbb{Z}_p$ which have a multiplicative inverse modulo $ p $, i.e., the group $\mathbb{Z}^*_p$, has $p-1$ elements, i.e.,  $|\mathbb{Z}^*_p|=p-1$ since:</p>
 <ul>
-<li>all integers from $1$ to $p$ have to be relatively prime to $p$, the only exeception is $0$, since $gcd(0,p)=0$. Therefore this element needs to be removed.</li>
-<li>for all other numbers in the set it holds that, per defintion of a prime number it is not devisable by any other number than 1.
+<li>all integers from $1$ to $p-1$ are relatively prime to $p$, the only exception in $\mathbb{Z}_p$ is $0$, since $\gcd(0,p)=p \neq 1$. Therefore this element needs to be removed.</li>
+<li>for all other numbers in the set it holds that, per definition of a prime number it is not divisible by any other number than 1.
 $$
-\mathbb{Z}^*_p = \mathbb{Z}_p / \{0\} = \{1,2,...,p-1\} \qquad \textrm{if } n \in \textrm{Primes}
+\mathbb{Z}^*_p = \mathbb{Z}_p \setminus \{0\} = \{1,2,...,p-1\} \qquad \textrm{if } p \in \textrm{Primes}
 $$</li>
 </ul>
-<p>In other words: Despite $0$ every other element in $\mathbb{Z}_p$ is invertable</p>
+<p>In other words: Except for $0$ every other element in $\mathbb{Z}_p$ is invertible</p>
 </div>
 </div>
 </div>
@@ -9553,7 +9686,7 @@ $$</li>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Example:</strong> If $N=7$ then $ \mathbb{Z}^*_p = \{ 1,2,3,4,5,6,7 \} $</p>
+<p><strong>Example:</strong> If $p=7$ then $ \mathbb{Z}^*_p = \{ 1,2,3,4,5,6 \} $ and $ \varphi(7) = 6 $</p>
 </div>
 </div>
 </div>
@@ -9624,7 +9757,7 @@ $$
 \end{align*}
 $$</p>
 <ul>
-<li>In this case $p$ and $q$ are approx. the size of $\sqrt{n}$, i.e., $p,q \approx \sqrt{n}$</li>
+<li>If $p$ and $q$ are of (approximately) the same size, as in RSA, they are approx. the size of $\sqrt{n}$, i.e., $p,q \approx \sqrt{n}$</li>
 <li>In this case also $\varphi(n)$ is close to the size of $n$ since $n=pq$ and
 $$
 \begin{align*}
@@ -9634,7 +9767,7 @@ $$
 &amp;\approx n 
 \end{align*}
 $$</li>
-<li>Therefore if you pick a random element in in $\mathbb{Z}_n$, where $n=pq$ and $p,q \in \textrm{Primes}$ it is very likely to be invertable.</li>
+<li>Therefore if you pick a random element in in $\mathbb{Z}_n$, where $n=pq$ and $p,q \in \textrm{Primes}$ it is very likely to be invertible.</li>
 </ul>
 </div>
 </div>
@@ -9726,7 +9859,7 @@ $$</li>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [110]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">euler_phi</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Number of invertable elements $\varphi(n)$</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">euler_phi</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Number of invertible elements $\varphi(n)$</span>
 <span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># almost as large as n </span>
 </pre></div>
 </div>
@@ -9782,19 +9915,19 @@ Phi of n, when n is the product of two primes the dot is colored red
 <h2 id="Group">Group<a class="anchor-link" href="#Group">¶</a></h2><p><a id="group"></a></p>
 <div style="background:azure">
 <p><strong>DEFINITION: Group</strong> (according to [<a href="https://www.cs.umd.edu/~jkatz/imc.html">ITMC</a>]):</p>
-<p>A group is a set $ \mathbb{G} $ along with a binary operation $ \circ $ for the the following conditions hold:</p>
+<p>A group is a set $ \mathbb{G} $ along with a binary operation $ \circ $ for the following conditions hold:</p>
 <ul>
 <li><strong>Closure:</strong> For all $g,h \in \mathbb{G}, g \circ h \in \mathbb{G} $</li>
-<li><strong>Existence of an idenity</strong>: There exists and identity $ e \in \mathbb{G} $ such that for all $ g \in \mathbb{G}, e \circ g = g = g \circ e $</li>
-<li><strong>Existence of inverse:</strong> For all $ g \in \mathbb{G} $ there exists an element $ h \in \mathbb{G} $ such that $ g \circ h = e = h \circ g $. Such an $ h $ is called and inverse of $ g $.</li>
+<li><strong>Existence of an identity</strong>: There exists an identity $ e \in \mathbb{G} $ such that for all $ g \in \mathbb{G}, e \circ g = g = g \circ e $</li>
+<li><strong>Existence of inverse:</strong> For all $ g \in \mathbb{G} $ there exists an element $ h \in \mathbb{G} $ such that $ g \circ h = e = h \circ g $. Such an $ h $ is called an inverse of $ g $.</li>
 <li><strong>Associativity:</strong> For all $ g_1,g_2,g_3 \in \mathbb{G}, (g_1 \circ g_2) \circ g_3 = g_1 \circ (g_2 \circ g_3)$</li>
 </ul>
-<p>A group $ \mathbb{G} $ with operation $\circ$ is <em>abelian</em> if the follwing holds:</p>
+<p>A group $ \mathbb{G} $ with operation $\circ$ is <em>abelian</em> if the following holds:</p>
 <ul>
 <li><strong>Commutativity:</strong> For all $ g,h \in \mathbb{G}$, $g \circ h = h \circ g $</li>
 </ul>
 <p>When $ \mathbb{G} $ has a finite number of elements, we say $ \mathbb{G} $ is <em>finite</em> and let $ | \mathbb{G} | $ denote the <em>order</em> of the group i.e., the number of elements in $ \mathbb{G} $.</p>
-<p>If $ \mathbb{G} $ is a group, a set $ \mathbb{H} \subseteq \mathbb{G}$ is a <em>subgroup</em> of $ \mathbb{G} $ if $ \mathbb{ H } $ iteself forms a group under the same operation associated with $ \mathbb{G} $. Every group $ \mathbb{G} $ has the trivial subgroups $ \mathbb{G} $ and $ \{e\} $.</p>
+<p>If $ \mathbb{G} $ is a group, a set $ \mathbb{H} \subseteq \mathbb{G}$ is a <em>subgroup</em> of $ \mathbb{G} $ if $ \mathbb{ H } $ itself forms a group under the same operation associated with $ \mathbb{G} $. Every group $ \mathbb{G} $ has the trivial subgroups $ \mathbb{G} $ and $ \{e\} $.</p>
 </div>
 </div>
 </div>
@@ -9811,12 +9944,14 @@ Phi of n, when n is the product of two primes the dot is colored red
 <li>group operation with two elements $ g + h $</li>
 <li>identity: $ 0 $</li>
 <li>inverse of element $g$ is given by $ -g $</li>
+<li>we write $ h - g $ instead of $ h + (-g) $</li>
 </ul>
 <p><strong>Multiplicative notation</strong>:</p>
 <ul>
 <li>group operation with two elements $ g \cdot h $ or $ gh $</li>
 <li>identity: $ 1 $</li>
-<li>inverse of element $g$ is given by $ g^{-1} $ or $ 1/g $ or $ h/g $ instead of $ hg^{-1} $</li>
+<li>inverse of element $g$ is given by $ g^{-1} $ (or $ 1/g $)</li>
+<li>we sometimes write $ h/g $ instead of $ hg^{-1} $</li>
 </ul>
 </div>
 </div>
@@ -9834,7 +9969,7 @@ Phi of n, when n is the product of two primes the dot is colored red
 <li>A group is called <em>finite</em>, if $|G|$ (its order) is finite.</li>
 </ul>
 </li>
-<li>The <em>order</em> of a element $a$ of the group is the smallest integer $r$ such that, $a^r=e$ where $e$ is defined as identity element of the group. If no such $r$ exists the element $a$ has an infinite order.</li>
+<li>The <em>order</em> of an element $a$ of the group is the smallest positive integer $r$ such that, $a^r=e$ where $e$ is defined as identity element of the group. If no such $r$ exists the element $a$ has an infinite order.</li>
 </ul>
 </div>
 </div>
@@ -9871,7 +10006,7 @@ Phi of n, when n is the product of two primes the dot is colored red
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <ul>
-<li>This set is a <em>abelian group</em> with infinite order.</li>
+<li>This set is an <em>abelian group</em> with infinite order.</li>
 </ul>
 </div>
 </div>
@@ -9912,7 +10047,7 @@ Phi of n, when n is the product of two primes the dot is colored red
 <div class="jp-InputPrompt jp-InputArea-prompt">In [119]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Idenity example:</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Identity example:</span>
 <span class="n">g</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span> <span class="n">e</span><span class="o">=</span><span class="mi">0</span> <span class="c1"># identity element </span>
 <span class="n">e</span> <span class="o">+</span> <span class="n">g</span> <span class="o">==</span> <span class="n">g</span> <span class="o">==</span> <span class="n">g</span> <span class="o">+</span> <span class="n">e</span> 
 </pre></div>
@@ -10035,7 +10170,7 @@ Phi of n, when n is the product of two primes the dot is colored red
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <ul>
-<li>The set of integers modulo $ n $, i.e., $ \mathbb{Z}_n $, where $ n &gt; 1 $,  is a <em>abelian group</em> under the operation of addition ($+$) modulo $ n $, i.e., $ a + b := [ a + b \mod n ] $. This group can also be denoted as $\mathbb{Z}^+_n $. The order of this group is $ n $, with the elements $ \{ 0, ..., n - 1 \} $. The inverse of any element $ a $ is $ [(n-a) \mod n] $</li>
+<li>The set of integers modulo $ n $, i.e., $ \mathbb{Z}_n $, where $ n &gt; 1 $,  is an <em>abelian group</em> under the operation of addition ($+$) modulo $ n $, i.e., $ a + b := [ a + b \mod n ] $. This group can also be denoted as $\mathbb{Z}^+_n $. The order of this group is $ n $, with the elements $ \{ 0, ..., n - 1 \} $. The inverse of any element $ a $ is $ [(n-a) \mod n] $</li>
 </ul>
 </div>
 </div>
@@ -10158,7 +10293,7 @@ Z_n list  = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 <div class="jp-InputPrompt jp-InputArea-prompt">In [129]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Idenity element 0 in Zn under addition:</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Identity element 0 in Zn under addition:</span>
 <span class="n">g</span> <span class="o">=</span> <span class="n">Zn</span><span class="o">.</span><span class="n">random_element</span><span class="p">();</span> <span class="n">e</span><span class="o">=</span><span class="n">Zn</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> 
 <span class="n">e</span> <span class="o">+</span> <span class="n">g</span> <span class="o">==</span> <span class="n">g</span> <span class="o">==</span> <span class="n">g</span> <span class="o">+</span> <span class="n">e</span> 
 </pre></div>
@@ -10186,7 +10321,7 @@ Z_n list  = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 <div class="jp-InputPrompt jp-InputArea-prompt">In [130]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Inverse of g mod n under addition is always n-g = g^-1 </span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Inverse of g mod n under addition is always n-g = -g </span>
 <span class="c1"># as g + (n-g) mod n = 0 </span>
 <span class="n">g</span> <span class="o">=</span> <span class="n">Zn</span><span class="o">.</span><span class="n">random_element</span><span class="p">();</span> <span class="n">_g</span><span class="o">=</span><span class="n">Zn</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">g</span><span class="p">)</span> <span class="c1"># inverse of g mod n </span>
 <span class="n">g</span> <span class="o">+</span> <span class="n">_g</span> <span class="o">==</span> <span class="n">e</span> <span class="o">==</span> <span class="n">_g</span> <span class="o">+</span> <span class="n">g</span>
@@ -10282,8 +10417,9 @@ Z_n list  = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <ul>
-<li>$ \mathbb{Z}_n^* $ is <em>not</em> a <em>group</em> with operation $ a \cdot b \mod n $ being multiplication modulo $ n $, where $ n \notin \textrm{Primes}$.</li>
-<li>The identity element would be $e=1$, but not every element has an modular multiplicative inverse, e.g., $ 2 $  has no inverse in the integers, as $ 2 \cdot \frac{1}{2} = 1 $, but $\frac{1}{2} \notin \mathbb{Z}$ and hence not in $ \mathbb{Z}_n^* $.</li>
+<li>$ \mathbb{Z}_n \setminus \{0\} = \{1,\dots,n-1\} $ is <em>not</em> a <em>group</em> with operation $ a \cdot b \mod n $ being multiplication modulo $ n $, where $ n \notin \textrm{Primes}$.</li>
+<li>The identity element would be $e=1$, but not every element has a modular multiplicative inverse, e.g., for $ n = 15 $ the element $ 3 $ has no inverse, since $ \gcd(3,15) = 3 \neq 1 $ (closure fails as well: $ 3 \cdot 5 = 0 \pmod{15} $).</li>
+<li>Removing all non-invertible elements yields $ \mathbb{Z}_n^* = \{ x \in \mathbb{Z}_n : \gcd(x,n)=1 \} $, which <em>is</em> an abelian group under multiplication modulo $ n $ for <em>every</em> $ n &gt; 1 $, with order $ \varphi(n) $.</li>
 </ul>
 </div>
 </div>
@@ -10326,7 +10462,7 @@ Z_n list  = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># but not every element has a modulo multiplicative inverse mod n</span>
-<span class="n">Zn_unit</span> <span class="o">=</span> <span class="n">Zn</span><span class="o">.</span><span class="n">unit_group</span><span class="p">()</span> <span class="c1"># Zn_unit only has invertable elements (aka. units)</span>
+<span class="n">Zn_unit</span> <span class="o">=</span> <span class="n">Zn</span><span class="o">.</span><span class="n">unit_group</span><span class="p">()</span> <span class="c1"># Zn_unit only has invertible elements (aka. units)</span>
 <span class="c1">#print(type(Zn_unit))</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">Zn_unit</span><span class="o">.</span><span class="n">list</span><span class="p">()</span><span class="si">}</span><span class="s2"> len = </span><span class="si">{</span><span class="n">Zn_unit</span><span class="o">.</span><span class="n">order</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="c1"># show list of elements as represented by generators</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"(f0,f1) = </span><span class="si">{</span><span class="n">Zn_unit</span><span class="o">.</span><span class="n">gens_values</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="c1"># show values of generators</span>
@@ -10361,14 +10497,14 @@ Z_n list  = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 <p><strong>DEFINITION: Finite Field</strong> (according to [<a href="https://www.cs.umd.edu/~jkatz/imc.html">ITMC</a>]):</p>
 <p>A <strong>finite field</strong> (or <strong>Galois field</strong>), is a finite set $\mathbb{F}$ along with two binary operations $\{+,\cdot\} $ for which the following hold:</p>
 <ul>
-<li>$\mathbb{F}$ is a <em>abelian group</em> with respect to the operation $+$ and the idenity element, denoted as $ 0 $, for this group.<ul>
-<li>The <em>additive inverse</em> of $ a \in \mathbb{F}$, denoted by $ -a $, is the unique element statisfying $ a + (-a) = 0 $.</li>
+<li>$\mathbb{F}$ is an <em>abelian group</em> with respect to the operation $+$ and the identity element, denoted as $ 0 $, for this group.<ul>
+<li>The <em>additive inverse</em> of $ a \in \mathbb{F}$, denoted by $ -a $, is the unique element satisfying $ a + (-a) = 0 $.</li>
 <li>We can also write $b-a$ in place of $b+(-a)$.</li>
 </ul>
 </li>
 <li>$\mathbb{F} \setminus \{0\}$ is an <em>abelian group</em> with respect to the operation $\cdot$ and the identity element, denoted as $ 1 $, for this group.<ul>
-<li>The <em>multiplicative inverse</em> of $ a \in \mathbb{F}$, denoted by $a^{-1}$, is the unique element statisfying $a\cdot a^{-1} = 1 $.</li>
-<li>We can also write $b/a$ in place of $b\cdot a^{-1}=1$.</li>
+<li>The <em>multiplicative inverse</em> of $ a \in \mathbb{F} \setminus \{0\}$, denoted by $a^{-1}$, is the unique element satisfying $a\cdot a^{-1} = 1 $.</li>
+<li>We can also write $b/a$ in place of $b\cdot a^{-1}$.</li>
 <li>We can also write $ab$ in place of $a \cdot b$.</li>
 </ul>
 </li>
@@ -10389,7 +10525,7 @@ Z_n list  = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 <li>The number of elements of a finite field is called its <em>order</em>.</li>
 <li>If $\mathbb{F}$ is a finite field, then the <em>order</em> of $\mathbb{F}$ is a prime power, i.e., $p^n$ where $p \in \textrm{Primes}$ and $ n \geq 1 $.<ul>
 <li>Therefore, the order of a finite field is either prime ($p^1$), or the power of a prime ($p^n$ for all $n &gt; 1$).</li>
-<li>Converseley, for every prime power $ q=p^n $ there is a finite field of that order $ q $, which is unique (up to relabeling of the elements).</li>
+<li>Conversely, for every prime power $ q=p^n $ there is a finite field of that order $ q $, which is unique (up to relabeling of the elements).</li>
 <li>For $ q = p^n $ with $p \in \textrm{Primes}$, we let $\mathbb{F}_q$ or $\mathtt{GF}(q)$ denote the (unique) field of order $ q $. We call $ p $ the <em>characteristic</em> of $\mathbb{F}_q$.</li>
 </ul>
 </li>
@@ -10406,11 +10542,11 @@ Z_n list  = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Examples-of-finite-fields">Examples of finite fields<a class="anchor-link" href="#Examples-of-finite-fields">¶</a></h3><p><strong>Prime field</strong>:</p>
 <ul>
-<li>The set $\{0,\dots,p-1\}$, where $p \in \textrm{Primes}$, under addition and multiplication modulo $ p$ is called a <em>prime field</em> $\mathbb{F}_p$. It is the field of residue classes modulo $ p $ written as $ a \equiv b \pmod{p} $. A prime field is of order $ p $. Adding $ p $ copies of any element always results in $ 0 $. The <em>characterisitc</em> of this field is $ p $.<ul>
+<li>The set $\{0,\dots,p-1\}$, where $p \in \textrm{Primes}$, under addition and multiplication modulo $ p$ is called a <em>prime field</em> $\mathbb{F}_p$. It is the field of residue classes modulo $ p $ written as $ a \equiv b \pmod{p} $. A prime field is of order $ p $. Adding $ p $ copies of any element always results in $ 0 $. The <em>characteristic</em> of this field is $ p $.<ul>
 <li>The elements of $\mathbb{F}_p$ are integers</li>
 <li>$\mathbb{F}_p$ can also be called the <em>ring of integers modulo $ p $</em></li>
 <li>$\mathbb{F}_p^*$ means all elements of the field without the $0$.</li>
-<li>When $ p = 2 $ in $\mathbb{F}_p $, also noted as $ \texttt{GF}(2)$, addition and substraction is XOR and multiplication is AND. Since the only invertible element is $ 1 $, division is the identity funcction.</li>
+<li>When $ p = 2 $ in $\mathbb{F}_p $, also noted as $ \texttt{GF}(2)$, addition and subtraction is XOR and multiplication is AND. Since the only invertible element is $ 1 $, division is the identity function.</li>
 </ul>
 </li>
 </ul>
