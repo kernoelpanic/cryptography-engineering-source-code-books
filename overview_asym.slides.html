@@ -7440,7 +7440,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Asymmetric-Cryptography-High-Level-Overview">Asymmetric Cryptography High Level Overview<a class="anchor-link" href="#Asymmetric-Cryptography-High-Level-Overview">¶</a></h1>
+<h1 id="Asymmetric-Cryptography-High-Level-Overview">Asymmetric Cryptography High-Level Overview<a class="anchor-link" href="#Asymmetric-Cryptography-High-Level-Overview">¶</a></h1>
 </div>
 </div>
 </div>
@@ -7455,7 +7455,7 @@ main {
 <div style="flex:6">
 <ul>
 <li>$n$ parties who all want to talk pairwise need $n(n-1)/2$ pre-shared keys for symmetric crypto</li>
-<li>1000 parties $\approx$ 500 000 keys on each device</li>
+<li>1000 parties $\approx$ 500 000 keys in total, 999 on each device</li>
 <li>How do you set up a secure channel with a web-shop owner you have never met?</li>
 </ul>
 </div>
@@ -7473,7 +7473,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Asymmetric-Cryptography">Asymmetric Cryptography<a class="anchor-link" href="#Asymmetric-Cryptography">¶</a></h1><p><em>Individual keys instead of one</em></p>
+<h1 id="Asymmetric-Cryptography">Asymmetric Cryptography<a class="anchor-link" href="#Asymmetric-Cryptography">¶</a></h1><p><em>a key pair per party instead of one shared key</em></p>
 </div>
 </div>
 </div>
@@ -7487,14 +7487,14 @@ main {
 <h2 id="The-Public-Key-Revolution-(1976)">The Public-Key Revolution (1976)<a class="anchor-link" href="#The-Public-Key-Revolution-(1976)">¶</a></h2><div style="display:flex; align-items:flex-start; gap:1em">
 <div style="flex:6">
 <ul>
-<li><strong>DH</strong> 1976 (<em>Whitfield Diffie, Martin Hellman</em>): <a href="https://www.cs.jhu.edu/~rubin/courses/sp03/papers/diffie.hellman.pdf">"New Directions in Cryptography"</a>: allowed to compute a shared secret over public channel<ul>
+<li><strong>DH</strong> 1976 (<em>Whitfield Diffie, Martin Hellman</em>): <a href="https://www.cs.jhu.edu/~rubin/courses/sp03/papers/diffie.hellman.pdf">"New Directions in Cryptography"</a>: showed how two parties can agree on a shared secret over a public channel<ul>
 <li><strong>public key</strong> $pk$   hand it to everyone</li>
 <li><strong>private key</strong> $sk$   keep secret</li>
 </ul>
 </li>
 <li><strong>RSA</strong> 1977 (Rivest, Shamir, Adleman): first practical public-key encryption <em>and</em> signature scheme</li>
-<li>Declassified later: Ellis, Cocks and Williamson had the idea at GCHQ in 1969–73</li>
-<li>All of it rests on <strong>trapdoor</strong> problems: easy one way, hard back<ul>
+<li>Declassified later: Ellis, Cocks and Williamson had the idea at GCHQ in 1970–74</li>
+<li>All of it rests on computationally <strong>hard problems</strong>: easy one way, hard back<ul>
 <li>factoring, discrete log (mod $p$ and on elliptic curves), lattices, ...</li></ul></li></ul></div>
 
 
@@ -7502,7 +7502,7 @@ main {
 
 <div style="flex:4; display:flex; flex-direction:column; gap:0.5em">
 <img alt="Diffie and Hellman" src="./img/DH.jpg" style="width:40%"/>
-<img alt="number systems" src="./img/RSA.jpg" style="width:50%"/>
+<img alt="Rivest, Shamir, Adleman" src="./img/RSA.jpg" style="width:50%"/>
 </div>
 </div>
 </div>
@@ -7529,6 +7529,17 @@ At the same time, theoretical developments in information theory and computer sc
 </div>
 </div>
 </div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8e1bc3f0-871a-48f8-9a55-791310dd931c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Asymmetric-Encryption">Asymmetric Encryption<a class="anchor-link" href="#Asymmetric-Encryption">¶</a></h1>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ce17f206-1a67-4bd9-83e1-e5249ad41b96">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7569,19 +7580,6 @@ At the same time, theoretical developments in information theory and computer sc
 </div>
 </div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f6d9863e-d888-4755-9777-4b0c29ae26a6">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Asymmetric-Encryption">Asymmetric Encryption<a class="anchor-link" href="#Asymmetric-Encryption">¶</a></h3><div style="text-align:center">
-<img alt="No description has been provided for this image" src="./img/AB/021_AB.svg" style="vertical-align:middle;width:100%"/>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e4958b2b-470b-4fed-bc46-5aff34e60493">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7730,7 +7728,7 @@ At the same time, theoretical developments in information theory and computer sc
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Diffie%E2%80%93Hellman-Key-Exchange">Diffie–Hellman Key Exchange<a class="anchor-link" href="#Diffie%E2%80%93Hellman-Key-Exchange">¶</a></h2>
+<h1 id="Diffie%E2%80%93Hellman-Key-Exchange-(DH)">Diffie–Hellman Key Exchange (DH)<a class="anchor-link" href="#Diffie%E2%80%93Hellman-Key-Exchange-(DH)">¶</a></h1>
 </div>
 </div>
 </div>
@@ -7741,7 +7739,7 @@ At the same time, theoretical developments in information theory and computer sc
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Modulo-operation">Modulo operation<a class="anchor-link" href="#Modulo-operation">¶</a></h3>
+<h2 id="Modulo-operation">Modulo operation<a class="anchor-link" href="#Modulo-operation">¶</a></h2>
 </div>
 </div>
 </div>
@@ -7862,14 +7860,14 @@ At the same time, theoretical developments in information theory and computer sc
 </div>
 </div>
 </div>
-</div></div></section></section><section><section>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d4383ec1-bfad-425d-bf71-588f70732290">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Diffie%E2%80%93Hellman-Key-Exchange">Diffie–Hellman Key Exchange<a class="anchor-link" href="#Diffie%E2%80%93Hellman-Key-Exchange">¶</a></h3>
+<h2 id="DH---Toy-Impl.">DH - Toy Impl.<a class="anchor-link" href="#DH---Toy-Impl.">¶</a></h2>
 </div>
 </div>
 </div>
@@ -7881,7 +7879,8 @@ At the same time, theoretical developments in information theory and computer sc
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <ul>
-<li><strong>Public parameters</strong> (PP): a large prime $p$ and a generator $g$ (of a cyclic sub-group!)</li>
+<li><strong>Public parameters</strong> (PP): a large prime $p$ and a generator $g$
+(<em>of a cyclic prime order sub-group</em>)</li>
 </ul>
 </div>
 </div>
@@ -7906,7 +7905,7 @@ At the same time, theoretical developments in information theory and computer sc
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">DH</span><span class="p">(</span><span class="n">g</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">p</span><span class="p">):</span> 
@@ -7924,8 +7923,10 @@ At the same time, theoretical developments in information theory and computer sc
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <ul>
-<li>Eve sees $g^a$ and $g^b$ and is stuck on the <strong>discrete log problem</strong> (Dlog)</li>
-<li>Mallory could launch <em>Mashine-in-the-middle</em> (MITM) attack</li>
+<li>Security rests on the <strong>computational Diffie–Hellman</strong> (CDH) problem; solving the <strong>discrete log</strong> (Dlog) would break it<ul>
+<li>Eve sees $g^a$ and $g^b$ but cannot compute $g^{ab}$</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -7950,7 +7951,7 @@ At the same time, theoretical developments in information theory and computer sc
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Diffie%E2%80%93Hellman-Key-Exchange">Diffie–Hellman Key Exchange<a class="anchor-link" href="#Diffie%E2%80%93Hellman-Key-Exchange">¶</a></h3>
+<h3 id="DH---Toy-Impl.">DH - Toy Impl.<a class="anchor-link" href="#DH---Toy-Impl.">¶</a></h3>
 </div>
 </div>
 </div>
@@ -7959,11 +7960,12 @@ At the same time, theoretical developments in information theory and computer sc
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [66]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">3</span>       <span class="c1"># toy parameters! real: &gt;= 3072-bit prime or EC</span>
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span>        <span class="c1"># Alice's secret, Bob's secret</span>
+<span class="c1"># note: g=3 generates the full group of order 16 (not of prime order), fine for a toy</span>
 <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">DH</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="n">DH</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>  <span class="c1"># what goes over the wire</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">DH</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="n">DH</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="n">DH</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
 </pre></div>
@@ -7993,8 +7995,8 @@ At the same time, theoretical developments in information theory and computer sc
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Caution-%E2%9A%A0">Caution ⚠<a class="anchor-link" href="#Caution-%E2%9A%A0">¶</a></h3><p>Just a toy example, to illustrate the concept, not for production use!</p>
 <ul>
-<li>Non-secure public parameters can be used (e.g., to small)</li>
-<li>Does not validate inputs (operate with secret key on invalid parameters)</li>
+<li>Non-secure public parameters can be used in this impl. (e.g., too small, generator of small sub-group, ...)</li>
+<li>Does not validate inputs (uses the secret key on unvalidated inputs)</li>
 </ul>
 </div>
 </div>
@@ -8004,12 +8006,13 @@ At the same time, theoretical developments in information theory and computer sc
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [85]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">invalid_pub_key</span> <span class="o">=</span> <span class="n">DH</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="mi">1024</span><span class="p">)</span> <span class="c1"># Bob forces invalid PP (large) p </span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">invalid_pub_key</span> <span class="o">=</span> <span class="n">DH</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="mi">1024</span><span class="p">)</span> <span class="c1"># Mallory chooses malicious PP: p = 2^1024 (huge, not prime)</span>
+<span class="c1"># g^a &lt; p -&gt; no modular reduction -&gt; Dlog becomes an ordinary logarithm</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"invalid pub. key A = </span><span class="si">{</span><span class="n">invalid_pub_key</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"secret of Alice  a = </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">invalid_pub_key</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"secret of Alice  a = </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">invalid_pub_key</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8037,29 +8040,41 @@ secret of Alice  a = 5
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <ul>
-<li>(Timing) side channel
+<li>(Timing) side channels,
 ...</li>
+<li>No authentication → Mallory can still mount <em>Machine-in-the-middle</em> (MITM) attacks!</li>
 </ul>
 </div>
 </div>
 </div>
 </div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ec17d485-63c2-4011-905e-e891a5286cd4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="RSA">RSA<a class="anchor-link" href="#RSA">¶</a></h1>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5a77632d-cbf3-4270-8983-1ee4174dba2e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="RSA">RSA<a class="anchor-link" href="#RSA">¶</a></h2><ul>
-<li><strong>Public key</strong>: $(n, e)$<ul>
+<h2 id="RSA---Toy-Impl.">RSA - Toy Impl.<a class="anchor-link" href="#RSA---Toy-Impl.">¶</a></h2><ul>
+<li><strong>Public key</strong>: $(n, e)$, in practice $e = 65537$<ul>
 <li>$n = p \cdot q$ where $p, q$ are large primes</li>
 </ul>
 </li>
 <li><strong>Private key</strong>: $d,p,q$<ul>
-<li>where $m^{ed} \equiv m \pmod n$</li>
+<li>$d$ with $ed \equiv 1 \pmod{\lambda(n)}$, so that $m^{ed} \equiv m \pmod n$</li>
 </ul>
 </li>
-<li>Security rests on factoring $n$ → 2048-bit minimum, 3072+ for anything new</li>
+<li>Security at most as hard as factoring $n$ (breaking the RSA problem, i.e., taking $e$-th roots, might be easier than factoring) → 2048-bit minimum, 3072+ for anything new</li>
 </ul>
 </div>
 </div>
@@ -8069,19 +8084,62 @@ secret of Alice  a = 5
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [83]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">rsa_enc</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">m</span><span class="p">):</span> 
-	<span class="k">return</span> <span class="nb">pow</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="c1"># m^e mod n </span>
+    <span class="k">return</span> <span class="nb">pow</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="c1"># m^e mod n </span>
 <span class="k">def</span> <span class="nf">rsa_dec</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
-	<span class="k">return</span> <span class="nb">pow</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="c1"># c^d mod n</span>
+    <span class="k">return</span> <span class="nb">pow</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="c1"># c^d mod n</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5349968f-21ae-4713-b8b8-a7a8a2bdb468">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="RSA---Toy-Impl.">RSA - Toy Impl.<a class="anchor-link" href="#RSA---Toy-Impl.">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=47848bb5-1a7d-4589-98a8-ec2d4806ce82">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">53</span>        <span class="c1"># toy parameters! real: n &gt;= 2048 bit</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">q</span><span class="p">,</span> <span class="mi">17</span>     <span class="c1"># public key (n, e)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">lcm</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">q</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1"># private key: e*d = 1 mod lambda(n)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">42</span>               <span class="c1"># Alice's message</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">rsa_enc</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="c1"># cipher text</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rsa_dec</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="o">==</span> <span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>True 2557
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9fc19f46-7d2c-44c8-a041-64ff38f6c8f6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8089,10 +8147,10 @@ secret of Alice  a = 5
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Caution-%E2%9A%A0">Caution ⚠<a class="anchor-link" href="#Caution-%E2%9A%A0">¶</a></h3><ul>
-<li><strong>Textbook RSA is insecure</strong>: deterministic, malleable, small-message attacks<ul>
-<li>never encrypt your payload with it directly</li>
-<li>encryption → <strong>RSA-OAEP</strong>  ·  signatures → <strong>RSA-PSS</strong>
-(no PKCS#1 v1.5 in new code)</li>
+<li>This RSA toy impl. a.k.a. <strong>textbook RSA is insecure</strong>: deterministic, malleable, small-message attacks, ...<ul>
+<li>never encrypt your payload with RSA directly</li>
+<li>encryption → <strong>RSA-OAEP</strong> (no PKCS#1 v1.5 encryption in new code → Bleichenbacher's attack)</li>
+<li>signatures → <strong>RSA-PSS</strong></li>
 </ul>
 </li>
 </ul>
@@ -8100,6 +8158,17 @@ secret of Alice  a = 5
 </div>
 </div>
 </div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7657dd74-cf76-496f-b978-d2a9f47c8bc6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Hybrid-Encryption-/-KEM-&amp;-DEM">Hybrid Encryption / KEM &amp; DEM<a class="anchor-link" href="#Hybrid-Encryption-/-KEM-&amp;-DEM">¶</a></h1>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6e388e40-8735-405f-94d4-45a2563c159c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8107,18 +8176,16 @@ secret of Alice  a = 5
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Hybrid-Encryption-/-KEM-&amp;-DEM">Hybrid Encryption / KEM &amp; DEM<a class="anchor-link" href="#Hybrid-Encryption-/-KEM-&amp;-DEM">¶</a></h2><ul>
-<li>Asymmetric crypto to negotiate <strong>key</strong>, symmetric crypto for the <strong>data</strong> (faster)<ul>
-<li><strong>KEM</strong> (key encapsulation mechanism) <strong>DEM</strong> (data encapsulation mechanism)</li>
-<li><strong>KEM</strong>: encapsulate / agree on a fresh session key → <strong>DEM</strong>: AEAD over the payload</li>
+<li>Asymmetric crypto to negotiate <strong>key</strong>, symmetric crypto for the <strong>data</strong> (faster)</li>
+<li><strong>KEM</strong> (key encapsulation mechanism)<ul>
+<li>encapsulate / agree on a fresh session key → DEM</li>
 </ul>
 </li>
-<li>That is TLS, SSH, <code>gpg</code>, Signal, <code>age</code>, disk and backup encryption, ...</li>
-<li>Which leaves the hard part: <em>whose public key is this?</em><ul>
-<li><strong>PKI</strong> and X.509 certificates, Certificate Transparency, web of trust, TOFU (SSH)</li>
-<li>An unauthenticated public key could be just some attacker's key</li>
+<li><strong>DEM</strong> (data encapsulation mechanism)<ul>
+<li>AEAD over the payload with fresh session key</li>
 </ul>
 </li>
-<li>Use <strong>X25519</strong> (hard to misuse) as KEM</li>
+<li>Hybrid encryption is used in TLS, SSH, <code>gpg</code> encryption, Signal, <code>age</code> encryption, ...</li>
 </ul>
 </div>
 </div>
@@ -8188,7 +8255,36 @@ secret of Alice  a = 5
 </div>
 </div>
 </div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1498c468-b3f3-43c1-8dfc-62892d5edcb2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Caution-%E2%9A%A0">Caution ⚠<a class="anchor-link" href="#Caution-%E2%9A%A0">¶</a></h2><ul>
+<li>This still omits the hard question: <em>whose public key is this?</em><ul>
+<li><strong>PKI</strong> and X.509 certificates, Certificate Transparency, web of trust, TOFU (SSH), Signal safety number comparison, ...</li>
+<li>An unauthenticated public key could be just some attacker's key</li>
+</ul>
+</li>
+<li>As a KEM use DHKEM(<strong>X25519</strong>) as in HPKE (RFC 9180) (hard to misuse); for new designs hybrid <strong>X25519MLKEM768</strong></li>
+</ul>
+</div>
+</div>
+</div>
 </div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1a1be3a5-9476-4447-83d1-b8ce61bafedf">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Digital-Signatures">Digital Signatures<a class="anchor-link" href="#Digital-Signatures">¶</a></h1>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b5a0f8ab-5943-406a-a1fa-e4e67354f8e7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8196,17 +8292,15 @@ secret of Alice  a = 5
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Digital-Signatures">Digital Signatures<a class="anchor-link" href="#Digital-Signatures">¶</a></h2><ul>
-<li>Sign with $sk$, everyone verifies with $vk$ (verification key)<ul>
-<li>in this context the public key is called <em>verification key</em></li>
-<li>integrity + authenticity + <strong>non-repudiation</strong></li>
+<li>Sign with $sk$ (secret/signing key), everyone else verifies with $vk$ (verification key)<ul>
+<li>in this context the public key is also referred to as <em>verification key</em></li>
 </ul>
 </li>
-<li>Always <em>hash-then-sign</em>: sign $H(m)$, not $m$</li>
-<li>Signatures are what certificates, software updates, eIDs and blockchains are built on</li>
-<li>Use <strong>Ed25519</strong> (hard to misuse), ECDSA (P-256), or RSA-PSS<ul>
-<li>ECDSA footgun: a reused or biased nonce <strong>leaks the private key</strong></li>
+<li>Provide <em>integrity</em> + <em>authenticity</em><ul>
+<li><strong>publicly verifiable</strong> (unlike MACs) → enables <strong>non-repudiation</strong></li>
 </ul>
 </li>
+<li>Signatures are what TLS certificates, software updates, app stores, eIDs and blockchains are built on.</li>
 </ul>
 </div>
 </div>
@@ -8247,6 +8341,167 @@ secret of Alice  a = 5
 <h3 id="Signature">Signature<a class="anchor-link" href="#Signature">¶</a></h3><div style="text-align:center">
 <img alt="No description has been provided for this image" src="./img/AB/034_AB.svg" style="vertical-align:middle;width:100%"/>
 </div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f8118b78-70a5-44ab-ac2f-7b7201bd636d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Caution-%E2%9A%A0">Caution ⚠<a class="anchor-link" href="#Caution-%E2%9A%A0">¶</a></h2><ul>
+<li>Always <em>hash-then-sign</em>: sign $H(m)$, not $m$ (standard libraries already do this internally)</li>
+<li>Use: <strong>Ed25519</strong> (hard to misuse), ECDSA (P-256), or RSA-PSS<ul>
+<li>ECDSA footgun: a reused or biased nonce <em>leaks the private key</em> with the signature(s)</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=45e1643d-2a43-43ac-94ca-d5bb257ba17d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Cryptography-World?">Cryptography World?<a class="anchor-link" href="#Cryptography-World?">¶</a></h1>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9f786509-1a20-430a-bebf-810102cba3a9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Which-cryptography-world-do-we-live-in?">Which cryptography world do we live in?<a class="anchor-link" href="#Which-cryptography-world-do-we-live-in?">¶</a></h2><p><em>R. Impagliazzo, <a href="https://doi.org/10.1109/SCT.1995.514853">"A Personal View of Average-Case Complexity"</a> (1995)</em></p>
+<table>
+<thead>
+<tr>
+<th>World</th>
+<th>What holds</th>
+<th>Crypto?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Algorithmica</strong></td>
+<td>P = NP (or NP easy in practice)</td>
+<td>only inf. theo.</td>
+</tr>
+<tr>
+<td><strong>Heuristica</strong></td>
+<td>NP hard in worst case, but easy on average</td>
+<td>only inf. theo.</td>
+</tr>
+<tr>
+<td><strong>Pessiland</strong></td>
+<td>hard-on-average problems exist, but <strong>no one-way functions</strong>. So no nice crypto and no nice algorithms to compute stuff.</td>
+<td>only. inf. theo.</td>
+</tr>
+<tr>
+<td><strong>Minicrypt</strong></td>
+<td><strong>one-way functions</strong> exist, but no public-key crypto</td>
+<td>symmetric crypto + signatures</td>
+</tr>
+<tr>
+<td><strong>Cryptomania</strong></td>
+<td><strong>public-key crypto</strong> exists</td>
+<td>key exchange, PKE, MPC, ...</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>We <em>believe</em> we live in Cryptomania, but <strong>not proven</strong> (would imply P ≠ NP)</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=69e8a64d-dbde-4a9c-acb2-3f2bd9f473a9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Minicrypt-vs.-Cryptomania">Minicrypt vs. Cryptomania<a class="anchor-link" href="#Minicrypt-vs.-Cryptomania">¶</a></h3><ul>
+<li><strong>Minicrypt</strong> (one-way functions / hash functions only):<ul>
+<li>PRGs, PRFs, block ciphers, MACs, AEAD, commitments</li>
+<li><strong>digital signatures</strong>! (Lamport 1979, Rompel 1990), e.g., hash-based <strong>SLH-DSA</strong>, XMSS, LMS</li>
+</ul>
+</li>
+<li><strong>Cryptomania</strong> needs <em>structured</em> assumptions:<ul>
+<li>key exchange, public-key encryption / KEMs, oblivious transfer, MPC</li>
+<li>factoring, DLog/ECDLog, lattices (LWE), codes, ...</li>
+</ul>
+</li>
+<li><em>Impagliazzo, Rudich (1989)</em>: key exchange cannot be built from a one-way function used as a black box<ul>
+<li>Public-key crypto requires <strong>more structure</strong> → more to attack</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=884f151e-8d8f-42b9-9309-59d580d77c74">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="What-Changes-With-a-Quantum-Computer?">What Changes With a Quantum Computer?<a class="anchor-link" href="#What-Changes-With-a-Quantum-Computer?">¶</a></h3><table>
+<thead>
+<tr>
+<th>Scheme / assumption</th>
+<th>Attack</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RSA (factoring), DH, ECDH, ECDSA, Ed25519 (DLog)</td>
+<td><strong>Shor</strong>: polynomial time</td>
+<td>❌ <strong>broken</strong></td>
+</tr>
+<tr>
+<td>AES, ChaCha20</td>
+<td>Grover: √ speedup on key search</td>
+<td>✅ OK, prefer 256-bit keys</td>
+</tr>
+<tr>
+<td>SHA-2, SHA-3</td>
+<td>Grover: generic only</td>
+<td>✅ OK</td>
+</tr>
+<tr>
+<td>Lattices: <strong>ML-KEM</strong> (FIPS 203), <strong>ML-DSA</strong> (FIPS 204)</td>
+<td>no known quantum speedup beyond generic</td>
+<td>✅ post-quantum</td>
+</tr>
+<tr>
+<td>Hash-based: <strong>SLH-DSA</strong> (FIPS 205), LMS/XMSS</td>
+<td>generic only</td>
+<td>✅ most conservative</td>
+</tr>
+<tr>
+<td>Codes: Classic McEliece, HQC</td>
+<td>generic only</td>
+<td>✅ post-quantum</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Shor breaks some <strong>specific problems</strong> of today's Cryptomania, not Cryptomania itself<ul>
+<li>Minicrypt is essentially untouched → symmetric crypto and hash-based signatures survive</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 </div>
