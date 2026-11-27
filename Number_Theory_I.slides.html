@@ -7453,10 +7453,13 @@ main {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>References:</strong></p>
 <ul>
+<li>[<a href="https://www.cs.umd.edu/~jkatz/imc.html">ITMC</a>] Introduction to Modern Cryptography, Jonathan Katz and Yehuda Lindell (2nd Edition)</li>
+</ul>
+<hr/>
+<ul>
 <li>[<a href="https://toc.cryptobook.us/">GCAC</a>] A Graduate Course in Applied Cryptography, Dan Boneh and Victor Shoup</li>
 <li>[<a href="https://shoup.net/ntb/">CINTA</a>] A Computational Introduction to Number Theory and Algebra, Victor Shoup</li>
 <li>[<a href="https://cacr.uwaterloo.ca/hac/">HAC</a>] Handbook of Applied Cryptography, Alfred J. Menezes, Paul C. van Oorschot and Scott A. Vanstone</li>
-<li>[<a href="https://www.cs.umd.edu/~jkatz/imc.html">ITMC</a>] Introduction to Modern Cryptography, Jonathan Katz and Yehuda Lindell (2nd Edition)</li>
 <li><a href="http://doc.sagemath.org/html/en/constructions/number_theory.html">Elementary number theory in sage</a></li>
 </ul>
 </div>
@@ -9646,15 +9649,29 @@ bit = 1  r = 3
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Greatest-common-divisor-(GCD)">Greatest common divisor (GCD)<a class="anchor-link" href="#Greatest-common-divisor-(GCD)">¶</a></h2><p>The <strong>greatest common divisor</strong> (gcd) of two or more integers, which are not all zero, is the largest positive integer that divides each of the integers (without remainder).</p>
+<h2 id="Greatest-common-divisor-(GCD)">Greatest common divisor (GCD)<a class="anchor-link" href="#Greatest-common-divisor-(GCD)">¶</a></h2><p>The <strong>greatest common divisor</strong> (gcd) of two or more integers, which are not all zero, is the largest positive integer that divides each of the integers without remainder.</p>
 <ul>
-<li>Commutative: $$ gcd(a,b) =  gcd(b,a) $$</li>
-<li>Associative: $$ gcd(a,b,c) = gcd(gcd(a,b),c) =  gcd(a,gcd(b,c)) $$</li>
+<li>Commutative: $$ \gcd(a,b) =  \gcd(b,a) $$</li>
+<li>Associative: $$ \gcd(a,b,c) = \gcd(\gcd(a,b),c) =  \gcd(a,\gcd(b,c)) $$</li>
 </ul>
 </div>
 </div>
 </div>
-</div></section><section>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a3f9ccf1-3a76-49c3-b6f4-fd514ddf5d9f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>$\gcd(0,x) = x$</li>
+<li>$\gcd(1,x) = 1$</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=450f0d49-b72d-4a0c-b416-3895078fbe9d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -10588,7 +10605,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>If $n=p \in \textrm{Primes}$ this implies that the group of elements in $\mathbb{Z}_p$ which have a multiplicative inverse modulo $ p $, i.e., the group $\mathbb{Z}^*_p$, has $p-1$ elements.</p>
+<p>If $n=p \in \textrm{Primes}$ this implies that the group ($\mathbb{Z}^*_p$) of elements in $\mathbb{Z}_p$ which have a multiplicative inverse modulo $ p $ has $p-1$ elements.</p>
 </div>
 </div>
 </div>
@@ -10688,6 +10705,16 @@ $$
 \varphi(n)&amp;=(p-1)(q-1) \\
 \end{align*}
 $$</p>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0102e3ad-7bd0-4019-b6a3-67bb468c55ae">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <ul>
 <li>If $p$ and $q$ are of (approximately) the same size, as in RSA, they are approx. the size of $\sqrt{n}$, i.e., $p,q \approx \sqrt{n}$</li>
 <li>In this case also $\varphi(n)$ is close to the size of $n$ since $n=pq$ and
@@ -10704,7 +10731,7 @@ $$</li>
 </div>
 </div>
 </div>
-</div></section><section>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=02fd08ba-3672-459c-9ec1-734d924f82d4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">

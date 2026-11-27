@@ -8074,12 +8074,24 @@ secret of Alice  a = 5
 <li>$d$ with $ed \equiv 1 \pmod{\varphi(n)}$, so that $m^{ed} \equiv m \pmod n$</li>
 </ul>
 </li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fb803f12-64c3-488d-85ef-3418f59a23e4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
 <li>Security at most as hard as factoring $n$ (breaking the RSA problem, i.e., taking $e$-th roots, might be easier than factoring) → 2048-bit minimum, 3072+ for anything new</li>
 </ul>
 </div>
 </div>
 </div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4f073c50-4f58-40fc-a225-dad878f6471f">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4f073c50-4f58-40fc-a225-dad878f6471f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8472,7 +8484,7 @@ secret of Alice  a = 5
 <tr>
 <td>AES, ChaCha20</td>
 <td>Grover: √ speedup on key search</td>
-<td>✅ OK, prefer 256-bit keys</td>
+<td>✅ OK (inc. key size)</td>
 </tr>
 <tr>
 <td>SHA-2, SHA-3</td>
@@ -8482,17 +8494,17 @@ secret of Alice  a = 5
 <tr>
 <td>Lattices: <strong>ML-KEM</strong> (FIPS 203), <strong>ML-DSA</strong> (FIPS 204)</td>
 <td>no known quantum speedup beyond generic</td>
-<td>✅ post-quantum</td>
+<td>✅ OK</td>
 </tr>
 <tr>
 <td>Hash-based: <strong>SLH-DSA</strong> (FIPS 205), LMS/XMSS</td>
 <td>generic only</td>
-<td>✅ most conservative</td>
+<td>✅ OK</td>
 </tr>
 <tr>
 <td>Codes: Classic McEliece, HQC</td>
 <td>generic only</td>
-<td>✅ post-quantum</td>
+<td>✅ OK</td>
 </tr>
 </tbody>
 </table>
